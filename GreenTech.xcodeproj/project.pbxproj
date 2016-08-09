@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA1D53DB1D5A58140026EA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D53DA1D5A58140026EA21 /* AppDelegate.swift */; };
+		CA1D53DD1D5A58140026EA21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D53DC1D5A58140026EA21 /* ViewController.swift */; };
+		CA1D53E01D5A58140026EA21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1D53DE1D5A58140026EA21 /* Main.storyboard */; };
+		CA1D53E31D5A58140026EA21 /* GreenTech.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA1D53E11D5A58140026EA21 /* GreenTech.xcdatamodeld */; };
+		CA1D53E51D5A58140026EA21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1D53E41D5A58140026EA21 /* Assets.xcassets */; };
+		CA1D53E81D5A58140026EA21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1D53E61D5A58140026EA21 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CA1D53D71D5A58140026EA21 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1D53DA1D5A58140026EA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA1D53DC1D5A58140026EA21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA1D53DF1D5A58140026EA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA1D53E21D5A58140026EA21 /* GreenTech.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenTech.xcdatamodel; sourceTree = "<group>"; };
+		CA1D53E41D5A58140026EA21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA1D53E71D5A58140026EA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA1D53E91D5A58140026EA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA1D53D41D5A58140026EA21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA1D53CE1D5A58140026EA21 = {
+			isa = PBXGroup;
+			children = (
+				CA1D53D91D5A58140026EA21 /* GreenTech */,
+				CA1D53D81D5A58140026EA21 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA1D53D81D5A58140026EA21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D53D71D5A58140026EA21 /* GreenTech.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA1D53D91D5A58140026EA21 /* GreenTech */ = {
+			isa = PBXGroup;
+			children = (
+				CA1D53DA1D5A58140026EA21 /* AppDelegate.swift */,
+				CA1D53DC1D5A58140026EA21 /* ViewController.swift */,
+				CA1D53DE1D5A58140026EA21 /* Main.storyboard */,
+				CA1D53E41D5A58140026EA21 /* Assets.xcassets */,
+				CA1D53E61D5A58140026EA21 /* LaunchScreen.storyboard */,
+				CA1D53E91D5A58140026EA21 /* Info.plist */,
+				CA1D53E11D5A58140026EA21 /* GreenTech.xcdatamodeld */,
+			);
+			path = GreenTech;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA1D53D61D5A58140026EA21 /* GreenTech */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1D53EC1D5A58140026EA21 /* Build configuration list for PBXNativeTarget "GreenTech" */;
+			buildPhases = (
+				CA1D53D31D5A58140026EA21 /* Sources */,
+				CA1D53D41D5A58140026EA21 /* Frameworks */,
+				CA1D53D51D5A58140026EA21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GreenTech;
+			productName = GreenTech;
+			productReference = CA1D53D71D5A58140026EA21 /* GreenTech.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA1D53CF1D5A58140026EA21 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Green Tech";
+				TargetAttributes = {
+					CA1D53D61D5A58140026EA21 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = CA1D53D21D5A58140026EA21 /* Build configuration list for PBXProject "GreenTech" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA1D53CE1D5A58140026EA21;
+			productRefGroup = CA1D53D81D5A58140026EA21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA1D53D61D5A58140026EA21 /* GreenTech */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA1D53D51D5A58140026EA21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D53E81D5A58140026EA21 /* LaunchScreen.storyboard in Resources */,
+				CA1D53E51D5A58140026EA21 /* Assets.xcassets in Resources */,
+				CA1D53E01D5A58140026EA21 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA1D53D31D5A58140026EA21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1D53DD1D5A58140026EA21 /* ViewController.swift in Sources */,
+				CA1D53DB1D5A58140026EA21 /* AppDelegate.swift in Sources */,
+				CA1D53E31D5A58140026EA21 /* GreenTech.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA1D53DE1D5A58140026EA21 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA1D53DF1D5A58140026EA21 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA1D53E61D5A58140026EA21 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA1D53E71D5A58140026EA21 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA1D53EA1D5A58140026EA21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA1D53EB1D5A58140026EA21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA1D53ED1D5A58140026EA21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GreenTech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GreenTech.GreenTech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA1D53EE1D5A58140026EA21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GreenTech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GreenTech.GreenTech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA1D53D21D5A58140026EA21 /* Build configuration list for PBXProject "GreenTech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1D53EA1D5A58140026EA21 /* Debug */,
+				CA1D53EB1D5A58140026EA21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA1D53EC1D5A58140026EA21 /* Build configuration list for PBXNativeTarget "GreenTech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1D53ED1D5A58140026EA21 /* Debug */,
+				CA1D53EE1D5A58140026EA21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA1D53E11D5A58140026EA21 /* GreenTech.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA1D53E21D5A58140026EA21 /* GreenTech.xcdatamodel */,
+			);
+			currentVersion = CA1D53E21D5A58140026EA21 /* GreenTech.xcdatamodel */;
+			path = GreenTech.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CA1D53CF1D5A58140026EA21 /* Project object */;
+}
