@@ -392,6 +392,7 @@
 				D1DA484F1D5A5BCE00D74063 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +401,7 @@
 				D1DA48521D5A5BCE00D74063 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
