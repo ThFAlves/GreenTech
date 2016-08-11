@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
+		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
+		D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275A1D5CE3C70031BF13 /* DataCD.swift */; };
+		D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275B1D5CE3C70031BF13 /* DataDAO.swift */; };
+		D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275C1D5CE3C70031BF13 /* DataServices.swift */; };
 		D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */; };
 		D1DA48331D5A5BCE00D74063 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* ViewController.swift */; };
 		D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA48341D5A5BCE00D74063 /* Main.storyboard */; };
@@ -27,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
+		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
+		D195275B1D5CE3C70031BF13 /* DataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDAO.swift; sourceTree = "<group>"; };
+		D195275C1D5CE3C70031BF13 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		D1DA482D1D5A5BCE00D74063 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DA48321D5A5BCE00D74063 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +68,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D19527571D5CE3AF0031BF13 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */,
+				D19527591D5CE3C70031BF13 /* DatabaseManager.swift */,
+				D195275A1D5CE3C70031BF13 /* DataCD.swift */,
+				D195275B1D5CE3C70031BF13 /* DataDAO.swift */,
+				D195275C1D5CE3C70031BF13 /* DataServices.swift */,
+			);
+			name = Persistance;
+			sourceTree = "<group>";
+		};
+		D19527621D5CE4A20031BF13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */,
+				D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */,
+				D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */,
+				D1DA483F1D5A5BCE00D74063 /* Info.plist */,
+				D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D19527631D5CE5500031BF13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D19527641D5CE5590031BF13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D19527651D5CE55F0031BF13 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1DA48321D5A5BCE00D74063 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		D1DA48241D5A5BCE00D74063 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +135,12 @@
 		D1DA482F1D5A5BCE00D74063 /* GreenTech */ = {
 			isa = PBXGroup;
 			children = (
-				D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */,
-				D1DA48321D5A5BCE00D74063 /* ViewController.swift */,
+				D19527651D5CE55F0031BF13 /* Controller */,
+				D19527641D5CE5590031BF13 /* View */,
+				D19527631D5CE5500031BF13 /* Model */,
+				D19527621D5CE4A20031BF13 /* Resources */,
+				D19527571D5CE3AF0031BF13 /* Persistance */,
 				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
-				D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */,
-				D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */,
-				D1DA483F1D5A5BCE00D74063 /* Info.plist */,
-				D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */,
 			);
 			path = GreenTech;
 			sourceTree = "<group>";
@@ -202,7 +257,12 @@
 			files = (
 				D1DA48331D5A5BCE00D74063 /* ViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
+				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
+				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
+				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
+				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
+				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
