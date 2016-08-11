@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
+		7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
 		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
 		D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275A1D5CE3C70031BF13 /* DataCD.swift */; };
 		D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275B1D5CE3C70031BF13 /* DataDAO.swift */; };
 		D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275C1D5CE3C70031BF13 /* DataServices.swift */; };
+		D19527691D5CE9F00031BF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19527681D5CE9F00031BF13 /* GoogleService-Info.plist */; };
 		D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */; };
 		D1DA48331D5A5BCE00D74063 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* ViewController.swift */; };
 		D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA48341D5A5BCE00D74063 /* Main.storyboard */; };
@@ -32,11 +35,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
+		8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7513AF526E44C72007785ED /* Pods_GreenTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
 		D195275B1D5CE3C70031BF13 /* DataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDAO.swift; sourceTree = "<group>"; };
 		D195275C1D5CE3C70031BF13 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		D19527681D5CE9F00031BF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1DA482D1D5A5BCE00D74063 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DA48321D5A5BCE00D74063 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +56,8 @@
 		D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenTechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenTechTests.swift; sourceTree = "<group>"; };
 		D1DA484A1D5A5BCE00D74063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.debug.xcconfig"; sourceTree = "<group>"; };
+		EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +73,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60C24DBFCF50667C8AB10706 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */,
+				53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */,
+				40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */,
+				EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A85F6AA249F007A07BFA9681 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7513AF526E44C72007785ED /* Pods_GreenTech.framework */,
+				8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D19527571D5CE3AF0031BF13 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +120,7 @@
 				D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */,
 				D1DA483F1D5A5BCE00D74063 /* Info.plist */,
 				D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */,
+				D19527681D5CE9F00031BF13 /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -120,6 +153,8 @@
 				D1DA482F1D5A5BCE00D74063 /* GreenTech */,
 				D1DA48471D5A5BCE00D74063 /* GreenTechTests */,
 				D1DA482E1D5A5BCE00D74063 /* Products */,
+				60C24DBFCF50667C8AB10706 /* Pods */,
+				A85F6AA249F007A07BFA9681 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA484D1D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTech" */;
 			buildPhases = (
+				42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */,
 				D1DA48291D5A5BCE00D74063 /* Sources */,
 				D1DA482A1D5A5BCE00D74063 /* Frameworks */,
 				D1DA482B1D5A5BCE00D74063 /* Resources */,
+				372457C28A163BB1DC1D7E4D /* [CP] Embed Pods Frameworks */,
+				4A55AB0C4A9564662085808A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */;
 			buildPhases = (
+				B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */,
 				D1DA48401D5A5BCE00D74063 /* Sources */,
 				D1DA48411D5A5BCE00D74063 /* Frameworks */,
 				D1DA48421D5A5BCE00D74063 /* Resources */,
+				975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */,
+				284C8F9AD8C967F81454C5AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DA483E1D5A5BCE00D74063 /* LaunchScreen.storyboard in Resources */,
+				D19527691D5CE9F00031BF13 /* GoogleService-Info.plist in Resources */,
 				D1DA483B1D5A5BCE00D74063 /* Assets.xcassets in Resources */,
 				D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */,
 			);
@@ -249,6 +291,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		284C8F9AD8C967F81454C5AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		372457C28A163BB1DC1D7E4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4A55AB0C4A9564662085808A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1DA48291D5A5BCE00D74063 /* Sources */ = {
@@ -389,6 +524,7 @@
 		};
 		D1DA484E1D5A5BCE00D74063 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GreenTech/Info.plist;
@@ -400,6 +536,7 @@
 		};
 		D1DA484F1D5A5BCE00D74063 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GreenTech/Info.plist;
@@ -411,6 +548,7 @@
 		};
 		D1DA48511D5A5BCE00D74063 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GreenTechTests/Info.plist;
@@ -423,6 +561,7 @@
 		};
 		D1DA48521D5A5BCE00D74063 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GreenTechTests/Info.plist;

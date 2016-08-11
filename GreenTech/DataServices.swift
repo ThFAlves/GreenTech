@@ -17,7 +17,7 @@ class DataServices {
         DataDAO.insert(m)
     }
     
-    static func deleteDataCD(person: String){
+    static func deleteDataCD(person: String) {
         
         let auxiliarQueue:NSOperationQueue = NSOperationQueue()
         
@@ -25,8 +25,7 @@ class DataServices {
             
             let data: DataCD? = DataDAO.findByName(person)
             
-            if (data != nil)
-            {
+            if (data != nil) {
                 // delete data
                 DataDAO.delete(data!)
             }
