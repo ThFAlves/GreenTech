@@ -3,7 +3,12 @@
     <entity name="DataCD" representedClassName="GreenTech.DataCD" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="LoginCD" representedClassName="GreenTech.LoginCD" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="DataCD" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="LoginCD" positionX="-63" positionY="-9" width="128" height="75"/>
     </elements>
 </model>

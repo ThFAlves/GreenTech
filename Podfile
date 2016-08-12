@@ -9,6 +9,8 @@ target 'GreenTech' do
 
 pod 'Firebase'
 pod 'FirebaseAuth'
+pod 'FirebaseDatabase'
+pod 'CryptoSwift'
 
   target 'GreenTechTests' do
     inherit! :search_paths

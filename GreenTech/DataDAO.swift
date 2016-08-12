@@ -54,7 +54,6 @@ class DataDAO {
         // perform search
         let results:[DataCD] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [DataCD]
         
-        print("RESULTS = " + results[0].name)
         return results[0]
     }
     

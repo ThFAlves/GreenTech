@@ -16,12 +16,15 @@
 		D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275C1D5CE3C70031BF13 /* DataServices.swift */; };
 		D19527691D5CE9F00031BF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19527681D5CE9F00031BF13 /* GoogleService-Info.plist */; };
 		D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */; };
-		D1DA48331D5A5BCE00D74063 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* ViewController.swift */; };
+		D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */; };
 		D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA48341D5A5BCE00D74063 /* Main.storyboard */; };
 		D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */; };
 		D1DA483B1D5A5BCE00D74063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */; };
 		D1DA483E1D5A5BCE00D74063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */; };
 		D1DA48491D5A5BCE00D74063 /* GreenTechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */; };
+		D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */; };
+		D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */; };
+		D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +50,7 @@
 		D19527681D5CE9F00031BF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1DA482D1D5A5BCE00D74063 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1DA48321D5A5BCE00D74063 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		D1DA48351D5A5BCE00D74063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1DA48381D5A5BCE00D74063 /* GreenTech.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenTech.xcdatamodel; sourceTree = "<group>"; };
 		D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +59,9 @@
 		D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenTechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenTechTests.swift; sourceTree = "<group>"; };
 		D1DA484A1D5A5BCE00D74063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCD.swift; sourceTree = "<group>"; };
+		D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDAO.swift; sourceTree = "<group>"; };
+		D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.debug.xcconfig"; sourceTree = "<group>"; };
 		EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +114,9 @@
 				D195275A1D5CE3C70031BF13 /* DataCD.swift */,
 				D195275B1D5CE3C70031BF13 /* DataDAO.swift */,
 				D195275C1D5CE3C70031BF13 /* DataServices.swift */,
+				D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */,
+				D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */,
+				D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */,
 			);
 			name = Persistance;
 			sourceTree = "<group>";
@@ -142,7 +151,7 @@
 		D19527651D5CE55F0031BF13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1DA48321D5A5BCE00D74063 /* ViewController.swift */,
+				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -390,13 +399,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DA48331D5A5BCE00D74063 /* ViewController.swift in Sources */,
+				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
+				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
+				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
+				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

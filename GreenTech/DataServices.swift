@@ -12,9 +12,9 @@ import CoreData
 class DataServices {
     
     static func createDataCD(person: String) {
-        let m = DataCD()
-        m.name = person
-        DataDAO.insert(m)
+        let data = DataCD()
+        data.name = person
+        DataDAO.insert(data)
     }
     
     static func deleteDataCD(person: String) {
