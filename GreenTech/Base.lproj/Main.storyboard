@@ -6,6 +6,47 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Reset Password View Controller-->
+        <scene sceneID="SGd-F9-guC">
+            <objects>
+                <viewController id="l1g-bv-XcC" customClass="ResetPasswordViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTW-co-UGf"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Wc-UA-D7m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GTH-ms-WQC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-fY-S4M">
+                                <rect key="frame" x="20" y="166" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-wc-dYn">
+                                <rect key="frame" x="276" y="204" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitActio:" destination="l1g-bv-XcC" eventType="touchUpInside" id="egK-YW-l1b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2cS-fY-S4M" firstAttribute="leading" secondItem="GTH-ms-WQC" secondAttribute="leadingMargin" id="b2m-Ih-JXF"/>
+                            <constraint firstItem="wSj-wc-dYn" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="fiH-ni-56I"/>
+                            <constraint firstItem="2cS-fY-S4M" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="lrG-Em-Saj"/>
+                            <constraint firstItem="2cS-fY-S4M" firstAttribute="trailing" secondItem="GTH-ms-WQC" secondAttribute="trailingMargin" id="yFI-gE-4nf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="2cS-fY-S4M" id="hKi-3s-Yjx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itk-2L-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="-522"/>
+        </scene>
         <!--Fazenda-->
         <scene sceneID="Sci-0R-eHg">
             <objects>
@@ -21,7 +62,7 @@
                                         <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhg-G7-EcG" id="QSu-zb-tnE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lactantes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2f-X4-bj3">
@@ -44,7 +85,7 @@
                                         <rect key="frame" x="0.0" y="108" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VGJ-TZ-6RF" id="MQv-6g-9ww">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prenhas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc8-Yx-DkH">
@@ -63,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="152" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwv-th-HTc" id="t4b-5H-6aN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Secas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-Vr-ziB">
@@ -215,6 +256,13 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutAction:" destination="3ck-pF-Uru" eventType="touchUpInside" id="XUZ-4t-WwY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-0g-pBu">
+                                <rect key="frame" x="61" y="342" width="140" height="30"/>
+                                <state key="normal" title="Forgot my Password"/>
+                                <connections>
+                                    <segue destination="l1g-bv-XcC" kind="show" id="IQv-vU-I0p"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -25,6 +25,7 @@
 		D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */; };
 		D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */; };
 		D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */; };
+		D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCD.swift; sourceTree = "<group>"; };
 		D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDAO.swift; sourceTree = "<group>"; };
 		D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
+		D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.debug.xcconfig"; sourceTree = "<group>"; };
 		EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 		D19527651D5CE55F0031BF13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
 			);
 			name = Controller;
@@ -402,6 +405,7 @@
 				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
 				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
+				D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,

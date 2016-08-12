@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import SystemConfiguration
 import CryptoSwift
+import LocalAuthentication
 
 class AuthenticationViewController: UIViewController {
 
@@ -143,5 +144,67 @@ class AuthenticationViewController: UIViewController {
         self.logoutButton.alpha = 0.0
         self.emailField.text = ""
         self.passwordField.text = ""
+    }
+    
+    
+    func authenticationUser() {
+        let context = LAContext()
+        var error: NSError?
+        let reasonString = "Authentification is needed to access your app"
+        
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
+            context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (sucess, policyError) -> Void in
+                
+                if sucess {
+                    print("Authentification Sucessfull")
+                }else{
+                    switch policyError!.code{
+                    case LAError.SystemCancel.rawValue:
+                        print("Authentification was cancelled by the system.")
+                    case LAError.UserCancel.rawValue:
+                        print("Authentification was cancelled by the user.")
+                    case LAError.UserFallback.rawValue:
+                        print("User selected to enter password.")
+                        NSOperationQueue.mainQueue().addOperationWithBlock( { () -> Void in
+                            self.showPasswordAlert()
+                        })
+                    default:
+                        print("Authention failed.")
+                        NSOperationQueue.mainQueue().addOperationWithBlock( { () -> Void in
+                            self.showPasswordAlert()
+                        })
+                    }
+                }
+            })
+        }else{
+            print(error?.localizedDescription)
+            NSOperationQueue.mainQueue().addOperationWithBlock( { () -> Void in
+                self.showPasswordAlert()
+            })
+        }
+    }
+    
+    
+    func showPasswordAlert() {
+        let alertController = UIAlertController(title: "Touch ID Password", message: "Please enter your password", preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Cancel) { (action) -> Void in
+            if let textField = alertController.textFields?.first as UITextField? {
+                if textField.text == "veasoftware" {
+                    print("Authentication Sucessfull")
+                }else{
+                    self.showPasswordAlert()
+                }
+            }
+        }
+        
+        alertController.addAction(defaultAction)
+        
+        alertController.addTextFieldWithConfigurationHandler { (UITextField) -> Void in
+            UITextField.placeholder = "Password"
+            UITextField.secureTextEntry = true
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
