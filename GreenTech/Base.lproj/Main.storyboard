@@ -6,6 +6,44 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="vL2-L0-9O5">
+            <objects>
+                <viewController id="glX-Ni-ix2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VOu-w8-uny"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Z7-20-uSa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mmu-2O-5hX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uft-88-OON">
+                                <rect key="frame" x="273" y="82" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16C-cc-ahM">
+                                <rect key="frame" x="58" y="150" width="483" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uft-88-OON" firstAttribute="centerX" secondItem="mmu-2O-5hX" secondAttribute="centerX" id="8CE-Af-DYZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="16C-cc-ahM" secondAttribute="trailing" constant="39" id="9KG-KJ-Dpf"/>
+                            <constraint firstItem="16C-cc-ahM" firstAttribute="leading" secondItem="mmu-2O-5hX" secondAttribute="leadingMargin" constant="38" id="Eyp-kC-eWK"/>
+                            <constraint firstItem="16C-cc-ahM" firstAttribute="top" secondItem="uft-88-OON" secondAttribute="bottom" constant="47" id="Nw5-AV-WK3"/>
+                            <constraint firstItem="uft-88-OON" firstAttribute="top" secondItem="VOu-w8-uny" secondAttribute="bottom" constant="62" id="pXj-VQ-ztq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf9-Xr-rmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="597" y="-1354"/>
+        </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="SGd-F9-guC">
             <objects>
@@ -18,12 +56,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-fY-S4M">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-fY-S4M">
                                 <rect key="frame" x="20" y="166" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-wc-dYn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-wc-dYn">
                                 <rect key="frame" x="276" y="204" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -33,9 +71,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wSj-wc-dYn" firstAttribute="top" secondItem="2cS-fY-S4M" secondAttribute="bottom" constant="8" id="WWH-Er-zfS"/>
                             <constraint firstItem="2cS-fY-S4M" firstAttribute="leading" secondItem="GTH-ms-WQC" secondAttribute="leadingMargin" id="b2m-Ih-JXF"/>
                             <constraint firstItem="wSj-wc-dYn" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="fiH-ni-56I"/>
                             <constraint firstItem="2cS-fY-S4M" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="lrG-Em-Saj"/>
+                            <constraint firstItem="2cS-fY-S4M" firstAttribute="top" secondItem="hTW-co-UGf" secondAttribute="bottom" constant="146" id="ndS-X5-rh9"/>
                             <constraint firstItem="2cS-fY-S4M" firstAttribute="trailing" secondItem="GTH-ms-WQC" secondAttribute="trailingMargin" id="yFI-gE-4nf"/>
                         </constraints>
                     </view>
@@ -265,6 +305,13 @@
                                     <action selector="logoutAction:" destination="3ck-pF-Uru" eventType="touchUpInside" id="XUZ-4t-WwY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcQ-Xm-lq2">
+                                <rect key="frame" x="258" y="456" width="85" height="30"/>
+                                <state key="normal" title="Search User"/>
+                                <connections>
+                                    <segue destination="glX-Ni-ix2" kind="show" id="jDx-2K-nNV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -280,9 +327,11 @@
                             <constraint firstItem="zdm-8V-6rU" firstAttribute="top" secondItem="Etf-Cy-2tb" secondAttribute="bottom" constant="27" id="NfD-Im-PIK"/>
                             <constraint firstItem="ezT-gO-J13" firstAttribute="centerX" secondItem="X0D-aC-WAr" secondAttribute="centerX" id="Tgg-pV-5Ji"/>
                             <constraint firstItem="Lh0-0g-pBu" firstAttribute="top" secondItem="zdm-8V-6rU" secondAttribute="bottom" constant="8" id="d5f-Vu-S7Z"/>
+                            <constraint firstItem="zcQ-Xm-lq2" firstAttribute="centerX" secondItem="X0D-aC-WAr" secondAttribute="centerX" id="fQm-Iy-Hkf"/>
                             <constraint firstItem="bcu-uM-DQj" firstAttribute="centerX" secondItem="X0D-aC-WAr" secondAttribute="centerX" id="oGi-4f-nBO"/>
                             <constraint firstItem="AC2-JF-kBN" firstAttribute="trailing" secondItem="X0D-aC-WAr" secondAttribute="trailingMargin" id="vIx-LA-h0P"/>
                             <constraint firstItem="Lh0-0g-pBu" firstAttribute="centerX" secondItem="X0D-aC-WAr" secondAttribute="centerX" id="xkA-g4-HiF"/>
+                            <constraint firstItem="zcQ-Xm-lq2" firstAttribute="top" secondItem="bcu-uM-DQj" secondAttribute="bottom" constant="8" id="z1s-yN-fjG"/>
                         </constraints>
                     </view>
                     <connections>
