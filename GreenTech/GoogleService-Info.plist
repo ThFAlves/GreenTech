@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>351367698939-019belia3gqv5obd6pbg9ls98s1p7aea.apps.googleusercontent.com</string>
+	<string>453733789408-859n5nv1ouucfm54944k7augg26pq3u0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.351367698939-019belia3gqv5obd6pbg9ls98s1p7aea</string>
+	<string>com.googleusercontent.apps.453733789408-859n5nv1ouucfm54944k7augg26pq3u0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCTeANIFUSCyP6u9FTbMC_elP65ubiZ4kQ</string>
+	<string>AIzaSyC-Q03Rbevb71Vlxp_9Ipddq-1pC-tSoLI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>351367698939</string>
+	<string>453733789408</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.bepidCampinas.GreenTech</string>
 	<key>PROJECT_ID</key>
-	<string>greentech-e4352</string>
+	<string>green-tech-a72ed</string>
 	<key>STORAGE_BUCKET</key>
-	<string>greentech-e4352.appspot.com</string>
+	<string>green-tech-a72ed.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:351367698939:ios:83836c708dbf3b88</string>
+	<string>1:453733789408:ios:83836c708dbf3b88</string>
 	<key>DATABASE_URL</key>
-	<string>https://greentech-e4352.firebaseio.com</string>
+	<string>https://green-tech-a72ed.firebaseio.com</string>
 </dict>
 </plist>
