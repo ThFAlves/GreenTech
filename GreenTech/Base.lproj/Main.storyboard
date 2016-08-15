@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="vL2-L0-9O5">
             <objects>
-                <viewController id="glX-Ni-ix2" sceneMemberID="viewController">
+                <viewController id="glX-Ni-ix2" customClass="SearchViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VOu-w8-uny"/>
                         <viewControllerLayoutGuide type="bottom" id="8Z7-20-uSa"/>
@@ -24,18 +24,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16C-cc-ahM">
-                                <rect key="frame" x="58" y="150" width="483" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-r0-dlz">
+                                <rect key="frame" x="0.0" y="128" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uft-88-OON" firstAttribute="centerX" secondItem="mmu-2O-5hX" secondAttribute="centerX" id="8CE-Af-DYZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="16C-cc-ahM" secondAttribute="trailing" constant="39" id="9KG-KJ-Dpf"/>
-                            <constraint firstItem="16C-cc-ahM" firstAttribute="leading" secondItem="mmu-2O-5hX" secondAttribute="leadingMargin" constant="38" id="Eyp-kC-eWK"/>
-                            <constraint firstItem="16C-cc-ahM" firstAttribute="top" secondItem="uft-88-OON" secondAttribute="bottom" constant="47" id="Nw5-AV-WK3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gj5-r0-dlz" secondAttribute="trailing" constant="-20" id="Nvi-gT-snO"/>
+                            <constraint firstItem="gj5-r0-dlz" firstAttribute="leading" secondItem="mmu-2O-5hX" secondAttribute="leadingMargin" constant="-20" id="U8Q-4k-IsN"/>
+                            <constraint firstItem="gj5-r0-dlz" firstAttribute="top" secondItem="uft-88-OON" secondAttribute="bottom" constant="25" id="cse-Mx-PEJ"/>
                             <constraint firstItem="uft-88-OON" firstAttribute="top" secondItem="VOu-w8-uny" secondAttribute="bottom" constant="62" id="pXj-VQ-ztq"/>
                         </constraints>
                     </view>
