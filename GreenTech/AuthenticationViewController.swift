@@ -31,14 +31,9 @@ class AuthenticationViewController: UIViewController {
             self.usernameLabel.text = ""
         }
         
-        if isConnectedToNetwork() {
-            print("connected")
-        }else{
-            print("not connected")
+        if !isConnectedToNetwork() {
+            authenticationUser()
         }
-        
-        loadNames()
-    
     }
 
     func loadNames() {
@@ -156,7 +151,10 @@ class AuthenticationViewController: UIViewController {
             context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (sucess, policyError) -> Void in
                 
                 if sucess {
-                    print("Authentification Sucessfull")
+                    self.logoutButton.alpha = 1.0
+                    self.usernameLabel.text = "OLÁ"
+                    self.emailField.text = ""
+                    self.passwordField.text = ""
                 }else{
                     switch policyError!.code{
                     case LAError.SystemCancel.rawValue:
@@ -191,7 +189,10 @@ class AuthenticationViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .Cancel) { (action) -> Void in
             if let textField = alertController.textFields?.first as UITextField? {
                 if textField.text == "veasoftware" {
-                    print("Authentication Sucessfull")
+                    self.logoutButton.alpha = 1.0
+                    self.usernameLabel.text = "OLÁ"
+                    self.emailField.text = ""
+                    self.passwordField.text = ""
                 }else{
                     self.showPasswordAlert()
                 }
