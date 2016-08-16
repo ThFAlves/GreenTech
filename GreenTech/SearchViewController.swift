@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
-
-    let ref = Firebase(url: "https://<your-firebase-app>.firebaseio.com/grocery-items")
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,6 +16,7 @@
 		D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275B1D5CE3C70031BF13 /* DataDAO.swift */; };
 		D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275C1D5CE3C70031BF13 /* DataServices.swift */; };
 		D19562F71D623BDE00D9727E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19562F61D623BDE00D9727E /* GoogleService-Info.plist */; };
+		D1C642A71D63867200BA5A56 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */; };
 		D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */; };
 		D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */; };
 		D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA48341D5A5BCE00D74063 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		D195275B1D5CE3C70031BF13 /* DataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDAO.swift; sourceTree = "<group>"; };
 		D195275C1D5CE3C70031BF13 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		D19562F61D623BDE00D9727E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
 		D1DA482D1D5A5BCE00D74063 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A85F6AA249F007A07BFA9681 /* Frameworks */ = {
@@ -132,6 +135,7 @@
 				D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */,
 				D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */,
 				D1DA483F1D5A5BCE00D74063 /* Info.plist */,
+				60C24DBFCF50667C8AB10706 /* Pods */,
 				D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */,
 				D19562F61D623BDE00D9727E /* GoogleService-Info.plist */,
 			);
@@ -158,6 +162,7 @@
 				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
 				CA08609E1D6252590023EACB /* SearchViewController.swift */,
+				D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -168,7 +173,6 @@
 				D1DA482F1D5A5BCE00D74063 /* GreenTech */,
 				D1DA48471D5A5BCE00D74063 /* GreenTechTests */,
 				D1DA482E1D5A5BCE00D74063 /* Products */,
-				60C24DBFCF50667C8AB10706 /* Pods */,
 				A85F6AA249F007A07BFA9681 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -415,6 +419,7 @@
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
 				CA08609F1D6252590023EACB /* SearchViewController.swift in Sources */,
+				D1C642A71D63867200BA5A56 /* DataBaseViewController.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
