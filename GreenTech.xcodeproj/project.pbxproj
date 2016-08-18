@@ -215,12 +215,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA484D1D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTech" */;
 			buildPhases = (
+				539AB7BC392AA50EC83D6484 /* 📦 Check Pods Manifest.lock */,
 				42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */,
 				D1DA48291D5A5BCE00D74063 /* Sources */,
 				D1DA482A1D5A5BCE00D74063 /* Frameworks */,
 				D1DA482B1D5A5BCE00D74063 /* Resources */,
 				372457C28A163BB1DC1D7E4D /* [CP] Embed Pods Frameworks */,
 				4A55AB0C4A9564662085808A /* [CP] Copy Pods Resources */,
+				58FE924F65D47740E0C4911F /* 📦 Embed Pods Frameworks */,
+				F41BBFD9423660CA9E9AB8C2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,12 +238,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */;
 			buildPhases = (
+				C458DCF5B196F4CCA94FAF77 /* 📦 Check Pods Manifest.lock */,
 				B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */,
 				D1DA48401D5A5BCE00D74063 /* Sources */,
 				D1DA48411D5A5BCE00D74063 /* Frameworks */,
 				D1DA48421D5A5BCE00D74063 /* Resources */,
 				975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */,
 				284C8F9AD8C967F81454C5AE /* [CP] Copy Pods Resources */,
+				E3BA12B31D8F91712D2E4CF5 /* 📦 Embed Pods Frameworks */,
+				5AFFB65304D370B5D2E2E608 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -373,6 +379,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		539AB7BC392AA50EC83D6484 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58FE924F65D47740E0C4911F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AFFB65304D370B5D2E2E608 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +452,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C458DCF5B196F4CCA94FAF77 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E3BA12B31D8F91712D2E4CF5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F41BBFD9423660CA9E9AB8C2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
