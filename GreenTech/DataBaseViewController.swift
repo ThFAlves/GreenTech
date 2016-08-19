@@ -15,7 +15,6 @@ class DataBaseViewController: UIViewController {
     let conditionRef = FIRDatabase.database().reference()
     let testeAlterar = FIRDatabase.database().referenceFromURL("https://green-tech-a72ed.firebaseio.com/leobmaffei/Fazendas/-KPTmWFusfM86QIpuuwK")
 
-    @IBOutlet weak var conditionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +26,6 @@ class DataBaseViewController: UIViewController {
         }
     }
     
-    @IBAction func sunnyDidTouch(sender: AnyObject) {
-        conditionRef.setValue("Mimosa")
-    }
-    
-    @IBAction func foggyDidTouch(sender: AnyObject) {
-        conditionRef.setValue("Thiaguinho")
-    }
 
     @IBAction func button(sender: AnyObject) {
         data()
@@ -47,7 +39,6 @@ class DataBaseViewController: UIViewController {
         let nome = "Thiago"
         
         conditionRef.child(user)
-        
         
         let nomeFazenda = ""
         let litrosXdia = ""
