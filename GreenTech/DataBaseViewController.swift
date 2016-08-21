@@ -12,12 +12,21 @@ import FirebaseDatabase
 
 class DataBaseViewController: UIViewController {
     
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    var userName : String = ""
+    
+    
     let conditionRef = FIRDatabase.database().reference()
     let testeAlterar = FIRDatabase.database().referenceFromURL("https://green-tech-a72ed.firebaseio.com/leobmaffei/Fazendas/-KPTmWFusfM86QIpuuwK")
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         
         
@@ -34,19 +43,26 @@ class DataBaseViewController: UIViewController {
         testeAlterar.child("producaoDiaria").setValue("300")
     }
     
+
+    
     func data(){
-        let user = "ThiagoAlvez"
-        let nome = "Thiago"
-        
-        conditionRef.child(user)
         
         let nomeFazenda = ""
         let litrosXdia = ""
         
         let userColaborador = ""
         
-        let info : [String : AnyObject] = ["nome" : nome,
-                                               "email" : user]
+        let user = emailTextField.text
+        let nome = nameTextField.text
+
+       
+        
+        conditionRef.child(user!)
+        
+        
+        
+        let info : [String : AnyObject] = ["nome" : nome!,
+                                               "email" : user!]
         
         let colaboradores : [String : AnyObject] = ["email" : userColaborador]
         
@@ -54,8 +70,8 @@ class DataBaseViewController: UIViewController {
                                                "producao" : litrosXdia,
                                                "Colaboradores" : colaboradores]
         
-        conditionRef.child(user).child("userInfo").setValue(info)
-        conditionRef.child(user).child("Fazendas").childByAutoId().setValue(fazendas)
+        conditionRef.child(user!).child("userInfo").setValue(info)
+        conditionRef.child(user!).child("Fazendas").childByAutoId().setValue(fazendas)
         
         
         
