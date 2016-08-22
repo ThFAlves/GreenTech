@@ -13,8 +13,8 @@ import FirebaseDatabase
 class DataBaseViewController: UIViewController {
     
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
+//    @IBOutlet weak var emailTextField: UITextField!
+//    @IBOutlet weak var nameTextField: UITextField!
     
     var userName : String = ""
     
@@ -47,22 +47,22 @@ class DataBaseViewController: UIViewController {
     
     func data(){
         
-        let nomeFazenda = ""
+        let nomeFazenda = "Fazenda do Maffei"
         let litrosXdia = ""
         
         let userColaborador = ""
         
-        let user = emailTextField.text
-        let nome = nameTextField.text
+        let user = "Hyago"
+        let nome = ""
 
-       
-        
-        conditionRef.child(user!)
         
         
+        conditionRef.child(user)
         
-        let info : [String : AnyObject] = ["nome" : nome!,
-                                               "email" : user!]
+        
+        
+        let info : [String : AnyObject] = ["nome" : nome,
+                                               "email" : user]
         
         let colaboradores : [String : AnyObject] = ["email" : userColaborador]
         
@@ -70,8 +70,8 @@ class DataBaseViewController: UIViewController {
                                                "producao" : litrosXdia,
                                                "Colaboradores" : colaboradores]
         
-        conditionRef.child(user!).child("userInfo").setValue(info)
-        conditionRef.child(user!).child("Fazendas").childByAutoId().setValue(fazendas)
+        conditionRef.child(user).child("userInfo").setValue(info)
+        conditionRef.child(user).child("Fazendas").childByAutoId().setValue(fazendas)
         
         
         
