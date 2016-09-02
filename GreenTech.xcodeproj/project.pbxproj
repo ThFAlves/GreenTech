@@ -189,12 +189,12 @@
 		D1DA482F1D5A5BCE00D74063 /* GreenTech */ = {
 			isa = PBXGroup;
 			children = (
+				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
 				D19527651D5CE55F0031BF13 /* Controller */,
 				D19527641D5CE5590031BF13 /* View */,
 				D19527631D5CE5500031BF13 /* Model */,
 				D19527621D5CE4A20031BF13 /* Resources */,
 				D19527571D5CE3AF0031BF13 /* Persistance */,
-				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
 			);
 			path = GreenTech;
 			sourceTree = "<group>";
