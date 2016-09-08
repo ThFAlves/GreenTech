@@ -25,36 +25,22 @@ class ResetPasswordViewController: UIViewController {
     
     @IBAction func submitActio(sender: AnyObject) {
         if self.emailField.text == "" {
-            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .Alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-           
-            alertController.addAction(defaultAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.showErrorAlert("Oops!", message: "Please enter an email.")
         } else {
             FIRAuth.auth()?.sendPasswordResetWithEmail(self.emailField.text!, completion: { (error) in
-                
-                var title = ""
-                var message = ""
-                
                 if error != nil {
-                    title = "Oops!"
-                    message = (error?.localizedDescription)!
+                    self.showErrorAlert("Oops!", message: (error?.localizedDescription)!)
                 }else{
-                    title = "Sucess!"
-                    message = "Password reset email sent."
-                    self.emailField.text = ""
+                    self.showErrorAlert("Sucess!", message: "Password reset email sent.")
                 }
-                
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-    
             })
         }
+    }
+    
+    private func showErrorAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message , preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        self.presentViewController(alertController,animated: true, completion: nil)
     }
 }

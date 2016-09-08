@@ -9,14 +9,16 @@
 /* Begin PBXBuildFile section */
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
 		7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */; };
-		CA08609F1D6252590023EACB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA08609E1D6252590023EACB /* SearchViewController.swift */; };
+		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
+		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
 		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
 		D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275A1D5CE3C70031BF13 /* DataCD.swift */; };
 		D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275B1D5CE3C70031BF13 /* DataDAO.swift */; };
 		D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275C1D5CE3C70031BF13 /* DataServices.swift */; };
 		D19562F71D623BDE00D9727E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19562F61D623BDE00D9727E /* GoogleService-Info.plist */; };
-		D1C642A71D63867200BA5A56 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */; };
+		D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9C19F1D81EDA900D2C20E /* UIImageExtension.swift */; };
+		D1C1733F1D81D29800230D31 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */; };
 		D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */; };
 		D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */; };
 		D1DA48361D5A5BCE00D74063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA48341D5A5BCE00D74063 /* Main.storyboard */; };
@@ -41,18 +43,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
+		23EB1C8214EF2D61D2E7F4ED /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
 		40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
+		7541184797EF68EB887B4044 /* Pods-GreenTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.debug.xcconfig"; sourceTree = "<group>"; };
 		8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7513AF526E44C72007785ED /* Pods_GreenTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA08609E1D6252590023EACB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
 		D195275B1D5CE3C70031BF13 /* DataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDAO.swift; sourceTree = "<group>"; };
 		D195275C1D5CE3C70031BF13 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		D19562F61D623BDE00D9727E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
+		D1B9C19F1D81EDA900D2C20E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D1DA482D1D5A5BCE00D74063 /* GreenTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28CE277521F4D5D468D541F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7541184797EF68EB887B4044 /* Pods-GreenTech.debug.xcconfig */,
+				23EB1C8214EF2D61D2E7F4ED /* Pods-GreenTech.release.xcconfig */,
+				C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */,
+				0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		60C24DBFCF50667C8AB10706 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +164,7 @@
 		D19527631D5CE5500031BF13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D15C04111D81EBC300871F52 /* FirebaseService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -161,10 +181,18 @@
 			children = (
 				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
-				CA08609E1D6252590023EACB /* SearchViewController.swift */,
-				D1C642A61D63867200BA5A56 /* DataBaseViewController.swift */,
+				D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */,
+				D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		D1B9C19E1D81ED9400D2C20E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1B9C19F1D81EDA900D2C20E /* UIImageExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D1DA48241D5A5BCE00D74063 = {
@@ -174,6 +202,7 @@
 				D1DA48471D5A5BCE00D74063 /* GreenTechTests */,
 				D1DA482E1D5A5BCE00D74063 /* Products */,
 				A85F6AA249F007A07BFA9681 /* Frameworks */,
+				28CE277521F4D5D468D541F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
+				D1B9C19E1D81ED9400D2C20E /* Extensions */,
 				D19527651D5CE55F0031BF13 /* Controller */,
 				D19527641D5CE5590031BF13 /* View */,
 				D19527631D5CE5500031BF13 /* Model */,
@@ -215,7 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA484D1D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTech" */;
 			buildPhases = (
-				539AB7BC392AA50EC83D6484 /* 📦 Check Pods Manifest.lock */,
+				539AB7BC392AA50EC83D6484 /* [CP] Check Pods Manifest.lock */,
 				42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */,
 				D1DA48291D5A5BCE00D74063 /* Sources */,
 				D1DA482A1D5A5BCE00D74063 /* Frameworks */,
@@ -238,7 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */;
 			buildPhases = (
-				C458DCF5B196F4CCA94FAF77 /* 📦 Check Pods Manifest.lock */,
+				C458DCF5B196F4CCA94FAF77 /* [CP] Check Pods Manifest.lock */,
 				B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */,
 				D1DA48401D5A5BCE00D74063 /* Sources */,
 				D1DA48411D5A5BCE00D74063 /* Frameworks */,
@@ -270,7 +300,7 @@
 				TargetAttributes = {
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = BJ8A63KNJ9;
+						DevelopmentTeam = C8J2C4B338;
 					};
 					D1DA48431D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -379,14 +409,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		539AB7BC392AA50EC83D6484 /* 📦 Check Pods Manifest.lock */ = {
+		539AB7BC392AA50EC83D6484 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,14 +484,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C458DCF5B196F4CCA94FAF77 /* 📦 Check Pods Manifest.lock */ = {
+		C458DCF5B196F4CCA94FAF77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,20 +536,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C1733F1D81D29800230D31 /* CreateAccountViewController.swift in Sources */,
 				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
 				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
+				D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */,
 				D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
-				CA08609F1D6252590023EACB /* SearchViewController.swift in Sources */,
-				D1C642A71D63867200BA5A56 /* DataBaseViewController.swift in Sources */,
+				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
+				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
