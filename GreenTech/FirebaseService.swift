@@ -29,6 +29,12 @@ class FirebaseService {
         }
     }
     
+    func takeValueFromDatabase(id: String, month: String, day: String) {
+        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).child("CBT") { (snap: FIRDataSnapshot) in
+            self.downloadFromStorage((snap.value?.description)!)
+        }
+    }
+    
     func saveUrlDatabase(url: String) {
         databaseRef.child("Hyago").child("Photo").runTransactionBlock({ (currentData: FIRMutableData) in
             currentData.value = url
