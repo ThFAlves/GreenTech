@@ -15,6 +15,8 @@ class FirebaseService {
     
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
+    
+    var value: String = ""
 
     func uploadDataStorage(data: NSData, path: String) {
         let imageRef = storageRef.child(path)
@@ -33,11 +35,10 @@ class FirebaseService {
         databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).child("CBT").observeEventType(.Value) { (snap: FIRDataSnapshot) in
             self.downloadFromStorage((snap.value?.description)!)
             
-            let value = snap.value?.description
-            return value
+            self.value = (snap.value?.description)!
         }
         
-        
+        return value
         
     }
     
