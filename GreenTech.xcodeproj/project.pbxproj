@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
 		7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */; };
+		CAE6D8B11D8B8C2A003DD9FA /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
@@ -51,6 +52,7 @@
 		8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7513AF526E44C72007785ED /* Pods_GreenTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				D19527631D5CE5500031BF13 /* Model */,
 				D19527621D5CE4A20031BF13 /* Resources */,
 				D19527571D5CE3AF0031BF13 /* Persistance */,
+				CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */,
 			);
 			path = GreenTech;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
+				CAE6D8B11D8B8C2A003DD9FA /* MilkViewController.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
 			);
@@ -635,6 +639,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -672,6 +677,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -688,6 +694,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -703,6 +710,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
