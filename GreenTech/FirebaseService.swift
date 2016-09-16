@@ -29,10 +29,16 @@ class FirebaseService {
         }
     }
     
-    func takeValueFromDatabase(id: String, month: String, day: String) {
-        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).child("CBT") { (snap: FIRDataSnapshot) in
+    func takeValueFromDatabase(id: String, month: String, day: String) -> String {
+        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).child("CBT").observeEventType(.Value) { (snap: FIRDataSnapshot) in
             self.downloadFromStorage((snap.value?.description)!)
+            
+            let value = snap.value?.description
+            return value
         }
+        
+        
+        
     }
     
     func saveUrlDatabase(url: String) {
