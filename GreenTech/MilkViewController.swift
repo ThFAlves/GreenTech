@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let cellIdentifier = "CellIdentifier"
     var dados: [String] = []
+    let service  = FirebaseService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +39,9 @@ class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
-        let dado = dados[indexPath.row]
+        //let dado = dados[indexPath.row]
         
-        cell.textLabel?.text = dado
+        cell.textLabel?.text = service.takeValueFromDatabase("ID", month: "09-2016", day: "13")
         
         return cell
     }
