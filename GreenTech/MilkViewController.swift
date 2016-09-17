@@ -12,14 +12,14 @@ import FirebaseDatabase
 
 class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var milksTableView: UITableView!
     let cellIdentifier = "CellIdentifier"
-    var dados: [String] = []
+    var milksInfo = [MilkInfo]()
     let service  = FirebaseService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dados = ["115 litros","10% aumento","1% perca"]
+        takeValue("ID", month: "09-2016", day: "13")
         // Do any additional setup after loading the view.
     }
 
@@ -33,19 +33,19 @@ class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dados.count
+        return milksInfo.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-        
-        //let dado = dados[indexPath.row]
-        
-        cell.textLabel?.text = service.takeValueFromDatabase("ID", month: "09-2016", day: "13")
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MilkTableViewCell
+        cell.configureCell(milksInfo[indexPath.row])
         return cell
     }
     
-
-
+    func takeValue(id: String, month: String, day: String) {
+        service.takeValueFromDatabase(id, month: month, day: day) { (milk) in
+            self.milksInfo.append(milk)
+            self.milksTableView.reloadData()
+        }
+    }
 }

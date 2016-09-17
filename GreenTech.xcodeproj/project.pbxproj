@@ -27,6 +27,8 @@
 		D1DA483B1D5A5BCE00D74063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */; };
 		D1DA483E1D5A5BCE00D74063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */; };
 		D1DA48491D5A5BCE00D74063 /* GreenTechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */; };
+		D1E66AF21D8D9302007D1A10 /* MilkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */; };
+		D1E66AF41D8D93F2007D1A10 /* MilkInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AF31D8D93F2007D1A10 /* MilkInfoTableViewCell.swift */; };
 		D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */; };
 		D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */; };
 		D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */; };
@@ -55,6 +57,7 @@
 		CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
+		D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GreenTech.entitlements; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 		D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenTechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenTechTests.swift; sourceTree = "<group>"; };
 		D1DA484A1D5A5BCE00D74063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkInfo.swift; sourceTree = "<group>"; };
+		D1E66AF31D8D93F2007D1A10 /* MilkInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCD.swift; sourceTree = "<group>"; };
 		D1E9C3B01D5E3E9800A45FC7 /* LoginDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDAO.swift; sourceTree = "<group>"; };
 		D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 		D19527631D5CE5500031BF13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */,
 				D15C04111D81EBC300871F52 /* FirebaseService.swift */,
 			);
 			name = Model;
@@ -174,6 +180,7 @@
 		D19527641D5CE5590031BF13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1E66AF31D8D93F2007D1A10 /* MilkInfoTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
 				D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */,
 				D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */,
+				CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 		D1DA482F1D5A5BCE00D74063 /* GreenTech */ = {
 			isa = PBXGroup;
 			children = (
+				D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */,
 				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
 				D1B9C19E1D81ED9400D2C20E /* Extensions */,
 				D19527651D5CE55F0031BF13 /* Controller */,
@@ -227,7 +236,6 @@
 				D19527631D5CE5500031BF13 /* Model */,
 				D19527621D5CE4A20031BF13 /* Resources */,
 				D19527571D5CE3AF0031BF13 /* Persistance */,
-				CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */,
 			);
 			path = GreenTech;
 			sourceTree = "<group>";
@@ -304,6 +312,11 @@
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = C8J2C4B338;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					D1DA48431D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -543,6 +556,7 @@
 				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
 				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
+				D1E66AF21D8D9302007D1A10 /* MilkInfo.swift in Sources */,
 				D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */,
 				D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
@@ -556,6 +570,7 @@
 				CAE6D8B11D8B8C2A003DD9FA /* MilkViewController.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
+				D1E66AF41D8D93F2007D1A10 /* MilkInfoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +702,7 @@
 			baseConfigurationReference = D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GreenTech/Info.plist;
@@ -703,6 +719,7 @@
 			baseConfigurationReference = 53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GreenTech/Info.plist;

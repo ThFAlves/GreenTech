@@ -15,8 +15,6 @@ class FirebaseService {
     
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
-    
-    var value: String = ""
 
     func uploadDataStorage(data: NSData, path: String) {
         let imageRef = storageRef.child(path)
@@ -31,15 +29,28 @@ class FirebaseService {
         }
     }
     
-    func takeValueFromDatabase(id: String, month: String, day: String) -> String {
-        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).child("CBT").observeEventType(.Value) { (snap: FIRDataSnapshot) in
-            self.downloadFromStorage((snap.value?.description)!)
-            
-            self.value = (snap.value?.description)!
+    func takeValueFromDatabase(id: String, month: String, day: String, completionHandler: (MilkInfo) -> ()) {
+        databaseRef.child("Fazendas").child("ID").child("Coleta").child("09-2016").child("13").observeEventType(.Value) { (snap: FIRDataSnapshot) in
+            let milk = self.createMilkInfoWithSnap(snap)
+            completionHandler(milk)
         }
+    }
+    
+    func createMilkInfoWithSnap(snap: FIRDataSnapshot) -> MilkInfo{
+        let cbt = snap.value!.objectForKey("CBT")?.description
+        let ccs = snap.value!.objectForKey("CCS")?.description
+        let cr = snap.value!.objectForKey("CR")?.description
+        let esd = snap.value!.objectForKey("ESD")?.description
+        let empresa = snap.value!.objectForKey("Empresa")?.description
+        let gor = snap.value!.objectForKey("GOR")?.description
+        let lact = snap.value!.objectForKey("LACT")?.description
+        let prot = snap.value!.objectForKey("PROT")?.description
+        let quantidade = snap.value!.objectForKey("Quantidade")?.description
+        let st = snap.value!.objectForKey("ST")?.description
         
-        return value
+        let milk = MilkInfo(cbt: cbt!,ccs: ccs!,cr: cr!, esd: esd!,empresa: empresa!, gor: gor!, lact: lact!, prot: prot!,quantidade: quantidade!, st: st!)
         
+        return milk
     }
     
     func saveUrlDatabase(url: String) {
