@@ -11,17 +11,17 @@ import CoreData
 
 class DataServices {
     
-    static func createDataCD(person: String) {
+    static func createDataCD(_ person: String) {
         let data = DataCD()
         data.name = person
         DataDAO.insert(data)
     }
     
-    static func deleteDataCD(person: String) {
+    static func deleteDataCD(_ person: String) {
         
-        let auxiliarQueue:NSOperationQueue = NSOperationQueue()
+        let auxiliarQueue:OperationQueue = OperationQueue()
         
-        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
+        let deleteOperation : BlockOperation = BlockOperation(block: {
             
             let data: DataCD? = DataDAO.findByName(person)
             

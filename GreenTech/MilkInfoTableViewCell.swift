@@ -24,7 +24,7 @@ class MilkTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configureCell(milkInfo: MilkInfo) {
+    func configureCell(_ milkInfo: MilkInfo) {
         cbtLabel.text = milkInfo.cbt
         ccsLabel.text = milkInfo.ccs
         crLabel.text = milkInfo.cr

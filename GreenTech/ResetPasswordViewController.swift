@@ -14,6 +14,8 @@ class ResetPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     
+    let connection = VerifyConnection()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,24 +25,32 @@ class ResetPasswordViewController: UIViewController {
     }
     
     
-    @IBAction func submitActio(sender: AnyObject) {
-        if self.emailField.text == "" {
-            self.showErrorAlert("Oops!", message: "Please enter an email.")
-        } else {
-            FIRAuth.auth()?.sendPasswordResetWithEmail(self.emailField.text!, completion: { (error) in
-                if error != nil {
-                    self.showErrorAlert("Oops!", message: (error?.localizedDescription)!)
-                }else{
-                    self.showErrorAlert("Sucess!", message: "Password reset email sent.")
-                }
-            })
+    @IBAction func submitActio(_ sender: AnyObject) {
+        if connection.isConnectedToNetwork() == true{
+            if self.emailField.text == "" {
+                self.showErrorAlert("Oops!", message: "Please enter an email.")
+            } else {
+                resetPassword()
+            }
+        }else{
+            self.showErrorAlert("Error!", message: "There ins't internet connection")
         }
     }
     
-    private func showErrorAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message , preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+    func resetPassword() {
+        FIRAuth.auth()?.sendPasswordReset(withEmail: self.emailField.text!, completion: { (error) in
+            if error != nil {
+                self.showErrorAlert("Oops!", message: (error?.localizedDescription)!)
+            }else{
+                self.showErrorAlert("Sucess!", message: "Password reset email sent.")
+            }
+        })
+    }
+    
+    fileprivate func showErrorAlert(_ title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
-        self.presentViewController(alertController,animated: true, completion: nil)
+        self.present(alertController,animated: true, completion: nil)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class LoginServices{
     
-    static func createDataCD(userName: String, password: String){
+    static func createDataCD(_ userName: String, password: String){
         let login = LoginCD()
         print("USERNAME COREDATA = " + userName)
         login.userName = userName
@@ -18,11 +18,11 @@ class LoginServices{
         LoginDAO.insert(login)
     }
     
-    static func deleteDataCD(userName: String) {
+    static func deleteDataCD(_ userName: String) {
         
-        let auxiliarQueue:NSOperationQueue = NSOperationQueue()
+        let auxiliarQueue:OperationQueue = OperationQueue()
         
-        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
+        let deleteOperation : BlockOperation = BlockOperation(block: {
             
             let data: DataCD? = DataDAO.findByName(userName)
             

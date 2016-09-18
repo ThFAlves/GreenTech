@@ -12,6 +12,7 @@
 		CAE6D8B11D8B8C2A003DD9FA /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
+		D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE3061D8E35F700245845 /* VerifyConnection.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
 		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
 		D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275A1D5CE3C70031BF13 /* DataCD.swift */; };
@@ -58,6 +59,7 @@
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GreenTech.entitlements; sourceTree = "<group>"; };
+		D18FE3061D8E35F700245845 /* VerifyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyConnection.swift; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		D19527571D5CE3AF0031BF13 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				D15C04111D81EBC300871F52 /* FirebaseService.swift */,
 				D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */,
 				D19527591D5CE3C70031BF13 /* DatabaseManager.swift */,
 				D195275A1D5CE3C70031BF13 /* DataCD.swift */,
@@ -171,8 +174,8 @@
 		D19527631D5CE5500031BF13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D18FE3061D8E35F700245845 /* VerifyConnection.swift */,
 				D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */,
-				D15C04111D81EBC300871F52 /* FirebaseService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = C8J2C4B338;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -320,6 +324,7 @@
 					};
 					D1DA48431D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = D1DA482C1D5A5BCE00D74063;
 					};
 				};
@@ -558,6 +563,7 @@
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
 				D1E66AF21D8D9302007D1A10 /* MilkInfo.swift in Sources */,
 				D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */,
+				D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */,
 				D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
@@ -710,7 +716,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -727,7 +733,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -740,6 +746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTechTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreenTech.app/GreenTech";
 			};
 			name = Debug;
@@ -753,6 +760,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTechTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreenTech.app/GreenTech";
 			};
 			name = Release;

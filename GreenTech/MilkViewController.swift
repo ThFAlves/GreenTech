@@ -28,21 +28,21 @@ class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return milksInfo.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MilkTableViewCell
-        cell.configureCell(milksInfo[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MilkTableViewCell
+        cell.configureCell(milksInfo[(indexPath as NSIndexPath).row])
         return cell
     }
     
-    func takeValue(id: String, month: String, day: String) {
+    func takeValue(_ id: String, month: String, day: String) {
         service.takeValueFromDatabase(id, month: month, day: day) { (milk) in
             self.milksInfo.append(milk)
             self.milksTableView.reloadData()

@@ -26,29 +26,29 @@ class SaveImageViewController: UIViewController, UINavigationControllerDelegate,
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func takePhotoButton(sender: AnyObject) {
+    @IBAction func takePhotoButton(_ sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self;
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion:nil)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        present(imagePicker, animated: true, completion:nil)
     }
     
-    @IBAction func selectPhotoButton(sender: AnyObject) {
+    @IBAction func selectPhotoButton(_ sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self;
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion:nil)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion:nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.imageView.image = image
         uploadPhotoStorage(image)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func uploadPhotoStorage(image: UIImage) {
+    func uploadPhotoStorage(_ image: UIImage) {
         let imageResize = image.resizeWith(0.1)
-        let imageData: NSData = UIImagePNGRepresentation(imageResize!)!
+        let imageData: Data = UIImagePNGRepresentation(imageResize!)!
         let path = "images/rivers.jpg"
         service.uploadDataStorage(imageData, path: path)
     }

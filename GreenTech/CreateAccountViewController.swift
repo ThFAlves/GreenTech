@@ -19,31 +19,39 @@ class CreateAccountViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func createAccount(sender: AnyObject) {
-        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
-            self.showErrorAlert("Please enter an email and password.")
+    let connection = VerifyConnection()
+    
+    @IBAction func createAccount(_ sender: AnyObject) {
+        if connection.isConnectedToNetwork() == true {
+            if self.emailTextField.text == "" || self.passwordTextField.text == "" {
+                self.showErrorAlert("Please enter an email and password.")
+            }else{
+                createUserAccount()
+            }
         }else{
-            FIRAuth.auth()?.createUserWithEmail(self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user,error) in
-                
-                if error == nil {
-                    let email = self.emailTextField.text!
-                    let password = self.passwordTextField.text!
-                    let passwordMD5 = password.md5()
-                    LoginServices.createDataCD(email, password: passwordMD5)
-                    self.navigationController?.popViewControllerAnimated(true)
-                }else{
-                    self.showErrorAlert((error?.localizedDescription)!)
-                }
-            })
-
+            self.showErrorAlert("There isn't internet connection")
         }
     }
     
-    private func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "Ooops!", message: message , preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+    func createUserAccount() {
+        FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user,error) in
+            
+            if error == nil {
+                let email = self.emailTextField.text!
+                let password = self.passwordTextField.text!
+                let passwordMD5 = password.md5()
+                LoginServices.createDataCD(email, password: passwordMD5)
+                let _ = self.navigationController?.popViewController(animated: true)
+            }else{
+                self.showErrorAlert((error?.localizedDescription)!)
+            }
+        })
+    }
+    fileprivate func showErrorAlert(_ message: String) {
+        let alertController = UIAlertController(title: "Ooops!", message: message , preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
-        self.presentViewController(alertController,animated: true, completion: nil)
+        self.present(alertController,animated: true, completion: nil)
     }
 
 }

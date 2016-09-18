@@ -12,6 +12,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'CryptoSwift'
+pod 'CVCalendar'
 
   target 'GreenTechTests' do
     inherit! :search_paths

@@ -16,9 +16,9 @@ class FirebaseService {
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
 
-    func uploadDataStorage(data: NSData, path: String) {
+    func uploadDataStorage(_ data: Data, path: String) {
         let imageRef = storageRef.child(path)
-        imageRef.putData(data, metadata: nil) { metadata, error in
+        imageRef.put(data, metadata: nil) { metadata, error in
             if(error != nil) {
                 print("ERRO SAVE")
             }else{
@@ -29,46 +29,53 @@ class FirebaseService {
         }
     }
     
-    func takeValueFromDatabase(id: String, month: String, day: String, completionHandler: (MilkInfo) -> ()) {
-        databaseRef.child("Fazendas").child("ID").child("Coleta").child("09-2016").child("13").observeEventType(.Value) { (snap: FIRDataSnapshot) in
+    func takeValueFromDatabase(_ id: String, month: String, day: String, completionHandler: @escaping (MilkInfo) -> ()) {
+        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).observe(.value) { (snap: FIRDataSnapshot) in
             let milk = self.createMilkInfoWithSnap(snap)
             completionHandler(milk)
         }
     }
-    
-    func createMilkInfoWithSnap(snap: FIRDataSnapshot) -> MilkInfo{
-        let cbt = snap.value!.objectForKey("CBT")?.description
-        let ccs = snap.value!.objectForKey("CCS")?.description
-        let cr = snap.value!.objectForKey("CR")?.description
-        let esd = snap.value!.objectForKey("ESD")?.description
-        let empresa = snap.value!.objectForKey("Empresa")?.description
-        let gor = snap.value!.objectForKey("GOR")?.description
-        let lact = snap.value!.objectForKey("LACT")?.description
-        let prot = snap.value!.objectForKey("PROT")?.description
-        let quantidade = snap.value!.objectForKey("Quantidade")?.description
-        let st = snap.value!.objectForKey("ST")?.description
+
+    func createMilkInfoWithSnap(_ snap: FIRDataSnapshot) -> MilkInfo{
+        let newValue = snap.value! as AnyObject
+        let cbt = unWrap(value: newValue, key: "CBT")
+        let ccs = unWrap(value: newValue, key: "CCS")
+        let cr = unWrap(value: newValue, key: "CR")
+        let esd = unWrap(value: newValue, key: "ESD")
+        let empresa = unWrap(value: newValue, key: "Empresa")
+        let gor = unWrap(value: newValue, key: "GOR")
+        let lact = unWrap(value: newValue, key: "LACT")
+        let prot = unWrap(value: newValue, key: "PROT")
+        let quantidade = unWrap(value: newValue, key: "Quantidade")
+        let st = unWrap(value: newValue, key: "ST")
         
-        let milk = MilkInfo(cbt: cbt!,ccs: ccs!,cr: cr!, esd: esd!,empresa: empresa!, gor: gor!, lact: lact!, prot: prot!,quantidade: quantidade!, st: st!)
+        let milk = MilkInfo(cbt: cbt,ccs: ccs,cr: cr, esd: esd,empresa: empresa, gor: gor, lact: lact, prot: prot,quantidade: quantidade, st: st)
         
         return milk
     }
     
-    func saveUrlDatabase(url: String) {
+    func unWrap(value: AnyObject, key: String) -> String{
+        let newValue = value.object(forKey: key)! as AnyObject
+        let valueToString = newValue.description!
+        return valueToString
+    }
+    
+    func saveUrlDatabase(_ url: String) {
         databaseRef.child("Hyago").child("Photo").runTransactionBlock({ (currentData: FIRMutableData) in
             currentData.value = url
-            return FIRTransactionResult.successWithValue(currentData)
+            return FIRTransactionResult.success(withValue: currentData)
         })
     }
     
     func getUrlDownloadPhoto() {
-        databaseRef.child("Hyago").child("Photo").observeEventType(.Value) { (snap: FIRDataSnapshot) in
-            self.downloadFromStorage((snap.value?.description)!)
+        databaseRef.child("Hyago").child("Photo").observe(.value) { (snap: FIRDataSnapshot) in
+            self.downloadFromStorage(((snap.value as AnyObject).description)!)
         }
     }
     
-    func downloadFromStorage(url: String) {
-        let httpsReference = FIRStorage.storage().referenceForURL(url)
-        httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+    func downloadFromStorage(_ url: String) {
+        let httpsReference = FIRStorage.storage().reference(forURL: url)
+        httpsReference.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
             if(error != nil) {
                 print("ERRRO UPLOAD")
             }else{

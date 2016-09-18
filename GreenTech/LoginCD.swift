@@ -21,10 +21,10 @@ class LoginCD: NSManagedObject {
         let context:NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
         
         // create entity description
-        let entityDescription:NSEntityDescription? = NSEntityDescription.entityForName("LoginCD", inManagedObjectContext: context)
+        let entityDescription:NSEntityDescription? = NSEntityDescription.entity(forEntityName: "LoginCD", in: context)
         
         // call super using
-        self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        self.init(entity: entityDescription!, insertInto: context)
     }
     
 }

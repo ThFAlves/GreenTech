@@ -19,10 +19,10 @@ public final class DataCD: NSManagedObject {
         let context:NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
         
         // create entity description
-        let entityDescription:NSEntityDescription? = NSEntityDescription.entityForName("DataCD", inManagedObjectContext: context)
+        let entityDescription:NSEntityDescription? = NSEntityDescription.entity(forEntityName: "DataCD", in: context)
         
         // call super using
-        self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        self.init(entity: entityDescription!, insertInto: context)
     }
 
 }
