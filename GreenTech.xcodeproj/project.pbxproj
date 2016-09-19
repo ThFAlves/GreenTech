@@ -13,6 +13,7 @@
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE3061D8E35F700245845 /* VerifyConnection.swift */; };
+		D18FE30D1D8F062000245845 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE30C1D8F062000245845 /* ViewController.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
 		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
 		D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195275A1D5CE3C70031BF13 /* DataCD.swift */; };
@@ -60,6 +61,7 @@
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GreenTech.entitlements; sourceTree = "<group>"; };
 		D18FE3061D8E35F700245845 /* VerifyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyConnection.swift; sourceTree = "<group>"; };
+		D18FE30C1D8F062000245845 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D195275A1D5CE3C70031BF13 /* DataCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCD.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		D19527651D5CE55F0031BF13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D18FE30C1D8F062000245845 /* ViewController.swift */,
 				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
 				D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */,
@@ -309,7 +312,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = HyagoHirai;
 				TargetAttributes = {
 					D1DA482C1D5A5BCE00D74063 = {
@@ -561,6 +564,7 @@
 				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
 				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,
+				D18FE30D1D8F062000245845 /* ViewController.swift in Sources */,
 				D1E66AF21D8D9302007D1A10 /* MilkInfo.swift in Sources */,
 				D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */,
 				D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */,
@@ -632,8 +636,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -678,8 +684,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -698,6 +706,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -707,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9A48A3890B3E753C76815E8 /* Pods-GreenTech.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -724,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
