@@ -18,12 +18,13 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     let connection = VerifyConnection()
+    let StoryID = "tabBar"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if (FIRAuth.auth()?.currentUser != nil) {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "cowsName")
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
             self.show(controller!, sender:  nil)
         }
     }
@@ -48,7 +49,7 @@ class AuthenticationViewController: UIViewController {
     func authLogin() {
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!, completion: {(user,error) in
             if error == nil {
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "cowsName")
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: self.StoryID)
                 self.show(controller!, sender:  nil)
                 
             }else{
@@ -61,7 +62,7 @@ class AuthenticationViewController: UIViewController {
         let result = LoginDAO.findByUserName(self.emailField.text!)
         
         if result != nil && result!.password == self.passwordField.text!.md5() {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "cowsName")
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
             self.show(controller!, sender:  nil)
         }else{
             self.showErrorAlert("Incorrect email or password")

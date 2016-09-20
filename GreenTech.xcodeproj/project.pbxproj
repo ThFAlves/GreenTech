@@ -12,6 +12,7 @@
 		CAE6D8B11D8B8C2A003DD9FA /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
+		D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161EF521D90E58400004ED8 /* SettingsViewController.swift */; };
 		D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE3061D8E35F700245845 /* VerifyConnection.swift */; };
 		D18FE30D1D8F062000245845 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE30C1D8F062000245845 /* ViewController.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
@@ -59,6 +60,7 @@
 		CAE6D8B01D8B8C2A003DD9FA /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
+		D161EF521D90E58400004ED8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GreenTech.entitlements; sourceTree = "<group>"; };
 		D18FE3061D8E35F700245845 /* VerifyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyConnection.swift; sourceTree = "<group>"; };
 		D18FE30C1D8F062000245845 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		D19527651D5CE55F0031BF13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D161EF521D90E58400004ED8 /* SettingsViewController.swift */,
 				D18FE30C1D8F062000245845 /* ViewController.swift */,
 				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
 				D1DA48321D5A5BCE00D74063 /* AuthenticationViewController.swift */,
@@ -573,6 +576,7 @@
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
+				D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */,
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,

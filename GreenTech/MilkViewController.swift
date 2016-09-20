@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CVCalendar
 import Firebase
 import FirebaseDatabase
 
@@ -16,9 +17,13 @@ class MilkViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let cellIdentifier = "CellIdentifier"
     var milksInfo = [MilkInfo]()
     let service  = FirebaseService()
-
+    var dayCollection: Int = 0
+    var monthCollection: Int = 0
+    var yearCollection: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("MILK ==================== \(dayCollection) \(monthCollection) \(yearCollection)")
         takeValue("ID", month: "09-2016", day: "13")
         // Do any additional setup after loading the view.
     }

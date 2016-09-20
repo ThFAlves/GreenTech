@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewController.swiftCVCalendarView
 //  CVCalendar Demo
 //
 //  Created by Мак-ПК on 1/3/15.
@@ -40,27 +40,6 @@ class ViewController: UIViewController {
         monthLabel.text = CVDate(date: Date()).globalDescription
     }
     
-    @IBAction func removeCircleAndDot(_ sender: AnyObject) {
-//        if let dayView = selectedDay {
-//            calendarView.contentController.removeCircleLabel(dayView)
-//            calendarView.contentController.removeDotViews(dayView)
-//        }
-    }
-    
-    @IBAction func refreshMonth(_ sender: AnyObject) {
-        calendarView.contentController.refreshPresentedMonth()
-    }
-
-    @IBAction func switchChanged(_ sender: AnyObject) {
-        if sender.isOn == false{
-            calendarView.changeDaysOutShowingState(false)
-            shouldShowDaysOut = true
-        } else {
-            calendarView.changeDaysOutShowingState(true)
-            shouldShowDaysOut = false
-        }
-    }
-    
     @IBAction func todayMonthView(_ sender: AnyObject) {
         calendarView.toggleCurrentDayView()
     }
@@ -73,19 +52,32 @@ class ViewController: UIViewController {
         calendarView.changeMode(.monthView)
     }
     
-    @IBAction func loadPrevious(_ sender: AnyObject) {
-        calendarView.loadPreviousView()
-    }
-    
-    @IBAction func loadNext(_ sender: AnyObject) {
-        calendarView.loadNextView()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         calendarView.commitCalendarViewUpdate()
         menuView.commitMenuViewUpdate()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MilkCollection" {
+            let vc = segue.destination as! MilkViewController
+            if selectedDay != nil {
+                
+                vc.yearCollection = selectedDay.date.year
+                vc.monthCollection = selectedDay.date.month
+                vc.dayCollection = selectedDay.date.day
+                
+            }else{
+                let date = NSDate()
+                let calendar = NSCalendar.current
+                let components = calendar.dateComponents([.year, .month, .day, .hour], from: date as Date)
+                
+                vc.yearCollection = components.year!
+                vc.monthCollection = components.month!
+                vc.dayCollection = components.day!
+            }
+        }
     }
 }
 
