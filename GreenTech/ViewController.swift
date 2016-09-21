@@ -8,8 +8,10 @@
 
 import UIKit
 import CVCalendar
+import Firebase
+import FirebaseDatabase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController  {
     struct Color {
         static let selectedText = UIColor.white
         static let text = UIColor.black
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
         static let sundaySelectionBackground = sundayText
     }
     
+    @IBOutlet weak var milksTableView: UITableView!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var monthLabel: UILabel!
@@ -31,6 +34,16 @@ class ViewController: UIViewController {
     var animationFinished = true
     
     var selectedDay:DayView!
+    
+    
+    // MARK: - TableView Declaration
+    
+    let cellIdentifier = "CellIdentifier"
+    let service  = FirebaseService()
+    
+    var milksInfo = [String]()
+    
+    
     
     // MARK: - Life cycle
     
@@ -59,24 +72,15 @@ class ViewController: UIViewController {
         menuView.commitMenuViewUpdate()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MilkCollection" {
-            let vc = segue.destination as! MilkViewController
-            if selectedDay != nil {
-                
-                vc.yearCollection = selectedDay.date.year
-                vc.monthCollection = selectedDay.date.month
-                vc.dayCollection = selectedDay.date.day
-                
-            }else{
-                let date = NSDate()
-                let calendar = NSCalendar.current
-                let components = calendar.dateComponents([.year, .month, .day, .hour], from: date as Date)
-                
-                vc.yearCollection = components.year!
-                vc.monthCollection = components.month!
-                vc.dayCollection = components.day!
-            }
+    func takeValue(_ id: String, month: String, day: String) {
+        service.takeValueFromDatabase(id, month: month, day: day) { (milk) in
+            self.milksInfo.append(milk.quantidade)
+            self.milksInfo.append(milk.cbt)
+            self.milksInfo.append(milk.ccs)
+            self.milksInfo.append(milk.cr)
+            self.milksInfo.append(milk.empresa)
+
+            self.milksTableView.reloadData()
         }
     }
 }
@@ -203,5 +207,28 @@ extension ViewController {
         let components = Manager.componentsForDate(date as Date) // from today
         print("Showing Month: \(components.month)")
     }
+    
+}
+
+// MARK: - TableView
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return milksInfo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MilkTableViewCell
+        cell.configureCell("Quantidade", valueInfo: "100", unitInfo: "Lts")
+
+        return cell
+    }
+    
     
 }

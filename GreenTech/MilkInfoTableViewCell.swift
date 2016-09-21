@@ -10,30 +10,20 @@ import UIKit
 
 class MilkTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cbtLabel: UILabel!
-    @IBOutlet weak var ccsLabel: UILabel!
-    @IBOutlet weak var crLabel: UILabel!
-    @IBOutlet weak var esdLabel: UILabel!
-    @IBOutlet weak var empresaLabel: UILabel!
-    @IBOutlet weak var lactLabel: UILabel!
-    @IBOutlet weak var protLabel: UILabel!
-    @IBOutlet weak var quantidadeLabel: UILabel!
-    @IBOutlet weak var stLabel: UILabel!
+
+    @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var cellIdentifier: UILabel!
+    @IBOutlet weak var unit: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
-    func configureCell(_ milkInfo: MilkInfo) {
-        cbtLabel.text = milkInfo.cbt
-        ccsLabel.text = milkInfo.ccs
-        crLabel.text = milkInfo.cr
-        esdLabel.text = milkInfo.esd
-        empresaLabel.text = milkInfo.empresa
-        lactLabel.text = milkInfo.lact
-        protLabel.text = milkInfo.prot
-        quantidadeLabel.text = milkInfo.quantidade
-        stLabel.text = milkInfo.st
+    func configureCell(_ identifierInfo: String, valueInfo: String, unitInfo: String) {
+    
+        cellIdentifier.text = identifierInfo
+        value.text = valueInfo
+        unit.text = unitInfo
     }
     
     
