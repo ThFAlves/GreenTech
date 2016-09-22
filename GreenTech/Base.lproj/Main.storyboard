@@ -700,9 +700,12 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-1h-R2M">
                                 <state key="normal" title="Hoje"/>
+                                <connections>
+                                    <action selector="todayMonthView:" destination="QfB-IZ-Ieb" eventType="touchUpInside" id="Hkl-Cz-uXd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf6-JV-OtL">
-                                <state key="normal" title="Expandir">
+                                <state key="normal" title="Reduzir">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -775,7 +778,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XpK-1h-R2M" secondAttribute="trailing" constant="10" id="kvn-we-FgC"/>
                             <constraint firstItem="c22-vH-CC4" firstAttribute="height" secondItem="V8s-Rw-Dw9" secondAttribute="height" multiplier="0.05" id="mkN-xx-VKf"/>
                             <constraint firstItem="LeL-fj-v8L" firstAttribute="width" secondItem="CUi-WJ-gJn" secondAttribute="width" id="nPB-cm-CTk"/>
-                            <constraint firstItem="CUi-WJ-gJn" firstAttribute="height" secondItem="V8s-Rw-Dw9" secondAttribute="height" multiplier="0.4" id="njr-iY-7Cg"/>
+                            <constraint firstItem="CUi-WJ-gJn" firstAttribute="height" secondItem="V8s-Rw-Dw9" secondAttribute="height" multiplier="0.35" id="njr-iY-7Cg"/>
                             <constraint firstItem="TkO-bg-ZGD" firstAttribute="width" secondItem="V8s-Rw-Dw9" secondAttribute="width" multiplier="0.9" id="rfb-EY-htv"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rf6-JV-OtL" secondAttribute="leading" id="tHR-hv-KzV"/>
                             <constraint firstItem="LeL-fj-v8L" firstAttribute="centerX" secondItem="CUi-WJ-gJn" secondAttribute="centerX" id="wF6-g0-gId"/>
@@ -784,7 +787,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="EWC-6f-HDd"/>
                     <connections>
+                        <outlet property="calendarProportionalSize" destination="njr-iY-7Cg" id="Gso-mf-gBQ"/>
                         <outlet property="calendarView" destination="CUi-WJ-gJn" id="T2e-zu-hvD"/>
+                        <outlet property="expandedSwitch" destination="Rf6-JV-OtL" id="3Jm-UE-OQy"/>
                         <outlet property="menuView" destination="TkO-bg-ZGD" id="Snk-Br-VxF"/>
                         <outlet property="milksTableView" destination="LeL-fj-v8L" id="2cM-DJ-44U"/>
                         <outlet property="monthLabel" destination="c22-vH-CC4" id="r92-YM-pF6"/>

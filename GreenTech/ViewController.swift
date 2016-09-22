@@ -26,13 +26,15 @@ class ViewController: UIViewController  {
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var daysOutSwitch: UISwitch!
+    @IBOutlet weak var expandedSwitch: UIButton!
+    @IBOutlet weak var calendarProportionalSize: NSLayoutConstraint!
+    
+    @IBOutlet weak var calendarProportionalSizeSmall: NSLayoutConstraint!
     
     // MARK: - Properties
     
-    var shouldShowDaysOut = false
+    var expandedCalendar = false
     var animationFinished = true
-    
     var selectedDay:DayView!
     
     
@@ -40,7 +42,8 @@ class ViewController: UIViewController  {
     
     let cellIdentifier = "CellIdentifier"
     let service  = FirebaseService()
-    
+    let descriptionVector: [String] = ["Quantidade", "CBT", "CCS", "CR", "Empresa"]
+    let unitVector: [String] = ["Lts", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [String]()
     
     
@@ -49,7 +52,7 @@ class ViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        takeValue("ID", month: "09-2016", day: "13")
         monthLabel.text = CVDate(date: Date()).globalDescription
     }
     
@@ -58,11 +61,19 @@ class ViewController: UIViewController  {
     }
     
     @IBAction func toWeekView(_ sender: AnyObject) {
-        calendarView.changeMode(.weekView)
-    }
-    
-    @IBAction func toMonthView(_ sender: AnyObject) {
-        calendarView.changeMode(.monthView)
+        if expandedCalendar == true {
+            calendarView.changeMode(.monthView)
+            expandedCalendar = false;
+            expandedSwitch.setTitle("Reduzir", for: .normal)
+            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.35)
+            
+        }else{
+            calendarView.changeMode(.weekView)
+            expandedCalendar = true;
+            expandedSwitch.setTitle("Expandir", for: .normal)
+            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.08)
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -83,6 +94,28 @@ class ViewController: UIViewController  {
             self.milksTableView.reloadData()
         }
     }
+    
+    struct MyConstraint {
+        static func changeMultiplier(constraint: NSLayoutConstraint, multiplier: CGFloat) -> NSLayoutConstraint {
+            let newConstraint = NSLayoutConstraint(
+                item: constraint.firstItem,
+                attribute: constraint.firstAttribute,
+                relatedBy: constraint.relation,
+                toItem: constraint.secondItem,
+                attribute: constraint.secondAttribute,
+                multiplier: multiplier,
+                constant: constraint.constant)
+            
+            newConstraint.priority = constraint.priority
+            
+            NSLayoutConstraint.deactivate([constraint])
+            NSLayoutConstraint.activate([newConstraint])
+            
+            return newConstraint
+        }
+    }
+    
+
 }
 
 // MARK: - CVCalendarViewDelegate & CVCalendarMenuViewDelegate
@@ -225,10 +258,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MilkTableViewCell
-        cell.configureCell("Quantidade", valueInfo: "100", unitInfo: "Lts")
+        cell.configureCell(descriptionVector[indexPath.row], valueInfo: milksInfo[indexPath.row], unitInfo: unitVector[indexPath.row])
 
         return cell
     }
     
     
+}
+
+// MARK: - Change constraints
+
+extension NSLayoutConstraint {
+    func constraintWithMultiplier(multiplier: CGFloat) -> NSLayoutConstraint {
+        
+        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
+    }
 }
