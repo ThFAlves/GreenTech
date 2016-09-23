@@ -16,11 +16,12 @@ class ViewController: UIViewController  {
         static let selectedText = UIColor.white
         static let text = UIColor.black
         static let textDisabled = UIColor.gray
-        static let selectionBackground = UIColor(red: 0.2, green: 0.2, blue: 1.0, alpha: 1.0)
+        static let selectionBackground = UIColor(red: 0.5, green: 0.25, blue: 0.0, alpha: 1.0)
         static let sundayText = UIColor(red: 1.0, green: 0.2, blue: 0.2, alpha: 1.0)
         static let sundayTextDisabled = UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0)
         static let sundaySelectionBackground = sundayText
     }
+    
     
     @IBOutlet weak var milksTableView: UITableView!
     @IBOutlet weak var calendarView: CVCalendarView!
@@ -28,9 +29,7 @@ class ViewController: UIViewController  {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var expandedSwitch: UIButton!
     @IBOutlet weak var calendarProportionalSize: NSLayoutConstraint!
-    
-    @IBOutlet weak var calendarProportionalSizeSmall: NSLayoutConstraint!
-    
+    @IBOutlet weak var tableProporcionalHeight: NSLayoutConstraint!
     // MARK: - Properties
     
     var expandedCalendar = false
@@ -50,10 +49,13 @@ class ViewController: UIViewController  {
     
     // MARK: - Life cycle
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         takeValue("ID", month: "09-2016", day: "13")
         monthLabel.text = CVDate(date: Date()).globalDescription
+    
+    
     }
     
     @IBAction func todayMonthView(_ sender: AnyObject) {
@@ -65,13 +67,15 @@ class ViewController: UIViewController  {
             calendarView.changeMode(.monthView)
             expandedCalendar = false;
             expandedSwitch.setTitle("Reduzir", for: .normal)
-            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.35)
+            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.3)
+            tableProporcionalHeight = MyConstraint.changeMultiplier(constraint: tableProporcionalHeight, multiplier: 0.42)
             
         }else{
             calendarView.changeMode(.weekView)
             expandedCalendar = true;
             expandedSwitch.setTitle("Expandir", for: .normal)
             calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.08)
+            tableProporcionalHeight = MyConstraint.changeMultiplier(constraint: tableProporcionalHeight, multiplier: 0.64)
         }
         
     }
@@ -182,7 +186,17 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     }
     
     func dayOfWeekBackGroundColor() -> UIColor {
-        return UIColor.orange
+        return UIColorFromRGB(rgbValue: 0x804000)
+    }
+    
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }
 

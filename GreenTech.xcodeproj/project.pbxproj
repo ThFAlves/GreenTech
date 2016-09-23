@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
 		7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */; };
+		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161EF521D90E58400004ED8 /* SettingsViewController.swift */; };
@@ -56,6 +57,7 @@
 		8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7513AF526E44C72007785ED /* Pods_GreenTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D161EF521D90E58400004ED8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E66AF31D8D93F2007D1A10 /* MilkInfoTableViewCell.swift */,
+				CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
+				CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
 				D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */,
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
