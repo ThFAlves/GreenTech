@@ -11,17 +11,7 @@ import CVCalendar
 import Firebase
 import FirebaseDatabase
 
-class ViewController: UIViewController  {
-    struct Color {
-        static let selectedText = UIColor.white
-        static let text = UIColor.black
-        static let textDisabled = UIColor.gray
-        static let selectionBackground = UIColor(red: 0.5, green: 0.25, blue: 0.0, alpha: 1.0)
-        static let sundayText = UIColor(red: 1.0, green: 0.2, blue: 0.2, alpha: 1.0)
-        static let sundayTextDisabled = UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0)
-        static let sundaySelectionBackground = sundayText
-    }
-    
+class CalendarMilkViewController: UIViewController  {
     
     @IBOutlet weak var milksTableView: UITableView!
     @IBOutlet weak var calendarView: CVCalendarView!
@@ -46,15 +36,12 @@ class ViewController: UIViewController  {
     var milksInfo = [String]()
     
     
-    
     // MARK: - Life cycle
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         takeValue("ID", month: "09-2016", day: "13")
         monthLabel.text = CVDate(date: Date()).globalDescription
-    
     
     }
     
@@ -63,21 +50,16 @@ class ViewController: UIViewController  {
     }
     
     @IBAction func toWeekView(_ sender: AnyObject) {
-        if expandedCalendar == true {
-            calendarView.changeMode(.monthView)
-            expandedCalendar = false;
-            expandedSwitch.setTitle("Reduzir", for: .normal)
-            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.3)
-            tableProporcionalHeight = MyConstraint.changeMultiplier(constraint: tableProporcionalHeight, multiplier: 0.42)
-            
-        }else{
-            calendarView.changeMode(.weekView)
-            expandedCalendar = true;
-            expandedSwitch.setTitle("Expandir", for: .normal)
-            calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: 0.08)
-            tableProporcionalHeight = MyConstraint.changeMultiplier(constraint: tableProporcionalHeight, multiplier: 0.64)
-        }
+        (expandedCalendar) ?  changeCalendarMode(modeView: .monthView, expanded: false, title: "Reduzir", multiplierCalendar: 0.3, multiplierTable: 0.42) : changeCalendarMode(modeView: .weekView, expanded: true, title: "Expandir", multiplierCalendar: 0.08, multiplierTable: 0.64)
+    }
+    
+    func changeCalendarMode(modeView: CalendarMode, expanded: Bool,title: String, multiplierCalendar: CGFloat, multiplierTable: CGFloat){
         
+        calendarView.changeMode(modeView)
+        expandedCalendar = expanded
+        expandedSwitch.setTitle(title, for: .normal)
+        calendarProportionalSize = MyConstraint.changeMultiplier(constraint: calendarProportionalSize, multiplier: multiplierCalendar)
+        tableProporcionalHeight = MyConstraint.changeMultiplier(constraint: tableProporcionalHeight, multiplier: multiplierTable)
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,33 +80,11 @@ class ViewController: UIViewController  {
             self.milksTableView.reloadData()
         }
     }
-    
-    struct MyConstraint {
-        static func changeMultiplier(constraint: NSLayoutConstraint, multiplier: CGFloat) -> NSLayoutConstraint {
-            let newConstraint = NSLayoutConstraint(
-                item: constraint.firstItem,
-                attribute: constraint.firstAttribute,
-                relatedBy: constraint.relation,
-                toItem: constraint.secondItem,
-                attribute: constraint.secondAttribute,
-                multiplier: multiplier,
-                constant: constraint.constant)
-            
-            newConstraint.priority = constraint.priority
-            
-            NSLayoutConstraint.deactivate([constraint])
-            NSLayoutConstraint.activate([newConstraint])
-            
-            return newConstraint
-        }
-    }
-    
-
 }
 
 // MARK: - CVCalendarViewDelegate & CVCalendarMenuViewDelegate
 
-extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
+extension CalendarMilkViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     /// Required method to implement!
     func presentationMode() -> CalendarMode {
@@ -203,7 +163,7 @@ extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
 
 // MARK: - CVCalendarViewAppearanceDelegate
 
-extension ViewController: CVCalendarViewAppearanceDelegate {
+extension CalendarMilkViewController: CVCalendarViewAppearanceDelegate {
     func dayLabelPresentWeekdayInitallyBold() -> Bool {
         return false
     }
@@ -235,7 +195,7 @@ extension ViewController: CVCalendarViewAppearanceDelegate {
 
 // MARK: - Convenience API Demo
 
-extension ViewController {
+extension CalendarMilkViewController {
     func toggleMonthViewWithMonthOffset(offset: Int) {
         let calendar = NSCalendar.current
         var components = Manager.componentsForDate(Foundation.Date()) // from today
@@ -259,8 +219,7 @@ extension ViewController {
 
 // MARK: - TableView
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    
+extension CalendarMilkViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -277,14 +236,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    
-}
 
-// MARK: - Change constraints
-
-extension NSLayoutConstraint {
-    func constraintWithMultiplier(multiplier: CGFloat) -> NSLayoutConstraint {
-        
-        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
-    }
 }
