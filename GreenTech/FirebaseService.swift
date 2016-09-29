@@ -29,8 +29,8 @@ class FirebaseService {
         }
     }
     
-    func takeValueFromDatabase(_ id: String, month: String, day: String, completionHandler: @escaping (MilkInfo) -> ()) {
-        databaseRef.child("Fazendas").child(id).child("Coleta").child(month).child(day).observe(.value) { (snap: FIRDataSnapshot) in
+    func takeValueFromDatabase(_ id: String, year: String, month: String, day: String, completionHandler: @escaping (MilkInfo) -> ()) {
+        databaseRef.child("Fazendas").child(id).child("Coleta").child(year).child(month).child(day).observe(.value) { (snap: FIRDataSnapshot) in
             let milk = self.createMilkInfoWithSnap(snap)
             completionHandler(milk)
         }

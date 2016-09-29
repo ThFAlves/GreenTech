@@ -40,7 +40,7 @@ class CalendarMilkViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        takeValue("ID", month: "09-2016", day: "13")
+        takeValue("ID", year: "2016" , month: "10", day: "01")
         monthLabel.text = CVDate(date: Date()).globalDescription
     
     }
@@ -69,8 +69,8 @@ class CalendarMilkViewController: UIViewController  {
         menuView.commitMenuViewUpdate()
     }
     
-    func takeValue(_ id: String, month: String, day: String) {
-        service.takeValueFromDatabase(id, month: month, day: day) { (milk) in
+    func takeValue(_ id: String,year: String, month: String, day: String) {
+        service.takeValueFromDatabase(id,year: year, month: month, day: day) { (milk) in
             self.milksInfo.append(milk.quantidade)
             self.milksInfo.append(milk.cbt)
             self.milksInfo.append(milk.ccs)
