@@ -13,6 +13,9 @@
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
+		CAF3D5831D9EF286006A879C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF3D57E1D9EF222006A879C /* Charts.framework */; };
+		CAF3D5841D9EF286006A879C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF3D57E1D9EF222006A879C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161EF521D90E58400004ED8 /* SettingsViewController.swift */; };
@@ -40,6 +43,51 @@
 		D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CAF3D57D1D9EF222006A879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		CAF3D57F1D9EF222006A879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		CAF3D5811D9EF222006A879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		CAF3D5851D9EF286006A879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CAF3D5871D9EF287006A879C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CAF3D5841D9EF286006A879C /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
 		23EB1C8214EF2D61D2E7F4ED /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +102,8 @@
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
+		CAF3D5771D9EF222006A879C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Desktop/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D161EF521D90E58400004ED8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */,
+				CAF3D5831D9EF286006A879C /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +180,16 @@
 				8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAF3D5781D9EF222006A879C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAF3D57E1D9EF222006A879C /* Charts.framework */,
+				CAF3D5801D9EF222006A879C /* ChartsRealm.framework */,
+				CAF3D5821D9EF222006A879C /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D19527571D5CE3AF0031BF13 /* Persistance */ = {
@@ -191,6 +252,7 @@
 				D1C1733E1D81D29800230D31 /* CreateAccountViewController.swift */,
 				D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */,
 				CAF3D5621D9D84D8006A879C /* MilkViewController.swift */,
+				CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -226,6 +288,7 @@
 		D1DA482F1D5A5BCE00D74063 /* GreenTech */ = {
 			isa = PBXGroup;
 			children = (
+				CAF3D5771D9EF222006A879C /* Charts.xcodeproj */,
 				D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */,
 				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
 				D1B9C19E1D81ED9400D2C20E /* Extensions */,
@@ -262,10 +325,12 @@
 				4A55AB0C4A9564662085808A /* [CP] Copy Pods Resources */,
 				58FE924F65D47740E0C4911F /* 📦 Embed Pods Frameworks */,
 				F41BBFD9423660CA9E9AB8C2 /* 📦 Copy Pods Resources */,
+				CAF3D5871D9EF287006A879C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CAF3D5861D9EF286006A879C /* PBXTargetDependency */,
 			);
 			name = GreenTech;
 			productName = GreenTech;
@@ -284,7 +349,7 @@
 				TargetAttributes = {
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = C8J2C4B338;
+						DevelopmentTeam = BJ8A63KNJ9;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -305,12 +370,42 @@
 			mainGroup = D1DA48241D5A5BCE00D74063;
 			productRefGroup = D1DA482E1D5A5BCE00D74063 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CAF3D5781D9EF222006A879C /* Products */;
+					ProjectRef = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D1DA482C1D5A5BCE00D74063 /* GreenTech */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CAF3D57E1D9EF222006A879C /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = CAF3D57D1D9EF222006A879C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAF3D5801D9EF222006A879C /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = CAF3D57F1D9EF222006A879C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAF3D5821D9EF222006A879C /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = CAF3D5811D9EF222006A879C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D1DA482B1D5A5BCE00D74063 /* Resources */ = {
@@ -445,6 +540,7 @@
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */,
+				CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
@@ -454,6 +550,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAF3D5861D9EF286006A879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = CAF3D5851D9EF286006A879C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D1DA48341D5A5BCE00D74063 /* Main.storyboard */ = {
@@ -574,6 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BJ8A63KNJ9;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
@@ -592,6 +697,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BJ8A63KNJ9;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
