@@ -10,7 +10,6 @@
 		2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */; };
 		2A2DD1931D99A10C009A0C67 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1921D99A10C009A0C67 /* Constraint.swift */; };
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
-		7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */; };
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
@@ -33,7 +32,6 @@
 		D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48371D5A5BCE00D74063 /* GreenTech.xcdatamodeld */; };
 		D1DA483B1D5A5BCE00D74063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */; };
 		D1DA483E1D5A5BCE00D74063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */; };
-		D1DA48491D5A5BCE00D74063 /* GreenTechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */; };
 		D1E66AF21D8D9302007D1A10 /* MilkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */; };
 		D1E66AF41D8D93F2007D1A10 /* MilkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AF31D8D93F2007D1A10 /* MilkTableViewCell.swift */; };
 		D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3AF1D5E3E9800A45FC7 /* LoginCD.swift */; };
@@ -41,16 +39,6 @@
 		D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B11D5E3E9800A45FC7 /* LoginServices.swift */; };
 		D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D1DA48451D5A5BCE00D74063 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D1DA48251D5A5BCE00D74063 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D1DA482C1D5A5BCE00D74063;
-			remoteInfo = GreenTech;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,8 +76,6 @@
 		D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DA483D1D5A5BCE00D74063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DA483F1D5A5BCE00D74063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenTechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenTechTests.swift; sourceTree = "<group>"; };
 		D1DA484A1D5A5BCE00D74063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkInfo.swift; sourceTree = "<group>"; };
 		D1E66AF31D8D93F2007D1A10 /* MilkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,14 +93,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D1DA48411D5A5BCE00D74063 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7349B0C758911A3CCAAD0912 /* Pods_GreenTechTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				D1DA482D1D5A5BCE00D74063 /* GreenTech.app */,
-				D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,7 +241,6 @@
 		D1DA48471D5A5BCE00D74063 /* GreenTechTests */ = {
 			isa = PBXGroup;
 			children = (
-				D1DA48481D5A5BCE00D74063 /* GreenTechTests.swift */,
 				D1DA484A1D5A5BCE00D74063 /* Info.plist */,
 			);
 			path = GreenTechTests;
@@ -296,30 +272,6 @@
 			productReference = D1DA482D1D5A5BCE00D74063 /* GreenTech.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D1DA48431D5A5BCE00D74063 /* GreenTechTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */;
-			buildPhases = (
-				C458DCF5B196F4CCA94FAF77 /* [CP] Check Pods Manifest.lock */,
-				B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */,
-				D1DA48401D5A5BCE00D74063 /* Sources */,
-				D1DA48411D5A5BCE00D74063 /* Frameworks */,
-				D1DA48421D5A5BCE00D74063 /* Resources */,
-				975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */,
-				284C8F9AD8C967F81454C5AE /* [CP] Copy Pods Resources */,
-				E3BA12B31D8F91712D2E4CF5 /* 📦 Embed Pods Frameworks */,
-				5AFFB65304D370B5D2E2E608 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D1DA48461D5A5BCE00D74063 /* PBXTargetDependency */,
-			);
-			name = GreenTechTests;
-			productName = GreenTechTests;
-			productReference = D1DA48441D5A5BCE00D74063 /* GreenTechTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -340,11 +292,6 @@
 							};
 						};
 					};
-					D1DA48431D5A5BCE00D74063 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
-						TestTargetID = D1DA482C1D5A5BCE00D74063;
-					};
 				};
 			};
 			buildConfigurationList = D1DA48281D5A5BCE00D74063 /* Build configuration list for PBXProject "GreenTech" */;
@@ -361,7 +308,6 @@
 			projectRoot = "";
 			targets = (
 				D1DA482C1D5A5BCE00D74063 /* GreenTech */,
-				D1DA48431D5A5BCE00D74063 /* GreenTechTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,31 +324,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1DA48421D5A5BCE00D74063 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		284C8F9AD8C967F81454C5AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		372457C28A163BB1DC1D7E4D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,81 +402,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5AFFB65304D370B5D2E2E608 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		975C871F6BEAD5C37BED5CA3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B02EA5F3CA94486D2E32EB4E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C458DCF5B196F4CCA94FAF77 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E3BA12B31D8F91712D2E4CF5 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F41BBFD9423660CA9E9AB8C2 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,23 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1DA48401D5A5BCE00D74063 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D1DA48491D5A5BCE00D74063 /* GreenTechTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D1DA48461D5A5BCE00D74063 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D1DA482C1D5A5BCE00D74063 /* GreenTech */;
-			targetProxy = D1DA48451D5A5BCE00D74063 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D1DA48341D5A5BCE00D74063 /* Main.storyboard */ = {
@@ -768,34 +601,6 @@
 			};
 			name = Release;
 		};
-		D1DA48511D5A5BCE00D74063 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GreenTechTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTechTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreenTech.app/GreenTech";
-			};
-			name = Debug;
-		};
-		D1DA48521D5A5BCE00D74063 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC8AB619D4772B327DB4F814 /* Pods-GreenTechTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GreenTechTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTechTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GreenTech.app/GreenTech";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -813,15 +618,6 @@
 			buildConfigurations = (
 				D1DA484E1D5A5BCE00D74063 /* Debug */,
 				D1DA484F1D5A5BCE00D74063 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D1DA48501D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTechTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D1DA48511D5A5BCE00D74063 /* Debug */,
-				D1DA48521D5A5BCE00D74063 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
