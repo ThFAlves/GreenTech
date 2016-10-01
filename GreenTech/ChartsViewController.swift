@@ -67,24 +67,44 @@ class ChartsViewController: UIViewController {
         
         
         //MARK: - line chart
-        let ys1Line = Array(1..<10).map { xLine in return sin(Double(xLine) / 2.0 / 3.141 * 1.5) }
-        let ys2Line = Array(1..<10).map { xLine in return cos(Double(xLine) / 2.0 / 3.141) }
+        let ys1Line = Array(1..<30).map { xLine in return sin(Double(xLine) / 2.0 / 3.141 * 1.5) }
+        let ys2Line = Array(1..<30).map { xLine in return cos(Double(xLine) / 3.0 / 4 * 1.5)}
         
         let yse1Line = ys1Line.enumerated().map { xLine, yLine in return ChartDataEntry(x: Double(xLine), y: yLine) }
         let yse2Line = ys2Line.enumerated().map { xLine, yLine in return ChartDataEntry(x: Double(xLine), y: yLine) }
         
+
+        
         let dataLine = LineChartData()
+    
         let ds1Line = LineChartDataSet(values: yse1Line, label: "Hello")
         ds1Line.colors = [NSUIColor.darkGray]
+        ds1Line.drawCirclesEnabled = false
+        //ds1Line.drawCubicEnabled = true
+        ds1Line.drawFilledEnabled = true
+        ds1Line.fillColor = UIColor.gray
+        ds1Line.drawValuesEnabled = false
+
+        
         dataLine.addDataSet(ds1Line)
         
         let ds2Line = LineChartDataSet(values: yse2Line, label: "World")
         ds2Line.colors = [NSUIColor.red]
+        ds2Line.drawCirclesEnabled = false
+        //ds2Line.drawCubicEnabled = true
+        ds2Line.drawFilledEnabled = true
+        ds2Line.fillColor = UIColor.red
+        ds2Line.drawValuesEnabled = false
+
         dataLine.addDataSet(ds2Line)
         self.lineChartGraphic.data = dataLine
         self.lineChartGraphic.data?.highlightEnabled = false
         self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
-        
+       
+        self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
+        self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
+        self.lineChartGraphic.dragEnabled = false
+        self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Linechart Demo"
        
 
