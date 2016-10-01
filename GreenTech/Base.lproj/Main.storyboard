@@ -130,7 +130,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -197,7 +197,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -871,7 +871,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="375" height="56"/>
+                                            <frame key="frameInset" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -959,7 +959,7 @@
             </objects>
             <point key="canvasLocation" x="2588" y="1006.1469265367317"/>
         </scene>
-        <!--Charts View Controller-->
+        <!--Leite-->
         <scene sceneID="Nub-pQ-nUG">
             <objects>
                 <viewController id="cLQ-oT-QTI" customClass="ChartsViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
@@ -968,30 +968,78 @@
                         <viewControllerLayoutGuide type="bottom" id="Xbq-nz-Ze0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GH2-Gu-q2L" customClass="ChartMarkerView">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-UC-wKo" customClass="PieChartView" customModule="Charts">
-                                <color key="backgroundColor" red="0.97836301487622868" green="1" blue="0.99787516597830317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIB-Rk-TjH">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDn-1s-7zk">
+                                        <subviews>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-UC-wKo" customClass="PieChartView" customModule="Charts">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mx-zn-XY9" customClass="LineChartView" customModule="Charts">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="2x7-Ji-QfU"/>
+                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="top" secondItem="mrd-UC-wKo" secondAttribute="bottom" constant="8" id="KPa-vF-jfL"/>
+                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="b3X-fL-hap"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="top" secondItem="zDn-1s-7zk" secondAttribute="top" constant="5" id="k1D-Af-yxK"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="width" secondItem="zDn-1s-7zk" secondAttribute="width" multiplier="0.95" id="kRW-3L-FEw"/>
+                                            <constraint firstAttribute="height" constant="1000" id="kdE-uw-bpy"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="nvq-Pt-jwU"/>
+                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="height" secondItem="mrd-UC-wKo" secondAttribute="height" id="w6u-Hk-zYl"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="height" secondItem="zDn-1s-7zk" secondAttribute="height" multiplier="0.3" id="y3R-dv-2pz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zDn-1s-7zk" firstAttribute="top" secondItem="DIB-Rk-TjH" secondAttribute="top" id="2yK-04-OQf"/>
+                                    <constraint firstAttribute="trailing" secondItem="zDn-1s-7zk" secondAttribute="trailing" id="YRM-W1-Xhv"/>
+                                    <constraint firstAttribute="bottom" secondItem="zDn-1s-7zk" secondAttribute="bottom" id="iiC-dL-gic"/>
+                                    <constraint firstItem="zDn-1s-7zk" firstAttribute="leading" secondItem="DIB-Rk-TjH" secondAttribute="leading" id="m0q-0l-CjB"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9076723066997775" green="0.91665916122155744" blue="0.91665916122155744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mrd-UC-wKo" firstAttribute="centerY" secondItem="GH2-Gu-q2L" secondAttribute="centerY" id="MK6-5C-3Cu"/>
-                            <constraint firstItem="mrd-UC-wKo" firstAttribute="centerX" secondItem="GH2-Gu-q2L" secondAttribute="centerX" id="PHr-sY-m8g"/>
-                            <constraint firstItem="mrd-UC-wKo" firstAttribute="height" secondItem="GH2-Gu-q2L" secondAttribute="height" id="VKz-TF-fI5"/>
-                            <constraint firstItem="mrd-UC-wKo" firstAttribute="width" secondItem="GH2-Gu-q2L" secondAttribute="width" id="xdf-Nj-uti"/>
+                            <constraint firstItem="Xbq-nz-Ze0" firstAttribute="top" secondItem="DIB-Rk-TjH" secondAttribute="bottom" id="87s-b1-Qwf"/>
+                            <constraint firstAttribute="trailing" secondItem="DIB-Rk-TjH" secondAttribute="trailing" id="EWn-Fk-7su"/>
+                            <constraint firstItem="DIB-Rk-TjH" firstAttribute="top" secondItem="ttH-jH-ur2" secondAttribute="bottom" id="NEg-qj-yjZ"/>
+                            <constraint firstItem="zDn-1s-7zk" firstAttribute="width" secondItem="GH2-Gu-q2L" secondAttribute="width" id="rCa-O2-ipb"/>
+                            <constraint firstItem="DIB-Rk-TjH" firstAttribute="leading" secondItem="GH2-Gu-q2L" secondAttribute="leading" id="wsj-8P-lhu"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="T4B-OI-Dmu"/>
+                    <navigationItem key="navigationItem" title="Leite" id="T4B-OI-Dmu">
+                        <barButtonItem key="rightBarButtonItem" title="✚" id="Ue1-9v-EPJ">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="PieChartGraphic" destination="mrd-UC-wKo" id="RfV-ah-IWE"/>
+                        <outlet property="lineChartGraphic" destination="9mx-zn-XY9" id="BbY-Tb-Yz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400" y="1004"/>
+            <point key="canvasLocation" x="3399.1999999999998" y="1002.9985007496252"/>
         </scene>
         <!--Animais-->
         <scene sceneID="mDb-et-iQy">

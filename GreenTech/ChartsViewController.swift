@@ -11,48 +11,88 @@ import Charts
 
 class ChartsViewController: UIViewController {
 
+    
+    @IBOutlet weak var lineChartGraphic: LineChartView!
+    @IBOutlet weak var barChartGraphic: BarChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        
+        self.lineChartGraphic.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.PieChartGraphic.layer.borderWidth = 1
+        self.PieChartGraphic.layer.borderColor = UIColor(red:51/255.0, green:173/255.0, blue:66/255.0, alpha: 1.0).cgColor
         
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        self.lineChartGraphic.layer.borderWidth = 1
+        self.lineChartGraphic.layer.borderColor = UIColor(red:51/255.0, green:173/255.0, blue:66/255.0, alpha: 1.0).cgColor
         
-        setChart(dataPoints: months, values: unitsSold)
+        let ys1 = Array(1..<5).map { x in return Double(x)}
+//        var ys1: [String] = []
+//        for i in 0 ... teste.count {
+//            ys1.append(teste[])
+//        }
         
+        
+        // MARK: - Pie Chart
+        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
+        
+        let data = PieChartData()
+        yse1[0].label = "Vendido"
+        yse1[1].label = "Consumido"
+        yse1[2].label = "Perdido"
+        yse1[3].label = "Produzido"
+        
+        let ds1 = PieChartDataSet(values: yse1, label: "Valores")
+        
+        ds1.colors = ChartColorTemplates.colorful()
+        
+        data.addDataSet(ds1)
+        
+        let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        paragraphStyle.alignment = .center
+        let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "Produção")
+        
+        self.PieChartGraphic.centerAttributedText = centerText
+        
+        self.PieChartGraphic.data = data
+        
+        self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
+        
+        
+        
+        //MARK: - line chart
+        let ys1Line = Array(1..<10).map { xLine in return sin(Double(xLine) / 2.0 / 3.141 * 1.5) }
+        let ys2Line = Array(1..<10).map { xLine in return cos(Double(xLine) / 2.0 / 3.141) }
+        
+        let yse1Line = ys1Line.enumerated().map { xLine, yLine in return ChartDataEntry(x: Double(xLine), y: yLine) }
+        let yse2Line = ys2Line.enumerated().map { xLine, yLine in return ChartDataEntry(x: Double(xLine), y: yLine) }
+        
+        let dataLine = LineChartData()
+        let ds1Line = LineChartDataSet(values: yse1Line, label: "Hello")
+        ds1Line.colors = [NSUIColor.darkGray]
+        dataLine.addDataSet(ds1Line)
+        
+        let ds2Line = LineChartDataSet(values: yse2Line, label: "World")
+        ds2Line.colors = [NSUIColor.red]
+        dataLine.addDataSet(ds2Line)
+        self.lineChartGraphic.data = dataLine
+        self.lineChartGraphic.data?.highlightEnabled = false
+        self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
+        
+        self.lineChartGraphic.chartDescription?.text = "Linechart Demo"
+       
+
     }
-    
-    func setChart(dataPoints: [String], values: [Double]) {
         
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-            dataEntries.append(dataEntry)
-        }
-        
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Units Sold")
-        let pieChartData2 = PieChartData(dataSet: pieChartDataSet)
-        //let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        PieChartGraphic.data = pieChartData2
-        
-        var colors: [UIColor] = []
-        
-        for i in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
-        }
-        
-        pieChartDataSet.colors = colors
-        
-        
-    }
-    
 }
+
+
+ 
+    
+
