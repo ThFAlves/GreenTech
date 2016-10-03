@@ -10,11 +10,11 @@
 		2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */; };
 		2A2DD1931D99A10C009A0C67 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1921D99A10C009A0C67 /* Constraint.swift */; };
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
+		CA11C5651DA2E1C9003183B4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; };
+		CA11C5661DA2E1C9003183B4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
-		CAF3D5831D9EF286006A879C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF3D57E1D9EF222006A879C /* Charts.framework */; };
-		CAF3D5841D9EF286006A879C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF3D57E1D9EF222006A879C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
@@ -44,30 +44,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CAF3D57D1D9EF222006A879C /* PBXContainerItemProxy */ = {
+		CA11C55F1DA2E1B4003183B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			containerPortal = CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F241D8110E600722320;
 			remoteInfo = Charts;
 		};
-		CAF3D57F1D9EF222006A879C /* PBXContainerItemProxy */ = {
+		CA11C5611DA2E1B4003183B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			containerPortal = CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06B120D51D811E6200D14B02;
 			remoteInfo = ChartsRealm;
 		};
-		CAF3D5811D9EF222006A879C /* PBXContainerItemProxy */ = {
+		CA11C5631DA2E1B4003183B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			containerPortal = CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F2E1D8110E600722320;
 			remoteInfo = ChartsTests;
 		};
-		CAF3D5851D9EF286006A879C /* PBXContainerItemProxy */ = {
+		CA11C5671DA2E1C9003183B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+			containerPortal = CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
@@ -81,7 +81,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CAF3D5841D9EF286006A879C /* Charts.framework in Embed Frameworks */,
+				CA11C5661DA2E1C9003183B4 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,10 +99,10 @@
 		8015018BD5E1EB531D216D6D /* Pods_GreenTechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7513AF526E44C72007785ED /* Pods_GreenTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
-		CAF3D5771D9EF222006A879C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Desktop/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */,
-				CAF3D5831D9EF286006A879C /* Charts.framework in Frameworks */,
+				CA11C5651DA2E1C9003183B4 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,12 +182,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CAF3D5781D9EF222006A879C /* Products */ = {
+		CA11C55A1DA2E1B4003183B4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CAF3D57E1D9EF222006A879C /* Charts.framework */,
-				CAF3D5801D9EF222006A879C /* ChartsRealm.framework */,
-				CAF3D5821D9EF222006A879C /* ChartsTests.xctest */,
+				CA11C5601DA2E1B4003183B4 /* Charts.framework */,
+				CA11C5621DA2E1B4003183B4 /* ChartsRealm.framework */,
+				CA11C5641DA2E1B4003183B4 /* ChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,9 +288,9 @@
 		D1DA482F1D5A5BCE00D74063 /* GreenTech */ = {
 			isa = PBXGroup;
 			children = (
-				CAF3D5771D9EF222006A879C /* Charts.xcodeproj */,
 				D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */,
 				D1DA48341D5A5BCE00D74063 /* Main.storyboard */,
+				CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */,
 				D1B9C19E1D81ED9400D2C20E /* Extensions */,
 				D19527651D5CE55F0031BF13 /* Controller */,
 				D19527641D5CE5590031BF13 /* View */,
@@ -330,7 +330,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CAF3D5861D9EF286006A879C /* PBXTargetDependency */,
+				CA11C5681DA2E1C9003183B4 /* PBXTargetDependency */,
 			);
 			name = GreenTech;
 			productName = GreenTech;
@@ -372,8 +372,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CAF3D5781D9EF222006A879C /* Products */;
-					ProjectRef = CAF3D5771D9EF222006A879C /* Charts.xcodeproj */;
+					ProductGroup = CA11C55A1DA2E1B4003183B4 /* Products */;
+					ProjectRef = CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -384,25 +384,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CAF3D57E1D9EF222006A879C /* Charts.framework */ = {
+		CA11C5601DA2E1B4003183B4 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = CAF3D57D1D9EF222006A879C /* PBXContainerItemProxy */;
+			remoteRef = CA11C55F1DA2E1B4003183B4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAF3D5801D9EF222006A879C /* ChartsRealm.framework */ = {
+		CA11C5621DA2E1B4003183B4 /* ChartsRealm.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChartsRealm.framework;
-			remoteRef = CAF3D57F1D9EF222006A879C /* PBXContainerItemProxy */;
+			remoteRef = CA11C5611DA2E1B4003183B4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAF3D5821D9EF222006A879C /* ChartsTests.xctest */ = {
+		CA11C5641DA2E1B4003183B4 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = CAF3D5811D9EF222006A879C /* PBXContainerItemProxy */;
+			remoteRef = CA11C5631DA2E1B4003183B4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -552,10 +552,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CAF3D5861D9EF286006A879C /* PBXTargetDependency */ = {
+		CA11C5681DA2E1C9003183B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
-			targetProxy = CAF3D5851D9EF286006A879C /* PBXContainerItemProxy */;
+			targetProxy = CA11C5671DA2E1C9003183B4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
