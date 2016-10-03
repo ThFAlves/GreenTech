@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="selectedImageTintColor" red="0.31093239784240723" green="0.67980611324310303" blue="0.32901465892791748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ANS-lN-RPf" kind="relationship" relationship="viewControllers" id="fh3-YN-iOy"/>
@@ -130,7 +130,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -197,7 +197,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -871,7 +871,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="375" height="56.5"/>
+                                            <frame key="frameInset" width="375" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -908,7 +908,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.85467560279187815" green="0.24416215094977084" blue="0.27743653251339295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="zMm-uZ-Gxu" firstAttribute="centerX" secondItem="zlk-qs-Rgo" secondAttribute="centerX" id="9Qh-mk-kXh"/>
                                                 <constraint firstItem="zMm-uZ-Gxu" firstAttribute="height" secondItem="zlk-qs-Rgo" secondAttribute="height" multiplier="0.9" id="Bn6-aJ-Jmf"/>
@@ -971,6 +971,21 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-rL-Tfx">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Dia"/>
+                                    <segment title="Semana"/>
+                                    <segment title="Mês"/>
+                                    <segment title="Ano"/>
+                                </segments>
+                                <color key="tintColor" red="0.23994362354278564" green="0.64844638109207153" blue="0.28866139054298401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIB-Rk-TjH">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDn-1s-7zk">
@@ -995,9 +1010,9 @@
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="2x7-Ji-QfU"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="top" secondItem="zDn-1s-7zk" secondAttribute="top" constant="4" id="6fH-qQ-bAR"/>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="top" secondItem="mrd-UC-wKo" secondAttribute="bottom" constant="8" id="KPa-vF-jfL"/>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="b3X-fL-hap"/>
-                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="top" secondItem="zDn-1s-7zk" secondAttribute="top" constant="5" id="k1D-Af-yxK"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="width" secondItem="zDn-1s-7zk" secondAttribute="width" multiplier="0.95" id="kRW-3L-FEw"/>
                                             <constraint firstAttribute="height" constant="1000" id="kdE-uw-bpy"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="nvq-Pt-jwU"/>
@@ -1018,10 +1033,13 @@
                         <color key="backgroundColor" red="0.9076723066997775" green="0.91665916122155744" blue="0.91665916122155744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xbq-nz-Ze0" firstAttribute="top" secondItem="DIB-Rk-TjH" secondAttribute="bottom" id="87s-b1-Qwf"/>
+                            <constraint firstItem="j5a-rL-Tfx" firstAttribute="leading" secondItem="GH2-Gu-q2L" secondAttribute="leading" constant="4" id="AUz-MP-Rgo"/>
                             <constraint firstAttribute="trailing" secondItem="DIB-Rk-TjH" secondAttribute="trailing" id="EWn-Fk-7su"/>
-                            <constraint firstItem="DIB-Rk-TjH" firstAttribute="top" secondItem="ttH-jH-ur2" secondAttribute="bottom" id="NEg-qj-yjZ"/>
+                            <constraint firstItem="DIB-Rk-TjH" firstAttribute="top" secondItem="j5a-rL-Tfx" secondAttribute="bottom" id="T7u-wR-hgp"/>
                             <constraint firstItem="zDn-1s-7zk" firstAttribute="width" secondItem="GH2-Gu-q2L" secondAttribute="width" id="rCa-O2-ipb"/>
+                            <constraint firstAttribute="trailing" secondItem="j5a-rL-Tfx" secondAttribute="trailing" constant="4" id="rTC-jU-3kU"/>
                             <constraint firstItem="DIB-Rk-TjH" firstAttribute="leading" secondItem="GH2-Gu-q2L" secondAttribute="leading" id="wsj-8P-lhu"/>
+                            <constraint firstItem="j5a-rL-Tfx" firstAttribute="top" secondItem="ttH-jH-ur2" secondAttribute="bottom" constant="4" id="ySy-lW-Rdk"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -1035,6 +1053,7 @@
                     <connections>
                         <outlet property="PieChartGraphic" destination="mrd-UC-wKo" id="RfV-ah-IWE"/>
                         <outlet property="lineChartGraphic" destination="9mx-zn-XY9" id="BbY-Tb-Yz9"/>
+                        <outlet property="segmentedViewOutlet" destination="j5a-rL-Tfx" id="vaL-YM-vnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1066,10 +1085,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ANS-lN-RPf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Leite" image="milk (1)" selectedImage="milk (1)" id="ofO-yt-eeF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvL-ju-EZe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nvL-ju-EZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20168101560000001" green="0.67697613310000004" blue="0.25722548169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1990835811548487" green="0.63560372955551336" blue="0.22518867607763757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
