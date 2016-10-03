@@ -96,13 +96,13 @@ class ChartsViewController: UIViewController {
         let dataLine = LineChartData()
     
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
-        ds1Line.colors = [NSUIColor.gray]
+        ds1Line.colors = [NSUIColor.black]
         ds1Line.drawCirclesEnabled = true
         ds1Line.circleColors = [NSUIColor.black]
         ds1Line.circleRadius = 3
         ds1Line.circleHoleRadius = 0
         ds1Line.drawFilledEnabled = true
-        ds1Line.fillColor = UIColor.gray
+        ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
         ds1Line.drawValuesEnabled = false
         ds1Line.lineWidth = 1
         ds1Line.mode = LineChartDataSet.Mode.linear
@@ -129,6 +129,7 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.chartDescription?.text = "Produção"
        
     }
+    
 }
 
 
