@@ -130,7 +130,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="100"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -197,7 +197,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="100"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -871,7 +871,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="375" height="57"/>
+                                            <frame key="frameInset" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -1006,16 +1006,69 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-jJ-9rv">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-sn-x05">
+                                                        <state key="normal" title="Mais detalhes sobre o gráfico &gt;">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.84313725490196079" green="0.92549019607843142" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="1MG-sn-x05" firstAttribute="centerY" secondItem="ayh-jJ-9rv" secondAttribute="centerY" id="DlZ-Ap-0hE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1MG-sn-x05" secondAttribute="trailing" constant="15" id="HNX-Uw-iq1"/>
+                                                    <constraint firstItem="1MG-sn-x05" firstAttribute="leading" secondItem="ayh-jJ-9rv" secondAttribute="leading" constant="8" id="UhT-hQ-z8a"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-06-Hcb">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-9e-PWK">
+                                                        <state key="normal" title="Mais detalhes sobre o gráfico &gt;">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.90588235294117647" green="0.83529411764705885" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="aJE-9e-PWK" firstAttribute="leading" secondItem="Yo1-06-Hcb" secondAttribute="leading" constant="8" id="0xy-gY-8AY"/>
+                                                    <constraint firstItem="aJE-9e-PWK" firstAttribute="centerY" secondItem="Yo1-06-Hcb" secondAttribute="centerY" id="h9k-OY-EIc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aJE-9e-PWK" secondAttribute="trailing" constant="8" id="v0z-xu-tdQ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="2x7-Ji-QfU"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="top" secondItem="zDn-1s-7zk" secondAttribute="top" constant="4" id="6fH-qQ-bAR"/>
-                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="top" secondItem="mrd-UC-wKo" secondAttribute="bottom" constant="8" id="KPa-vF-jfL"/>
+                                            <constraint firstItem="Yo1-06-Hcb" firstAttribute="centerX" secondItem="9mx-zn-XY9" secondAttribute="centerX" id="7RB-r7-rjA"/>
+                                            <constraint firstItem="9mx-zn-XY9" firstAttribute="top" secondItem="ayh-jJ-9rv" secondAttribute="bottom" constant="8" id="AF1-3Z-oC1"/>
+                                            <constraint firstItem="ayh-jJ-9rv" firstAttribute="centerX" secondItem="mrd-UC-wKo" secondAttribute="centerX" id="CTs-FT-Cov"/>
+                                            <constraint firstItem="ayh-jJ-9rv" firstAttribute="top" secondItem="mrd-UC-wKo" secondAttribute="bottom" constant="-5" id="GZk-XP-TSu"/>
+                                            <constraint firstItem="Yo1-06-Hcb" firstAttribute="height" secondItem="9mx-zn-XY9" secondAttribute="height" multiplier="0.1" id="P85-Aw-SFp"/>
+                                            <constraint firstItem="Yo1-06-Hcb" firstAttribute="top" secondItem="9mx-zn-XY9" secondAttribute="bottom" constant="-5" id="RQM-MI-2Dg"/>
+                                            <constraint firstItem="Yo1-06-Hcb" firstAttribute="width" secondItem="9mx-zn-XY9" secondAttribute="width" id="Xh4-ja-7o0"/>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="b3X-fL-hap"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="width" secondItem="zDn-1s-7zk" secondAttribute="width" multiplier="0.95" id="kRW-3L-FEw"/>
                                             <constraint firstAttribute="height" constant="1000" id="kdE-uw-bpy"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="centerX" secondItem="zDn-1s-7zk" secondAttribute="centerX" id="nvq-Pt-jwU"/>
+                                            <constraint firstItem="ayh-jJ-9rv" firstAttribute="height" secondItem="mrd-UC-wKo" secondAttribute="height" multiplier="0.1" id="uVx-fY-qXB"/>
+                                            <constraint firstItem="ayh-jJ-9rv" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="vxo-5C-KMt"/>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="height" secondItem="mrd-UC-wKo" secondAttribute="height" id="w6u-Hk-zYl"/>
                                             <constraint firstItem="mrd-UC-wKo" firstAttribute="height" secondItem="zDn-1s-7zk" secondAttribute="height" multiplier="0.3" id="y3R-dv-2pz"/>
                                         </constraints>
@@ -1052,7 +1105,9 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="PieChartGraphic" destination="mrd-UC-wKo" id="RfV-ah-IWE"/>
+                        <outlet property="lineChartDetaisView" destination="Yo1-06-Hcb" id="b78-SB-XFx"/>
                         <outlet property="lineChartGraphic" destination="9mx-zn-XY9" id="BbY-Tb-Yz9"/>
+                        <outlet property="pieChartDetailsView" destination="ayh-jJ-9rv" id="iRP-5x-yt4"/>
                         <outlet property="segmentedViewOutlet" destination="j5a-rL-Tfx" id="vaL-YM-vnL"/>
                     </connections>
                 </viewController>
@@ -1085,7 +1140,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ANS-lN-RPf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Leite" image="milk (1)" selectedImage="milk (1)" id="ofO-yt-eeF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nvL-ju-EZe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvL-ju-EZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1990835811548487" green="0.63560372955551336" blue="0.22518867607763757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

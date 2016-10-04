@@ -12,6 +12,8 @@ import Charts
 class ChartsViewController: UIViewController {
 
     
+    @IBOutlet weak var lineChartDetaisView: UIView!
+    @IBOutlet weak var pieChartDetailsView: UIView!
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var barChartGraphic: BarChartView!
@@ -29,11 +31,20 @@ class ChartsViewController: UIViewController {
         segmentedViewOutlet.layer.zPosition = 1
         
         
+        self.pieChartDetailsView.layer.borderWidth = 1
+        self.pieChartDetailsView.layer.borderColor = UIColor(red:215/255.0, green:236/255.0, blue:246/255.0, alpha: 1.0).cgColor
+
+        self.lineChartDetaisView.layer.borderWidth = 1
+        self.lineChartDetaisView.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
+
+        
+        
+        
         self.PieChartGraphic.layer.borderWidth = 1
-        self.PieChartGraphic.layer.borderColor = UIColor(red:51/255.0, green:173/255.0, blue:66/255.0, alpha: 1.0).cgColor
+        self.PieChartGraphic.layer.borderColor = UIColor(red:179/255.0, green:214/255.0, blue:252/255.0, alpha: 1.0).cgColor
         
         self.lineChartGraphic.layer.borderWidth = 1
-        self.lineChartGraphic.layer.borderColor = UIColor(red:51/255.0, green:173/255.0, blue:66/255.0, alpha: 1.0).cgColor
+        self.lineChartGraphic.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
         
         let ys1 = Array(1..<5).map { x in return Double(x)}
 //        var ys1: [String] = []
