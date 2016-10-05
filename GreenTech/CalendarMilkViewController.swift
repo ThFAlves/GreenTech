@@ -69,6 +69,7 @@ class CalendarMilkViewController: UIViewController  {
         menuView.commitMenuViewUpdate()
     }
     
+    // take value for itens from database
     func takeValue(_ id: String,year: String, month: String, day: String) {
         service.takeValueFromDatabase(id,year: year, month: month, day: day) { (milk) in
             self.milksInfo.append(milk.quantidade)
@@ -83,6 +84,7 @@ class CalendarMilkViewController: UIViewController  {
 }
 
 // MARK: - CVCalendarViewDelegate & CVCalendarMenuViewDelegate
+
 
 extension CalendarMilkViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
@@ -219,6 +221,8 @@ extension CalendarMilkViewController {
 
 // MARK: - TableView
 
+// CAN BE DELETED IN THE NEW TYPE OF CALLENDAR
+//generate the cells of itens
 extension CalendarMilkViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
