@@ -12,56 +12,63 @@ import Charts
 class ChartsViewController: UIViewController {
 
     
+    
+    
     @IBOutlet weak var lineChartDetaisView: UIView!
     @IBOutlet weak var pieChartDetailsView: UIView!
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var lineChartGraphic: LineChartView!
-    @IBOutlet weak var barChartGraphic: BarChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
+        
+        //animate charts wen appear
+        self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         self.lineChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
         
-        
+        //criate a border of charts detail button views
         self.pieChartDetailsView.layer.borderWidth = 1
         self.pieChartDetailsView.layer.borderColor = UIColor(red:215/255.0, green:236/255.0, blue:246/255.0, alpha: 1.0).cgColor
 
         self.lineChartDetaisView.layer.borderWidth = 1
         self.lineChartDetaisView.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
 
-        
-        
-        
+        //criate a border of charts views
         self.PieChartGraphic.layer.borderWidth = 1
         self.PieChartGraphic.layer.borderColor = UIColor(red:179/255.0, green:214/255.0, blue:252/255.0, alpha: 1.0).cgColor
         
         self.lineChartGraphic.layer.borderWidth = 1
         self.lineChartGraphic.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
         
-        let ys1 = Array(1..<5).map { x in return Double(x)}
-//        var ys1: [String] = []
-//        for i in 0 ... teste.count {
-//            ys1.append(teste[])
-//        }
-        
         
         // MARK: - Pie Chart
+        // Creating a pie chart
+        
+        //y values for the pie chart
+        let ys1 = Array(1..<5).map { x in return Double(x)}
+        
+        //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
         
+        //creating piechartData object
         let data = PieChartData()
+        //changing the name label of pie itens
         yse1[0].label = "Perdido"
         yse1[1].label = "Consumido"
         yse1[2].label = "Vendido"
         yse1[3].label = "Produzido"
         
+        // insert the data obj
         let ds1 = PieChartDataSet(values: yse1, label: "Valores")
         
         ds1.colors = ChartColorTemplates.colorful()
@@ -72,6 +79,8 @@ class ChartsViewController: UIViewController {
         
         data.addDataSet(ds1)
         
+        
+        //tioe o texts in pie chart
         let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.alignment = .center
@@ -93,9 +102,8 @@ class ChartsViewController: UIViewController {
         
         let xs1Line = Array(1..<31)
         let ys1Line = [385, 386, 380, 370, 400, 390, 400, 380, 355, 370, 380, 370, 383, 370, 380, 370, 386, 380, 380, 380, 390, 400, 380, 385, 370, 380, 380, 375, 380, 385, 380, 380]
-        
-        
         var se1Line: [ChartDataEntry] = []
+
         for i in 1..<xs1Line.count {
             
             se1Line.append(ChartDataEntry(x: Double(xs1Line[i]), y: Double(ys1Line[i])))
@@ -120,15 +128,6 @@ class ChartsViewController: UIViewController {
 
         
         dataLine.addDataSet(ds1Line)
-        
-//        ds2Line.colors = [NSUIColor.red]
-//        ds2Line.drawCirclesEnabled = false
-//        //ds2Line.drawCubicEnabled = true
-//        ds2Line.drawFilledEnabled = true
-//        ds2Line.fillColor = UIColor.red
-//        ds2Line.drawValuesEnabled = false
-//
-//        dataLine.addDataSet(ds2Line)
         self.lineChartGraphic.data = dataLine
         self.lineChartGraphic.data?.highlightEnabled = false
         self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
