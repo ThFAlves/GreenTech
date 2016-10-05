@@ -8,19 +8,22 @@
 
 import UIKit
 import Charts
+import Firebase
+import FirebaseDatabase
 
 class ChartsViewController: UIViewController {
 
     
     
     
-    @IBOutlet weak var lineChartDetaisView: UIView!
-    @IBOutlet weak var pieChartDetailsView: UIView!
+    @IBOutlet weak var pieChartDetailsView: BottonCornerView!
+    @IBOutlet weak var lineChartDetaisView: BottonCornerView!
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
-    
+    let service  = FirebaseService()
+
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -33,19 +36,20 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
+        takeMonthValue("ID", year: "2016", month: "10")
+        
         //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
         
-        //criate a border of charts detail button views
-        self.pieChartDetailsView.layer.borderWidth = 1
-        self.pieChartDetailsView.layer.borderColor = UIColor(red:215/255.0, green:236/255.0, blue:246/255.0, alpha: 1.0).cgColor
-
-        self.lineChartDetaisView.layer.borderWidth = 1
-        self.lineChartDetaisView.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
+        
+        lineChartDetaisView.color = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0)
+        pieChartDetailsView.color = UIColor(red: 152/255, green: 189/255, blue: 245/255, alpha: 1)
 
         //criate a border of charts views
         self.PieChartGraphic.layer.borderWidth = 1
-        self.PieChartGraphic.layer.borderColor = UIColor(red:179/255.0, green:214/255.0, blue:252/255.0, alpha: 1.0).cgColor
+        self.PieChartGraphic.layer.borderColor = UIColor(red: 152/255, green: 189/255, blue: 245/255, alpha: 1).cgColor
         
         self.lineChartGraphic.layer.borderWidth = 1
         self.lineChartGraphic.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
@@ -80,11 +84,11 @@ class ChartsViewController: UIViewController {
         data.addDataSet(ds1)
         
         
-        //tioe o texts in pie chart
-        let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        //change mode texts in pie chart
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.alignment = .center
-        let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "Produção")
+        let centerText = NSMutableAttributedString(string: "Produção")
         
         self.PieChartGraphic.centerAttributedText = centerText
         self.PieChartGraphic.holeRadiusPercent = 0.35
@@ -141,6 +145,19 @@ class ChartsViewController: UIViewController {
     }
     
 }
+
+// MARK: - Database functions
+
+extension ChartsViewController {
+    
+    func takeMonthValue(_ id: String,year: String , month: String) {
+        service.takeMonthValueFromDatabase(id, year: year , month: month) { [weak self] milk in
+
+        }
+    }
+    
+}
+
 
 
  

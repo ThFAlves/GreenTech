@@ -1006,11 +1006,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-jJ-9rv">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-jJ-9rv" customClass="BottonCornerView" customModule="GreenTech" customModuleProvider="target">
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-sn-x05">
-                                                        <state key="normal" title="Mais detalhes sobre o gráfico &gt;">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-sn-x05">
+                                                        <state key="normal" title="Mais detalhes  ">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1018,8 +1018,12 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="desclosure" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-rO-Vva">
+                                                        <frame key="frameInset" minX="334" minY="3" width="14" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.84313725490196079" green="0.92549019607843142" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.74270682877329353" green="0.85767465756492389" blue="0.96095196327261867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="1MG-sn-x05" firstAttribute="centerY" secondItem="ayh-jJ-9rv" secondAttribute="centerY" id="DlZ-Ap-0hE"/>
                                                     <constraint firstAttribute="trailing" secondItem="1MG-sn-x05" secondAttribute="trailing" constant="15" id="HNX-Uw-iq1"/>
@@ -1027,17 +1031,21 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-06-Hcb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-06-Hcb" customClass="BottonCornerView" customModule="GreenTech" customModuleProvider="target">
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-9e-PWK">
-                                                        <state key="normal" title="Mais detalhes sobre o gráfico &gt;">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-9e-PWK">
+                                                        <state key="normal" title="Mais detalhes">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="desclosure" translatesAutoresizingMaskIntoConstraints="NO" id="TVJ-8U-YSp">
+                                                        <frame key="frameInset" minX="334" minY="2" width="14" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.90588235294117647" green="0.83529411764705885" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1047,7 +1055,7 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -1070,7 +1078,7 @@
                                             <constraint firstItem="ayh-jJ-9rv" firstAttribute="height" secondItem="mrd-UC-wKo" secondAttribute="height" multiplier="0.1" id="uVx-fY-qXB"/>
                                             <constraint firstItem="ayh-jJ-9rv" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="vxo-5C-KMt"/>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="height" secondItem="mrd-UC-wKo" secondAttribute="height" id="w6u-Hk-zYl"/>
-                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="height" secondItem="zDn-1s-7zk" secondAttribute="height" multiplier="0.3" id="y3R-dv-2pz"/>
+                                            <constraint firstItem="mrd-UC-wKo" firstAttribute="height" secondItem="zDn-1s-7zk" secondAttribute="height" multiplier="0.35" id="y3R-dv-2pz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1097,6 +1105,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Leite" id="T4B-OI-Dmu">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ceu-KJ-U2P">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="✚" id="Ue1-9v-EPJ">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -1105,9 +1116,9 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="PieChartGraphic" destination="mrd-UC-wKo" id="RfV-ah-IWE"/>
-                        <outlet property="lineChartDetaisView" destination="Yo1-06-Hcb" id="b78-SB-XFx"/>
+                        <outlet property="lineChartDetaisView" destination="Yo1-06-Hcb" id="vyn-Se-Uo7"/>
                         <outlet property="lineChartGraphic" destination="9mx-zn-XY9" id="BbY-Tb-Yz9"/>
-                        <outlet property="pieChartDetailsView" destination="ayh-jJ-9rv" id="iRP-5x-yt4"/>
+                        <outlet property="pieChartDetailsView" destination="ayh-jJ-9rv" id="3yQ-Bi-fRJ"/>
                         <outlet property="segmentedViewOutlet" destination="j5a-rL-Tfx" id="vaL-YM-vnL"/>
                     </connections>
                 </viewController>
@@ -1159,6 +1170,7 @@
         <image name="Vaca-Leiteira-6" width="528" height="307"/>
         <image name="bezerro-holandesa" width="700" height="469"/>
         <image name="cow (3)" width="32" height="32"/>
+        <image name="desclosure" width="50" height="80"/>
         <image name="milk (1)" width="32" height="32"/>
         <image name="settings (1)" width="32" height="32"/>
     </resources>

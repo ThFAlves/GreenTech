@@ -13,6 +13,7 @@
 		CA11C5651DA2E1C9003183B4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; };
 		CA11C5661DA2E1C9003183B4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
+		CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
 		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
@@ -101,6 +102,7 @@
 		C604DB6A3CD40524A368C289 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
+		CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottonCornerView.swift; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		D19527641D5CE5590031BF13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */,
 				D1E66AF31D8D93F2007D1A10 /* MilkTableViewCell.swift */,
 				CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */,
 			);
@@ -522,6 +525,7 @@
 				2A2DD1931D99A10C009A0C67 /* Constraint.swift in Sources */,
 				D1C1733F1D81D29800230D31 /* CreateAccountViewController.swift in Sources */,
 				D1E9C3B31D5E3E9800A45FC7 /* LoginDAO.swift in Sources */,
+				CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */,
 				D1DA48331D5A5BCE00D74063 /* AuthenticationViewController.swift in Sources */,
 				CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */,
 				D1E9C3B21D5E3E9800A45FC7 /* LoginCD.swift in Sources */,

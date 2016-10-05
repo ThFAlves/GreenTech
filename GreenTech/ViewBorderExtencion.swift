@@ -18,6 +18,7 @@ extension UIView {
             self.layer.masksToBounds = newValue > 0
         }
     }
+
 }
 
 extension NSLayoutConstraint {
