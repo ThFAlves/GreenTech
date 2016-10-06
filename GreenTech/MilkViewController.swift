@@ -34,7 +34,7 @@ class MilkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        takeValue("ID", year: "2016", month: "10", day: "01")
+      //  takeValue("ID", year: "2016", month: "10", day: "01")
         
         
 
@@ -73,15 +73,15 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension MilkViewController {
     
-    func takeValue(_ id: String,year: String , month: String, day: String) {
-        service.takeValueFromDatabase(id, year: year , month: month, day: day) { [weak self] milk in
-            self?.milksInfo.append(milk.quantidade)
-            self?.milksInfo.append(milk.cbt)
-            self?.milksInfo.append(milk.ccs)
-            self?.milksInfo.append(milk.cr)
-            self?.milksInfo.append(milk.empresa)
-            self?.milkTableView.reloadData()
-        }
-    }
-
+//    func takeValue(_ id: String,year: String , month: String, day: String) {
+//        service.takeValueFromDatabase(id, year: year , month: month, day: day) { [weak self] milk in
+//            self?.milksInfo.append(milk.quantidade)
+//            self?.milksInfo.append(milk.cbt)
+//            self?.milksInfo.append(milk.ccs)
+//            self?.milksInfo.append(milk.cr)
+//            self?.milksInfo.append(milk.empresa)
+//            self?.milkTableView.reloadData()
+//        }
 }
+
+

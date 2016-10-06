@@ -40,7 +40,7 @@ class CalendarMilkViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        takeValue("ID", year: "2016" , month: "10", day: "01")
+   //     takeValue("ID", year: "2016" , month: "10", day: "01")
         monthLabel.text = CVDate(date: Date()).globalDescription
     
     }
@@ -70,17 +70,17 @@ class CalendarMilkViewController: UIViewController  {
     }
     
     // take value for itens from database
-    func takeValue(_ id: String,year: String, month: String, day: String) {
-        service.takeValueFromDatabase(id,year: year, month: month, day: day) { (milk) in
-            self.milksInfo.append(milk.quantidade)
-            self.milksInfo.append(milk.cbt)
-            self.milksInfo.append(milk.ccs)
-            self.milksInfo.append(milk.cr)
-            self.milksInfo.append(milk.empresa)
-
-            self.milksTableView.reloadData()
-        }
-    }
+//    func takeValue(_ id: String,year: String, month: String, day: String) {
+//        service.takeValueFromDatabase(id,year: year, month: month, day: day) { (milk) in
+//            self.milksInfo.append(milk.quantidade)
+//            self.milksInfo.append(milk.cbt)
+//            self.milksInfo.append(milk.ccs)
+//            self.milksInfo.append(milk.cr)
+//            self.milksInfo.append(milk.empresa)
+//
+//            self.milksTableView.reloadData()
+//        }
+//    }
 }
 
 // MARK: - CVCalendarViewDelegate & CVCalendarMenuViewDelegate

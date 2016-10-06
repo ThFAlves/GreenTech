@@ -24,6 +24,8 @@ class ChartsViewController: UIViewController {
     
     let service  = FirebaseService()
 
+    var queryMonth: [MilkInfo] = []
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -31,14 +33,21 @@ class ChartsViewController: UIViewController {
         //animate charts wen appear
         self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         self.lineChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
     
         
         takeMonthValue("ID", year: "2016", month: "10")
+        
+        
+
         
         //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
@@ -151,8 +160,13 @@ class ChartsViewController: UIViewController {
 extension ChartsViewController {
     
     func takeMonthValue(_ id: String,year: String , month: String) {
-        service.takeMonthValueFromDatabase(id, year: year , month: month) { [weak self] milk in
-
+        service.takeMonthValueFromDatabase(id, year: year , month: month) { [weak self] result in
+            var q = 0
+            for milkInfo in result {
+                if let quantidade = milkInfo.quantidade {
+                    q += quantidade
+                }
+            }
         }
     }
     

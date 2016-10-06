@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 struct MilkInfo {
     
@@ -20,14 +22,34 @@ struct MilkInfo {
      prot: quantidade de proteinas
      quantidade: quantidade de litros produzida
      */
-    let cbt: String
-    let ccs: String
-    let cr: String
-    let esd: String
-    let empresa: String
-    let gor: String
-    let lact: String
-    let prot: String
-    let quantidade: String
-    let st: String
+//    let ref: FIRDatabaseReference?
+//    let key: String
+    let cbt: Int?
+    let ccs: Int?
+    let cr: Int?
+    let esd: String?
+    let empresa: String?
+    let gor: String?
+    let lact: String?
+    let prot: String?
+    let quantidade: Int?
+    let st: String?
+    
+    
+    init(snapshot: FIRDataSnapshot) {
+        //key = snapshot.key
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        cbt = snapshotValue["CBT"] as? Int
+        ccs = snapshotValue["CCS"] as? Int
+        cr = snapshotValue["CR"] as? Int
+        esd = snapshotValue["ESD"] as? String
+        empresa = snapshotValue["Empresa"] as? String
+        gor = snapshotValue["GOR"] as? String
+        lact = snapshotValue["LACT"] as? String
+        prot = snapshotValue["PROT"] as? String
+        quantidade = snapshotValue["Quantidade"] as? Int
+        st = snapshotValue["ST"] as? String
+        //ref = snapshot.ref
+    }
+    
 }
