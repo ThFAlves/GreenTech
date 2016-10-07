@@ -16,6 +16,7 @@ class ChartsViewController: UIViewController {
     
     
     
+    @IBOutlet var detailImageIndicator: [UIImageView]!
     @IBOutlet weak var pieChartDetailsView: BottonCornerView!
     @IBOutlet weak var lineChartDetaisView: BottonCornerView!
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
@@ -39,30 +40,37 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-    
-        
-        takeMonthValue("ID", year: "2016", month: "10")
-        
-
+     
         
         //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
         
         
-        lineChartDetaisView.color = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0)
-        pieChartDetailsView.color = UIColor(red: 152/255, green: 189/255, blue: 245/255, alpha: 1)
-
+        lineChartDetaisView.color = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0)
+        pieChartDetailsView.color = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
+        
         //criate a border of charts views
         self.PieChartGraphic.layer.borderWidth = 1
-        self.PieChartGraphic.layer.borderColor = UIColor(red: 152/255, green: 189/255, blue: 245/255, alpha: 1).cgColor
+        self.PieChartGraphic.layer.borderColor = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1).cgColor
         
         self.lineChartGraphic.layer.borderWidth = 1
-        self.lineChartGraphic.layer.borderColor = UIColor(red:194/255.0, green:179/255.0, blue:162/255.0, alpha: 1.0).cgColor
+        self.lineChartGraphic.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
         
         
+        for i in detailImageIndicator{
+        i.image = i.image?.imageWithColor(tintColor: .white)
+        }
+        
+        
+        
+        
+        takeMonthValue("ID", year: "2016", month: "10")
+
+    }
+    
+    func loadCharts(){
+        
+        print(queryMonth)
         // MARK: - Pie Chart
         // Creating a pie chart
         
@@ -83,11 +91,11 @@ class ChartsViewController: UIViewController {
         // insert the data obj
         let ds1 = PieChartDataSet(values: yse1, label: "Valores")
         
-        ds1.colors = ChartColorTemplates.colorful()
+        ds1.colors = ChartColorTemplates.material()
         
         ds1.valueTextColor = UIColor.white
         ds1.sliceSpace = 0.1
-       
+        
         
         data.addDataSet(ds1)
         
@@ -105,7 +113,7 @@ class ChartsViewController: UIViewController {
         self.PieChartGraphic.data = data
         
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
-    
+        
         
         
         
@@ -115,17 +123,17 @@ class ChartsViewController: UIViewController {
         let xs1Line = Array(1..<31)
         let ys1Line = [385, 386, 380, 370, 400, 390, 400, 380, 355, 370, 380, 370, 383, 370, 380, 370, 386, 380, 380, 380, 390, 400, 380, 385, 370, 380, 380, 375, 380, 385, 380, 380]
         var se1Line: [ChartDataEntry] = []
-
+        
         for i in 1..<xs1Line.count {
             
             se1Line.append(ChartDataEntry(x: Double(xs1Line[i]), y: Double(ys1Line[i])))
         }
         
-//        let se1Line = xs1Line.enumerated().map { xs1Line, ys1Line in return ChartDataEntry(x: Double(xs1Line), y: Double(ys1Line))
+        //        let se1Line = xs1Line.enumerated().map { xs1Line, ys1Line in return ChartDataEntry(x: Double(xs1Line), y: Double(ys1Line))
         
         
         let dataLine = LineChartData()
-    
+        
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
         ds1Line.colors = [NSUIColor.black]
         ds1Line.drawCirclesEnabled = true
@@ -137,24 +145,20 @@ class ChartsViewController: UIViewController {
         ds1Line.drawValuesEnabled = false
         ds1Line.lineWidth = 1
         ds1Line.mode = LineChartDataSet.Mode.linear
-
+        
         
         dataLine.addDataSet(ds1Line)
         self.lineChartGraphic.data = dataLine
         self.lineChartGraphic.data?.highlightEnabled = false
         self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
-       
+        
         self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
         self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
-       
-        print("teste \(queryMonth)")
         
     }
-    
-    
     
     
     
@@ -170,8 +174,8 @@ extension ChartsViewController {
             for i in result {
                 self?.queryMonth.append(i)
             }
-            print(self?.queryMonth)
             
+            self?.loadCharts()
         }
     }
     

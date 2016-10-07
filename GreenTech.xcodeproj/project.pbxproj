@@ -15,6 +15,7 @@
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */; };
 		CA831B2E1DA6D5C8003B64AE /* MonthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA831B2D1DA6D5C8003B64AE /* MonthInfo.swift */; };
+		CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
 		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
@@ -105,6 +106,7 @@
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottonCornerView.swift; sourceTree = "<group>"; };
 		CA831B2D1DA6D5C8003B64AE /* MonthInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthInfo.swift; sourceTree = "<group>"; };
+		CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				D1B9C19F1D81EDA900D2C20E /* UIImageExtension.swift */,
 				CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */,
+				CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */,
 				CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */,
+				CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
 				D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */,
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
