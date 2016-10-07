@@ -46,7 +46,6 @@ class ChartsViewController: UIViewController {
         
         takeMonthValue("ID", year: "2016", month: "10")
         
-        
 
         
         //make the segmented view upon other views
@@ -151,7 +150,13 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
        
+        print("teste \(queryMonth)")
+        
     }
+    
+    
+    
+    
     
 }
 
@@ -160,13 +165,13 @@ class ChartsViewController: UIViewController {
 extension ChartsViewController {
     
     func takeMonthValue(_ id: String,year: String , month: String) {
+        
         service.takeMonthValueFromDatabase(id, year: year , month: month) { [weak self] result in
-            var q = 0
-            for milkInfo in result {
-                if let quantidade = milkInfo.quantidade {
-                    q += quantidade
-                }
+            for i in result {
+                self?.queryMonth.append(i)
             }
+            print(self?.queryMonth)
+            
         }
     }
     

@@ -24,32 +24,41 @@ struct MilkInfo {
      */
 //    let ref: FIRDatabaseReference?
 //    let key: String
-    let cbt: Int?
-    let ccs: Int?
-    let cr: Int?
-    let esd: String?
+    let cbt: Float?
+    let ccs: Float?
+    let cr: Float?
+    let internConsume: Float?
+    let date: String?
+    let esd: Float?
     let empresa: String?
-    let gor: String?
-    let lact: String?
-    let prot: String?
-    let quantidade: Int?
-    let st: String?
+    let hour: String?
+    let gor: Float?
+    let lact: Float?
+    let prot: Float?
+    let lost: Float?
+    let produced: Float?
+    let quantidade: Float?
+    let st: Float?
+    let sold: Float?
     
     
     init(snapshot: FIRDataSnapshot) {
-        //key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        cbt = snapshotValue["CBT"] as? Int
-        ccs = snapshotValue["CCS"] as? Int
-        cr = snapshotValue["CR"] as? Int
-        esd = snapshotValue["ESD"] as? String
+        cbt = snapshotValue["CBT"] as? Float
+        ccs = snapshotValue["CCS"] as? Float
+        cr = snapshotValue["CR"] as? Float
+        internConsume = snapshotValue["ConsumoInterno"] as? Float
+        date = snapshotValue["Data"] as? String
+        esd = snapshotValue["ESD"] as? Float
         empresa = snapshotValue["Empresa"] as? String
-        gor = snapshotValue["GOR"] as? String
-        lact = snapshotValue["LACT"] as? String
-        prot = snapshotValue["PROT"] as? String
-        quantidade = snapshotValue["Quantidade"] as? Int
-        st = snapshotValue["ST"] as? String
-        //ref = snapshot.ref
+        gor = snapshotValue["GOR"] as? Float
+        hour = snapshotValue["Hora"] as? String
+        lact = snapshotValue["LACT"] as? Float
+        prot = snapshotValue["PROT"] as? Float
+        lost = snapshotValue["Perdido"] as? Float
+        produced = snapshotValue["Produzido"] as? Float
+        quantidade = snapshotValue["Quantidade"] as? Float
+        st = snapshotValue["ST"] as? Float
+        sold = snapshotValue["Vendido"] as? Float
     }
-    
 }
