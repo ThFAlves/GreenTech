@@ -11,6 +11,12 @@ import Charts
 import Firebase
 import FirebaseDatabase
 
+struct MilkTotal{
+    var produced: Float?
+    var internConsume: Float?
+    var sold: Float?
+}
+
 class ChartsViewController: UIViewController {
 
     @IBOutlet var detailImageIndicator: [UIImageView]!
@@ -57,8 +63,8 @@ class ChartsViewController: UIViewController {
             i.image = i.image?.imageWithColor(tintColor: .white)
         }
         
-        takeValue(path: "Fazendas/ID/Coleta/2016")
-        loadCharts()
+        takeValue(path: "Fazendas/ID/Coleta/2016/10")
+        
 
     }
     
@@ -69,18 +75,34 @@ class ChartsViewController: UIViewController {
         // Creating a pie chart
         
         //y values for the pie chart
-        let ys1 = Array(1..<5).map { x in return Double(x)}
+        let ys1 = Array(1..<4).map { x in return Double(x)}
+        
+        var total = [00.00,00.00,00.00]
+        
+        for i in queryMonth {
+            total[0] = total[0] + Double(i.produced!)
+            total[1] = total[1] + Double(i.internConsume!)
+            total[2] = total[2] + Double(i.sold!)
+            
+            print(i.produced)
+            print(i.internConsume)
+            print(i.sold)
+        }
+        
+        print(total[0])
+        print(total[1])
+        print(total[2])
         
         //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
-        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
+        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: "1") }
         
         //creating piechartData object
         let data = PieChartData()
         //changing the name label of pie itens
-        yse1[0].label = "Perdido"
-        yse1[1].label = "Consumido"
-        yse1[2].label = "Vendido"
-        yse1[3].label = "Produzido"
+//        yse1[0].label = "Perdido"
+//        yse1[1].label = "Consumido"
+//        yse1[2].label = "Vendido"
+//        yse1[3].label = "Produzido"
         
         // insert the data obj
         let ds1 = PieChartDataSet(values: yse1, label: "Valores")
@@ -160,8 +182,10 @@ class ChartsViewController: UIViewController {
 extension ChartsViewController {
     
     func takeValue(path: String) {
-        service.takeValueFromDatabase(path: path) { result in
-            print(result)
+        service.takeMonthValueFromDatabase(path: path) { [weak self] result in
+            self?.queryMonth = result
+            print(self?.queryMonth)
+            self?.loadCharts()
         }
     }
     

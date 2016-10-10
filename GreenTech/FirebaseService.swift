@@ -15,7 +15,47 @@ class FirebaseService {
     
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
-
+    
+    // DATABASE
+    
+    func takeYearValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
+        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
+            var milkInfo = [MilkInfo]()
+            
+            for month in snap.children {
+                let newValue = month as! FIRDataSnapshot
+                
+                for day in newValue.children {
+                    milkInfo.append(MilkInfo(snapshot: day as! FIRDataSnapshot))
+                }
+            }
+            
+            completionHandler(milkInfo)
+        }
+    }
+    
+    func takeMonthValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
+        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
+            var milkInfo = [MilkInfo]()
+            
+            for day in snap.children {
+                milkInfo.append(MilkInfo(snapshot: day as! FIRDataSnapshot))
+            }
+            
+            completionHandler(milkInfo)
+        }
+    }
+    
+    func takeDayValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
+        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
+            var milkInfo = [MilkInfo]()
+            milkInfo.append(MilkInfo(snapshot: snap))
+            completionHandler(milkInfo)
+        }
+    }
+    
+    // STORAGE
+    
     func uploadDataStorage(_ data: Data, path: String) {
         let imageRef = storageRef.child(path)
         imageRef.put(data, metadata: nil) { metadata, error in
@@ -26,18 +66,6 @@ class FirebaseService {
                 self.saveUrlDatabase(downloadURL!)
                 print(downloadURL)
             }
-        }
-    }
-    
-    func takeValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
-        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
-            var milkInfo = [MilkInfo]()
-            
-            for item in snap.children {
-                milkInfo.append(MilkInfo(snapshot: item as! FIRDataSnapshot))
-            }
-            
-            completionHandler(milkInfo)
         }
     }
     
