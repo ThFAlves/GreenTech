@@ -29,16 +29,8 @@ class FirebaseService {
         }
     }
     
-//    func takeValueFromDatabase(_ id: String, year: String, month: String, day: String, completionHandler: @escaping (MilkInfo) -> ()) {
-//        databaseRef.child("Fazendas").child(id).child("Coleta").child(year).child(month).child(day).observe(.value) { (snap: FIRDataSnapshot) in
-//            let milk = self.createMilkInfoWithSnap(snap)
-//            completionHandler(milk)
-//        }
-//    }
-    
-    
-    func takeMonthValueFromDatabase(_ id: String, year: String, month: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
-        databaseRef.child("Fazendas").child(id).child("Coleta").child(year).child(month).observe(.value) { (snap: FIRDataSnapshot) in
+    func takeValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
+        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
             var milkInfo = [MilkInfo]()
             
             for item in snap.children {
@@ -47,31 +39,6 @@ class FirebaseService {
             
             completionHandler(milkInfo)
         }
-    }
-    
-    
-//    func createMilkInfoWithSnap(_ snap: FIRDataSnapshot) -> MilkInfo{
-//        let newValue = snap.value! as AnyObject
-//        let cbt = unWrap(value: newValue, key: "CBT")
-//        let ccs = unWrap(value: newValue, key: "CCS")
-//        let cr = unWrap(value: newValue, key: "CR")
-//        let esd = unWrap(value: newValue, key: "ESD")
-//        let empresa = unWrap(value: newValue, key: "Empresa")
-//        let gor = unWrap(value: newValue, key: "GOR")
-//        let lact = unWrap(value: newValue, key: "LACT")
-//        let prot = unWrap(value: newValue, key: "PROT")
-//        let quantidade = unWrap(value: newValue, key: "Quantidade")
-//        let st = unWrap(value: newValue, key: "ST")
-//        
-//        let milk = MilkInfo(cbt: cbt,ccs: ccs,cr: cr, esd: esd,empresa: empresa, gor: gor, lact: lact, prot: prot,quantidade: quantidade, st: st)
-//        
-//        return milk
-//    }
-    
-    func unWrap(value: AnyObject, key: String) -> String{
-        let newValue = value.object(forKey: key)! as AnyObject
-        let valueToString = newValue.description!
-        return valueToString
     }
     
     func saveUrlDatabase(_ url: String) {

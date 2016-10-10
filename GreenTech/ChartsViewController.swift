@@ -13,9 +13,6 @@ import FirebaseDatabase
 
 class ChartsViewController: UIViewController {
 
-    
-    
-    
     @IBOutlet var detailImageIndicator: [UIImageView]!
     @IBOutlet weak var pieChartDetailsView: BottonCornerView!
     @IBOutlet weak var lineChartDetaisView: BottonCornerView!
@@ -29,7 +26,6 @@ class ChartsViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
         
         //animate charts wen appear
         self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
@@ -58,13 +54,11 @@ class ChartsViewController: UIViewController {
         
         
         for i in detailImageIndicator{
-        i.image = i.image?.imageWithColor(tintColor: .white)
+            i.image = i.image?.imageWithColor(tintColor: .white)
         }
         
-        
-        
-        
-        takeMonthValue("ID", year: "2016", month: "10")
+        takeValue(path: "Fazendas/ID/Coleta/2016")
+        loadCharts()
 
     }
     
@@ -159,30 +153,16 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.chartDescription?.text = "Produção"
         
     }
-    
-    
-    
 }
 
 // MARK: - Database functions
 
 extension ChartsViewController {
     
-    func takeMonthValue(_ id: String,year: String , month: String) {
-        
-        service.takeMonthValueFromDatabase(id, year: year , month: month) { [weak self] result in
-            for i in result {
-                self?.queryMonth.append(i)
-            }
-            
-            self?.loadCharts()
+    func takeValue(path: String) {
+        service.takeValueFromDatabase(path: path) { result in
+            print(result)
         }
     }
     
 }
-
-
-
- 
-    
-
