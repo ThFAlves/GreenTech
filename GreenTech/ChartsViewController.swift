@@ -78,23 +78,17 @@ class ChartsViewController: UIViewController {
         let ys1 = Array(1..<4).map { x in return Double(x)}
         
         var total = [00.00,00.00,00.00]
+        var pieChartLabel = ["Comercializado","Consumo","Descartado",]
         
         for i in queryMonth {
-            total[0] = total[0] + Double(i.produced!)
-            total[1] = total[1] + Double(i.internConsume!)
-            total[2] = total[2] + Double(i.sold!)
-            
-            print(i.produced)
-            print(i.internConsume)
-            print(i.sold)
+            total[0] += Double(i.sold!)
+            total[1] += Double(i.internConsume!)
+            total[2] += Double(i.lost!)
         }
-        
-        print(total[0])
-        print(total[1])
-        print(total[2])
+
         
         //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
-        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: "1") }
+        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
         
         //creating piechartData object
         let data = PieChartData()
@@ -105,7 +99,7 @@ class ChartsViewController: UIViewController {
 //        yse1[3].label = "Produzido"
         
         // insert the data obj
-        let ds1 = PieChartDataSet(values: yse1, label: "Valores")
+        let ds1 = PieChartDataSet(values: yse1, label: "")
         
         ds1.colors = ChartColorTemplates.material()
         
@@ -120,7 +114,7 @@ class ChartsViewController: UIViewController {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.alignment = .center
-        let centerText = NSMutableAttributedString(string: "Produção")
+        let centerText = NSMutableAttributedString(string: "Litros")
         
         self.PieChartGraphic.centerAttributedText = centerText
         self.PieChartGraphic.holeRadiusPercent = 0.35
@@ -136,16 +130,37 @@ class ChartsViewController: UIViewController {
         //MARK: - line chart
         
         
-        let xs1Line = Array(1..<31)
-        let ys1Line = [385, 386, 380, 370, 400, 390, 400, 380, 355, 370, 380, 370, 383, 370, 380, 370, 386, 380, 380, 380, 390, 400, 380, 385, 370, 380, 380, 375, 380, 385, 380, 380]
-        var se1Line: [ChartDataEntry] = []
         
-        for i in 1..<xs1Line.count {
-            
-            se1Line.append(ChartDataEntry(x: Double(xs1Line[i]), y: Double(ys1Line[i])))
+        
+        
+//        var xs1Line = Array(1..<31)
+        var ys1Line = [385, 386, 380]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
+        
+        for i in queryMonth {
+            xs1Line.append(dateFormatter.date(from: i.date!)!)
+            print(i.date)
         }
         
-        //        let se1Line = xs1Line.enumerated().map { xs1Line, ys1Line in return ChartDataEntry(x: Double(xs1Line), y: Double(ys1Line))
+        
+        
+       // var ys1Line: [Float] = []
+        
+        
+        var se1Line: [ChartDataEntry] = []
+        
+        
+        let calendar = Calendar.current
+        
+        
+        for i in 0..<xs1Line.count {
+            let day = calendar.component(.day, from: xs1Line[i])
+            print(day)
+            se1Line.append(ChartDataEntry(x: Double(day), y: Double(ys1Line[i])))
+        }
         
         
         let dataLine = LineChartData()
@@ -157,6 +172,7 @@ class ChartsViewController: UIViewController {
         ds1Line.circleRadius = 3
         ds1Line.circleHoleRadius = 0
         ds1Line.drawFilledEnabled = true
+        //ds1Line.
         ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
         ds1Line.drawValuesEnabled = false
         ds1Line.lineWidth = 1
@@ -184,7 +200,6 @@ extension ChartsViewController {
     func takeValue(path: String) {
         service.takeMonthValueFromDatabase(path: path) { [weak self] result in
             self?.queryMonth = result
-            print(self?.queryMonth)
             self?.loadCharts()
         }
     }
