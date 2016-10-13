@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F181DAFB9000035BB45 /* SharedConstants.swift */; };
+		1EB09F1E1DAFBD410035BB45 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */; };
+		1EB09F201DAFBD560035BB45 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */; };
 		2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */; };
 		2A2DD1931D99A10C009A0C67 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1921D99A10C009A0C67 /* Constraint.swift */; };
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
@@ -93,6 +96,9 @@
 
 /* Begin PBXFileReference section */
 		0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
+		1EB09F181DAFB9000035BB45 /* SharedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		23EB1C8214EF2D61D2E7F4ED /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
 		2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColor.swift; sourceTree = "<group>"; };
 		2A2DD1921D99A10C009A0C67 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
@@ -156,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EB09F1C1DAFBD210035BB45 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */,
+				1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
 		28CE277521F4D5D468D541F4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +232,7 @@
 		D19527621D5CE4A20031BF13 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1EB09F181DAFB9000035BB45 /* SharedConstants.swift */,
 				D1DA48301D5A5BCE00D74063 /* AppDelegate.swift */,
 				D1DA483A1D5A5BCE00D74063 /* Assets.xcassets */,
 				D1DA483C1D5A5BCE00D74063 /* LaunchScreen.storyboard */,
@@ -253,6 +269,7 @@
 		D19527651D5CE55F0031BF13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1EB09F1C1DAFBD210035BB45 /* Calendar */,
 				D161EF521D90E58400004ED8 /* SettingsViewController.swift */,
 				D18FE30C1D8F062000245845 /* CalendarMilkViewController.swift */,
 				D1E9C3B71D5E62B100A45FC7 /* ResetPasswordViewController.swift */,
@@ -544,11 +561,13 @@
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */,
+				1EB09F1E1DAFBD410035BB45 /* CalendarViewController.swift in Sources */,
 				CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */,
 				CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
 				D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */,
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
+				1EB09F201DAFBD560035BB45 /* SpinnerViewController.swift in Sources */,
 				D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */,
 				2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */,
 				CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */,
@@ -557,6 +576,7 @@
 				CA831B2E1DA6D5C8003B64AE /* MonthInfo.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
+				1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */,
 				D1E66AF41D8D93F2007D1A10 /* MilkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

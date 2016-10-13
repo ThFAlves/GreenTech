@@ -18,7 +18,7 @@ struct MilkTotal{
 }
 
 class ChartsViewController: UIViewController {
-
+    
     @IBOutlet var detailImageIndicator: [UIImageView]!
     @IBOutlet weak var pieChartDetailsView: BottonCornerView!
     @IBOutlet weak var lineChartDetaisView: BottonCornerView!
@@ -27,7 +27,7 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
     let service  = FirebaseService()
-
+    
     var queryMonth: [MilkInfo] = []
     
     
@@ -42,7 +42,7 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         
         //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
@@ -65,7 +65,7 @@ class ChartsViewController: UIViewController {
         
         takeValue(path: "Fazendas/ID/Coleta/2016/10")
         
-
+        
     }
     
     func loadCharts(){
@@ -85,7 +85,7 @@ class ChartsViewController: UIViewController {
             total[1] += Double(i.internConsume!)
             total[2] += Double(i.lost!)
         }
-
+        
         
         //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
@@ -93,10 +93,10 @@ class ChartsViewController: UIViewController {
         //creating piechartData object
         let data = PieChartData()
         //changing the name label of pie itens
-//        yse1[0].label = "Perdido"
-//        yse1[1].label = "Consumido"
-//        yse1[2].label = "Vendido"
-//        yse1[3].label = "Produzido"
+        //        yse1[0].label = "Perdido"
+        //        yse1[1].label = "Consumido"
+        //        yse1[2].label = "Vendido"
+        //        yse1[3].label = "Produzido"
         
         // insert the data obj
         let ds1 = PieChartDataSet(values: yse1, label: "")
@@ -133,7 +133,7 @@ class ChartsViewController: UIViewController {
         
         
         
-//        var xs1Line = Array(1..<31)
+        //        var xs1Line = Array(1..<31)
         var ys1Line = [385, 386, 380]
         
         let dateFormatter = DateFormatter()
@@ -147,7 +147,7 @@ class ChartsViewController: UIViewController {
         
         
         
-       // var ys1Line: [Float] = []
+        // var ys1Line: [Float] = []
         
         
         var se1Line: [ChartDataEntry] = []
@@ -191,7 +191,29 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.chartDescription?.text = "Produção"
         
     }
+    
+    // MARK - Actions
+    
+    @IBAction func didSelectEditCalendar(_ sender: AnyObject) {
+        
+        switch(segmentedViewOutlet.selectedSegmentIndex){
+            
+        case 0 :
+            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+            break;
+        case 1:
+            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+            break;
+        default:
+            performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
+            break;
+        }
+    }
 }
+
+
+
+
 
 // MARK: - Database functions
 
