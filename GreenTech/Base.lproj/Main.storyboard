@@ -1262,15 +1262,18 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv7-o1-Wdp">
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAE-r9-kDz"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-5F-iui">
+                                                <date key="date" timeIntervalSinceReferenceDate="498067162.69060498">
+                                                    <!--2016-10-13 15:59:22 +0000-->
+                                                </date>
+                                            </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" red="0.039215686270000001" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="CAE-r9-kDz" secondAttribute="bottom" id="3dc-Lg-LcX"/>
-                                            <constraint firstItem="CAE-r9-kDz" firstAttribute="leading" secondItem="hv7-o1-Wdp" secondAttribute="leading" id="6L6-YV-cWI"/>
-                                            <constraint firstItem="CAE-r9-kDz" firstAttribute="top" secondItem="hv7-o1-Wdp" secondAttribute="top" id="ZZT-Cr-uiN"/>
-                                            <constraint firstItem="CAE-r9-kDz" firstAttribute="centerY" secondItem="hv7-o1-Wdp" secondAttribute="centerY" id="dav-x0-Slv"/>
-                                            <constraint firstAttribute="trailing" secondItem="CAE-r9-kDz" secondAttribute="trailing" id="v3k-d9-LrD"/>
+                                            <constraint firstItem="ZwE-5F-iui" firstAttribute="top" secondItem="hv7-o1-Wdp" secondAttribute="top" id="6vo-pD-VnR"/>
+                                            <constraint firstItem="ZwE-5F-iui" firstAttribute="leading" secondItem="hv7-o1-Wdp" secondAttribute="leading" id="E35-3Z-Wtf"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZwE-5F-iui" secondAttribute="bottom" id="EcJ-x5-BAh"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZwE-5F-iui" secondAttribute="trailing" id="ma2-v4-8xe"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bra-8D-uRv">
@@ -1286,14 +1289,18 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-9c-9wC">
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-nc-2f8"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4EF-Rh-91f">
+                                                <date key="date" timeIntervalSinceReferenceDate="498067190.06491101">
+                                                    <!--2016-10-13 15:59:50 +0000-->
+                                                </date>
+                                            </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.56470588239999997" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="4dt-nc-2f8" firstAttribute="top" secondItem="dSW-9c-9wC" secondAttribute="top" id="9us-uN-LFg"/>
-                                            <constraint firstItem="4dt-nc-2f8" firstAttribute="leading" secondItem="dSW-9c-9wC" secondAttribute="leading" id="U2L-kE-X4d"/>
-                                            <constraint firstAttribute="bottom" secondItem="4dt-nc-2f8" secondAttribute="bottom" id="bNB-9y-DMz"/>
-                                            <constraint firstAttribute="trailing" secondItem="4dt-nc-2f8" secondAttribute="trailing" id="ouz-i8-VMW"/>
+                                            <constraint firstAttribute="trailing" secondItem="4EF-Rh-91f" secondAttribute="trailing" id="7uX-ig-GVy"/>
+                                            <constraint firstAttribute="bottom" secondItem="4EF-Rh-91f" secondAttribute="bottom" id="84z-CE-knv"/>
+                                            <constraint firstItem="4EF-Rh-91f" firstAttribute="leading" secondItem="dSW-9c-9wC" secondAttribute="leading" id="V85-cp-8PD"/>
+                                            <constraint firstItem="4EF-Rh-91f" firstAttribute="top" secondItem="dSW-9c-9wC" secondAttribute="top" id="gBv-1l-r5g"/>
                                         </constraints>
                                     </view>
                                 </subviews>
