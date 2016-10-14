@@ -82,9 +82,15 @@ class ChartsViewController: UIViewController {
         
 
         for i in queryMonth {
-            total[0] += Double(i.sold!)
-            total[1] += Double(i.internConsume!)
-            total[2] += Double(i.lost!)
+            if let sold = i.sold {
+                total[0] += Double(sold)
+            }
+            if let intern = i.internConsume {
+                total[1] += Double(intern)
+            }
+            if let lost = i.lost {
+                total[2] += Double(lost)
+            }
         }
         
         
@@ -140,21 +146,17 @@ class ChartsViewController: UIViewController {
         }
         
         
-        
-        // var ys1Line: [Float] = []
-        
-        
-        var se1Line: [ChartDataEntry] = []
-        
-        
         let calendar = Calendar.current
         
         
-        for i in 0..<xs1Line.count {
-            let day = calendar.component(.day, from: xs1Line[i])
-            print(day)
-            se1Line.append(ChartDataEntry(x: Double(day), y: Double(queryMonth[i].produced!)))
-
+        
+        let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
+            if let produced = queryMonth[indiceX].produced {
+                return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
+            }
+            return ChartDataEntry()
+            
+//            indiceX, indiceY in ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(queryMonth[indiceX].produced))
         }
         
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
@@ -193,15 +195,31 @@ class ChartsViewController: UIViewController {
             
         case 0 :
             performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
-            break;
+            break
         case 1:
             performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
-            break;
+            break
         default:
             performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
-            break;
+            break
         }
     }
+    
+    @IBAction func segmentControlAction(_ sender: AnyObject) {
+        switch(segmentedViewOutlet.selectedSegmentIndex){
+            
+        case 0 :
+            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+            break
+        case 1:
+            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+            break
+        default:
+            performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
+            break
+        }
+    }
+    
 }
 
 
