@@ -78,8 +78,9 @@ class ChartsViewController: UIViewController {
         let ys1 = Array(1..<4).map { x in return Double(x)}
         
         var total = [00.00,00.00,00.00]
-        var pieChartLabel = ["Comercializado","Consumo","Descartado",]
+        var pieChartLabel = ["Comercializado","Consumo","Descartado"]
         
+
         for i in queryMonth {
             total[0] += Double(i.sold!)
             total[1] += Double(i.internConsume!)
@@ -129,13 +130,6 @@ class ChartsViewController: UIViewController {
         
         //MARK: - line chart
         
-        
-        
-        
-        
-        //        var xs1Line = Array(1..<31)
-        var ys1Line = [385, 386, 380]
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
@@ -159,10 +153,12 @@ class ChartsViewController: UIViewController {
         for i in 0..<xs1Line.count {
             let day = calendar.component(.day, from: xs1Line[i])
             print(day)
-            se1Line.append(ChartDataEntry(x: Double(day), y: Double(ys1Line[i])))
+            se1Line.append(ChartDataEntry(x: Double(day), y: Double(queryMonth[i].produced!)))
+
         }
         
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
+        
         ds1Line.colors = [NSUIColor.black]
         ds1Line.drawCirclesEnabled = true
         ds1Line.circleColors = [NSUIColor.black]
@@ -170,7 +166,7 @@ class ChartsViewController: UIViewController {
         ds1Line.circleHoleRadius = 0
         ds1Line.drawFilledEnabled = true
         ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
-        ds1Line.drawValuesEnabled = false
+        ds1Line.drawValuesEnabled = true
         ds1Line.lineWidth = 1
         ds1Line.mode = .linear
         
@@ -182,6 +178,7 @@ class ChartsViewController: UIViewController {
         
         self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
         self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
+        self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
@@ -218,6 +215,7 @@ extension ChartsViewController {
     func takeValue(path: String) {
         service.takeMonthValueFromDatabase(path: path) { [weak self] result in
             self?.queryMonth = result
+            //print(result)
             self?.loadCharts()
         }
     }
