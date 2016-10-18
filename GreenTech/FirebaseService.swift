@@ -18,40 +18,43 @@ class FirebaseService {
     
     // DATABASE
     
-    func takeYearValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
+    func takeValueFromDatabase(path: String, queryType: QueryType, completionHandler: @escaping ([MilkInfo]) -> ()) {
         databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
             var milkInfo = [MilkInfo]()
             
-            for month in snap.children {
-                let newValue = month as! FIRDataSnapshot
-                
-                for day in newValue.children {
-                    milkInfo.append(MilkInfo(snapshot: day as! FIRDataSnapshot))
+            switch queryType {
+            
+            case .Day:
+                milkInfo.append(MilkInfo(snapshot: snap))
+                break;
+            case .Week:
+                milkInfo = self.getMilkDayFromDatabase(days: snap)
+                break;
+            case .Month:
+                milkInfo = self.getMilkDayFromDatabase(days: snap)
+                break;
+            case .Year:
+                for month in snap.children {
+                    let newValue = month as! FIRDataSnapshot
+                    milkInfo += self.getMilkDayFromDatabase(days: newValue)
                 }
+                break;
+            default:
+                break;
             }
-            
             completionHandler(milkInfo)
         }
     }
     
-    func takeMonthValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
-        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
-            var milkInfo = [MilkInfo]()
-            
-            for day in snap.children {
-                milkInfo.append(MilkInfo(snapshot: day as! FIRDataSnapshot))
-            }
-            
-            completionHandler(milkInfo)
+    func getMilkDayFromDatabase(days: FIRDataSnapshot) -> [MilkInfo]{
+        var milkInfo = [MilkInfo]()
+       
+        for day in days.children {
+            milkInfo.append(MilkInfo(snapshot: day as! FIRDataSnapshot))
         }
-    }
+        
+        return milkInfo
     
-    func takeDayValueFromDatabase(path: String, completionHandler: @escaping ([MilkInfo]) -> ()) {
-        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
-            var milkInfo = [MilkInfo]()
-            milkInfo.append(MilkInfo(snapshot: snap))
-            completionHandler(milkInfo)
-        }
     }
     
     // STORAGE
