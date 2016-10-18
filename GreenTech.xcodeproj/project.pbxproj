@@ -17,15 +17,11 @@
 		CA11C5661DA2E1C9003183B4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */; };
-<<<<<<< HEAD
-=======
 		CA831B2E1DA6D5C8003B64AE /* MonthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA831B2D1DA6D5C8003B64AE /* MonthInfo.swift */; };
->>>>>>> 4255c23517baac4dac6937abd8daa3c1cac9741c
 		CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
 		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
-		D113CA9B1DB53C1C00235A86 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CA9A1DB53C1C00235A86 /* QueryType.swift */; };
 		D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04111D81EBC300871F52 /* FirebaseService.swift */; };
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161EF521D90E58400004ED8 /* SettingsViewController.swift */; };
@@ -115,15 +111,11 @@
 		CA11C5591DA2E1B4003183B4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottonCornerView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		CA831B2D1DA6D5C8003B64AE /* MonthInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthInfo.swift; sourceTree = "<group>"; };
->>>>>>> 4255c23517baac4dac6937abd8daa3c1cac9741c
 		CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
-		D113CA9A1DB53C1C00235A86 /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
 		D15C04111D81EBC300871F52 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		D161EF521D90E58400004ED8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -255,14 +247,11 @@
 		D19527631D5CE5500031BF13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				D113CA9A1DB53C1C00235A86 /* QueryType.swift */,
-=======
->>>>>>> 4255c23517baac4dac6937abd8daa3c1cac9741c
 				D18FE3061D8E35F700245845 /* VerifyConnection.swift */,
 				D1E66AF11D8D9302007D1A10 /* MilkInfo.swift */,
 				2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */,
 				2A2DD1921D99A10C009A0C67 /* Constraint.swift */,
+				CA831B2D1DA6D5C8003B64AE /* MonthInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -386,7 +375,7 @@
 				TargetAttributes = {
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = C8J2C4B338;
+						DevelopmentTeam = BJ8A63KNJ9;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -576,10 +565,6 @@
 				CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */,
 				CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,
-<<<<<<< HEAD
-				D113CA9B1DB53C1C00235A86 /* QueryType.swift in Sources */,
-=======
->>>>>>> 4255c23517baac4dac6937abd8daa3c1cac9741c
 				D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */,
 				D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */,
 				1EB09F201DAFBD560035BB45 /* SpinnerViewController.swift in Sources */,
@@ -588,6 +573,7 @@
 				CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
+				CA831B2E1DA6D5C8003B64AE /* MonthInfo.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
 				1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */,
@@ -724,7 +710,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = C8J2C4B338;
+				DEVELOPMENT_TEAM = BJ8A63KNJ9;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
@@ -744,7 +730,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = C8J2C4B338;
+				DEVELOPMENT_TEAM = BJ8A63KNJ9;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
