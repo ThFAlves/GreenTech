@@ -63,16 +63,18 @@ class ChartsViewController: UIViewController {
             i.image = i.image?.imageWithColor(tintColor: .white)
         }
         
-        takeValue(path: "Fazendas/ID/Coleta/2016/10")
-        
+        takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
         
     }
     
-    func loadCharts(){
-        
-        print(queryMonth)
-        // MARK: - Pie Chart
-        // Creating a pie chart
+    func loadAllCharts(){
+        loadPieCharts()
+        loadLineCharts()
+    }
+    
+    // MARK: - Pie Chart
+    
+    func loadPieCharts() {
         
         //y values for the pie chart
         let ys1 = Array(1..<4).map { x in return Double(x)}
@@ -80,7 +82,7 @@ class ChartsViewController: UIViewController {
         var total = [00.00,00.00,00.00]
         var pieChartLabel = ["Comercializado","Consumo","Descartado"]
         
-
+        
         for i in queryMonth {
             if let sold = i.sold {
                 total[0] += Double(sold)
@@ -99,11 +101,6 @@ class ChartsViewController: UIViewController {
         
         //creating piechartData object
         let data = PieChartData()
-        //changing the name label of pie itens
-        //        yse1[0].label = "Perdido"
-        //        yse1[1].label = "Consumido"
-        //        yse1[2].label = "Vendido"
-        //        yse1[3].label = "Produzido"
         
         // insert the data obj
         let ds1 = PieChartDataSet(values: yse1, label: "")
@@ -130,33 +127,33 @@ class ChartsViewController: UIViewController {
         self.PieChartGraphic.data = data
         
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
+    }
+    
+    //MARK: - line chart
+    
+    func loadLineCharts() {
         
-        
-        
-        
-        //MARK: - line chart
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
         
-        for i in queryMonth {
-            xs1Line.append(dateFormatter.date(from: i.date!)!)
-            print(i.date)
+        // Dates from database in xs1Line
+        var xs1Line = queryMonth.enumerated().map { indiceX, indiceY -> Date in
+            if let date = queryMonth[indiceX].date {
+                if let dateFormat = dateFormatter.date(from: date) {
+                    return dateFormat
+                }
+            }
+            return Date()
         }
         
-        
         let calendar = Calendar.current
-        
-        
         
         let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
             if let produced = queryMonth[indiceX].produced {
                 return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
             }
             return ChartDataEntry()
-            
-//            indiceX, indiceY in ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(queryMonth[indiceX].produced))
         }
         
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
@@ -170,10 +167,10 @@ class ChartsViewController: UIViewController {
         ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
         ds1Line.drawValuesEnabled = true
         ds1Line.lineWidth = 1
-        ds1Line.mode = .linear
+        ds1Line.mode = .stepped
         
         let dataLine = LineChartData(dataSet: ds1Line)
-
+        
         self.lineChartGraphic.data = dataLine
         self.lineChartGraphic.data?.highlightEnabled = false
         self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
@@ -184,7 +181,6 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
-        
     }
     
     // MARK - Actions
@@ -208,33 +204,35 @@ class ChartsViewController: UIViewController {
     @IBAction func segmentControlAction(_ sender: AnyObject) {
         switch(segmentedViewOutlet.selectedSegmentIndex){
             
-        case 0 :
-            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+        case 0:
+            takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
             break
         case 1:
-            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
+            takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
+            break
+        case 2:
+            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
+            break
+        case 3:
+            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
             break
         default:
-            performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
-            break
+            break;
         }
+
+        loadAllCharts()
     }
     
 }
-
-
-
-
 
 // MARK: - Database functions
 
 extension ChartsViewController {
     
-    func takeValue(path: String) {
-        service.takeMonthValueFromDatabase(path: path) { [weak self] result in
+    func takeValue(path: String, queryType: QueryType) {
+        service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.queryMonth = result
-            //print(result)
-            self?.loadCharts()
+            self?.loadAllCharts()
         }
     }
     
