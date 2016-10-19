@@ -28,7 +28,7 @@ class FirebaseService {
                 milkInfo.append(MilkInfo(snapshot: snap))
                 break;
             case .Week:
-                milkInfo = self.getMilkDayFromDatabase(days: snap)
+                milkInfo.append(MilkInfo(snapshot: snap))
                 break;
             case .Month:
                 milkInfo = self.getMilkDayFromDatabase(days: snap)
@@ -56,6 +56,7 @@ class FirebaseService {
         return milkInfo
     
     }
+
     
     // STORAGE
     

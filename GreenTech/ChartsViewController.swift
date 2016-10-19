@@ -68,14 +68,16 @@ class ChartsViewController: UIViewController {
             i.image = i.image?.imageWithColor(tintColor: .white)
         }
         
-        takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
-        
+        //takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
+        getWeekValues()
     }
+
     
     func loadAllCharts(queryType: QueryType) {
         switch queryType {
         case .Day:
             loadPieChart()
+            
             self.lineChartGraphic.isHidden = true
             lineChartDetailViewTopSpaceConstraint.constant = -268
         case .Month:
@@ -256,6 +258,29 @@ extension ChartsViewController {
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.queryMonth = result
             self?.loadAllCharts(queryType: queryType)
+        }
+    }
+    
+    func getWeekValues() {
+        var date = Date()
+        let calendar = Calendar.current
+        var countDays = 6
+        while(countDays >= 0) {
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            
+            
+            let path = "Fazendas/ID/Coleta/\(day)/\(month)/\(year)"
+            print(path)
+            
+            service.takeValueFromDatabase(path: path, queryType: .Day) { [weak self] result in
+                self?.queryMonth += result
+                self?.loadAllCharts(queryType: .Day)
+            }
+            
+            date = calendar.date(byAdding: .day, value: -1, to: date)!
+            countDays -= 1
         }
     }
     
