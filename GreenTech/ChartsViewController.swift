@@ -68,18 +68,25 @@ class ChartsViewController: UIViewController {
             i.image = i.image?.imageWithColor(tintColor: .white)
         }
         
-        //takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
-        getWeekValues()
+        takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
 
     
     func loadAllCharts(queryType: QueryType) {
         switch queryType {
         case .Day:
-            loadPieChart()
             
+            loadPieChart()
             self.lineChartGraphic.isHidden = true
-            lineChartDetailViewTopSpaceConstraint.constant = -268
+            lineChartDetailViewTopSpaceConstraint.constant = -285
+            
+        case .Week:
+            
+            loadPieChart()
+            loadLineChart()
+            self.lineChartGraphic.isHidden = false
+            lineChartDetailViewTopSpaceConstraint.constant = -5
+            
         case .Month:
             
             loadPieChart()
@@ -87,8 +94,6 @@ class ChartsViewController: UIViewController {
             self.lineChartGraphic.isHidden = false
             lineChartDetailViewTopSpaceConstraint.constant = -5
 
-
-            
         default:
           break
         }
@@ -177,8 +182,6 @@ class ChartsViewController: UIViewController {
                 return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
             }
             return ChartDataEntry()
-            
-            //            indiceX, indiceY in ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(queryMonth[indiceX].produced))
         }
         
         let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
@@ -231,10 +234,10 @@ class ChartsViewController: UIViewController {
         switch(segmentedViewOutlet.selectedSegmentIndex){
             
         case 0 :
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
+            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
             break
         case 1:
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Day)
+            getWeekValues(day: "07/10/2016")
             break
         case 2:
             takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
@@ -243,7 +246,6 @@ class ChartsViewController: UIViewController {
             takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
             break
         default:
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/01", queryType: .Month)
             break
         }
     }
@@ -261,25 +263,26 @@ extension ChartsViewController {
         }
     }
     
-    func getWeekValues() {
-        var date = Date()
+    func getWeekValues(day: String) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        var date = dateFormatter.date(from: day)
         let calendar = Calendar.current
         var countDays = 6
         while(countDays >= 0) {
-            let day = calendar.component(.day, from: date)
-            let month = calendar.component(.month, from: date)
-            let year = calendar.component(.year, from: date)
+            let day = calendar.component(.day, from: date!)
+            let month = calendar.component(.month, from: date!)
+            let year = calendar.component(.year, from: date!)
             
             
-            let path = "Fazendas/ID/Coleta/\(day)/\(month)/\(year)"
-            print(path)
-            
-            service.takeValueFromDatabase(path: path, queryType: .Day) { [weak self] result in
+            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day)"
+            service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
                 self?.queryMonth += result
-                self?.loadAllCharts(queryType: .Day)
+                self?.loadAllCharts(queryType: .Week)
             }
             
-            date = calendar.date(byAdding: .day, value: -1, to: date)!
+            date = calendar.date(byAdding: .day, value: -1, to: date!)!
             countDays -= 1
         }
     }
