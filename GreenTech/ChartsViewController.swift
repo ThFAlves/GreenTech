@@ -19,6 +19,8 @@ struct MilkTotal{
 
 class ChartsViewController: UIViewController {
     
+    @IBOutlet weak var ProductionViewInDayTab: UIView!
+    @IBOutlet weak var lineChartDetailViewTopSpaceConstraint: NSLayoutConstraint!
     @IBOutlet var detailImageIndicator: [UIImageView]!
     @IBOutlet weak var pieChartDetailsView: BottonCornerView!
     @IBOutlet weak var lineChartDetaisView: BottonCornerView!
@@ -47,7 +49,7 @@ class ChartsViewController: UIViewController {
         //make the segmented view upon other views
         segmentedViewOutlet.layer.zPosition = 1
         
-        
+        //create a color in detail views
         lineChartDetaisView.color = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0)
         pieChartDetailsView.color = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
         
@@ -57,6 +59,9 @@ class ChartsViewController: UIViewController {
         
         self.lineChartGraphic.layer.borderWidth = 1
         self.lineChartGraphic.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
+        
+        ProductionViewInDayTab.layer.borderWidth = 1
+        ProductionViewInDayTab.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
         
         
         for i in detailImageIndicator{
@@ -72,10 +77,16 @@ class ChartsViewController: UIViewController {
         case .Day:
             loadPieChart()
             self.lineChartGraphic.isHidden = true
-            lineChartDetaisView.isHidden = true
+            lineChartDetailViewTopSpaceConstraint.constant = -268
         case .Month:
+            
             loadPieChart()
             loadLineChart()
+            self.lineChartGraphic.isHidden = false
+            lineChartDetailViewTopSpaceConstraint.constant = -5
+
+
+            
         default:
           break
         }
