@@ -30,9 +30,8 @@ class ChartsViewController: UIViewController {
     
     let service  = FirebaseService()
     
-    var queryMonth: [MilkInfo] = []
-    var contReload = 0
-    
+    var milksInfo: [MilkInfo] = []
+
     override func viewWillAppear(_ animated: Bool) {
         
         //animate charts wen appear
@@ -111,7 +110,7 @@ class ChartsViewController: UIViewController {
         var pieChartLabel = ["Comercializado","Consumo","Descartado"]
         
         
-        for i in queryMonth {
+        for i in milksInfo {
             if let sold = i.sold {
                 total[0] += Double(sold)
             }
@@ -122,9 +121,7 @@ class ChartsViewController: UIViewController {
                 total[2] += Double(lost)
             }
         }
-        
-        print(total[0])
-        
+    
         //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
         
@@ -168,7 +165,7 @@ class ChartsViewController: UIViewController {
         var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
     
     
-        for i in queryMonth {
+        for i in milksInfo {
             xs1Line.append(dateFormatter.date(from: i.date!)!)
         }
         
@@ -176,7 +173,7 @@ class ChartsViewController: UIViewController {
         let calendar = Calendar.current
         
         let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
-            if let produced = queryMonth[indiceX].produced {
+            if let produced = milksInfo[indiceX].produced {
                 return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
             }
             return ChartDataEntry()
@@ -256,43 +253,58 @@ extension ChartsViewController {
     
     func takeValue(path: String, queryType: QueryType) {
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
-            self?.queryMonth = result
+            self?.milksInfo = result
             self?.loadAllCharts(queryType: queryType)
         }
     }
     
     func getWeekValues(day: String) {
-        queryMonth.removeAll()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        var date = dateFormatter.date(from: day)
+        milksInfo.removeAll()
+        var date = getFormattedDay(day: day)
         let calendar = Calendar.current
         
-        var countDays = 6
-        
         let group = DispatchGroup()
-        while(countDays >= 0) {
-            let day = calendar.component(.day, from: date!)
-            let month = calendar.component(.month, from: date!)
-            let year = calendar.component(.year, from: date!)
-            
-            
-            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day)"
+        for _ in 0..<7 {
+            let dateString = dateToString(calendar: calendar, date: date)
+            let path = getPathFromDate(dateString: dateString)
 
             group.enter()
             service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
-                self?.queryMonth += result
+                self?.milksInfo += result
                 group.leave()
             }
             
-            date = calendar.date(byAdding: .day, value: -1, to: date!)!
-            countDays -= 1
+            date = decreaseDate(calendar: calendar, date: date)
         }
         
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
-            self?.queryMonth = (self?.queryMonth.sorted { $0.date! < $1.date! })!
+            self?.milksInfo = (self?.milksInfo.sorted { $0.date! < $1.date! })!
             self?.loadAllCharts(queryType: .Week)
         }
     }
     
+    func getFormattedDay(day: String) -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        if let day = dateFormatter.date(from: day) {
+            return day
+        }
+        return Date()
+    }
+    
+    func dateToString(calendar: Calendar, date: Date) -> String {
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let dayFormatted = String(format: "%.2d", day)
+        return "\(year)/\(month)/\(dayFormatted)"
+    }
+    
+    func getPathFromDate(dateString: String) -> String {
+        return "Fazendas/ID/Coleta/\(dateString)"
+    }
+    
+    func decreaseDate(calendar: Calendar, date: Date) -> Date{
+        return calendar.date(byAdding: .day, value: -1, to: date)!
+    }
 }
