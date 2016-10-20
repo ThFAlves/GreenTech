@@ -277,7 +277,7 @@ extension ChartsViewController {
             let year = calendar.component(.year, from: date!)
             
             
-            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day.)"
+            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day)"
 
             group.enter()
             service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
