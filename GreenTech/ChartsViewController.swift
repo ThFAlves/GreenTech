@@ -31,7 +31,7 @@ class ChartsViewController: UIViewController {
     let service  = FirebaseService()
     
     var queryMonth: [MilkInfo] = []
-    
+    var contReload = 0
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -123,6 +123,7 @@ class ChartsViewController: UIViewController {
             }
         }
         
+        print(total[0])
         
         //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
@@ -162,20 +163,17 @@ class ChartsViewController: UIViewController {
     
     func loadLineChart() {
         
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
-        
+    
+    
         for i in queryMonth {
             xs1Line.append(dateFormatter.date(from: i.date!)!)
-            print(i.date)
         }
         
         
         let calendar = Calendar.current
-        
-        
         
         let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
             if let produced = queryMonth[indiceX].produced {
@@ -205,7 +203,7 @@ class ChartsViewController: UIViewController {
         
         self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
         self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
-        self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
+        //self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
@@ -264,26 +262,36 @@ extension ChartsViewController {
     }
     
     func getWeekValues(day: String) {
-        
+        queryMonth.removeAll()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         var date = dateFormatter.date(from: day)
         let calendar = Calendar.current
+        
         var countDays = 6
+        
+        let group = DispatchGroup()
         while(countDays >= 0) {
             let day = calendar.component(.day, from: date!)
             let month = calendar.component(.month, from: date!)
             let year = calendar.component(.year, from: date!)
             
             
-            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day)"
+            let path = "Fazendas/ID/Coleta/\(year)/\(month)/0\(day.)"
+
+            group.enter()
             service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
                 self?.queryMonth += result
-                self?.loadAllCharts(queryType: .Week)
+                group.leave()
             }
             
             date = calendar.date(byAdding: .day, value: -1, to: date!)!
             countDays -= 1
+        }
+        
+        group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
+            self?.queryMonth = (self?.queryMonth.sorted { $0.date! < $1.date! })!
+            self?.loadAllCharts(queryType: .Week)
         }
     }
     
