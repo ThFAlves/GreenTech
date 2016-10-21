@@ -11,12 +11,6 @@ import Charts
 import Firebase
 import FirebaseDatabase
 
-struct MilkTotal{
-    var produced: Float?
-    var internConsume: Float?
-    var sold: Float?
-}
-
 class ChartsViewController: UIViewController {
     
     @IBOutlet weak var ProductionViewInDayTab: UIView!
@@ -29,184 +23,22 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
     let service  = FirebaseService()
-    
-    var milksInfo: [MilkInfo] = []
+    let dateStringFunctions = DateString()
+    var milksInfo = [MilkInfo]()
 
     override func viewWillAppear(_ animated: Bool) {
-        
         //animate charts wen appear
         self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         self.lineChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //make the segmented view upon other views
-        segmentedViewOutlet.layer.zPosition = 1
-        
-        //create a color in detail views
-        lineChartDetaisView.color = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0)
-        pieChartDetailsView.color = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
-        
-        //criate a border of charts views
-        self.PieChartGraphic.layer.borderWidth = 1
-        self.PieChartGraphic.layer.borderColor = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1).cgColor
-        
-        self.lineChartGraphic.layer.borderWidth = 1
-        self.lineChartGraphic.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
-        
-        ProductionViewInDayTab.layer.borderWidth = 1
-        ProductionViewInDayTab.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
-        
-        
-        for i in detailImageIndicator{
-            i.image = i.image?.imageWithColor(tintColor: .white)
-        }
-        
+        setupChartsLayout()
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
 
-    
-    func loadAllCharts(queryType: QueryType) {
-        switch queryType {
-        case .Day:
-            
-            loadPieChart()
-            self.lineChartGraphic.isHidden = true
-            lineChartDetailViewTopSpaceConstraint.constant = -285
-            
-        case .Week:
-            
-            loadPieChart()
-            loadLineChart()
-            self.lineChartGraphic.isHidden = false
-            lineChartDetailViewTopSpaceConstraint.constant = -5
-            
-        case .Month:
-            
-            loadPieChart()
-            loadLineChart()
-            self.lineChartGraphic.isHidden = false
-            lineChartDetailViewTopSpaceConstraint.constant = -5
-
-        default:
-          break
-        }
-       
-    }
-    
-    // MARK: - Pie Chart
-    
-    func loadPieChart() {
-        
-        //y values for the pie chart
-        let ys1 = Array(1..<4).map { x in return Double(x)}
-        
-        var total = [00.00,00.00,00.00]
-        var pieChartLabel = ["Comercializado","Consumo","Descartado"]
-        
-        
-        for i in milksInfo {
-            if let sold = i.sold {
-                total[0] += Double(sold)
-            }
-            if let intern = i.internConsume {
-                total[1] += Double(intern)
-            }
-            if let lost = i.lost {
-                total[2] += Double(lost)
-            }
-        }
-    
-        //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
-        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
-        
-        //creating piechartData object
-        let data = PieChartData()
-
-        // insert the data obj
-        let ds1 = PieChartDataSet(values: yse1, label: "")
-        
-        ds1.colors = ChartColorTemplates.material()
-        
-        ds1.valueTextColor = UIColor.white
-        ds1.sliceSpace = 0.1
-        
-        
-        data.addDataSet(ds1)
-        
-        
-        //change mode texts in pie chart
-        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.lineBreakMode = .byTruncatingTail
-        paragraphStyle.alignment = .center
-        let centerText = NSMutableAttributedString(string: "Litros")
-        
-        self.PieChartGraphic.centerAttributedText = centerText
-        self.PieChartGraphic.holeRadiusPercent = 0.35
-        self.PieChartGraphic.transparentCircleRadiusPercent = 0.39
-        
-        self.PieChartGraphic.data = data
-        
-        self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
-        
-    }
-    
-    //MARK: - line chart
-    
-    func loadLineChart() {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        var xs1Line: [Date] = []//dateFormatter.date(from: "01-10-2016")
-    
-    
-        for i in milksInfo {
-            xs1Line.append(dateFormatter.date(from: i.date!)!)
-        }
-        
-        
-        let calendar = Calendar.current
-        
-        let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
-            if let produced = milksInfo[indiceX].produced {
-                return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
-            }
-            return ChartDataEntry()
-        }
-        
-        let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
-        
-        ds1Line.colors = [NSUIColor.black]
-        ds1Line.drawCirclesEnabled = true
-        ds1Line.circleColors = [NSUIColor.black]
-        ds1Line.circleRadius = 3
-        ds1Line.circleHoleRadius = 0
-        ds1Line.drawFilledEnabled = true
-        ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
-        ds1Line.drawValuesEnabled = true
-        ds1Line.lineWidth = 1
-        ds1Line.mode = .linear
-        
-        let dataLine = LineChartData(dataSet: ds1Line)
-        
-        self.lineChartGraphic.data = dataLine
-        self.lineChartGraphic.data?.highlightEnabled = false
-        self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
-        
-        self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
-        self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
-        //self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
-        self.lineChartGraphic.dragEnabled = false
-        self.lineChartGraphic.pinchZoomEnabled = false
-        self.lineChartGraphic.chartDescription?.text = "Produção"
-        
-    }
-    
     // MARK - Actions
     
     @IBAction func didSelectEditCalendar(_ sender: AnyObject) {
@@ -245,6 +77,22 @@ class ChartsViewController: UIViewController {
         }
     }
     
+    func getTotalMilkInfo() -> [Double] {
+        var total = [00.00,00.00,00.00]
+        for index in milksInfo {
+            if let sold = index.sold {
+                total[0] += Double(sold)
+            }
+            if let intern = index.internConsume {
+                total[1] += Double(intern)
+            }
+            if let lost = index.lost {
+                total[2] += Double(lost)
+            }
+        }
+        return total
+    }
+    
 }
 
 // MARK: - Database functions
@@ -260,13 +108,13 @@ extension ChartsViewController {
     
     func getWeekValues(day: String) {
         milksInfo.removeAll()
-        var date = getFormattedDay(day: day)
+        var date = dateStringFunctions.getFormattedDay(day: day)
         let calendar = Calendar.current
         
         let group = DispatchGroup()
         for _ in 0..<7 {
-            let dateString = dateToString(calendar: calendar, date: date)
-            let path = getPathFromDate(dateString: dateString)
+            let dateString = dateStringFunctions.dateToString(calendar: calendar, date: date)
+            let path = dateStringFunctions.getPathFromDate(dateString: dateString)
 
             group.enter()
             service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
@@ -274,7 +122,7 @@ extension ChartsViewController {
                 group.leave()
             }
             
-            date = decreaseDate(calendar: calendar, date: date)
+            date = dateStringFunctions.decreaseDate(calendar: calendar, date: date)
         }
         
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
@@ -282,29 +130,176 @@ extension ChartsViewController {
             self?.loadAllCharts(queryType: .Week)
         }
     }
+}
+
+// MARK: - Charts functions
+
+extension ChartsViewController {
     
-    func getFormattedDay(day: String) -> Date{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        if let day = dateFormatter.date(from: day) {
-            return day
+    func setupChartsLayout() {
+        //make the segmented view upon other views
+        segmentedViewOutlet.layer.zPosition = 1
+        
+        //create a color in detail views
+        lineChartDetaisView.color = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0)
+        pieChartDetailsView.color = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
+        
+        //criate a border of charts views
+        self.PieChartGraphic.layer.borderWidth = 1
+        self.PieChartGraphic.layer.borderColor = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1).cgColor
+        
+        self.lineChartGraphic.layer.borderWidth = 1
+        self.lineChartGraphic.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
+        
+        ProductionViewInDayTab.layer.borderWidth = 1
+        ProductionViewInDayTab.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
+        
+        
+        for i in detailImageIndicator{
+            i.image = i.image?.imageWithColor(tintColor: .white)
         }
-        return Date()
     }
     
-    func dateToString(calendar: Calendar, date: Date) -> String {
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        let year = calendar.component(.year, from: date)
-        let dayFormatted = String(format: "%.2d", day)
-        return "\(year)/\(month)/\(dayFormatted)"
+    // MARK: - Load Chart
+    
+    func loadAllCharts(queryType: QueryType) {
+        switch queryType {
+        case .Day:
+            
+            loadPieChart()
+            self.lineChartGraphic.isHidden = true
+            lineChartDetailViewTopSpaceConstraint.constant = -285
+            
+        case .Week:
+            
+            loadPieChart()
+            loadLineChart()
+            self.lineChartGraphic.isHidden = false
+            lineChartDetailViewTopSpaceConstraint.constant = -5
+            
+        case .Month:
+            
+            loadPieChart()
+            loadLineChart()
+            self.lineChartGraphic.isHidden = false
+            lineChartDetailViewTopSpaceConstraint.constant = -5
+            
+        default:
+            break
+        }
+        
     }
     
-    func getPathFromDate(dateString: String) -> String {
-        return "Fazendas/ID/Coleta/\(dateString)"
+    // MARK: - Load Pie Chart
+    
+    func loadPieChart() {
+        
+        //y values for the pie chart
+        let ys1 = Array(1..<4).map { x in return Double(x)}
+        
+        //get total of intern consumed, sold and lost
+        var total = getTotalMilkInfo()
+        
+        //labels
+        var pieChartLabel = ["Comercializado","Consumo","Descartado"]
+        
+        //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
+        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
+        
+        //creating piechartData object
+        let data = PieChartData()
+        
+        // insert the data obj
+        let ds1 = PieChartDataSet(values: yse1, label: "")
+        
+        ds1.colors = ChartColorTemplates.material()
+        ds1.valueTextColor = UIColor.white
+        ds1.sliceSpace = 0.1
+        data.addDataSet(ds1)
+        
+        setupPieChartGraphic(data: data)
+        
     }
     
-    func decreaseDate(calendar: Calendar, date: Date) -> Date{
-        return calendar.date(byAdding: .day, value: -1, to: date)!
+    //MARK: - Load Line chart
+    
+    func loadLineChart() {
+        
+        let xs1Line = getXs1Line()
+        
+        let calendar = Calendar.current
+        
+        let se1Line = getSe1Line(xs1Line: xs1Line, calendar: calendar)
+        
+        let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
+        
+        setupDs1Line(ds1Line: ds1Line)
+        
+        let dataLine = LineChartData(dataSet: ds1Line)
+        
+        setupLineChartGraphic(dataLine: dataLine)
+        
+    }
+
+    func getXs1Line() -> [Date] {
+        let xs1Line = milksInfo.enumerated().map { indiceX, indiceY -> Date in
+            if let date = milksInfo[indiceX].date {
+                let dateFormatted = dateStringFunctions.getFormattedDay(day: date)
+                return dateFormatted
+            }
+            return Date()
+        }
+        return xs1Line
+    }
+    
+    
+    func getSe1Line(xs1Line: [Date], calendar: Calendar) -> [ChartDataEntry] {
+        let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
+            if let produced = milksInfo[indiceX].produced {
+                return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
+            }
+            return ChartDataEntry()
+        }
+        return se1Line
+    }
+
+    func setupDs1Line(ds1Line: LineChartDataSet) {
+        ds1Line.colors = [NSUIColor.black]
+        ds1Line.drawCirclesEnabled = true
+        ds1Line.circleColors = [NSUIColor.black]
+        ds1Line.circleRadius = 3
+        ds1Line.circleHoleRadius = 0
+        ds1Line.drawFilledEnabled = true
+        ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
+        ds1Line.drawValuesEnabled = true
+        ds1Line.lineWidth = 1
+        ds1Line.mode = .linear
+    }
+    
+    func setupLineChartGraphic(dataLine: LineChartData) {
+        self.lineChartGraphic.data = dataLine
+        self.lineChartGraphic.data?.highlightEnabled = false
+        self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
+        self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
+        self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
+        //self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
+        self.lineChartGraphic.dragEnabled = false
+        self.lineChartGraphic.pinchZoomEnabled = false
+        self.lineChartGraphic.chartDescription?.text = "Produção"
+    }
+    
+    func setupPieChartGraphic(data: PieChartData) {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        paragraphStyle.alignment = .center
+        let centerText = NSMutableAttributedString(string: "Litros")
+        
+        self.PieChartGraphic.centerAttributedText = centerText
+        self.PieChartGraphic.holeRadiusPercent = 0.35
+        self.PieChartGraphic.transparentCircleRadiusPercent = 0.39
+        
+        self.PieChartGraphic.data = data
+        
+        self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
     }
 }
