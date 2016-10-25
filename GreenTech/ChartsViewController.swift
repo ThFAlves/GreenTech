@@ -29,6 +29,8 @@ class ChartsViewController: UIViewController {
     let service  = FirebaseService()
     let dateStringFunctions = DateString()
     var milksInfo = [MilkInfo]()
+    var axisFormatDelegate: IAxisValueFormatter?
+    var months: [String]! = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
@@ -40,6 +42,7 @@ class ChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChartsLayout()
+        axisFormatDelegate = self
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
 
@@ -151,7 +154,8 @@ extension ChartsViewController {
         }
         
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
-            self?.milksInfo = (self?.milksInfo.sorted { $0.date! < $1.date! })!
+            self?.milksInfo = (self?.milksInfo.sorted { (self?.dateStringFunctions.getFormattedDay(day: $0.date!))!  < (self?.dateStringFunctions.getFormattedDay(day: $1
+                .date!))!  })!
             self?.loadAllCharts(queryType: .Week)
         }
     }
@@ -281,7 +285,8 @@ extension ChartsViewController {
     func getSe1Line(xs1Line: [Date], calendar: Calendar) -> [ChartDataEntry] {
         let se1Line = xs1Line.enumerated().map { indiceX, indiceY -> ChartDataEntry in
             if let produced = milksInfo[indiceX].produced {
-                return ChartDataEntry(x: Double(calendar.component(.day, from: xs1Line[indiceX])), y: Double(produced))
+                let date = xs1Line[indiceX]
+                return ChartDataEntry(x: date.timeIntervalSince1970, y: Double(produced))
             }
             return ChartDataEntry()
         }
@@ -307,7 +312,8 @@ extension ChartsViewController {
         self.lineChartGraphic.gridBackgroundColor = NSUIColor.white
         self.lineChartGraphic.xAxis.drawGridLinesEnabled = false
         self.lineChartGraphic.xAxis.drawAxisLineEnabled = false
-        //self.lineChartGraphic.xAxis.setLabelCount(xs1Line.count, force: true)
+        self.lineChartGraphic.xAxis.setLabelCount(dataLine.entryCount, force: true)
+        self.lineChartGraphic.xAxis.valueFormatter = axisFormatDelegate
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
@@ -329,3 +335,13 @@ extension ChartsViewController {
     }
 }
 
+extension ChartsViewController: IAxisValueFormatter {
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        print(value)
+        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+    }
+    
+}
