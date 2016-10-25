@@ -19,10 +19,10 @@ class MilkTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configureCell(_ identifierInfo: String, valueInfo: String, unitInfo: String) {
+    func configureCell(_ identifierInfo: String, valueInfo: Double, unitInfo: String) {
     
         cellIdentifier.text = identifierInfo
-        value.text = valueInfo
+        value.text = String(valueInfo)
         unit.text = unitInfo
     }
     

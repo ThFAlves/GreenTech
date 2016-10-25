@@ -17,9 +17,9 @@ class MilkViewController: UIViewController {
     
     @IBOutlet weak var milkTableView: UITableView!
     let cellIdentifier = "milkCellIdentifier"
-    let descriptionVector: [String] = ["Quantidade", "CBT", "CCS", "CR", "Empresa"]
+    let descriptionVector: [String] = ["Produzido", "CBT", "CCS", "CR", "Empresa"]
     let unitVector: [String] = ["Lts", "UFC/mL", "mil/mL", "oH", ""]
-    var milksInfo = [String]()
+    var milksInfo = [MilkInfo]()
     
     // MARK: - tableview cell itens Declaration
     
@@ -34,7 +34,8 @@ class MilkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  takeValue("ID", year: "2016", month: "10", day: "01")
+      takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+        
         
         
 
@@ -51,7 +52,7 @@ class MilkViewController: UIViewController {
 
 // MARK: - TableView
 
-extension MilkViewController: UITableViewDataSource, UITableViewDelegate{
+extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -63,7 +64,7 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MilkTableViewCell
-        cell.configureCell(descriptionVector[indexPath.row], valueInfo: milksInfo[indexPath.row], unitInfo: unitVector[indexPath.row])
+        cell.configureCell(descriptionVector[0], valueInfo: Double(milksInfo[indexPath.row].produced!), unitInfo: unitVector[0])
         
         return cell
     }
@@ -73,15 +74,12 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension MilkViewController {
     
-//    func takeValue(_ id: String,year: String , month: String, day: String) {
-//        service.takeValueFromDatabase(id, year: year , month: month, day: day) { [weak self] milk in
-//            self?.milksInfo.append(milk.quantidade)
-//            self?.milksInfo.append(milk.cbt)
-//            self?.milksInfo.append(milk.ccs)
-//            self?.milksInfo.append(milk.cr)
-//            self?.milksInfo.append(milk.empresa)
-//            self?.milkTableView.reloadData()
-//        }
+    func takeValue(path: String, queryType: QueryType) {
+        service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
+            self?.milksInfo = result
+            self?.milkTableView.reloadData()
+        }
+    }
 }
 
 

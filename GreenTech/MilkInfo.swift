@@ -37,7 +37,6 @@ struct MilkInfo {
     let prot: Float?
     let lost: Float?
     let produced: Float?
-    let quantidade: Float?
     let st: Float?
     let sold: Float?
     
@@ -57,7 +56,6 @@ struct MilkInfo {
         prot = snapshotValue["PROT"] as? Float
         lost = snapshotValue["Perdido"] as? Float
         produced = snapshotValue["Produzido"] as? Float
-        quantidade = snapshotValue["Quantidade"] as? Float
         st = snapshotValue["ST"] as? Float
         sold = snapshotValue["Vendido"] as? Float
     }

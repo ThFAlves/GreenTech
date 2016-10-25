@@ -13,6 +13,10 @@ import FirebaseDatabase
 
 class ChartsViewController: UIViewController {
     
+    
+    
+    @IBOutlet weak var productionDetailOutlet: UIButton!
+    @IBOutlet weak var generalDetailOutlet: UIButton!
     @IBOutlet weak var ProductionViewInDayTab: UIView!
     @IBOutlet weak var lineChartDetailViewTopSpaceConstraint: NSLayoutConstraint!
     @IBOutlet var detailImageIndicator: [UIImageView]!
@@ -39,7 +43,28 @@ class ChartsViewController: UIViewController {
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
 
-    // MARK - Actions
+    
+    
+    
+    
+    
+    // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
+
+
+    @IBAction func didSelectGeneralDetails(_ sender: AnyObject) {
+        performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
+    }
+    
+    @IBAction func didSelectProductionDetails(_ sender: AnyObject) {
+        performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
+    }
+    
+    
+    
+    
+    
+    
+    // MARK - Actions FROM ADVANCED SEARCH
     
     @IBAction func didSelectEditCalendar(_ sender: AnyObject) {
         
@@ -303,3 +328,4 @@ extension ChartsViewController {
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
     }
 }
+
