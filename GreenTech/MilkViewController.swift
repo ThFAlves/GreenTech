@@ -39,6 +39,7 @@ class MilkViewController: UIViewController {
         super.viewDidLoad()
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
         getWeekValues(day: "07/10/2016")
+        print(chartToDetailSelection)
     }
     
     @IBAction func SelectRange(_ sender: AnyObject) {
