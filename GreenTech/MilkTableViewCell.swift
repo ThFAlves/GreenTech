@@ -14,9 +14,12 @@ class MilkTableViewCell: UITableViewCell {
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var cellIdentifier: UILabel!
     @IBOutlet weak var unit: UILabel!
+    @IBOutlet weak var backView: UIView!
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backView.layer.borderWidth = 1
+        backView.layer.borderColor = Color.blueBorderColor.cgColor
     }
     
     func configureCell(_ identifierInfo: String, valueInfo: Double, unitInfo: String) {

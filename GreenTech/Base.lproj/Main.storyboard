@@ -592,14 +592,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
-                                <color key="backgroundColor" red="0.062745098040000002" green="0.55294117649999996" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="57" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="357" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="375" height="56"/>
+                                            <frame key="frameInset" width="357" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -631,7 +631,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="5"/>
+                                                            <real key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -644,8 +644,13 @@
                                                 <constraint firstItem="zMm-uZ-Gxu" firstAttribute="centerY" secondItem="zlk-qs-Rgo" secondAttribute="centerY" id="Jzk-je-4QN"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.3959468485" green="0.2206275499" blue="0.00081907645440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="backView" destination="zMm-uZ-Gxu" id="LC5-XM-1nt"/>
                                             <outlet property="cellIdentifier" destination="2py-er-zhv" id="KwU-co-8zy"/>
                                             <outlet property="unit" destination="bOY-Tl-OQ9" id="rEa-1f-aWx"/>
                                             <outlet property="value" destination="T2w-Ac-0Lj" id="s2H-yv-JMK"/>
@@ -658,22 +663,26 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2C-VC-nlS">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                    <segment title=""/>
+                                    <segment title="Dia"/>
+                                    <segment title="Semana"/>
+                                    <segment title="Mês"/>
+                                    <segment title="Ano"/>
                                 </segments>
                                 <color key="tintColor" red="0.20168101560000001" green="0.67697613310000004" blue="0.25722548169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="SelectRange:" destination="ppr-08-o9f" eventType="valueChanged" id="vEM-ta-Znu"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zkg-e1-c5j" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" id="6Bj-vM-YaL"/>
+                            <constraint firstItem="Zkg-e1-c5j" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" multiplier="0.95" id="6Bj-vM-YaL"/>
                             <constraint firstItem="p2C-VC-nlS" firstAttribute="leading" secondItem="BdN-jb-YDc" secondAttribute="leading" constant="5" id="Dkq-7w-OJw"/>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="centerX" secondItem="BdN-jb-YDc" secondAttribute="centerX" id="Fh3-jf-J7I"/>
-                            <constraint firstItem="p2C-VC-nlS" firstAttribute="top" secondItem="qrh-Tm-ayW" secondAttribute="bottom" constant="8" id="IoI-Ka-hTP"/>
-                            <constraint firstItem="Zkg-e1-c5j" firstAttribute="top" secondItem="p2C-VC-nlS" secondAttribute="bottom" constant="8" id="OGM-70-SOf"/>
+                            <constraint firstItem="p2C-VC-nlS" firstAttribute="top" secondItem="qrh-Tm-ayW" secondAttribute="bottom" constant="4" id="IoI-Ka-hTP"/>
+                            <constraint firstItem="Zkg-e1-c5j" firstAttribute="top" secondItem="BdN-jb-YDc" secondAttribute="topMargin" constant="10" id="JXv-e5-WiR"/>
                             <constraint firstItem="pkQ-Rg-zNn" firstAttribute="top" secondItem="Zkg-e1-c5j" secondAttribute="bottom" id="W57-cI-rsC"/>
                             <constraint firstAttribute="trailing" secondItem="p2C-VC-nlS" secondAttribute="trailing" constant="5" id="d32-PJ-zGS"/>
                         </constraints>
@@ -681,11 +690,12 @@
                     <navigationItem key="navigationItem" title="Leite" id="e2y-c8-Nlg"/>
                     <connections>
                         <outlet property="milkTableView" destination="Zkg-e1-c5j" id="zI5-wS-8Bb"/>
+                        <outlet property="segmentedViewOutlet" destination="p2C-VC-nlS" id="zfV-F1-rMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osf-VY-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="2106"/>
+            <point key="canvasLocation" x="1557.5999999999999" y="2105.8470764617691"/>
         </scene>
         <!--Leite-->
         <scene sceneID="Nub-pQ-nUG">
@@ -731,8 +741,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-jJ-9rv" customClass="BottonCornerView" customModule="GreenTech" customModuleProvider="target">
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-sn-x05">
-                                                        <frame key="frameInset" minX="8" minY="1.5" width="333" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-sn-x05">
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <state key="normal" title="Mais Detalhes Gerais  ">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -905,9 +914,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Leite" id="T4B-OI-Dmu">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="ceu-KJ-U2P">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="✚" id="Ue1-9v-EPJ">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
