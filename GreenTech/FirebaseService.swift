@@ -59,10 +59,19 @@ class FirebaseService {
     }
     
     func getMilkYearFromDatabase(days: FIRDataSnapshot) -> MilkInfo{
+        let sumMilkInfo = getSumOfMilkInfo(days: days)
+        let month = sumMilkInfo.0
+        let year = sumMilkInfo.1
+        let milkInfo = sumMilkInfo.2
+
+        return MilkInfo(newInterConsume: milkInfo.internConsume! ,newDate: "01-\(month)-\(year)", newLost: milkInfo.lost!, newProduced: milkInfo.produced!, newSold: milkInfo.sold!)
+        
+    }
+    
+    func getSumOfMilkInfo(days: FIRDataSnapshot) -> (Int, Int, MilkInfo) {
         var milkInfo = MilkInfo(newInterConsume: 0, newDate: "", newLost: 0, newProduced: 0, newSold: 0)
         var month = 0
         var year = 0
-       
         for day in days.children {
             let milk = MilkInfo(snapshot: day as! FIRDataSnapshot)
             
@@ -78,7 +87,6 @@ class FirebaseService {
                 milkInfo.produced?.add(produced)
             }
             
-            
             if let sold = milk.sold {
                 milkInfo.sold?.add(sold)
             }
@@ -89,11 +97,9 @@ class FirebaseService {
                 month = calendar.component(.month, from: day)
                 year = calendar.component(.year, from: day)
             }
-
+            
         }
-        
-        return MilkInfo(newInterConsume: milkInfo.internConsume! ,newDate: "01-\(month)-\(year)", newLost: milkInfo.lost!, newProduced: milkInfo.produced!, newSold: milkInfo.sold!)
-        
+        return(month,year,milkInfo)
     }
     
     // STORAGE

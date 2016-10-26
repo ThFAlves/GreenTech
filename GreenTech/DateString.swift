@@ -10,6 +10,15 @@ import Foundation
 
 class DateString {
     
+    func getCurrentDate() -> (Int,Int,Int) {
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        return (day,month,year)
+    }
+    
     func formattedDay() -> DateFormatter{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"

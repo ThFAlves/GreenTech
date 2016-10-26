@@ -43,6 +43,7 @@ class ChartsViewController: UIViewController {
         super.viewDidLoad()
         setupChartsLayout()
         axisFormatDelegate = self
+        //let date = dateStringFunctions.getCurrentDate()
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
     
@@ -76,6 +77,8 @@ class ChartsViewController: UIViewController {
     }
     
     @IBAction func segmentControlAction(_ sender: AnyObject) {
+        //let date = dateStringFunctions.getCurrentDate()
+        
         switch(segmentedViewOutlet.selectedSegmentIndex){
             
         case 0 :
