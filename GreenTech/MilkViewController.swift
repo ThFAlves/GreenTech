@@ -17,10 +17,13 @@ class MilkViewController: UIViewController {
 
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var milkTableView: UITableView!
+    
+    
     let cellIdentifier = "milkCellIdentifier"
     let descriptionVector: [String] = ["Produzido", "CBT", "CCS", "CR", "Empresa"]
     let unitVector: [String] = ["Lts", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [MilkInfo]()
+    var chartToDetailSelection = ""
 
     
     let dateStringFunctions = DateString()

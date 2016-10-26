@@ -596,10 +596,10 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="357" height="60"/>
+                                        <rect key="frame" x="0.0" y="120" width="356" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="357" height="60"/>
+                                            <frame key="frameInset" width="356" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -662,6 +662,12 @@
                                     <outlet property="delegate" destination="ppr-08-o9f" id="JL8-QO-w31"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-8Q-esd">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ZqF-H2-VS4"/>
+                                </constraints>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2C-VC-nlS">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -680,11 +686,14 @@
                         <constraints>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" multiplier="0.95" id="6Bj-vM-YaL"/>
                             <constraint firstItem="p2C-VC-nlS" firstAttribute="leading" secondItem="BdN-jb-YDc" secondAttribute="leading" constant="5" id="Dkq-7w-OJw"/>
+                            <constraint firstItem="hjo-8Q-esd" firstAttribute="centerX" secondItem="BdN-jb-YDc" secondAttribute="centerX" id="FLy-R5-7OG"/>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="centerX" secondItem="BdN-jb-YDc" secondAttribute="centerX" id="Fh3-jf-J7I"/>
                             <constraint firstItem="p2C-VC-nlS" firstAttribute="top" secondItem="qrh-Tm-ayW" secondAttribute="bottom" constant="4" id="IoI-Ka-hTP"/>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="top" secondItem="BdN-jb-YDc" secondAttribute="topMargin" constant="10" id="JXv-e5-WiR"/>
                             <constraint firstItem="pkQ-Rg-zNn" firstAttribute="top" secondItem="Zkg-e1-c5j" secondAttribute="bottom" id="W57-cI-rsC"/>
+                            <constraint firstItem="hjo-8Q-esd" firstAttribute="top" secondItem="BdN-jb-YDc" secondAttribute="topMargin" constant="59" id="brP-DZ-fhe"/>
                             <constraint firstAttribute="trailing" secondItem="p2C-VC-nlS" secondAttribute="trailing" constant="5" id="d32-PJ-zGS"/>
+                            <constraint firstItem="hjo-8Q-esd" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" id="xHu-sI-1Ny"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Leite" id="e2y-c8-Nlg"/>
