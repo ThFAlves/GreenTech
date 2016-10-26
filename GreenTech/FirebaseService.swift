@@ -15,6 +15,7 @@ class FirebaseService {
     
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
+    let dateStringFunctions = DateString()
     
     // DATABASE
     
@@ -36,7 +37,7 @@ class FirebaseService {
             case .Year:
                 for month in snap.children {
                     let newValue = month as! FIRDataSnapshot
-                    milkInfo += self.getMilkDayFromDatabase(days: newValue)
+                    milkInfo.append(self.getMilkYearFromDatabase(days: newValue))
                 }
                 break;
             default:
@@ -56,7 +57,44 @@ class FirebaseService {
         return milkInfo
     
     }
+    
+    func getMilkYearFromDatabase(days: FIRDataSnapshot) -> MilkInfo{
+        var milkInfo = MilkInfo(newInterConsume: 0, newDate: "", newLost: 0, newProduced: 0, newSold: 0)
+        var month = 0
+        var year = 0
+       
+        for day in days.children {
+            let milk = MilkInfo(snapshot: day as! FIRDataSnapshot)
+            
+            if let intern = milk.internConsume {
+                milkInfo.internConsume?.add(intern)
+            }
+            
+            if let lost = milk.lost {
+                milkInfo.lost?.add(lost)
+            }
+            
+            if let produced = milk.produced {
+                milkInfo.produced?.add(produced)
+            }
+            
+            
+            if let sold = milk.sold {
+                milkInfo.sold?.add(sold)
+            }
+            
+            if let date = milk.date {
+                let day = dateStringFunctions.getFormattedDay(day: date)
+                let calendar = Calendar.current
+                month = calendar.component(.month, from: day)
+                year = calendar.component(.year, from: day)
+            }
 
+        }
+        
+        return MilkInfo(newInterConsume: milkInfo.internConsume! ,newDate: "01-\(month)-\(year)", newLost: milkInfo.lost!, newProduced: milkInfo.produced!, newSold: milkInfo.sold!)
+        
+    }
     
     // STORAGE
     

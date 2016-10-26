@@ -13,8 +13,6 @@ import FirebaseDatabase
 
 class ChartsViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var productionDetailOutlet: UIButton!
     @IBOutlet weak var generalDetailOutlet: UIButton!
     @IBOutlet weak var ProductionViewInDayTab: UIView!
@@ -30,7 +28,9 @@ class ChartsViewController: UIViewController {
     let dateStringFunctions = DateString()
     var milksInfo = [MilkInfo]()
     var axisFormatDelegate: IAxisValueFormatter?
-    var months: [String]! = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    var months: [String]! = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    
+    var showMonth = false
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
@@ -38,18 +38,12 @@ class ChartsViewController: UIViewController {
         self.lineChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChartsLayout()
         axisFormatDelegate = self
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
     }
-
-    
-    
-    
-    
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
 
@@ -61,11 +55,6 @@ class ChartsViewController: UIViewController {
     @IBAction func didSelectProductionDetails(_ sender: AnyObject) {
         performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
     }
-    
-    
-    
-    
-    
     
     // MARK - Actions FROM ADVANCED SEARCH
     
@@ -92,7 +81,7 @@ class ChartsViewController: UIViewController {
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
             break
         case 1:
-            getWeekValues(day: "07/10/2016")
+            getWeekValues(day: "05/10/2016")
             break
         case 2:
             takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
@@ -189,56 +178,47 @@ extension ChartsViewController {
         }
     }
     
-    // MARK: - Load Chart
+    // MARK: - Load Charts
     
     func loadAllCharts(queryType: QueryType) {
         switch queryType {
         case .Day:
-            
-            loadPieChart()
-            self.lineChartGraphic.isHidden = true
-            lineChartDetailViewTopSpaceConstraint.constant = -285
-            
+            setupCharts(showLine: false, hiddenChart: true, isMonth: false, constant: -285)
         case .Week:
-            
-            loadPieChart()
-            loadLineChart()
-            self.lineChartGraphic.isHidden = false
-            lineChartDetailViewTopSpaceConstraint.constant = -5
-            
+            setupCharts(showLine: true, hiddenChart: false, isMonth: false, constant: -5)
         case .Month:
-            
-            loadPieChart()
-            loadLineChart()
-            self.lineChartGraphic.isHidden = false
-            lineChartDetailViewTopSpaceConstraint.constant = -5
-            
+            setupCharts(showLine: true, hiddenChart: false, isMonth: false, constant: -5)
+        case .Year:
+            setupCharts(showLine: true, hiddenChart: false, isMonth: true, constant: -5)
         default:
             break
         }
         
     }
     
+    // MARK: - Setup Charts
+    
+    func setupCharts(showLine: Bool, hiddenChart: Bool, isMonth: Bool, constant: CGFloat) {
+        loadPieChart()
+        if(showLine) { loadLineChart() }
+        self.lineChartGraphic.isHidden = hiddenChart
+        lineChartDetailViewTopSpaceConstraint.constant = constant
+        showMonth = isMonth
+    }
+    
     // MARK: - Load Pie Chart
     
     func loadPieChart() {
-        
-        //y values for the pie chart
         let ys1 = Array(1..<4).map { x in return Double(x)}
         
-        //get total of intern consumed, sold and lost
         var total = getTotalMilkInfo()
         
-        //labels
         var pieChartLabel = ["Comercializado","Consumo","Descartado"]
         
-        //y of type piecChartDataEntry saving the x and y values of an item for the pie Chart
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
         
-        //creating piechartData object
         let data = PieChartData()
-        
-        // insert the data obj
+
         let ds1 = PieChartDataSet(values: yse1, label: "")
         
         ds1.colors = ChartColorTemplates.material()
@@ -247,7 +227,6 @@ extension ChartsViewController {
         data.addDataSet(ds1)
         
         setupPieChartGraphic(data: data)
-        
     }
     
     //MARK: - Load Line chart
@@ -324,13 +303,10 @@ extension ChartsViewController {
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.alignment = .center
         let centerText = NSMutableAttributedString(string: "Litros")
-        
         self.PieChartGraphic.centerAttributedText = centerText
         self.PieChartGraphic.holeRadiusPercent = 0.35
         self.PieChartGraphic.transparentCircleRadiusPercent = 0.39
-        
         self.PieChartGraphic.data = data
-        
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
     }
 }
@@ -340,8 +316,14 @@ extension ChartsViewController: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM"
-        print(value)
-        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+        let date = Date(timeIntervalSince1970: value)
+        let calendar = Calendar.current
+        
+        if(showMonth) {
+            return months[calendar.component(.month, from: date)]
+        }else{
+            return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+        }
     }
     
 }

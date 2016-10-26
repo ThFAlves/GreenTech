@@ -24,21 +24,21 @@ struct MilkInfo {
      */
 //    let ref: FIRDatabaseReference?
 //    let key: String
-    let cbt: Float?
-    let ccs: Float?
-    let cr: Float?
-    let internConsume: Float?
-    let date: String?
-    let esd: Float?
-    let empresa: String?
-    let hour: String?
-    let gor: Float?
-    let lact: Float?
-    let prot: Float?
-    let lost: Float?
-    let produced: Float?
-    let st: Float?
-    let sold: Float?
+    var cbt: Float?
+    var ccs: Float?
+    var cr: Float?
+    var internConsume: Float?
+    var date: String?
+    var esd: Float?
+    var empresa: String?
+    var hour: String?
+    var gor: Float?
+    var lact: Float?
+    var prot: Float?
+    var lost: Float?
+    var produced: Float?
+    var st: Float?
+    var sold: Float?
     
     
     init(snapshot: FIRDataSnapshot) {
@@ -58,5 +58,24 @@ struct MilkInfo {
         produced = snapshotValue["Produzido"] as? Float
         st = snapshotValue["ST"] as? Float
         sold = snapshotValue["Vendido"] as? Float
+    }
+    
+    init(newInterConsume: Float, newDate: String, newLost: Float,newProduced: Float, newSold: Float) {
+        cbt = 0
+        ccs = 0
+        cr = 0
+        internConsume = newInterConsume
+        date = newDate
+        esd = 0
+        empresa = ""
+        hour = ""
+        gor = 0
+        lact = 0
+        prot = 0
+        lost = newLost
+        produced = newProduced
+        st = 0
+        sold = newSold
+
     }
 }
