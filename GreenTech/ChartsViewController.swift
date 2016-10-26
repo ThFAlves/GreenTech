@@ -24,7 +24,7 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
-    
+    let select = "1"
     let service  = FirebaseService()
     let dateStringFunctions = DateString()
     var milksInfo = [MilkInfo]()
@@ -36,7 +36,7 @@ class ChartsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
         self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        self.lineChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
     }
     
     override func viewDidLoad() {
@@ -49,16 +49,26 @@ class ChartsViewController: UIViewController {
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
 
+    
 
     @IBAction func didSelectGeneralDetails(_ sender: AnyObject) {
         performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
+        
     }
     
     @IBAction func didSelectProductionDetails(_ sender: AnyObject) {
         performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
     }
     
-    // MARK - Actions FROM ADVANCED SEARCH
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegueIdentifier" {
+            if let detailSelected = segue.destination as? MilkViewController {
+                detailSelected.chartToDetailSelection = select
+            }
+        }
+    }
+    
+    // MARK: - Actions FROM ADVANCED SEARCH
     
     @IBAction func didSelectEditCalendar(_ sender: AnyObject) {
         
@@ -83,15 +93,27 @@ class ChartsViewController: UIViewController {
             
         case 0 :
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+
             break
         case 1:
             getWeekValues(day: "05/10/2016")
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+
             break
         case 2:
             takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+
             break
         case 3:
             takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+
             break
         default:
             break
