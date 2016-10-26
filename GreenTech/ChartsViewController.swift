@@ -24,6 +24,7 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
+    
     let service  = FirebaseService()
     let dateStringFunctions = DateString()
     var milksInfo = [MilkInfo]()
@@ -153,6 +154,7 @@ extension ChartsViewController {
 // MARK: - Charts functions
 
 extension ChartsViewController {
+    
     
     func setupChartsLayout() {
         //make the segmented view upon other views
