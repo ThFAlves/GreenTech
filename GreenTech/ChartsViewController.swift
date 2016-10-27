@@ -24,7 +24,7 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
     
-    let select = "1"
+    var select = 0
     let service  = FirebaseService()
     let dateStringFunctions = DateString()
     var milksInfo = [MilkInfo]()
@@ -35,8 +35,23 @@ class ChartsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
-        animateCellOfCharts(anim: 1)
-        
+        animateCellOfCharts(anim: select)
+        if select == 0 {
+            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+            animateCellOfCharts(anim: 0)
+        }
+        if select == 1 {
+            getWeekValues(day: "05/10/2016")
+            animateCellOfCharts(anim: 1)
+        }
+        if select == 2 {
+            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
+            animateCellOfCharts(anim: 2)
+        }
+        if select == 3 {
+            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
+            animateCellOfCharts(anim: 3)
+        }
     }
 
     
@@ -45,15 +60,16 @@ class ChartsViewController: UIViewController {
         setupChartsLayout()
         axisFormatDelegate = self
         //let date = dateStringFunctions.getCurrentDate()
-        takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+
     }
     
     
     // MARK: animations
+    //animation for give a feedback from reload data
     
     func animateCellOfCharts(anim: Int) {
         
-        if anim == 1 {
+        if anim == 0 {
             self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
             
@@ -86,7 +102,8 @@ class ChartsViewController: UIViewController {
                 
             })
         }
-        if anim == 0 {
+        if anim >= 1 {
+
             self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
             
@@ -124,16 +141,17 @@ class ChartsViewController: UIViewController {
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
 
     
-
+    //select the pie button
     @IBAction func didSelectGeneralDetails(_ sender: AnyObject) {
         performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
         
     }
-    
+    //select the line button
     @IBAction func didSelectProductionDetails(_ sender: AnyObject) {
         performSegue(withIdentifier: "productionDetailSegueIdentifier", sender: nil)
     }
     
+    //send the segmented state from milkviewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegueIdentifier" {
             if let detailSelected = segue.destination as? MilkViewController {
@@ -155,6 +173,8 @@ class ChartsViewController: UIViewController {
     @IBAction func unwindFromMilkViewController(segue:UIStoryboardSegue) {
         if let detailSelected = segue.source as? MilkViewController {
             segmentedViewOutlet.selectedSegmentIndex = detailSelected.segmentedViewOutlet.selectedSegmentIndex
+            select = detailSelected.segmentedViewOutlet.selectedSegmentIndex
+
         }
         
     }
@@ -186,19 +206,19 @@ class ChartsViewController: UIViewController {
             
         case 0 :
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            animateCellOfCharts(anim: 1)
+            animateCellOfCharts(anim: 0)
             break
         case 1:
             getWeekValues(day: "05/10/2016")
-            animateCellOfCharts(anim: 0)
+            animateCellOfCharts(anim: 1)
             break
         case 2:
             takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            animateCellOfCharts(anim: 0)
+            animateCellOfCharts(anim: 1)
             break
         case 3:
             takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            animateCellOfCharts(anim: 0)
+            animateCellOfCharts(anim: 1)
             break
         default:
             break
