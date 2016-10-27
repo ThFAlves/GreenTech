@@ -1,6 +1,7 @@
 PODS:
   - CryptoSwift (0.6.0)
   - CVCalendar (1.4.0)
+  - Eureka (2.0.0-beta.1)
   - Firebase (3.6.0):
     - Firebase/Core (= 3.6.0)
   - Firebase/Analytics (3.6.0):
@@ -42,6 +43,7 @@ PODS:
 DEPENDENCIES:
   - CryptoSwift
   - CVCalendar
+  - Eureka (~> 2.0.0-beta.1)
   - Firebase (>= 2.5.1)
   - Firebase/Auth
   - Firebase/Database
@@ -50,6 +52,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CryptoSwift: 4a599b7241b8d3b857d6e2c28867d0bd5d1aae24
   CVCalendar: ec1a06a508f99d8e5067258754f811a8a1433a3f
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
 
-PODFILE CHECKSUM: 2bb5a059d6e9f936f2fd0d6ed361ed09f930134f
+PODFILE CHECKSUM: d58c837da85b8f63ec1de0e51b647b63fee46e0b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

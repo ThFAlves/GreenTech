@@ -13,10 +13,6 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'CryptoSwift'
 pod 'CVCalendar'
-
-  target 'GreenTechTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+pod 'Eureka', '~> 2.0.0-beta.1'
 
 end
