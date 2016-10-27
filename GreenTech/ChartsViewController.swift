@@ -35,7 +35,6 @@ class ChartsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
-        print(select)
         animateCellOfCharts(anim: select)
         if select == 0 {
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)

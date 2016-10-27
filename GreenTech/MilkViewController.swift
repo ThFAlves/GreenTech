@@ -21,7 +21,7 @@ class MilkViewController: UIViewController {
     
     let cellIdentifier = "milkCellIdentifier"
     let descriptionVector: [String] = ["Produzido", "CBT", "CCS", "CR", "Empresa"]
-    let unitVector: [String] = ["Lts", "UFC/mL", "mil/mL", "oH", ""]
+    let unitVector: [String] = ["Litros", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [MilkInfo]()
     var chartToDetailSelection = ""
     var segmentedSelection = ""
@@ -41,8 +41,6 @@ class MilkViewController: UIViewController {
         super.viewDidLoad()
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
         getWeekValues(day: "07/10/2016")
-        print(chartToDetailSelection)
-        print(segmentedSelection)
         segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
     }
     
@@ -89,15 +87,27 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Produção"
+        if chartToDetailSelection == "productionDetail" {
+            return "Produção"
+        }
+        if chartToDetailSelection == "generalDetail" {
+            return "Comercializado"
+        }
+        return "Error"
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: milkTableView.bounds.size.width , height: 10))
+        let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 13))
             headerView.backgroundColor = .clear
-        let label = UILabel(frame: CGRect(x: 0, y: 38, width: milkTableView.bounds.size.width/2, height: 10))
-        label.text = "Produção"
+        let label = UILabel(frame: CGRect(x: 8, y: 38, width: milkTableView.bounds.size.width/2, height: 13))
+        //reload the header selected
+        if chartToDetailSelection == "productionDetail" {
+            label.text = "Produção"
+        }
+        if chartToDetailSelection == "generalDetail" {
+            label.text = "Comercializado"
+        }
         
         headerView.addSubview(label)
 
@@ -112,7 +122,14 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MilkTableViewCell
-        cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].produced!), unitInfo: unitVector[0])
+        
+        if chartToDetailSelection == "productionDetail" {
+            cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].produced!), unitInfo: unitVector[0])
+        }
+        
+        if chartToDetailSelection == "generalDetail"{
+            cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
+        }
         
         return cell
     }
