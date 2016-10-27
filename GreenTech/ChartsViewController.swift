@@ -131,16 +131,32 @@ class ChartsViewController: UIViewController {
     }
     
     @IBAction func didSelectProductionDetails(_ sender: AnyObject) {
-        performSegue(withIdentifier: "detailSegueIdentifier", sender: nil)
+        performSegue(withIdentifier: "productionDetailSegueIdentifier", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegueIdentifier" {
             if let detailSelected = segue.destination as? MilkViewController {
-                detailSelected.chartToDetailSelection = select
+                detailSelected.chartToDetailSelection = "generalDetail"
+                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
+
+            }
+        }
+        if segue.identifier == "productionDetailSegueIdentifier" {
+            if let detailSelected = segue.destination as? MilkViewController {
+                detailSelected.chartToDetailSelection = "productionDetail"
+                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
+
             }
         }
     }
+    
+    @IBAction func unwindToParentViewController(segue: UIStoryboardSegue) {
+        if let detailSelected = segue.destination as? MilkViewController {
+            segmentedViewOutlet.selectedSegmentIndex = detailSelected.segmentedViewOutlet.selectedSegmentIndex
+    }
+    }
+    
     
     // MARK: - Actions FROM ADVANCED SEARCH
     

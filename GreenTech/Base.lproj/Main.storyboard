@@ -131,7 +131,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -198,7 +198,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -589,14 +589,14 @@
                         <viewControllerLayoutGuide type="bottom" id="qJd-iV-xKb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V0J-EJ-gaf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="1424"/>
+            <point key="canvasLocation" x="759" y="1948"/>
         </scene>
         <!--Leite-->
         <scene sceneID="L5L-UW-gcJ">
@@ -614,7 +614,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="119.5" width="364" height="60"/>
+                                        <rect key="frame" x="0.0" y="120" width="364" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
                                             <frame key="frameInset" width="364" height="60"/>
@@ -718,11 +718,13 @@
                     <connections>
                         <outlet property="milkTableView" destination="Zkg-e1-c5j" id="zI5-wS-8Bb"/>
                         <outlet property="segmentedViewOutlet" destination="p2C-VC-nlS" id="zfV-F1-rMw"/>
+                        <segue destination="3UV-J6-4I7" kind="unwind" identifier="detailBackToChartsSegueIdentifier" unwindAction="unwindToParentViewControllerWithSegue:" id="Ok4-Be-Ion"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osf-VY-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3UV-J6-4I7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1557.5999999999999" y="2105.8470764617691"/>
+            <point key="canvasLocation" x="1858" y="2215"/>
         </scene>
         <!--Leite-->
         <scene sceneID="Nub-pQ-nUG">
@@ -944,6 +946,9 @@
                         <rightBarButtonItems>
                             <barButtonItem title="✚" id="Ue1-9v-EPJ">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="lLV-kh-9ye" kind="show" id="lee-5f-u5Q"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="calendarMenu" id="v1k-xm-sMo">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -970,6 +975,7 @@
                         <segue destination="Ei2-G7-Wn4" kind="show" identifier="viewSpinner" id="j9K-96-t3g"/>
                         <segue destination="Oht-XD-d0Y" kind="show" identifier="viewCalendar" id="NgC-dC-Ec4"/>
                         <segue destination="ppr-08-o9f" kind="show" identifier="detailSegueIdentifier" id="IfI-WB-f4W"/>
+                        <segue destination="ppr-08-o9f" kind="show" identifier="productionDetailSegueIdentifier" id="xbg-Se-lzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1327,4 +1333,7 @@
         <image name="milk (1)" width="32" height="32"/>
         <image name="settings (1)" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xbg-Se-lzm"/>
+    </inferredMetricsTieBreakers>
 </document>

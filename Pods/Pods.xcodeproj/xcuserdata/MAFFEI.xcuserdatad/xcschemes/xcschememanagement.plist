@@ -16,6 +16,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-GreenTech.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -48,7 +53,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8A48FB5113248A40A801510455FA8874</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0D525B164A8B52D58DCD252912CD593</key>
 		<dict>
 			<key>primary</key>
 			<true/>

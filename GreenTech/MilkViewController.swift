@@ -24,6 +24,8 @@ class MilkViewController: UIViewController {
     let unitVector: [String] = ["Lts", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [MilkInfo]()
     var chartToDetailSelection = ""
+    var segmentedSelection = ""
+    weak var chartsViewController: ChartsViewController?
 
     
     let dateStringFunctions = DateString()
@@ -39,7 +41,13 @@ class MilkViewController: UIViewController {
         super.viewDidLoad()
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
         getWeekValues(day: "07/10/2016")
+        print(chartToDetailSelection)
+        print(segmentedSelection)
+        segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
     }
+    
+    
+    
     
     @IBAction func SelectRange(_ sender: AnyObject) {
         switch(segmentedViewOutlet.selectedSegmentIndex){
@@ -62,8 +70,12 @@ class MilkViewController: UIViewController {
     
     
     }
-    
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let returnSegmentedPosition = segue.destination as? ChartsViewController {
+            segmentedViewOutlet.selectedSegmentIndex = returnSegmentedPosition.segmentedViewOutlet.selectedSegmentIndex
+        }
+    }
     
     
 
