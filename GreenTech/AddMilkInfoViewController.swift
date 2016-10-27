@@ -52,7 +52,7 @@ class AddMilkInfoViewController: FormViewController {
             <<< IntRow(){ row in
                 row.title = "Consumo Interno"
                 row.placeholder = "0 Lts"
-                row.tag = "Consumo_Interno"
+                row.tag = "ConsumoInterno"
                 row.add(rule: RuleRequired())
                 }
                 .cellUpdate { cell, row in
@@ -74,12 +74,33 @@ class AddMilkInfoViewController: FormViewController {
                 }
     }
     
-    private func saveToBD(){
+    @IBAction func saveData(_ sender: AnyObject) {
         
-        let formValues = form.values()
-
-        service.saveMilkInfoDatabase(data: formValues)
+        var dictionary = [String: String]()
+        
+        if let data = form.rowBy(tag: "Data")?.baseValue {
+            dictionary["Data"] = String(describing: data)
+        }
+        
+        if let hora = form.rowBy(tag: "Hora")?.baseValue {
+            dictionary["Hora"] = String(describing: hora)
+        }
+        
+        if let produzido = form.rowBy(tag: "Produzido")?.baseValue {
+            dictionary["Produzido"] = String(describing: produzido)
+        }
+        
+        if let consumoInterno = form.rowBy(tag: "ConsumoInterno")?.baseValue {
+            dictionary["ConsumoInterno"] = String(describing: consumoInterno)
+        }
+        
+        if let descarte = form.rowBy(tag: "Descarte")?.baseValue {
+            dictionary["Descarte"] = String(describing: descarte)
+        }
+        //print(dictionary)
+        service.saveMilkInfoDatabase(data: dictionary)
     }
+
     /*
     // MARK: - Navigation
 

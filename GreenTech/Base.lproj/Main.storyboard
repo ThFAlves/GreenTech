@@ -580,7 +580,7 @@
             </objects>
             <point key="canvasLocation" x="3154.4000000000001" y="219.94002998500753"/>
         </scene>
-        <!--Add Milk Info View Controller-->
+        <!--Title-->
         <scene sceneID="5Zv-x4-bm5">
             <objects>
                 <viewController id="lLV-kh-9ye" customClass="AddMilkInfoViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
@@ -589,10 +589,19 @@
                         <viewControllerLayoutGuide type="bottom" id="qJd-iV-xKb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V0J-EJ-gaf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="f98-Ya-z9h">
+                        <barButtonItem key="rightBarButtonItem" title="Adicionar" id="bRB-d0-vjz">
+                            <connections>
+                                <action selector="saveData:" destination="lLV-kh-9ye" id="d4z-9z-xpf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -614,10 +623,10 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="364" height="60"/>
+                                        <rect key="frame" x="0.0" y="120" width="1000" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="364" height="60"/>
+                                            <frame key="frameInset" width="1000" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
