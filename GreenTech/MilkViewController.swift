@@ -46,7 +46,14 @@ class MilkViewController: UIViewController {
         segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
     }
     
-    
+    //when view will disappear send the data from segmented to chartsView controller
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        
+        //push with segue
+        self.performSegue(withIdentifier: "unwindMilkSegue", sender: self)
+    }
     
     
     @IBAction func SelectRange(_ sender: AnyObject) {
@@ -67,17 +74,8 @@ class MilkViewController: UIViewController {
         default:
             break
         }
-    
-    
+        
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let returnSegmentedPosition = segue.destination as? ChartsViewController {
-            segmentedViewOutlet.selectedSegmentIndex = returnSegmentedPosition.segmentedViewOutlet.selectedSegmentIndex
-        }
-    }
-    
-    
 
 }
 

@@ -718,7 +718,7 @@
                     <connections>
                         <outlet property="milkTableView" destination="Zkg-e1-c5j" id="zI5-wS-8Bb"/>
                         <outlet property="segmentedViewOutlet" destination="p2C-VC-nlS" id="zfV-F1-rMw"/>
-                        <segue destination="3UV-J6-4I7" kind="unwind" identifier="detailBackToChartsSegueIdentifier" unwindAction="unwindToParentViewControllerWithSegue:" id="Ok4-Be-Ion"/>
+                        <segue destination="3UV-J6-4I7" kind="unwind" identifier="unwindMilkSegue" unwindAction="unwindFromMilkViewControllerWithSegue:" id="4sy-Bg-ofI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osf-VY-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>

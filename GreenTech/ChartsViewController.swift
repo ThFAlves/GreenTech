@@ -151,11 +151,14 @@ class ChartsViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToParentViewController(segue: UIStoryboardSegue) {
-        if let detailSelected = segue.destination as? MilkViewController {
+    //create a func with take the segmented section on milkViewController and update the segmented of chartsViewcontroller
+    @IBAction func unwindFromMilkViewController(segue:UIStoryboardSegue) {
+        if let detailSelected = segue.source as? MilkViewController {
             segmentedViewOutlet.selectedSegmentIndex = detailSelected.segmentedViewOutlet.selectedSegmentIndex
+        }
+        
     }
-    }
+
     
     
     // MARK: - Actions FROM ADVANCED SEARCH
