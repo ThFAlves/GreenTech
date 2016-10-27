@@ -39,7 +39,6 @@ class MilkViewController: UIViewController {
         super.viewDidLoad()
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
         getWeekValues(day: "07/10/2016")
-        print(chartToDetailSelection)
     }
     
     @IBAction func SelectRange(_ sender: AnyObject) {
@@ -107,6 +106,16 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
+        cell.layer.transform = rotationTransform
+        UIView.animate(withDuration: 0.5, animations: {
+            cell.alpha = 1
+            cell.layer.transform = CATransform3DIdentity
+            })
+    }
 }
 
 // MARK: - Database functions
@@ -144,7 +153,6 @@ extension MilkViewController {
                 .date!))!  })!
             //self?.loadAllCharts(queryType: .Week)
             self?.milkTableView.reloadData()
-
         }
     }
 }

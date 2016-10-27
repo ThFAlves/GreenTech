@@ -35,9 +35,10 @@ class ChartsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
-        self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+        animateCellOfCharts(anim: 1)
+        
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,79 @@ class ChartsViewController: UIViewController {
         axisFormatDelegate = self
         //let date = dateStringFunctions.getCurrentDate()
         takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+    }
+    
+    
+    // MARK: animations
+    
+    func animateCellOfCharts(anim: Int) {
+        
+        if anim == 1 {
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+            
+            PieChartGraphic.alpha = 0
+            lineChartGraphic.alpha = 0
+            pieChartDetailsView.alpha = 0
+            lineChartDetaisView.alpha = 0
+            ProductionViewInDayTab.alpha = 0
+            
+            
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
+            PieChartGraphic.layer.transform = rotationTransform
+            lineChartGraphic.layer.transform = rotationTransform
+            pieChartDetailsView.layer.transform = rotationTransform
+            lineChartDetaisView.layer.transform = rotationTransform
+            ProductionViewInDayTab.layer.transform = rotationTransform
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.PieChartGraphic.alpha = 1
+                self.lineChartGraphic.alpha = 0
+                self.pieChartDetailsView.alpha = 1
+                self.lineChartDetaisView.alpha = 1
+                self.ProductionViewInDayTab.alpha = 1
+                
+                self.PieChartGraphic.layer.transform = CATransform3DIdentity
+                self.lineChartGraphic.layer.transform = CATransform3DIdentity
+                self.pieChartDetailsView.layer.transform = CATransform3DIdentity
+                self.lineChartDetaisView.layer.transform = CATransform3DIdentity
+                self.ProductionViewInDayTab.layer.transform = CATransform3DIdentity
+                
+            })
+        }
+        if anim == 0 {
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+            
+            PieChartGraphic.alpha = 0
+            lineChartGraphic.alpha = 0
+            pieChartDetailsView.alpha = 0
+            lineChartDetaisView.alpha = 0
+            ProductionViewInDayTab.alpha = 0
+            
+            
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
+            PieChartGraphic.layer.transform = rotationTransform
+            lineChartGraphic.layer.transform = rotationTransform
+            pieChartDetailsView.layer.transform = rotationTransform
+            lineChartDetaisView.layer.transform = rotationTransform
+            ProductionViewInDayTab.layer.transform = rotationTransform
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.PieChartGraphic.alpha = 1
+                self.lineChartGraphic.alpha = 1
+                self.pieChartDetailsView.alpha = 1
+                self.lineChartDetaisView.alpha = 1
+                self.ProductionViewInDayTab.alpha = 0
+                
+                self.PieChartGraphic.layer.transform = CATransform3DIdentity
+                self.lineChartGraphic.layer.transform = CATransform3DIdentity
+                self.pieChartDetailsView.layer.transform = CATransform3DIdentity
+                self.lineChartDetaisView.layer.transform = CATransform3DIdentity
+                self.ProductionViewInDayTab.layer.transform = CATransform3DIdentity
+                
+            })
+        }
     }
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
@@ -93,27 +167,19 @@ class ChartsViewController: UIViewController {
             
         case 0 :
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
-
+            animateCellOfCharts(anim: 1)
             break
         case 1:
             getWeekValues(day: "05/10/2016")
-            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
-
+            animateCellOfCharts(anim: 0)
             break
         case 2:
             takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
-
+            animateCellOfCharts(anim: 0)
             break
         case 3:
             takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
-
+            animateCellOfCharts(anim: 0)
             break
         default:
             break
