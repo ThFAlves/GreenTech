@@ -78,37 +78,45 @@ class AddMilkInfoViewController: FormViewController {
         
         var dictionary = [String: String]()
         
-        if let data = form.rowBy(tag: "Data")?.baseValue {
-            dictionary["Data"] = String(describing: data)
+        dictionary["CBT"] = "0"
+        dictionary["CCS"] = "0"
+        dictionary["CR"] = "0"
+        dictionary["ESD"] = "0"
+        dictionary["Empresa"] = ""
+        dictionary["GOR"] = "0"
+        dictionary["LACT"] = "0"
+        dictionary["PROT"] = "0"
+        dictionary["ST"] = "0"
+        dictionary["Vendido"] = "0"
+        
+        if let date = form.rowBy(tag: "Data")?.baseValue {
+            dictionary["Data"] = String(describing: date)
         }
         
-        if let hora = form.rowBy(tag: "Hora")?.baseValue {
-            dictionary["Hora"] = String(describing: hora)
+        if let hour = form.rowBy(tag: "Hora")?.baseValue {
+            dictionary["Hora"] = String(describing: hour)
         }
         
-        if let produzido = form.rowBy(tag: "Produzido")?.baseValue {
-            dictionary["Produzido"] = String(describing: produzido)
+        if let produced = form.rowBy(tag: "Produzido")?.baseValue {
+            dictionary["Produzido"] = String(describing: produced)
         }
         
-        if let consumoInterno = form.rowBy(tag: "ConsumoInterno")?.baseValue {
-            dictionary["ConsumoInterno"] = String(describing: consumoInterno)
+        if let internConsume = form.rowBy(tag: "ConsumoInterno")?.baseValue {
+            dictionary["ConsumoInterno"] = String(describing: internConsume)
         }
         
-        if let descarte = form.rowBy(tag: "Descarte")?.baseValue {
-            dictionary["Descarte"] = String(describing: descarte)
+        if let lost = form.rowBy(tag: "Descarte")?.baseValue {
+            dictionary["Perdido"] = String(describing: lost)
         }
-        //print(dictionary)
-        service.saveMilkInfoDatabase(data: dictionary)
-    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print(dictionary)
+        
+        var theData: Date
+        
+        if let dateForFirebase = form.rowBy(tag: "Data")?.baseValue {
+            theData = dateForFirebase as! Date
+            service.saveMilkInfoDatabase(dictionary: dictionary, data: theData)
+        }
     }
-    */
 
 }

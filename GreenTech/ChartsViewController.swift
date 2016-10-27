@@ -241,7 +241,7 @@ extension ChartsViewController {
         
         let group = DispatchGroup()
         for _ in 0..<7 {
-            let dateString = dateStringFunctions.dateToString(calendar: calendar, date: date)
+            let dateString = dateStringFunctions.dateToStringPath(date: date)
             let path = dateStringFunctions.getPathFromDate(dateString: dateString)
 
             group.enter()

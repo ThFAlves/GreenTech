@@ -9,10 +9,10 @@
 import Foundation
 
 class DateString {
+    private let calendar = Calendar.current
     
     func getCurrentDate() -> (Int,Int,Int) {
         let date = Date()
-        let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
@@ -33,12 +33,26 @@ class DateString {
         return Date()
     }
     
-    func dateToString(calendar: Calendar, date: Date) -> String {
+    func dateToStringPath(date: Date) -> String {
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
         let dayFormatted = String(format: "%.2d", day)
         return "\(year)/\(month)/\(dayFormatted)"
+    }
+    
+    func hourToString(date: Date) -> String {
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        return "\(hour):\(minute)"
+    }
+    
+    func dateToString(date: Date) -> String {
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let dayFormatted = String(format: "%.2d", day)
+        return "\(dayFormatted)-\(month)-\(year)"
     }
     
     func getPathFromDate(dateString: String) -> String {
