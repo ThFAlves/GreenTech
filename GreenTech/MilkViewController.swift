@@ -26,6 +26,7 @@ class MilkViewController: UIViewController {
     var chartToDetailSelection = ""
     var segmentedSelection = ""
     weak var chartsViewController: ChartsViewController?
+    lazy var 
 
     
     let dateStringFunctions = DateString()
