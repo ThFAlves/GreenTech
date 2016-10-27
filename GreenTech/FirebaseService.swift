@@ -140,4 +140,17 @@ class FirebaseService {
             }
         }
     }
+    
+    func saveMilkInfoDatabase(data: Dictionary<String, Any>){
+        
+        let date = data["Data"] as! Date
+        let dateString = dateStringFunctions.dateToString(calendar: Calendar.current, date: date)
+        let path = "Fazendas/ID/Coleta/\(dateString)"
+        
+        databaseRef.child(path).runTransactionBlock({
+            (currentData: FIRMutableData) in
+            currentData.value = data
+            return FIRTransactionResult.success(withValue: currentData)
+        })
+    }
 }

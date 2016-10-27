@@ -11,6 +11,8 @@ import Eureka
 
 class AddMilkInfoViewController: FormViewController {
 
+    let service = FirebaseService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,16 +30,19 @@ class AddMilkInfoViewController: FormViewController {
         form = Section("Data e Hora")
             <<< DateInlineRow(){
                 $0.title = "Data"
+                $0.tag = "Data"
                 $0.value = NSDate(timeIntervalSinceNow: 0) as Date
             }
             <<< TimeInlineRow(){
                 $0.title = "Hora"
+                $0.tag = "Hora"
                 $0.value = NSDate(timeIntervalSinceNow: 0) as Date
             }
             +++ Section("Leite")
             <<< IntRow(){ row in
                 row.title = "Produzido"
                 row.placeholder = "0 Lts"
+                row.tag = "Produzido"
                 row.add(rule: RuleRequired())
                 }.cellUpdate { cell, row in
                     if !row.isValid {
@@ -47,6 +52,7 @@ class AddMilkInfoViewController: FormViewController {
             <<< IntRow(){ row in
                 row.title = "Consumo Interno"
                 row.placeholder = "0 Lts"
+                row.tag = "Consumo_Interno"
                 row.add(rule: RuleRequired())
                 }
                 .cellUpdate { cell, row in
@@ -58,6 +64,7 @@ class AddMilkInfoViewController: FormViewController {
             <<< IntRow(){ row in
                 row.title = "Descarte"
                 row.placeholder = "0 Lts"
+                row.tag = "Descarte"
                 row.add(rule: RuleRequired())
                 }
                 .cellUpdate { cell, row in
@@ -65,6 +72,13 @@ class AddMilkInfoViewController: FormViewController {
                         cell.titleLabel?.textColor = .red
                     }
                 }
+    }
+    
+    private func saveToBD(){
+        
+        let formValues = form.values()
+
+        service.saveMilkInfoDatabase(data: formValues)
     }
     /*
     // MARK: - Navigation
