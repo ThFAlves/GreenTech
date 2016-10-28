@@ -141,21 +141,22 @@ class FirebaseService {
         }
     }
     
-    func saveMilkInfoDatabase(dictionary: [String: String], data: Date) {
+    func saveMilkInfoDatabase(dictionary: [String: Any]) {
         var newDictionary = dictionary
-        let date = dateStringFunctions.getFormattedDay(day: dictionary["Data"]!)
-        //print(date)
-        let hour = dateStringFunctions.hourToString(date: date)
-        let dateString = dateStringFunctions.dateToString(date: date)
-        let pathDate = dateStringFunctions.dateToStringPath(date: data)
-        let path = dateStringFunctions.getPathFromDate(dateString: pathDate)
-        
-        newDictionary["Data"] = dateString
-        newDictionary["Hora"] = hour
-        //print(newDictionary)
-        databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
-            currentData.value = newDictionary
-            return FIRTransactionResult.success(withValue: currentData)
-        })
+        if let dateFromDictionary = newDictionary["Data"] {
+            let date = dateStringFunctions.getFormattedDayReverse(dateString: dateFromDictionary as! String)
+            let hour = dateStringFunctions.hourToString(date: date)
+            let dateString = dateStringFunctions.dateToString(date: date)
+            let pathDate = dateStringFunctions.dateToStringPath(date: date)
+            let path = dateStringFunctions.getPathFromDate(dateString: pathDate)
+            
+            newDictionary["Data"] = dateString
+            newDictionary["Hora"] = hour
+
+            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
+                currentData.value = newDictionary
+                return FIRTransactionResult.success(withValue: currentData)
+            })
+        }
     }
 }

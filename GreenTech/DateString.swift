@@ -19,16 +19,20 @@ class DateString {
         return (day,month,year)
     }
     
-    func formattedDay() -> DateFormatter{
+    func getFormattedDay(day: String) -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        return dateFormatter
-    }
-    
-    func getFormattedDay(day: String) -> Date{
-        let dateFormatter = formattedDay()
         if let day = dateFormatter.date(from: day) {
             return day
+        }
+        return Date()
+    }
+    
+    func getFormattedDayReverse(dateString: String) -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +0000"
+        if let date = dateFormatter.date(from: dateString) {
+            return date
         }
         return Date()
     }
