@@ -113,8 +113,8 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 5))
-            headerView.backgroundColor = .clear
+        let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 10))
+            headerView.backgroundColor = Color.silverColor
         let label = UILabel(frame: CGRect(x: 8, y: 12, width: milkTableView.bounds.size.width, height: 13))
         //reload the header selected
         if chartToDetailSelection == "productionDetail" {
@@ -160,8 +160,8 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].lost!), unitInfo: unitVector[0])
             }
             if indexPath.section == 2 {
-                cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
-                print(milksInfo[indexPath.row].internConsume!)
+                cell.configureCell( milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
+
             }
         }
         

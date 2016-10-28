@@ -18,4 +18,6 @@ struct Color {
     static let sundayTextDisabled = UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0)
     static let sundaySelectionBackground = sundayText
     static let blueBorderColor = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
+    static let silverColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+
 }
