@@ -76,18 +76,18 @@ class AddMilkInfoViewController: FormViewController {
     
     @IBAction func saveData(_ sender: AnyObject) {
         
-        var dictionary = [String: String]()
+        var dictionary = [String: Any]()
         
-        dictionary["CBT"] = "0"
-        dictionary["CCS"] = "0"
-        dictionary["CR"] = "0"
-        dictionary["ESD"] = "0"
-        dictionary["Empresa"] = ""
-        dictionary["GOR"] = "0"
-        dictionary["LACT"] = "0"
-        dictionary["PROT"] = "0"
-        dictionary["ST"] = "0"
-        dictionary["Vendido"] = "0"
+        dictionary["CBT"] = 0 as Float
+        dictionary["CCS"] = 0 as Float
+        dictionary["CR"] = 0 as Float
+        dictionary["ESD"] = 0 as Float
+        dictionary["Empresa"] = "" as String
+        dictionary["GOR"] = 0 as Float
+        dictionary["LACT"] = 0 as Float
+        dictionary["PROT"] = 0 as Float
+        dictionary["ST"] = 0 as Float
+        dictionary["Vendido"] = 0 as Float
         
         if let date = form.rowBy(tag: "Data")?.baseValue {
             dictionary["Data"] = String(describing: date)
@@ -98,25 +98,18 @@ class AddMilkInfoViewController: FormViewController {
         }
         
         if let produced = form.rowBy(tag: "Produzido")?.baseValue {
-            dictionary["Produzido"] = String(describing: produced)
+            dictionary["Produzido"] = produced
         }
         
         if let internConsume = form.rowBy(tag: "ConsumoInterno")?.baseValue {
-            dictionary["ConsumoInterno"] = String(describing: internConsume)
+            dictionary["ConsumoInterno"] = internConsume
         }
         
         if let lost = form.rowBy(tag: "Descarte")?.baseValue {
-            dictionary["Perdido"] = String(describing: lost)
+            dictionary["Perdido"] = lost
         }
-
-        print(dictionary)
         
-        var theData: Date
-        
-        if let dateForFirebase = form.rowBy(tag: "Data")?.baseValue {
-            theData = dateForFirebase as! Date
-            service.saveMilkInfoDatabase(dictionary: dictionary, data: theData)
-        }
+        service.saveMilkInfoDatabase(dictionary: dictionary)
     }
 
 }

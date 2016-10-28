@@ -20,7 +20,7 @@ class MilkViewController: UIViewController {
     
     
     let cellIdentifier = "milkCellIdentifier"
-    let descriptionVector: [String] = ["Produzido", "CBT", "CCS", "CR", "Empresa"]
+    let descriptionVector: [String] = ["Comercializado", "Descartado", "Consumido"]
     let unitVector: [String] = ["Litros", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [MilkInfo]()
     var chartToDetailSelection = ""
@@ -83,7 +83,14 @@ class MilkViewController: UIViewController {
 extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if chartToDetailSelection == "productionDetail" {
+            return 1
+        }
+        if chartToDetailSelection == "generalDetail" {
+            return 3
+        }
+        
+        return descriptionVector.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -91,22 +98,40 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
             return "Produção"
         }
         if chartToDetailSelection == "generalDetail" {
-            return "Comercializado"
+            if section == 0 {
+                return descriptionVector[0]
+            }
+            if section == 1 {
+                return descriptionVector[1]
+            }
+            if section == 2 {
+                return descriptionVector[2]
+            }
         }
         return "Error"
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 13))
-            headerView.backgroundColor = .clear
-        let label = UILabel(frame: CGRect(x: 8, y: 38, width: milkTableView.bounds.size.width/2, height: 13))
+        let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 10))
+            headerView.backgroundColor = Color.silverColor
+        let label = UILabel(frame: CGRect(x: 8, y: 12, width: milkTableView.bounds.size.width, height: 13))
         //reload the header selected
         if chartToDetailSelection == "productionDetail" {
             label.text = "Produção"
         }
         if chartToDetailSelection == "generalDetail" {
-            label.text = "Comercializado"
+            
+            if section == 0 {
+                label.text = descriptionVector[0]
+            }
+            if section == 1 {
+                label.text =  descriptionVector[1]
+            }
+            if section == 2 {
+                label.text = descriptionVector[2]
+            }
+
         }
         
         headerView.addSubview(label)
@@ -128,7 +153,16 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if chartToDetailSelection == "generalDetail"{
-            cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
+            if indexPath.section == 0 {
+                cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
+            }
+            if indexPath.section == 1 {
+                cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].lost!), unitInfo: unitVector[0])
+            }
+            if indexPath.section == 2 {
+                cell.configureCell( milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
+
+            }
         }
         
         return cell
