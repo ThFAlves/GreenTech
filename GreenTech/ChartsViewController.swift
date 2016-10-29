@@ -291,18 +291,19 @@ extension ChartsViewController {
         segmentedViewOutlet.layer.zPosition = 1
         
         //create a color in detail views
-        lineChartDetaisView.color = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0)
-        pieChartDetailsView.color = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1)
+        
+        lineChartDetaisView.color = Color.browClear
+        pieChartDetailsView.color = Color.blueClear
         
         //criate a border of charts views
         self.PieChartGraphic.layer.borderWidth = 1
-        self.PieChartGraphic.layer.borderColor = UIColor(red: 58/255, green: 153/255, blue: 216/255, alpha: 1).cgColor
+        self.PieChartGraphic.layer.borderColor = Color.blueClear.cgColor
         
         self.lineChartGraphic.layer.borderWidth = 1
-        self.lineChartGraphic.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
+        self.lineChartGraphic.layer.borderColor = Color.browClear.cgColor
         
         ProductionViewInDayTab.layer.borderWidth = 1
-        ProductionViewInDayTab.layer.borderColor = UIColor(red:187/255.0, green:138/255.0, blue:88/255.0, alpha: 1.0).cgColor
+        ProductionViewInDayTab.layer.borderColor = Color.browClear.cgColor
         
         
         for i in detailImageIndicator{
@@ -411,7 +412,7 @@ extension ChartsViewController {
         ds1Line.circleRadius = 3
         ds1Line.circleHoleRadius = 0
         ds1Line.drawFilledEnabled = true
-        ds1Line.fillColor = UIColor(colorLiteralRed: 21/255, green: 126/255, blue: 251/255, alpha: 1)
+        ds1Line.fillColor = Color.browClear
         ds1Line.drawValuesEnabled = true
         ds1Line.lineWidth = 1
         ds1Line.mode = .linear

@@ -10,7 +10,6 @@ import UIKit
 
 class MilkTableViewCell: UITableViewCell {
     
-
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var cellIdentifier: UILabel!
     @IBOutlet weak var unit: UILabel!
@@ -19,7 +18,7 @@ class MilkTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backView.layer.borderWidth = 1
-        backView.layer.borderColor = Color.blueBorderColor.cgColor
+        backView.layer.borderColor = Color.blueClear.cgColor
     }
     
     func configureCell(_ identifierInfo: String, valueInfo: Double, unitInfo: String) {
@@ -28,6 +27,5 @@ class MilkTableViewCell: UITableViewCell {
         value.text = String(valueInfo)
         unit.text = unitInfo
     }
-    
     
 }

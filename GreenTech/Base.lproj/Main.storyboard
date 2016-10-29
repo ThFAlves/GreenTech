@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -104,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" red="0.31093239784240723" green="0.67980611324310303" blue="0.32901465892791748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ANS-lN-RPf" kind="relationship" relationship="viewControllers" id="fh3-YN-iOy"/>
@@ -434,7 +433,7 @@
                     <tabBarItem key="tabBarItem" title="Opções" image="Settings" selectedImage="Add" id="cjj-L0-Amc" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -615,6 +614,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="f98-Ya-z9h">
                         <barButtonItem key="rightBarButtonItem" title="Adicionar" id="bRB-d0-vjz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="saveData:" destination="lLV-kh-9ye" id="d4z-9z-xpf"/>
                             </connections>
@@ -708,12 +708,6 @@
                                     <outlet property="delegate" destination="ppr-08-o9f" id="JL8-QO-w31"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-8Q-esd">
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="ZqF-H2-VS4"/>
-                                </constraints>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2C-VC-nlS">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -722,7 +716,7 @@
                                     <segment title="Mês"/>
                                     <segment title="Ano"/>
                                 </segments>
-                                <color key="tintColor" red="0.20168101560000001" green="0.67697613310000004" blue="0.25722548169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.36862745098039218" green="0.69803921568627447" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="SelectRange:" destination="ppr-08-o9f" eventType="valueChanged" id="vEM-ta-Znu"/>
                                 </connections>
@@ -732,14 +726,11 @@
                         <constraints>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" multiplier="0.97" id="6Bj-vM-YaL"/>
                             <constraint firstItem="p2C-VC-nlS" firstAttribute="leading" secondItem="BdN-jb-YDc" secondAttribute="leading" constant="5" id="Dkq-7w-OJw"/>
-                            <constraint firstItem="hjo-8Q-esd" firstAttribute="centerX" secondItem="BdN-jb-YDc" secondAttribute="centerX" id="FLy-R5-7OG"/>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="centerX" secondItem="BdN-jb-YDc" secondAttribute="centerX" id="Fh3-jf-J7I"/>
                             <constraint firstItem="p2C-VC-nlS" firstAttribute="top" secondItem="qrh-Tm-ayW" secondAttribute="bottom" constant="4" id="IoI-Ka-hTP"/>
                             <constraint firstItem="Zkg-e1-c5j" firstAttribute="top" secondItem="BdN-jb-YDc" secondAttribute="topMargin" constant="30" id="JXv-e5-WiR"/>
                             <constraint firstItem="pkQ-Rg-zNn" firstAttribute="top" secondItem="Zkg-e1-c5j" secondAttribute="bottom" id="W57-cI-rsC"/>
-                            <constraint firstItem="hjo-8Q-esd" firstAttribute="top" secondItem="BdN-jb-YDc" secondAttribute="topMargin" constant="59" id="brP-DZ-fhe"/>
                             <constraint firstAttribute="trailing" secondItem="p2C-VC-nlS" secondAttribute="trailing" constant="5" id="d32-PJ-zGS"/>
-                            <constraint firstItem="hjo-8Q-esd" firstAttribute="width" secondItem="BdN-jb-YDc" secondAttribute="width" id="xHu-sI-1Ny"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Leite" id="e2y-c8-Nlg"/>
@@ -774,7 +765,7 @@
                                     <segment title="Mês"/>
                                     <segment title="Ano"/>
                                 </segments>
-                                <color key="tintColor" red="0.23994362354278564" green="0.64844638109207153" blue="0.28866139054298401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.36862745098039218" green="0.69803921568627447" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="3"/>
@@ -784,7 +775,7 @@
                                     <action selector="segmentControlAction:" destination="cLQ-oT-QTI" eventType="valueChanged" id="AEp-NX-W73"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIB-Rk-TjH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIB-Rk-TjH">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDn-1s-7zk">
                                         <subviews>
@@ -819,7 +810,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.22745098039215686" green="0.59999999999999998" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.6705882352941176" green="0.85098039215686272" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="1MG-sn-x05" firstAttribute="centerY" secondItem="ayh-jJ-9rv" secondAttribute="centerY" id="DlZ-Ap-0hE"/>
                                                     <constraint firstAttribute="trailing" secondItem="1MG-sn-x05" secondAttribute="trailing" constant="15" id="HNX-Uw-iq1"/>
@@ -884,7 +875,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.73436293353889193" green="0.54135175969676341" blue="0.34423643148908506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.82745098039215681" green="0.6705882352941176" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="aJE-9e-PWK" firstAttribute="leading" secondItem="Yo1-06-Hcb" secondAttribute="leading" constant="8" id="0xy-gY-8AY"/>
                                                     <constraint firstAttribute="trailing" secondItem="TVJ-8U-YSp" secondAttribute="trailing" constant="8" id="VmH-fj-XUV"/>
@@ -917,7 +908,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9mx-zn-XY9" firstAttribute="width" secondItem="mrd-UC-wKo" secondAttribute="width" id="2x7-Ji-QfU"/>
                                             <constraint firstItem="o87-1x-Po2" firstAttribute="leading" secondItem="mrd-UC-wKo" secondAttribute="leading" id="3VR-Bw-LF0"/>
@@ -949,6 +941,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="zDn-1s-7zk" firstAttribute="top" secondItem="DIB-Rk-TjH" secondAttribute="top" id="2yK-04-OQf"/>
                                     <constraint firstAttribute="trailing" secondItem="zDn-1s-7zk" secondAttribute="trailing" id="YRM-W1-Xhv"/>
@@ -957,7 +950,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9076723066997775" green="0.91665916122155744" blue="0.91665916122155744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Xbq-nz-Ze0" firstAttribute="top" secondItem="DIB-Rk-TjH" secondAttribute="bottom" id="87s-b1-Qwf"/>
                             <constraint firstItem="j5a-rL-Tfx" firstAttribute="leading" secondItem="GH2-Gu-q2L" secondAttribute="leading" constant="4" id="AUz-MP-Rgo"/>
@@ -971,17 +964,12 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Leite" id="T4B-OI-Dmu">
-                        <rightBarButtonItems>
-                            <barButtonItem title="✚" id="Ue1-9v-EPJ">
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </barButtonItem>
-                            <barButtonItem image="calendarMenu" id="v1k-xm-sMo">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="didSelectEditCalendar:" destination="cLQ-oT-QTI" id="bXW-y0-cu7"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="calendarMenu" id="v1k-xm-sMo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didSelectEditCalendar:" destination="cLQ-oT-QTI" id="bXW-y0-cu7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
@@ -1322,7 +1310,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="a52-aT-8lj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.45413190129999997" green="0.73485797639999995" blue="0.36214083429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.36862745098039218" green="0.69803921568627447" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1350,7 +1342,7 @@
                     <tabBarItem key="tabBarItem" title="Leite" image="Milk" selectedImage="Milk" id="ofO-yt-eeF" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -1361,7 +1353,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nvL-ju-EZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.45413190129999997" green="0.73485797639999995" blue="0.36214083429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
