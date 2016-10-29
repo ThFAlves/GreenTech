@@ -20,6 +20,7 @@
 		CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */; };
 		CA7742321DB68586009BB361 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7742311DB68586009BB361 /* QueryType.swift */; };
 		CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */; };
+		CAE6EDF61DC4C29F008B0C2C /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6EDF51DC4C29F008B0C2C /* RAMBounceAnimation.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
 		CAF3D5651D9DA8A2006A879C /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */; };
 		CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */; };
@@ -115,6 +116,7 @@
 		CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottonCornerView.swift; sourceTree = "<group>"; };
 		CA7742311DB68586009BB361 /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
 		CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		CAE6EDF51DC4C29F008B0C2C /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
 		CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */,
 				D1E66AF31D8D93F2007D1A10 /* MilkTableViewCell.swift */,
 				CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */,
+				CAE6EDF51DC4C29F008B0C2C /* RAMBounceAnimation.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA484D1D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTech" */;
 			buildPhases = (
+				67AB7C58421508F459DD0CB2 /* 📦 Check Pods Manifest.lock */,
 				539AB7BC392AA50EC83D6484 /* [CP] Check Pods Manifest.lock */,
 				42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */,
 				D1DA48291D5A5BCE00D74063 /* Sources */,
@@ -526,6 +530,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		67AB7C58421508F459DD0CB2 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		F41BBFD9423660CA9E9AB8C2 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +585,7 @@
 				D19527611D5CE3C70031BF13 /* DataServices.swift in Sources */,
 				CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */,
 				1EB09F1E1DAFBD410035BB45 /* CalendarViewController.swift in Sources */,
+				CAE6EDF61DC4C29F008B0C2C /* RAMBounceAnimation.swift in Sources */,
 				CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */,
 				CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */,
 				D19527601D5CE3C70031BF13 /* DataDAO.swift in Sources */,

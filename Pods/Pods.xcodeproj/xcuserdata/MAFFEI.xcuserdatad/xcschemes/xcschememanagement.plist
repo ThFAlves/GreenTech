@@ -6,34 +6,28 @@
 	<dict>
 		<key>CVCalendar.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>CryptoSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-GreenTech.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
-		<key>Pods-GreenTechTests.xcscheme</key>
+		<key>RAMAnimatedTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -43,32 +37,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30943B25F0DEC51D0012EB94E0670356</key>
+		<key>353BDE04BCE365AFEF184C7C75597BC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78F0C02C0C507137A9D991A829029CB8</key>
+		<key>44F406BA96E757BC89CBC5806EA08FDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8A48FB5113248A40A801510455FA8874</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0D525B164A8B52D58DCD252912CD593</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B8AF04528875623B9130542FE4961173</key>
 		<dict>
 			<key>primary</key>
 			<true/>

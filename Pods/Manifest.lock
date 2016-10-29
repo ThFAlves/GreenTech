@@ -39,6 +39,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - RAMAnimatedTabBarController (2.0.2)
 
 DEPENDENCIES:
   - CryptoSwift
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - RAMAnimatedTabBarController (~> 2.0.2)
 
 SPEC CHECKSUMS:
   CryptoSwift: 4a599b7241b8d3b857d6e2c28867d0bd5d1aae24
@@ -63,7 +65,8 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  RAMAnimatedTabBarController: 8b4b7e41d1d6c76ebf6482233f4bc528231db437
 
-PODFILE CHECKSUM: d58c837da85b8f63ec1de0e51b647b63fee46e0b
+PODFILE CHECKSUM: 66459749c775500662832fc2a9691911b3261ca1
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.0

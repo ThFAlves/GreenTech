@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CVCalendar/CVCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift/CryptoSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CVCalendar/CVCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift/CryptoSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework"
 fi
