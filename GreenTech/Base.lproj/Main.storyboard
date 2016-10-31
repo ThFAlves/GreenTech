@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ck-pF-Uru">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6QZ-Rq-DnB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -103,7 +103,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ANS-lN-RPf" kind="relationship" relationship="viewControllers" id="fh3-YN-iOy"/>
@@ -130,7 +129,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -197,7 +196,7 @@
                                         <rect key="frame" x="0.0" y="156" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -433,7 +432,10 @@
                     <tabBarItem key="tabBarItem" title="Opções" image="Settings" selectedImage="Add" id="cjj-L0-Amc" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -624,7 +626,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="220"/>
+            <point key="canvasLocation" x="2639" y="-118"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="88S-RE-WyB">
+            <objects>
+                <viewController id="fp9-Pa-glg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hmF-7Q-a64"/>
+                        <viewControllerLayoutGuide type="bottom" id="maw-nw-lbU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qDb-bh-vcX">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VS8-9c-ehn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3350" y="231"/>
         </scene>
         <!--Leite-->
         <scene sceneID="L5L-UW-gcJ">
@@ -642,10 +662,10 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="364" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="1000" height="60"/>
+                                            <frame key="frameInset" width="364" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -656,7 +676,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="235" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2w-Ac-0Lj">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1302,6 +1322,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cse-ET-TJU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="Add" selectedImage="Add" id="EBr-cN-Wri" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="RLe-UQ-df1" id="SWh-oq-Odx"/>
                         </connections>
@@ -1318,22 +1349,83 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lLV-kh-9ye" kind="relationship" relationship="rootViewController" id="dD4-P5-4Dr"/>
+                        <segue destination="PWF-Rj-5Ye" kind="relationship" relationship="rootViewController" id="cOu-3G-6xZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssj-Kq-zPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="RLe-UQ-df1" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.45413190129999997" green="0.73485797639999995" blue="0.36214083429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.45413190129999997" green="0.73485797639999995" blue="0.36214083429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="620" y="220"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UTY-Mb-3Wg">
+            <objects>
+                <viewController id="PWF-Rj-5Ye" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="we7-jy-wLb"/>
+                        <viewControllerLayoutGuide type="bottom" id="9fm-YT-mOy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TLr-w7-Hbj">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akp-tu-xKJ">
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Inserir Coleta">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lLV-kh-9ye" kind="show" id="Kfv-JQ-kwp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlV-vv-nip">
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Inserir Venda">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="fp9-Pa-glg" kind="show" id="2uW-YV-TuQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mlV-vv-nip" firstAttribute="top" secondItem="akp-tu-xKJ" secondAttribute="bottom" constant="30" id="83M-lZ-tto"/>
+                            <constraint firstItem="mlV-vv-nip" firstAttribute="width" secondItem="akp-tu-xKJ" secondAttribute="width" id="9PJ-ID-IXL"/>
+                            <constraint firstItem="9fm-YT-mOy" firstAttribute="top" secondItem="akp-tu-xKJ" secondAttribute="bottom" constant="150" id="S6H-p8-EUp"/>
+                            <constraint firstItem="akp-tu-xKJ" firstAttribute="centerX" secondItem="TLr-w7-Hbj" secondAttribute="centerX" id="XMu-qg-VdK"/>
+                            <constraint firstItem="akp-tu-xKJ" firstAttribute="width" secondItem="TLr-w7-Hbj" secondAttribute="width" multiplier="0.5" id="fyB-lP-HkN"/>
+                            <constraint firstItem="mlV-vv-nip" firstAttribute="height" secondItem="akp-tu-xKJ" secondAttribute="height" id="hq1-bK-yAM"/>
+                            <constraint firstItem="akp-tu-xKJ" firstAttribute="height" secondItem="TLr-w7-Hbj" secondAttribute="height" multiplier="0.1" id="kd5-kG-UpF"/>
+                            <constraint firstItem="mlV-vv-nip" firstAttribute="centerX" secondItem="akp-tu-xKJ" secondAttribute="centerX" id="v72-eb-Cj6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Owy-cl-24D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jg2-d1-l7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="220"/>
         </scene>
         <!--Leite-->
         <scene sceneID="rsn-PE-tTr">
@@ -1342,7 +1434,10 @@
                     <tabBarItem key="tabBarItem" title="Leite" image="Milk" selectedImage="Milk" id="ofO-yt-eeF" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -1380,7 +1475,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="30" height="30"/>
+        <image name="Add" width="75" height="66"/>
         <image name="Milk" width="30" height="30"/>
         <image name="Settings" width="30" height="30"/>
         <image name="Vaca-Leiteira-6" width="528" height="307"/>
