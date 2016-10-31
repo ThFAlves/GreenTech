@@ -15,5 +15,8 @@ pod 'CryptoSwift'
 pod 'CVCalendar'
 pod 'Eureka', '~> 2.0.0-beta.1'
 pod 'RAMAnimatedTabBarController', "~> 2.0.2"
+pod 'FBSDKCoreKit'
+pod 'FBSDKShareKit'
+pod 'FBSDKLoginKit'
 
 end

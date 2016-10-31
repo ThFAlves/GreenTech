@@ -6,7 +6,7 @@
 //  Copyright © 2016 Marcin Krzyzanowski. All rights reserved.
 //
 
-#if os(Linux)
+#if os(Linux) || os(Android) || os(FreeBSD)
     import Glibc
 #else
     import Darwin

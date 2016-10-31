@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6QZ-Rq-DnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ck-pF-Uru">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -113,7 +113,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elO-I5-sDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="591"/>
+            <point key="canvasLocation" x="-596" y="945"/>
         </scene>
         <!--Animais-->
         <scene sceneID="eGH-rI-tTo">
@@ -274,7 +274,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZN-92-mvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014" y="-645"/>
+            <point key="canvasLocation" x="3028" y="-816"/>
         </scene>
         <!--Cadastro-->
         <scene sceneID="kGH-xC-njH">
@@ -389,16 +389,16 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="4vk-jB-i3t"/>
+                                <exclude reference="4Hc-jP-Kqk"/>
                                 <exclude reference="xNq-4F-0T0"/>
                                 <exclude reference="2j5-WC-ozT"/>
-                                <exclude reference="4Hc-jP-Kqk"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hd-QS-1v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3738" y="-697"/>
+            <point key="canvasLocation" x="3724" y="-816"/>
         </scene>
         <!--Opções-->
         <scene sceneID="9vB-qV-odI">
@@ -453,7 +453,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-985" y="1425"/>
+            <point key="canvasLocation" x="620" y="2075"/>
         </scene>
         <!--Authentication View Controller-->
         <scene sceneID="dlr-eg-hxM">
@@ -596,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpx-LP-OlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4497" y="-698"/>
+            <point key="canvasLocation" x="4414" y="-816"/>
         </scene>
         <!--Title-->
         <scene sceneID="5Zv-x4-bm5">
@@ -624,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1519" y="220"/>
+            <point key="canvasLocation" x="1726" y="220"/>
         </scene>
         <!--Leite-->
         <scene sceneID="L5L-UW-gcJ">
@@ -642,10 +642,10 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="364" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="364" height="60"/>
+                                            <frame key="frameInset" width="1000" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -743,7 +743,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osf-VY-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3UV-J6-4I7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="2215"/>
+            <point key="canvasLocation" x="1726" y="2225"/>
         </scene>
         <!--Leite-->
         <scene sceneID="Nub-pQ-nUG">
@@ -993,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557.5999999999999" y="1055.1724137931035"/>
+            <point key="canvasLocation" x="1726" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="d9j-Jp-QOs">
@@ -1120,7 +1120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myK-dd-bBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2866" y="1055"/>
+            <point key="canvasLocation" x="2830" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="o9e-cl-1fW">
@@ -1295,7 +1295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npK-KP-lQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2902" y="2062"/>
+            <point key="canvasLocation" x="2830" y="2225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mDb-et-iQy">
@@ -1307,7 +1307,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="a52-aT-8lj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="a52-aT-8lj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1333,7 +1333,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="620" y="219.94002998500753"/>
+            <point key="canvasLocation" x="620" y="220"/>
         </scene>
         <!--Leite-->
         <scene sceneID="rsn-PE-tTr">
@@ -1350,7 +1350,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nvL-ju-EZe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nvL-ju-EZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

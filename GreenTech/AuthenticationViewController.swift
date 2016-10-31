@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FBSDKLoginKit
 import SystemConfiguration
 import CryptoSwift
 
@@ -27,6 +28,11 @@ class AuthenticationViewController: UIViewController {
             let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
             self.show(controller!, sender:  nil)
         }
+        
+        let loginButton = FBSDKLoginButton()
+        view.addSubview(loginButton)
+        
+        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
     }
     
     override func didReceiveMemoryWarning() {

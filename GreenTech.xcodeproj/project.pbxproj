@@ -348,7 +348,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DA484D1D5A5BCE00D74063 /* Build configuration list for PBXNativeTarget "GreenTech" */;
 			buildPhases = (
-				67AB7C58421508F459DD0CB2 /* 📦 Check Pods Manifest.lock */,
+				67AB7C58421508F459DD0CB2 /* [CP] Check Pods Manifest.lock */,
 				539AB7BC392AA50EC83D6484 /* [CP] Check Pods Manifest.lock */,
 				42B3BA9FD2A5C9F1493C6E0A /* [CP] Check Pods Manifest.lock */,
 				D1DA48291D5A5BCE00D74063 /* Sources */,
@@ -530,14 +530,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		67AB7C58421508F459DD0CB2 /* 📦 Check Pods Manifest.lock */ = {
+		67AB7C58421508F459DD0CB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
