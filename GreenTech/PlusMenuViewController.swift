@@ -10,10 +10,15 @@ import UIKit
 
 class PlusMenuViewController: UIViewController {
 
-    @IBOutlet weak var insertVendaOutlet: UIButton!
-    @IBOutlet weak var insertColetaOutlet: UIButton!
+    @IBOutlet var iconsImage: [UIImageView]!
+    @IBOutlet weak var insertVendaOutlet: UIView!
+    @IBOutlet weak var insertColetaOutlet: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in iconsImage{
+            i.image = i.image?.imageWithColor(tintColor: .white)
+        }
 
         // Do any additional setup after loading the view.
     }
