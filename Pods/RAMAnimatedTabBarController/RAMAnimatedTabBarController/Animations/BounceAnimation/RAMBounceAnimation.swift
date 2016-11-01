@@ -48,8 +48,6 @@ open class RAMBounceAnimation : RAMItemAnimation {
     override open func deselectAnimation(_ icon : UIImageView, textLabel : UILabel, defaultTextColor : UIColor, defaultIconColor: UIColor) {
         textLabel.textColor = defaultTextColor
         if icon.tintColor != UIColor.clear {
-            print("diferente")
-
             if let iconImage = icon.image {
                 
                 let renderMode = defaultIconColor.cgColor.alpha == 0 ? UIImageRenderingMode.alwaysOriginal : UIImageRenderingMode.alwaysTemplate
@@ -70,8 +68,6 @@ open class RAMBounceAnimation : RAMItemAnimation {
     override open func selectedState(_ icon : UIImageView, textLabel : UILabel) {
         textLabel.textColor = textSelectedColor
         if icon.tintColor != UIColor.clear {
-            print("diferente")
-
             if let iconImage = icon.image {
                 
                 let renderImage = iconImage.withRenderingMode(.alwaysTemplate)
@@ -85,13 +81,12 @@ open class RAMBounceAnimation : RAMItemAnimation {
     func playBounceAnimation(_ icon : UIImageView) {
         
         let bounceAnimation = CAKeyframeAnimation(keyPath: Constants.AnimationKeys.Scale)
-        bounceAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
+        bounceAnimation.values = [1.0 ,1.1, 1.2, 1.1, 1.0, 1.0, 1.0]
         bounceAnimation.duration = TimeInterval(duration)
         bounceAnimation.calculationMode = kCAAnimationCubic
         
         icon.layer.add(bounceAnimation, forKey: nil)
         if icon.tintColor != UIColor.clear {
-            print("diferente")
             if let iconImage = icon.image {
                 
                 let renderImage = iconImage.withRenderingMode(.alwaysTemplate)

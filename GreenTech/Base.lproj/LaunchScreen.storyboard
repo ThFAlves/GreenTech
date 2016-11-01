@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,18 +19,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GreenTech3" translatesAutoresizingMaskIntoConstraints="NO" id="bAf-0a-9tc">
-                                <frame key="frameInset" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cow-932817_1920" translatesAutoresizingMaskIntoConstraints="NO" id="Scn-Y0-SXQ"/>
+                            <visualEffectView opaque="NO" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVa-2C-Qza">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hpV-FZ-nee">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenTech3" translatesAutoresizingMaskIntoConstraints="NO" id="bAf-0a-9tc">
+                                <color key="backgroundColor" white="1" alpha="0.70542594178082196" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bAf-0a-9tc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0km-T5-C9B"/>
-                            <constraint firstItem="bAf-0a-9tc" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="3qc-5C-EiL"/>
+                            <constraint firstItem="Scn-Y0-SXQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1xf-Wc-8f7"/>
+                            <constraint firstItem="bAf-0a-9tc" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.2" id="3qc-5C-EiL"/>
+                            <constraint firstItem="Scn-Y0-SXQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7cb-UD-Y0n"/>
+                            <constraint firstItem="CVa-2C-Qza" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="A74-gr-o86"/>
+                            <constraint firstItem="Scn-Y0-SXQ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Axq-Jc-sZs"/>
                             <constraint firstItem="bAf-0a-9tc" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="CLJ-Tp-A99"/>
                             <constraint firstItem="bAf-0a-9tc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VZ7-eP-TKA"/>
                             <constraint firstItem="bAf-0a-9tc" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="aJj-fV-3Tg"/>
-                            <constraint firstItem="bAf-0a-9tc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iY9-oz-Mjc"/>
+                            <constraint firstItem="CVa-2C-Qza" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="bF1-8G-Mc2"/>
+                            <constraint firstItem="CVa-2C-Qza" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="dEd-IT-epP"/>
+                            <constraint firstItem="CVa-2C-Qza" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dYr-Tw-IE1"/>
+                            <constraint firstItem="bAf-0a-9tc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="1.5" id="iY9-oz-Mjc"/>
+                            <constraint firstItem="Scn-Y0-SXQ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="xE8-Y2-Sue"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -38,6 +56,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,6 +64,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GreenTech3" width="2305" height="940"/>
+        <image name="GreenTech3" width="2480" height="940"/>
+        <image name="cow-932817_1920" width="1920" height="1440"/>
     </resources>
 </document>
