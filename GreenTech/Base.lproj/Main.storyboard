@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itk-2L-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346.4000000000001" y="-816.34182908545733"/>
+            <point key="canvasLocation" x="3028" y="-1154"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="jTD-qw-2iT">
@@ -129,7 +129,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7NR-T4-K0m" id="eqD-2o-02B">
-                                            <frame key="frameInset" width="375" height="100"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vaca-Leiteira-6" translatesAutoresizingMaskIntoConstraints="NO" id="00r-SH-0wJ">
@@ -196,7 +196,7 @@
                                         <rect key="frame" x="0.0" y="156" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezT-YV-6hc" id="A1G-p0-lzS">
-                                            <frame key="frameInset" width="375" height="100"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bezerro-holandesa" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Wa-zmw">
@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZN-92-mvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3028" y="-816"/>
+            <point key="canvasLocation" x="3724" y="-1502"/>
         </scene>
         <!--Cadastro-->
         <scene sceneID="kGH-xC-njH">
@@ -397,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hd-QS-1v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3724" y="-816"/>
+            <point key="canvasLocation" x="4550" y="-1502"/>
         </scene>
         <!--Opções-->
         <scene sceneID="9vB-qV-odI">
@@ -598,9 +598,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpx-LP-OlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4414" y="-816"/>
+            <point key="canvasLocation" x="5398" y="-1502"/>
         </scene>
-        <!--Title-->
+        <!--Nova Coleta-->
         <scene sceneID="5Zv-x4-bm5">
             <objects>
                 <viewController id="lLV-kh-9ye" customClass="AddMilkInfoViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
@@ -614,11 +614,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="f98-Ya-z9h">
-                        <barButtonItem key="rightBarButtonItem" title="Adicionar" id="bRB-d0-vjz">
+                    <navigationItem key="navigationItem" title="Nova Coleta" id="f98-Ya-z9h">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="tOm-fa-RxJ">
+                            <connections>
+                                <segue destination="cLQ-oT-QTI" kind="show" id="2nf-XH-p33"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="bRB-d0-vjz">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="saveData:" destination="lLV-kh-9ye" id="d4z-9z-xpf"/>
+                                <segue destination="cLQ-oT-QTI" kind="show" id="uMs-6A-Pt3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -626,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2639" y="-118"/>
+            <point key="canvasLocation" x="2206" y="-444"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="88S-RE-WyB">
@@ -644,7 +650,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VS8-9c-ehn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="231"/>
+            <point key="canvasLocation" x="3166" y="-223"/>
         </scene>
         <!--Leite-->
         <scene sceneID="L5L-UW-gcJ">
@@ -655,7 +661,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pkQ-Rg-zNn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BdN-jb-YDc">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
@@ -774,7 +780,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Xbq-nz-Ze0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GH2-Gu-q2L" customClass="ChartMarkerView">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-rL-Tfx">
@@ -830,7 +836,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.6705882352941176" green="0.85098039215686272" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.38039215686274508" green="0.67450980392156867" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="1MG-sn-x05" firstAttribute="centerY" secondItem="ayh-jJ-9rv" secondAttribute="centerY" id="DlZ-Ap-0hE"/>
                                                     <constraint firstAttribute="trailing" secondItem="1MG-sn-x05" secondAttribute="trailing" constant="15" id="HNX-Uw-iq1"/>
@@ -1013,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="1095"/>
+            <point key="canvasLocation" x="1948" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="d9j-Jp-QOs">
@@ -1024,7 +1030,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hJn-oA-Vac"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3N4-EY-5kC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-Me-PDG" userLabel="PeriodView">
@@ -1140,7 +1146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myK-dd-bBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="1095"/>
+            <point key="canvasLocation" x="3350" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="o9e-cl-1fW">
@@ -1151,7 +1157,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ipZ-4i-UrZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hsR-ij-yT4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-vE-w3s" userLabel="PeriodView">
@@ -1378,6 +1384,15 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="milk-cans-1659157_1920" translatesAutoresizingMaskIntoConstraints="NO" id="M7R-XL-JkZ"/>
+                            <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vg-6c-MKs">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BY6-Z1-s1r">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akp-tu-xKJ">
                                 <color key="backgroundColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -1411,21 +1426,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Vg-6c-MKs" firstAttribute="height" secondItem="M7R-XL-JkZ" secondAttribute="height" id="09r-ov-dlp"/>
+                            <constraint firstItem="9Vg-6c-MKs" firstAttribute="centerY" secondItem="M7R-XL-JkZ" secondAttribute="centerY" id="4Lg-xe-njc"/>
                             <constraint firstItem="mlV-vv-nip" firstAttribute="top" secondItem="akp-tu-xKJ" secondAttribute="bottom" constant="30" id="83M-lZ-tto"/>
                             <constraint firstItem="mlV-vv-nip" firstAttribute="width" secondItem="akp-tu-xKJ" secondAttribute="width" id="9PJ-ID-IXL"/>
+                            <constraint firstItem="M7R-XL-JkZ" firstAttribute="height" secondItem="TLr-w7-Hbj" secondAttribute="height" id="NjK-e8-FpT"/>
+                            <constraint firstItem="M7R-XL-JkZ" firstAttribute="centerY" secondItem="TLr-w7-Hbj" secondAttribute="centerY" id="Q6E-wy-Fam"/>
                             <constraint firstItem="9fm-YT-mOy" firstAttribute="top" secondItem="akp-tu-xKJ" secondAttribute="bottom" constant="150" id="S6H-p8-EUp"/>
                             <constraint firstItem="akp-tu-xKJ" firstAttribute="centerX" secondItem="TLr-w7-Hbj" secondAttribute="centerX" id="XMu-qg-VdK"/>
                             <constraint firstItem="akp-tu-xKJ" firstAttribute="width" secondItem="TLr-w7-Hbj" secondAttribute="width" multiplier="0.5" id="fyB-lP-HkN"/>
+                            <constraint firstItem="9Vg-6c-MKs" firstAttribute="centerX" secondItem="M7R-XL-JkZ" secondAttribute="centerX" id="h0K-LD-nE2"/>
                             <constraint firstItem="mlV-vv-nip" firstAttribute="height" secondItem="akp-tu-xKJ" secondAttribute="height" id="hq1-bK-yAM"/>
+                            <constraint firstItem="M7R-XL-JkZ" firstAttribute="centerX" secondItem="TLr-w7-Hbj" secondAttribute="centerX" id="irW-nN-mnw"/>
+                            <constraint firstItem="9Vg-6c-MKs" firstAttribute="width" secondItem="M7R-XL-JkZ" secondAttribute="width" id="jUu-Z8-B2D"/>
                             <constraint firstItem="akp-tu-xKJ" firstAttribute="height" secondItem="TLr-w7-Hbj" secondAttribute="height" multiplier="0.1" id="kd5-kG-UpF"/>
                             <constraint firstItem="mlV-vv-nip" firstAttribute="centerX" secondItem="akp-tu-xKJ" secondAttribute="centerX" id="v72-eb-Cj6"/>
+                            <constraint firstItem="M7R-XL-JkZ" firstAttribute="width" secondItem="TLr-w7-Hbj" secondAttribute="width" id="wmP-hf-625"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Owy-cl-24D"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jg2-d1-l7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="220"/>
+            <point key="canvasLocation" x="1385" y="220"/>
         </scene>
         <!--Leite-->
         <scene sceneID="rsn-PE-tTr">
@@ -1482,8 +1505,10 @@
         <image name="bezerro-holandesa" width="700" height="469"/>
         <image name="calendarMenu" width="18" height="18"/>
         <image name="desclosure" width="50" height="80"/>
+        <image name="milk-cans-1659157_1920" width="1920" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xbg-Se-lzm"/>
+        <segue reference="uMs-6A-Pt3"/>
     </inferredMetricsTieBreakers>
 </document>

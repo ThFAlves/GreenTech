@@ -19,6 +19,7 @@
 		CA4CAB531D94C637006F8119 /* ViewBorderExtencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */; };
 		CA5B7E9A1DA5892F00F66A6F /* BottonCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */; };
 		CA7742321DB68586009BB361 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7742311DB68586009BB361 /* QueryType.swift */; };
+		CA805FF81DC8C499007F374E /* PlusMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA805FF71DC8C499007F374E /* PlusMenuViewController.swift */; };
 		CAC31ECF1DA8334300196C1D /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */; };
 		CAE6EDF61DC4C29F008B0C2C /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6EDF51DC4C29F008B0C2C /* RAMBounceAnimation.swift */; };
 		CAF3D5631D9D84D8006A879C /* MilkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3D5621D9D84D8006A879C /* MilkViewController.swift */; };
@@ -115,6 +116,7 @@
 		CA4CAB521D94C637006F8119 /* ViewBorderExtencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderExtencion.swift; sourceTree = "<group>"; };
 		CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottonCornerView.swift; sourceTree = "<group>"; };
 		CA7742311DB68586009BB361 /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
+		CA805FF71DC8C499007F374E /* PlusMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusMenuViewController.swift; sourceTree = "<group>"; };
 		CAC31ECE1DA8334300196C1D /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		CAE6EDF51DC4C29F008B0C2C /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		CAF3D5621D9D84D8006A879C /* MilkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				CAF3D5621D9D84D8006A879C /* MilkViewController.swift */,
 				CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */,
 				2A2390A71DC177CD0013726B /* AddMilkInfoViewController.swift */,
+				CA805FF71DC8C499007F374E /* PlusMenuViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,
 				1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */,
 				D1E66AF41D8D93F2007D1A10 /* MilkTableViewCell.swift in Sources */,
+				CA805FF81DC8C499007F374E /* PlusMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
