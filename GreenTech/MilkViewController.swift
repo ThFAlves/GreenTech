@@ -111,12 +111,17 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
         return "Error"
     }
     
+    
+    //create a custom header from tableview
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UIView(frame: CGRect(x: 8, y: 0, width: milkTableView.bounds.size.width , height: 10))
-            headerView.backgroundColor = Color.silverColor
-        let label = UILabel(frame: CGRect(x: 8, y: 12, width: milkTableView.bounds.size.width, height: 13))
+            headerView.backgroundColor = Color.green
+            headerView.layer.cornerRadius = 6
+        let label = UILabel(frame: CGRect(x: 8, y: 10, width: milkTableView.bounds.size.width, height: 15))
         //reload the header selected
+            label.textColor = .white
         if chartToDetailSelection == "productionDetail" {
             label.text = "Produção"
         }
