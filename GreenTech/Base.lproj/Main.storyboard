@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf9-Xr-rmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346.4000000000001" y="-1501.7991004497753"/>
+            <point key="canvasLocation" x="2442" y="-2008"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="SGd-F9-guC">
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itk-2L-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3028" y="-1154"/>
+            <point key="canvasLocation" x="3124" y="-1661"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="jTD-qw-2iT">
@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZN-92-mvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3724" y="-1502"/>
+            <point key="canvasLocation" x="3820" y="-2009"/>
         </scene>
         <!--Cadastro-->
         <scene sceneID="kGH-xC-njH">
@@ -397,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hd-QS-1v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4550" y="-1502"/>
+            <point key="canvasLocation" x="4646" y="-2009"/>
         </scene>
         <!--Opções-->
         <scene sceneID="9vB-qV-odI">
@@ -455,7 +455,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="620" y="2075"/>
+            <point key="canvasLocation" x="689" y="2075"/>
         </scene>
         <!--Authentication View Controller-->
         <scene sceneID="dlr-eg-hxM">
@@ -533,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKE-dk-A5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559.2" y="-1172.5637181409297"/>
+            <point key="canvasLocation" x="1655" y="-1679"/>
         </scene>
         <!--Save Image View Controller-->
         <scene sceneID="dLg-jG-fVv">
@@ -598,7 +598,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpx-LP-OlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5398" y="-1502"/>
+            <point key="canvasLocation" x="5494" y="-2009"/>
         </scene>
         <!--Nova Coleta-->
         <scene sceneID="5Zv-x4-bm5">
@@ -624,33 +624,52 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="saveData:" destination="lLV-kh-9ye" id="d4z-9z-xpf"/>
-                                <segue destination="cLQ-oT-QTI" kind="show" id="uMs-6A-Pt3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="cLQ-oT-QTI" kind="show" identifier="saveMilkSegue" id="nF4-l2-1bU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHR-KS-Y2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="-444"/>
+            <point key="canvasLocation" x="2473" y="-573"/>
         </scene>
-        <!--View Controller-->
+        <!--Nova Venda-->
         <scene sceneID="88S-RE-WyB">
             <objects>
-                <viewController id="fp9-Pa-glg" sceneMemberID="viewController">
+                <viewController id="fp9-Pa-glg" customClass="AddSaleViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hmF-7Q-a64"/>
                         <viewControllerLayoutGuide type="bottom" id="maw-nw-lbU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qDb-bh-vcX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Nova Venda" id="sT6-5i-CXD">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="lK7-mA-Kfr">
+                            <connections>
+                                <segue destination="cLQ-oT-QTI" kind="show" id="LDg-ZJ-xFb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="0wo-tx-ehA">
+                            <connections>
+                                <action selector="saveButton:" destination="fp9-Pa-glg" id="wzn-RY-gab"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="cLQ-oT-QTI" kind="show" identifier="saveSaleSegue" id="PBZ-Ap-vAp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VS8-9c-ehn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3166" y="-223"/>
+            <point key="canvasLocation" x="2473" y="231"/>
         </scene>
         <!--Leite-->
         <scene sceneID="L5L-UW-gcJ">
@@ -661,17 +680,17 @@
                         <viewControllerLayoutGuide type="bottom" id="pkQ-Rg-zNn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BdN-jb-YDc">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="364" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4D-Sw-6Iu" id="zlk-qs-Rgo">
-                                            <frame key="frameInset" width="1000" height="60"/>
+                                            <frame key="frameInset" width="364" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-uZ-Gxu">
@@ -769,7 +788,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osf-VY-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3UV-J6-4I7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="2225"/>
+            <point key="canvasLocation" x="1505" y="2225"/>
         </scene>
         <!--Leite-->
         <scene sceneID="Nub-pQ-nUG">
@@ -780,7 +799,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Xbq-nz-Ze0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GH2-Gu-q2L" customClass="ChartMarkerView">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-rL-Tfx">
@@ -1019,7 +1038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWB-lj-qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="1095"/>
+            <point key="canvasLocation" x="2473" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="d9j-Jp-QOs">
@@ -1030,7 +1049,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hJn-oA-Vac"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3N4-EY-5kC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-Me-PDG" userLabel="PeriodView">
@@ -1146,7 +1165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myK-dd-bBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="1095"/>
+            <point key="canvasLocation" x="3862" y="1095"/>
         </scene>
         <!--Calendário-->
         <scene sceneID="o9e-cl-1fW">
@@ -1157,7 +1176,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ipZ-4i-UrZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hsR-ij-yT4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-vE-w3s" userLabel="PeriodView">
@@ -1321,7 +1340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npK-KP-lQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="2225"/>
+            <point key="canvasLocation" x="2473" y="2225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mDb-et-iQy">
@@ -1373,7 +1392,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="620" y="220"/>
+            <point key="canvasLocation" x="689" y="-183"/>
         </scene>
         <!--Plus Menu View Controller-->
         <scene sceneID="UTY-Mb-3Wg">
@@ -1455,7 +1474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jg2-d1-l7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385" y="220"/>
+            <point key="canvasLocation" x="1505" y="-183"/>
         </scene>
         <!--Leite-->
         <scene sceneID="rsn-PE-tTr">
@@ -1501,7 +1520,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="620" y="945"/>
+            <point key="canvasLocation" x="689" y="945"/>
         </scene>
     </scenes>
     <resources>
@@ -1515,7 +1534,7 @@
         <image name="milk-can-1500140_1920" width="1920" height="998"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xbg-Se-lzm"/>
-        <segue reference="xIH-kK-6Rc"/>
+        <segue reference="PBZ-Ap-vAp"/>
+        <segue reference="IfI-WB-f4W"/>
     </inferredMetricsTieBreakers>
 </document>

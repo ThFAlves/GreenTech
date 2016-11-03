@@ -29,6 +29,7 @@
 		D15C04141D81EBEC00871F52 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C04131D81EBEC00871F52 /* SaveImageViewController.swift */; };
 		D15DCC461DBA269100ADF0FE /* DateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DCC451DBA269100ADF0FE /* DateString.swift */; };
 		D161EF531D90E58400004ED8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161EF521D90E58400004ED8 /* SettingsViewController.swift */; };
+		D16EFA7F1DC9087700FBC86D /* AddSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16EFA7E1DC9087700FBC86D /* AddSaleViewController.swift */; };
 		D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18FE3061D8E35F700245845 /* VerifyConnection.swift */; };
 		D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */; };
 		D195275E1D5CE3C70031BF13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19527591D5CE3C70031BF13 /* DatabaseManager.swift */; };
@@ -127,6 +128,7 @@
 		D15DCC451DBA269100ADF0FE /* DateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateString.swift; sourceTree = "<group>"; };
 		D161EF521D90E58400004ED8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D16A5AC91D8DA905009E2A94 /* GreenTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GreenTech.entitlements; sourceTree = "<group>"; };
+		D16EFA7E1DC9087700FBC86D /* AddSaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSaleViewController.swift; sourceTree = "<group>"; };
 		D18FE3061D8E35F700245845 /* VerifyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyConnection.swift; sourceTree = "<group>"; };
 		D19527581D5CE3C70031BF13 /* SQLCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLCoordinator.swift; sourceTree = "<group>"; };
 		D19527591D5CE3C70031BF13 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				CAF3D58A1D9EF3D1006A879C /* ChartsViewController.swift */,
 				2A2390A71DC177CD0013726B /* AddMilkInfoViewController.swift */,
 				CA805FF71DC8C499007F374E /* PlusMenuViewController.swift */,
+				D16EFA7E1DC9087700FBC86D /* AddSaleViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				D15C04121D81EBC300871F52 /* FirebaseService.swift in Sources */,
 				D15DCC461DBA269100ADF0FE /* DateString.swift in Sources */,
 				D18FE3071D8E35F700245845 /* VerifyConnection.swift in Sources */,
+				D16EFA7F1DC9087700FBC86D /* AddSaleViewController.swift in Sources */,
 				D1E9C3B81D5E62B100A45FC7 /* ResetPasswordViewController.swift in Sources */,
 				D1DA48311D5A5BCE00D74063 /* AppDelegate.swift in Sources */,
 				D195275F1D5CE3C70031BF13 /* DataCD.swift in Sources */,

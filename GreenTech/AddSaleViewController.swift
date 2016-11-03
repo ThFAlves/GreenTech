@@ -1,21 +1,20 @@
 //
-//  AddMilkInfoViewController.swift
+//  AddSaleViewController.swift
 //  GreenTech
 //
-//  Created by Thiago Alves on 26/10/16.
+//  Created by HyagoHirai on 01/11/16.
 //  Copyright © 2016 HyagoHirai. All rights reserved.
 //
 
 import UIKit
 import Eureka
 
-class AddMilkInfoViewController: FormViewController {
-
-    let service = FirebaseService()
+class AddSaleViewController: FormViewController {
     
+    let service = FirebaseService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         loadForm()
         // Do any additional setup after loading the view.
     }
@@ -25,6 +24,7 @@ class AddMilkInfoViewController: FormViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     private func loadForm(){
         
         form = Section("Data e Hora")
@@ -40,41 +40,18 @@ class AddMilkInfoViewController: FormViewController {
             }
             +++ Section("Leite")
             <<< IntRow(){ row in
-                row.title = "Produzido"
+                row.title = "Vendido"
                 row.placeholder = "0 Lts"
-                row.tag = "Produzido"
+                row.tag = "Vendido"
                 row.add(rule: RuleRequired())
                 }.cellUpdate { cell, row in
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
             }
-            <<< IntRow(){ row in
-                row.title = "Consumo Interno"
-                row.placeholder = "0 Lts"
-                row.tag = "ConsumoInterno"
-                row.add(rule: RuleRequired())
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.titleLabel?.textColor = .red
-                    }
-                }
-
-            <<< IntRow(){ row in
-                row.title = "Descarte"
-                row.placeholder = "0 Lts"
-                row.tag = "Descarte"
-                row.add(rule: RuleRequired())
-                }
-                .cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.titleLabel?.textColor = .red
-                    }
-                }
     }
     
-    @IBAction func saveData(_ sender: AnyObject) {
+    @IBAction func saveButton(_ sender: AnyObject) {
         
         var dictionary = [String: Any]()
         
@@ -87,7 +64,6 @@ class AddMilkInfoViewController: FormViewController {
         dictionary["LACT"] = 0 as Float
         dictionary["PROT"] = 0 as Float
         dictionary["ST"] = 0 as Float
-        dictionary["Vendido"] = 0 as Float
         
         if let date = form.rowBy(tag: "Data")?.baseValue {
             dictionary["Data"] = String(describing: date)
@@ -97,21 +73,13 @@ class AddMilkInfoViewController: FormViewController {
             dictionary["Hora"] = String(describing: hour)
         }
         
-        if let produced = form.rowBy(tag: "Produzido")?.baseValue {
-            dictionary["Produzido"] = produced
+        if let sale = form.rowBy(tag: "Vendido")?.baseValue {
+            dictionary["Vendido"] = sale
         }
         
-        if let internConsume = form.rowBy(tag: "ConsumoInterno")?.baseValue {
-            dictionary["ConsumoInterno"] = internConsume
-        }
-        
-        if let lost = form.rowBy(tag: "Descarte")?.baseValue {
-            dictionary["Perdido"] = lost
-        }
-        
-        if (dictionary["Produzido"] != nil && dictionary["ConsumoInterno"] != nil && dictionary["Perdido"] != nil) {
-            service.saveMilkInfoDatabase(dictionary: dictionary)
-            performSegue(withIdentifier: "saveMilkSegue", sender: self)
+        if (dictionary["Vendido"] != nil) {
+            service.saveSaleMilkDatabase(dictionary: dictionary)
+            performSegue(withIdentifier: "saveSaleSegue", sender: self)
         }else{
             showErrorAlert("Preencha todos os campos")
         }
@@ -123,5 +91,5 @@ class AddMilkInfoViewController: FormViewController {
         alertController.addAction(defaultAction)
         self.present(alertController,animated: true, completion: nil)
     }
-
+    
 }

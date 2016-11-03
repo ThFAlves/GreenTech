@@ -159,4 +159,20 @@ class FirebaseService {
             })
         }
     }
+    
+    func saveSaleMilkDatabase(dictionary: [String: Any]) {
+        var newDictionary = dictionary
+        if let dateFromDictionary = newDictionary["Data"] {
+            let date = dateStringFunctions.getFormattedDayReverse(dateString: dateFromDictionary as! String)
+            let pathDate = dateStringFunctions.dateToStringPath(date: date)
+            var path = dateStringFunctions.getPathFromDate(dateString: pathDate)
+            path += "/Vendido"            
+            let sale = newDictionary["Vendido"] as! NSNumber
+            
+            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
+                currentData.value = sale
+                return FIRTransactionResult.success(withValue: currentData)
+            })
+        }
+    }
 }

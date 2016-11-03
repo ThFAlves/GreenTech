@@ -250,6 +250,7 @@ extension ChartsViewController {
     func takeValue(path: String, queryType: QueryType) {
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.milksInfo = result
+            //print(result)
             self?.loadAllCharts(queryType: queryType)
         }
     }
@@ -390,6 +391,7 @@ extension ChartsViewController {
             }
             return Date()
         }
+        //print(xs1Line)
         return xs1Line
     }
     
