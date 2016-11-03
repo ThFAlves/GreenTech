@@ -8,10 +8,9 @@
 [![Travis](https://img.shields.io/travis/Ramotion/animated-tab-bar.svg)](https://travis-ci.org/Ramotion/animated-tab-bar)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/animated-tab-bar)](https://github.com/igrigorik/ga-beacon)
 
-
-
 ## About
-This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=animated-tab-bar-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
+This project is maintained by Ramotion, Inc.<br>
+We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>**Looking for developers for your project?** [[▶︎CONTACT OUR TEAM◀︎](http://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=animated-tab-bar-contact-us/#Get_in_Touch)]
 
 
 
@@ -26,8 +25,8 @@ Screencast from our Demo
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 6.1
+- iOS 9.0+
+- xCode 8
 
 ## Installation
 
@@ -35,14 +34,14 @@ Just add the RAMAnimatedTabBarController folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'RAMAnimatedTabBarController'
+pod 'RAMAnimatedTabBarController', "~> 1.5.3"  swift 2.2
+pod 'RAMAnimatedTabBarController', "~> 2.0.2"  swift 3
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
 ```
-github "Ramotion/animated-tab-bar", "~> 1.5.3"  swift 2.2
+github "Ramotion/animated-tab-bar"
 
-github "Ramotion/animated-tab-bar", "~> 2.0.1"  swift 3
 ```
 
 

@@ -18,5 +18,6 @@ pod 'RAMAnimatedTabBarController', "~> 2.0.2"
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
+pod 'GoogleSignIn'
 
 end

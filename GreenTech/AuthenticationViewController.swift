@@ -12,8 +12,9 @@ import FirebaseAuth
 import FBSDKLoginKit
 import SystemConfiguration
 import CryptoSwift
+import GoogleSignIn
 
-class AuthenticationViewController: UIViewController {
+class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -23,16 +24,23 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Email Sign
 
         if (FIRAuth.auth()?.currentUser != nil) {
             let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
             self.show(controller!, sender:  nil)
         }
         
+        // Google Sign
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+
+        // Facebook Sign
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
         
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        loginButton.frame = CGRect(x: 72, y: 550, width: 231, height: 42)
     }
     
     override func didReceiveMemoryWarning() {
