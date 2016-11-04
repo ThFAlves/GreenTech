@@ -14,7 +14,7 @@ import SystemConfiguration
 import CryptoSwift
 import GoogleSignIn
 
-class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
+class AuthenticationViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -24,23 +24,15 @@ class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Email Sign
 
         if (FIRAuth.auth()?.currentUser != nil) {
             let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
             self.show(controller!, sender:  nil)
         }
         
-        // Google Sign
+        setupFacebookButtons()
+        setupGoogleButtons()
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-
-        // Facebook Sign
-        let loginButton = FBSDKLoginButton()
-        view.addSubview(loginButton)
-        
-        loginButton.frame = CGRect(x: 72, y: 550, width: 231, height: 42)
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,4 +82,67 @@ class AuthenticationViewController: UIViewController, GIDSignInUIDelegate {
         self.present(alertController,animated: true, completion: nil)
     }
     
+}
+
+extension AuthenticationViewController: FBSDKLoginButtonDelegate {
+    
+    func setupFacebookButtons() {
+        let loginFacebookButton = FBSDKLoginButton()
+        view.addSubview(loginFacebookButton)
+        //frame's are obselete, please use constraints instead because its 2016 after all
+        loginFacebookButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        loginFacebookButton.delegate = self
+        loginFacebookButton.readPermissions = ["email", "public_profile"]
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error)
+            return
+        }
+        showEmailAddress()
+    }
+    
+    func showEmailAddress() {
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        
+        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB user: ", error ?? "")
+                return
+            }
+            
+            print("Successfully logged in with our user: ", user ?? "")
+            self.performSegue(withIdentifier: "signSegue", sender: self)
+        })
+        
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+            
+            if err != nil {
+                print("Failed to start graph request:", err ?? "")
+                return
+            }
+            print(result ?? "")
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+}
+
+extension AuthenticationViewController: GIDSignInUIDelegate {
+    
+    func setupGoogleButtons() {
+        //add google sign in button
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 16, y: 116, width: view.frame.width - 32, height: 50)
+        view.addSubview(googleButton)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().delegate = self
+    }
+    
+
 }
