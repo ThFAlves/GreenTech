@@ -23,12 +23,14 @@ class MilkViewController: UIViewController {
     let descriptionVector: [String] = ["Comercializado", "Descartado", "Consumido"]
     let unitVector: [String] = ["Litros", "UFC/mL", "mil/mL", "oH", ""]
     var milksInfo = [MilkInfo]()
+    
     var chartToDetailSelection = ""
     var segmentedSelection = ""
     weak var chartsViewController: ChartsViewController?
 
     
     let dateStringFunctions = DateString()
+    let dateFormatter = DateFormatter()
 
     
     
@@ -41,6 +43,9 @@ class MilkViewController: UIViewController {
         super.viewDidLoad()
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
         getWeekValues(day: "07/10/2016")
+
+        //let calendar = Calendar.current
+        
         segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
     }
     
@@ -159,13 +164,29 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
         
         if chartToDetailSelection == "generalDetail"{
             if indexPath.section == 0 {
-                cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
+                
+                let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YY"
+                let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
+                cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
             }
             if indexPath.section == 1 {
-                cell.configureCell(milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].lost!), unitInfo: unitVector[0])
+                let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YY"
+                let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
+                cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].lost!), unitInfo: unitVector[0])
             }
             if indexPath.section == 2 {
-                cell.configureCell( milksInfo[indexPath.row].date!, valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
+                let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YY"
+                let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
+
+                cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
 
             }
         }
