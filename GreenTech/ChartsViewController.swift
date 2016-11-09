@@ -146,6 +146,32 @@ class ChartsViewController: UIViewController {
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
 
+    func segmentToKind(_ kind: Int ) -> DateSelectionKind {
+        
+        var selectedKind = DateSelectionKind.DAY
+        
+        switch(kind){
+            
+        case 0 :
+            selectedKind = DateSelectionKind.DAY
+            break
+        case 1:
+            selectedKind = DateSelectionKind.WEEK
+            break
+        case 2:
+            selectedKind = DateSelectionKind.MONTH
+            break
+        case 3:
+            selectedKind = DateSelectionKind.YEAR
+            break
+        default:
+            selectedKind = DateSelectionKind.DAY
+            break
+        }
+        
+        return selectedKind
+    }
+
     
     //select the pie button
     @IBAction func didSelectGeneralDetails(_ sender: AnyObject) {
@@ -166,11 +192,25 @@ class ChartsViewController: UIViewController {
 
             }
         }
+        
         if segue.identifier == "productionDetailSegueIdentifier" {
             if let detailSelected = segue.destination as? MilkViewController {
                 detailSelected.chartToDetailSelection = "productionDetail"
                 detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
 
+            }
+        }
+        
+        if segue.identifier == CALENDAR_SEGUE {
+            if let selectedDateKindSelected = segue.destination as? CalendarViewController {
+                selectedDateKindSelected.selectedDateKind = segmentToKind(segmentedViewOutlet.selectedSegmentIndex)
+                
+            }
+        }
+        
+        if segue.identifier == SPINNER_SEGUE {
+            if let selectedDateKindSelected = segue.destination as? SpinnerViewController {
+                selectedDateKindSelected.selectedDateKind = segmentToKind(segmentedViewOutlet.selectedSegmentIndex)
             }
         }
     }

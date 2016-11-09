@@ -16,7 +16,7 @@ import Foundation
 
 let CALENDAR_SEGUE = "viewCalendar"
 
-let SPINNER_SEGUE = "viewCalendar"
+let SPINNER_SEGUE = "viewSpinner"
 
 // MARK: - Colors
 

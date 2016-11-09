@@ -10,14 +10,25 @@ import Foundation
 import UIKit
 import CVCalendar
 
+enum DateSelectionKind {
+    
+    case DAY
+    case WEEK
+    case MONTH
+    case YEAR
+}
+
 class CalendarViewController: UIViewController {
     
-    // MARK - Outlets
+    //MARK - Outlets and properties
     
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     
     var selectedDay:DayView!
+    var selectedDateKind : DateSelectionKind?
+    
+    //MARK - Class methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +37,23 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setCalendarViewAccording(selectedDateKind)
+    }
+    
+    func setCalendarViewAccording(_ toKind : DateSelectionKind?) {
+        
+        guard let dateKind = toKind else { return }
+        
+        switch (dateKind){
+        case DateSelectionKind.DAY :
+            break
+            
+        case DateSelectionKind.WEEK :
+            break
+            
+        default :
+            break
+        }
     }
     
     //MARK - Actions
@@ -73,7 +101,7 @@ extension CalendarView: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     public func didSelectDayView(_ dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-//        selectedDay = dayView
+        //        selectedDay = dayView
     }
 }
 
