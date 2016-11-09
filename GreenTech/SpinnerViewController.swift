@@ -13,14 +13,13 @@ import CVCalendar
 class SpinnerViewController: UIViewController {
     
     //MARK - Outlets and properties
-    @IBOutlet weak var startDate: UIPickerView!
-    @IBOutlet weak var endDate: UIPickerView!
+    @IBOutlet weak var startDate: MonthYearPickerView!
+    @IBOutlet weak var endDate: MonthYearPickerView!
     @IBOutlet weak var startPeriodLabel: UILabel!
     @IBOutlet weak var endPeriodLabel: UILabel!
     
     var selectedDateKind : DateSelectionKind?
-    var monthsArray : [String] = []
-    var yearsArray : [String] = []
+    
     
     //MARK - Class methods
     override func viewDidLoad() {
@@ -33,34 +32,36 @@ class SpinnerViewController: UIViewController {
         setPickerViewAccording(selectedDateKind)
     }
     
-  
+    
     func setPickerViewAccording(_ toKind : DateSelectionKind?) {
-        
-        startDate.delegate = self
-        startDate.dataSource = self
-        
-        endDate.delegate = self
-        endDate.dataSource = self
         
         guard let dateKind = toKind else { return }
         
         switch (dateKind){
         case DateSelectionKind.MONTH :
+            startDate = MonthYearPickerView()
+            startDate.onDateSelected = { (month: String?, year: Int?) in
+                print("month \(month)")
+            }
+            
+            endDate = MonthYearPickerView()
+            endDate.onDateSelected = { (month: String?, year: Int?) in
+                print("month \(month)")
+            }
+            
             break
             
         case DateSelectionKind.YEAR :
-            //Get Current Year into i2
-            var formatter : DateFormatter = DateFormatter()
-            formatter.setLocalizedDateFormatFromTemplate("yyyy")
+            startDate = MonthYearPickerView()
+            startDate.onDateSelected = { (month: String?, year: Int?) in
+                print("year \(year)")
+            }
             
-            var year : String  = formatter.string(from: Date())
+            endDate = MonthYearPickerView()
+            endDate.onDateSelected = { (month: String?, year: Int?) in
+                print("year \(year)")
+            }
             
-            
-//            //Create Years Array from 1960 to This year
-//            years = [[NSMutableArray alloc] init];
-//            for (int i=2015; i<=year; i++) {
-//                [years addObject:[NSString stringWithFormat:@"%d",i]];
-//            }
             
             break
             
@@ -72,20 +73,5 @@ class SpinnerViewController: UIViewController {
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension SpinnerViewController : UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "Teste"
     }
 }

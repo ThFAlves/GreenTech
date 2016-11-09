@@ -33,11 +33,25 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = CVDate(date: Date()).globalDescription
+        
+        // Appearance delegate [Optional]
+        self.calendarView.calendarAppearanceDelegate = self
+        // Menu delegate [Required]
+        self.menuView.menuViewDelegate = self
+        // Calendar delegate [Required]
+        self.calendarView.calendarDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setCalendarViewAccording(selectedDateKind)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        menuView.commitMenuViewUpdate()
+        calendarView.commitCalendarViewUpdate()
     }
     
     func setCalendarViewAccording(_ toKind : DateSelectionKind?) {
@@ -59,15 +73,6 @@ class CalendarViewController: UIViewController {
     //MARK - Actions
     @IBAction func didFinishedEditing(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK - Component Methods
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        calendarView.commitCalendarViewUpdate()
-        menuView.commitMenuViewUpdate()
     }
 }
 

@@ -1170,6 +1170,11 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYP-ee-dSm" customClass="CVCalendarView" customModule="CVCalendar">
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1294,7 +1299,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv7-o1-Wdp">
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvT-dV-FAB"/>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvT-dV-FAB" customClass="MonthYearPickerView" customModule="GreenTech" customModuleProvider="target"/>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1317,7 +1322,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-9c-9wC">
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVt-5N-udr"/>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVt-5N-udr" customClass="MonthYearPickerView" customModule="GreenTech" customModuleProvider="target"/>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
