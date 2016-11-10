@@ -496,7 +496,7 @@ extension ChartsViewController: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.dateFormat = "dd/MM"
         let date = Date(timeIntervalSince1970: value)
         let calendar = Calendar.current
         
