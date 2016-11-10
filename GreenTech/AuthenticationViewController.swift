@@ -18,16 +18,16 @@ class AuthenticationViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    let loginFacebookButton = FBSDKLoginButton()
     
     let connection = VerifyConnection()
-    let StoryID = "tabBar"
+    let StoryID = "signSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (FIRAuth.auth()?.currentUser != nil) {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
-            self.show(controller!, sender:  nil)
+        if FIRAuth.auth()?.currentUser != nil {
+            self.performSegue(withIdentifier: StoryID, sender: self)
         }
         
         setupFacebookButtons()
@@ -37,7 +37,6 @@ class AuthenticationViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func loginAction(_ sender: AnyObject) {
@@ -55,9 +54,7 @@ class AuthenticationViewController: UIViewController {
     func authLogin() {
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!, completion: {(user,error) in
             if error == nil {
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: self.StoryID)
-                self.show(controller!, sender:  nil)
-                
+                self.performSegue(withIdentifier: self.StoryID, sender: self)
             }else{
                 self.showErrorAlert((error?.localizedDescription)!)
             }
@@ -68,8 +65,7 @@ class AuthenticationViewController: UIViewController {
         let result = LoginDAO.findByUserName(self.emailField.text!)
         
         if result != nil && result!.password == self.passwordField.text!.md5() {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: StoryID)
-            self.show(controller!, sender:  nil)
+             self.performSegue(withIdentifier: StoryID, sender: self)
         }else{
             self.showErrorAlert("Incorrect email or password")
         }
@@ -86,13 +82,25 @@ class AuthenticationViewController: UIViewController {
 
 extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     
+    
     func setupFacebookButtons() {
-        let loginFacebookButton = FBSDKLoginButton()
-        view.addSubview(loginFacebookButton)
-        //frame's are obselete, please use constraints instead because its 2016 after all
-        loginFacebookButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-        loginFacebookButton.delegate = self
-        loginFacebookButton.readPermissions = ["email", "public_profile"]
+        
+        loginFacebookButton.isHidden = true
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if user != nil {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "dontShowLogInView"), object: nil)
+                self.performSegue(withIdentifier: self.StoryID, sender: self)
+            } else {
+                // No user is signed in.
+                self.loginFacebookButton.center = self.view.center
+                self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
+                self.loginFacebookButton.delegate = self
+                
+                self.view.addSubview(self.loginFacebookButton)
+                self.loginFacebookButton.isHidden = false
+            }
+        }
+
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -100,31 +108,33 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
             print(error)
             return
         }
-        showEmailAddress()
-    }
-    
-    func showEmailAddress() {
-        let accessToken = FBSDKAccessToken.current()
-        guard let accessTokenString = accessToken?.tokenString else { return }
-        
-        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-            if error != nil {
-                print("Something went wrong with our FB user: ", error ?? "")
-                return
+
+        self.loginFacebookButton.isHidden = true
+        if error != nil {
+            self.loginFacebookButton.isHidden = false
+        } else if result.isCancelled {
+            self.loginFacebookButton.isHidden = false
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+        } else {
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                if error != nil {
+                    print("Something went wrong with our FB user: ", error ?? "")
+                    return
+                }
+                print("user logged to firebase app")
+                self.performSegue(withIdentifier: self.StoryID, sender: self)
             }
             
-            print("Successfully logged in with our user: ", user ?? "")
-            self.performSegue(withIdentifier: "signSegue", sender: self)
-        })
-        
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
-            
-            if err != nil {
-                print("Failed to start graph request:", err ?? "")
-                return
+            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+                if err != nil {
+                    print("Failed to start graph request:", err ?? "")
+                    return
+                }
+                print(result ?? "")
             }
-            print(result ?? "")
+        
         }
     }
     
@@ -133,16 +143,44 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     }
 }
 
-extension AuthenticationViewController: GIDSignInUIDelegate {
+extension AuthenticationViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     
     func setupGoogleButtons() {
         //add google sign in button
         let googleButton = GIDSignInButton()
         googleButton.frame = CGRect(x: 16, y: 116, width: view.frame.width - 32, height: 50)
         view.addSubview(googleButton)
+        
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().signInSilently()
     }
     
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        guard let idToken = user.authentication.idToken else { return }
+        guard let accessToken = user.authentication.accessToken else { return }
+        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+            if let err = error {
+                print("Failed to create a Firebase User with Google account: ", err)
+                return
+            }
+            
+            guard let uid = user?.uid else { return }
+            print("Successfully logged into Firebase with Google", uid)
+            self.performSegue(withIdentifier: self.StoryID, sender: self)
+        })
+        
+    }
+    
+    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Did log out of Google")
+    }
 
 }

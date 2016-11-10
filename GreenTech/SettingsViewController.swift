@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
+import GoogleSignIn
 
 class SettingsViewController: UIViewController {
 
@@ -24,18 +26,18 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButton(_ sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "loginScreen")
-        self.show(controller!, sender:  nil)
+        let loginView : FBSDKLoginManager = FBSDKLoginManager()
+        loginView.loginBehavior = FBSDKLoginBehavior.web
+        
+        let manager = FBSDKLoginManager()
+        manager.logOut()
+        
+        FBSDKAccessToken.setCurrent(nil)
+        FBSDKProfile.setCurrent(nil)
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        performSegue(withIdentifier: "logoutSegue", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
