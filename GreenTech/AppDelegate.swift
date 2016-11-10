@@ -14,7 +14,7 @@ import FBSDKCoreKit
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
         return true
     }
     
@@ -43,33 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         return handled
-    }
-    
-    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        guard let idToken = user.authentication.idToken else { return }
-        guard let accessToken = user.authentication.accessToken else { return }
-        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-            if let err = error {
-                print("Failed to create a Firebase User with Google account: ", err)
-                return
-            }
-            
-            guard let uid = user?.uid else { return }
-            print("Successfully logged into Firebase with Google", uid)
-            self.window?.rootViewController?.performSegue(withIdentifier: "signSegue", sender: nil)
-        })
-
-    }
-    
-    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
