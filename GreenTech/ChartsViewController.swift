@@ -35,7 +35,8 @@ class ChartsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
-        animateCellOfCharts(anim: select)
+        //navigationController?.viewControllers.removeFirst()
+                animateCellOfCharts(anim: select)
         if select == 0 {
             takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
             animateCellOfCharts(anim: 0)
@@ -57,6 +58,11 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if (navigationController?.viewControllers.count)! > 1 {
+//            print("removido")
+//           navigationController?.viewControllers.removeAll()
+//        }
+
         setupChartsLayout()
         axisFormatDelegate = self
         //let date = dateStringFunctions.getCurrentDate()
@@ -450,7 +456,7 @@ extension ChartsViewController: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.dateFormat = "dd/MM"
         let date = Date(timeIntervalSince1970: value)
         let calendar = Calendar.current
         
