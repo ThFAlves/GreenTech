@@ -361,7 +361,10 @@ extension ChartsViewController {
 
         let ds1 = PieChartDataSet(values: yse1, label: "")
         
-        ds1.colors = ChartColorTemplates.material()
+        
+        let pieColor = [Color.green,Color.chartYellow,Color.darkRed]
+        
+        ds1.colors = pieColor
         ds1.valueTextColor = UIColor.white
         ds1.sliceSpace = 0.1
         data.addDataSet(ds1)
@@ -437,6 +440,7 @@ extension ChartsViewController {
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
+        self.lineChartGraphic.noDataText = "Carregando os Dados..."
     }
     
     func setupPieChartGraphic(data: PieChartData) {
@@ -449,6 +453,8 @@ extension ChartsViewController {
         self.PieChartGraphic.transparentCircleRadiusPercent = 0.39
         self.PieChartGraphic.data = data
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
+        self.PieChartGraphic.noDataText = "Carregando os Dados..."
+
     }
 }
 

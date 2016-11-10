@@ -679,11 +679,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Nova Coleta" id="f98-Ya-z9h">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="tOm-fa-RxJ">
-                            <connections>
-                                <segue destination="cLQ-oT-QTI" kind="show" id="2nf-XH-p33"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Finalizar" style="done" id="bRB-d0-vjz">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -715,11 +710,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Nova Venda" id="sT6-5i-CXD">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="lK7-mA-Kfr">
-                            <connections>
-                                <segue destination="cLQ-oT-QTI" kind="show" id="LDg-ZJ-xFb"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Finalizar" style="done" id="0wo-tx-ehA">
                             <connections>
                                 <action selector="saveButton:" destination="fp9-Pa-glg" id="wzn-RY-gab"/>
@@ -748,7 +738,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
-                                <rect key="frame" x="6" y="40" width="364" height="847"/>
+                                <rect key="frame" x="6" y="40" width="364" height="852"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="milkCellIdentifier" rowHeight="60" id="r4D-Sw-6Iu" customClass="MilkTableViewCell" customModule="GreenTech" customModuleProvider="target">
@@ -1703,7 +1693,7 @@
         <image name="milking-1775201_1920" width="1920" height="1285"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PBZ-Ap-vAp"/>
         <segue reference="IfI-WB-f4W"/>
-        <segue reference="nF4-l2-1bU"/>
     </inferredMetricsTieBreakers>
 </document>

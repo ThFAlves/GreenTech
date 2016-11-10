@@ -25,5 +25,8 @@ struct Color {
     static let green = UIColor(red: 94/255, green: 178/255, blue: 68/255, alpha: 1)
     static let browClear = UIColor(red: 211/255, green: 171/255, blue: 125/255, alpha: 1)
     static let blueClear = UIColor(red: 97/255, green: 172/255, blue: 208/255, alpha: 1)
+    static let darkRed = UIColor(red: 135/255, green: 46/255, blue: 46/255, alpha: 1)
+    static let chartYellow = UIColor(red: 235/255, green: 209/255, blue: 61/255, alpha: 1)
+
 
 }

@@ -41,12 +41,32 @@ class MilkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(segmentedViewOutlet.selectedSegmentIndex)
          // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
-        getWeekValues(day: "07/10/2016")
+        
+        segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
+        
+        switch(segmentedViewOutlet.selectedSegmentIndex){
+            
+        case 0 :
+            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
+            break
+        case 1:
+            getWeekValues(day: "07/10/2016")
+            break
+        case 2:
+            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
+            break
+        case 3:
+            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
+            break
+        default:
+            break
+        }
+
 
         //let calendar = Calendar.current
         
-        segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
     }
     
     //when view will disappear send the data from segmented to chartsView controller
@@ -168,14 +188,32 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
                 let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/YY"
+                
+                //if year whas selected show  only month and year
+
+                if segmentedViewOutlet.selectedSegmentIndex == 3 {
+                    dateFormatter.dateFormat = "MM/YY"
+                }
+                else {
+                    dateFormatter.dateFormat = "dd/MM/YY"
+
+                }
                 let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
                 cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].sold!), unitInfo: unitVector[0])
             }
             if indexPath.section == 1 {
                 let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/YY"
+                
+                //if year whas selected show  only month and year
+
+                if segmentedViewOutlet.selectedSegmentIndex == 3 {
+                    dateFormatter.dateFormat = "MM/YY"
+                }
+                else {
+                    dateFormatter.dateFormat = "dd/MM/YY"
+                    
+                }
                 let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
                 cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].lost!), unitInfo: unitVector[0])
             }
@@ -183,7 +221,15 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
                 let dateFormatted = dateStringFunctions.getFormattedDay(day: milksInfo[indexPath.row].date!)
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/YY"
+                
+                //if year whas selected show  only month and year
+                if segmentedViewOutlet.selectedSegmentIndex == 3 {
+                    dateFormatter.dateFormat = "MM/YY"
+                }
+                else {
+                    dateFormatter.dateFormat = "dd/MM/YY"
+                    
+                }
                 let date = Date(timeIntervalSince1970: dateFormatted.timeIntervalSince1970)
 
                 cell.configureCell(dateFormatter.string(from: date), valueInfo: Double(milksInfo[indexPath.row].internConsume!), unitInfo: unitVector[0])
