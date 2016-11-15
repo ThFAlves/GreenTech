@@ -92,7 +92,7 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
                 self.performSegue(withIdentifier: self.StoryID, sender: self)
             } else {
                 // No user is signed in.
-                self.loginFacebookButton.center = self.view.center
+                self.loginFacebookButton.frame = CGRect(x: 40, y: self.view.frame.height/2 - 60, width: self.view.frame.width - 80, height: 50)
                 self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginFacebookButton.delegate = self
                 
@@ -148,7 +148,7 @@ extension AuthenticationViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     func setupGoogleButtons() {
         //add google sign in button
         let googleButton = GIDSignInButton()
-        googleButton.frame = CGRect(x: 16, y: 116, width: view.frame.width - 32, height: 50)
+        googleButton.frame = CGRect(x: 40, y: view.frame.height/2, width: view.frame.width - 80, height: 50)
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().delegate = self
