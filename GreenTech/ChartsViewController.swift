@@ -241,6 +241,7 @@ class ChartsViewController: UIViewController {
             break
         default:
             performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
+            print("spin")
             break
         }
     }
