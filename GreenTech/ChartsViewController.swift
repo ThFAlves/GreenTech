@@ -241,6 +241,7 @@ class ChartsViewController: UIViewController {
             break
         default:
             performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
+            print("spin")
             break
         }
     }
@@ -481,6 +482,8 @@ extension ChartsViewController {
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
         self.lineChartGraphic.noDataText = "Carregando os Dados..."
+        self.lineChartGraphic.pinchZoomEnabled = false
+        self.lineChartGraphic.doubleTapToZoomEnabled = false
     }
     
     func setupPieChartGraphic(data: PieChartData) {

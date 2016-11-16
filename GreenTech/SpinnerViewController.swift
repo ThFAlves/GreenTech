@@ -39,6 +39,7 @@ class SpinnerViewController: UIViewController {
         
         switch (dateKind){
         case DateSelectionKind.MONTH :
+            print(dateKind)
             startDate = MonthYearPickerView()
             startDate.onDateSelected = { (month: String?, year: Int?) in
                 print("month \(month)")
