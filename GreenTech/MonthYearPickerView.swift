@@ -23,7 +23,7 @@ class MonthYearPickerView: UIPickerView {
     }
     
     var selectedDateKind : DateSelectionKind?     
-    var onDateSelected: ((_ month: String?, _ year: Int?) -> Void)?
+    var onDateSelected: ((_ month: String, _ year: Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,13 +39,19 @@ class MonthYearPickerView: UIPickerView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonSetup()
+
     }
     
     func commonSetup() {
         
+<<<<<<< Updated upstream
         selectedDateKind = .MONTH
         
         if selectedDateKind == .MONTH {
+=======
+        selectedDateKind = DateSelectionKind.MONTH
+        if selectedDateKind == .YEAR {
+>>>>>>> Stashed changes
             var years: [Int] = []
             if years.count == 0 {
                 var year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
@@ -55,10 +61,9 @@ class MonthYearPickerView: UIPickerView {
                 }
             }
             self.years = years
-            
         }
         
-        if selectedDateKind == .YEAR {
+        if selectedDateKind == .MONTH {
             let month = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.month, from: NSDate() as Date)
             self.selectRow(month-1, inComponent: 0, animated: false)
         }
@@ -103,20 +108,24 @@ extension MonthYearPickerView : UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        print(row)
         let month = months[row]
-        let year = years[row]
+        //let year = years[row]
         
         if selectedDateKind == .MONTH {
             
-            self.month = Int(month)!
+            //self.month = Int(month)!
+            self.month = row+1
         }
-        if selectedDateKind == .YEAR {
-            
-            self.year = year
-        }
+//        if selectedDateKind == .YEAR {
+//            
+//            self.year = year
+//        }
         
         if let block = onDateSelected {
             block(month, year)
+
         }
+        
     }
 }

@@ -15,6 +15,7 @@
 		2A2390A81DC177CD0013726B /* AddMilkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2390A71DC177CD0013726B /* AddMilkInfoViewController.swift */; };
 		2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */; };
 		2A2DD1931D99A10C009A0C67 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DD1921D99A10C009A0C67 /* Constraint.swift */; };
+		2AAA4B461DDE1B7700651CD3 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA4B451DDE1B7700651CD3 /* MonthPickerView.swift */; };
 		65C026E97BC20B163F31CF67 /* Pods_GreenTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7513AF526E44C72007785ED /* Pods_GreenTech.framework */; };
 		CA11C5651DA2E1C9003183B4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; };
 		CA11C5661DA2E1C9003183B4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA11C5601DA2E1B4003183B4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -111,6 +112,7 @@
 		2A2390A71DC177CD0013726B /* AddMilkInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMilkInfoViewController.swift; sourceTree = "<group>"; };
 		2A2DD1901D999E3C009A0C67 /* CalendarColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColor.swift; sourceTree = "<group>"; };
 		2A2DD1921D99A10C009A0C67 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		2AAA4B451DDE1B7700651CD3 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		40105BD8BBC45C9D0B931069 /* Pods-GreenTechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53699D72CAF44B318E870378 /* Pods-GreenTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.release.xcconfig"; sourceTree = "<group>"; };
 		7541184797EF68EB887B4044 /* Pods-GreenTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTech/Pods-GreenTech.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				1EDB13431DD36F570063BBCE /* MonthYearPickerView.swift */,
+				2AAA4B451DDE1B7700651CD3 /* MonthPickerView.swift */,
 				CA5B7E991DA5892F00F66A6F /* BottonCornerView.swift */,
 				D1E66AF31D8D93F2007D1A10 /* MilkTableViewCell.swift */,
 				CAF3D5641D9DA8A2006A879C /* GraphicsTableViewCell.swift */,
@@ -619,6 +622,7 @@
 				1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */,
 				D1E66AF41D8D93F2007D1A10 /* MilkTableViewCell.swift in Sources */,
 				1EDB13441DD36F570063BBCE /* MonthYearPickerView.swift in Sources */,
+				2AAA4B461DDE1B7700651CD3 /* MonthPickerView.swift in Sources */,
 				CA805FF81DC8C499007F374E /* PlusMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
