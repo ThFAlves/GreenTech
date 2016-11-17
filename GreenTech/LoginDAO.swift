@@ -24,7 +24,7 @@ class LoginDAO {
         }
         if (error != nil) {
             // log error
-            print(error, terminator: "")
+            print(error ?? "", terminator: "")
         }
     }
     
@@ -41,7 +41,7 @@ class LoginDAO {
         // log error
         if (error != nil) {
             // log error
-            print(error, terminator: "")
+            print(error ?? "", terminator: "")
         }
     }
     

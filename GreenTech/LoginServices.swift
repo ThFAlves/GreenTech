@@ -10,11 +10,12 @@ import Foundation
 
 class LoginServices{
     
-    static func createDataCD(_ userName: String, password: String){
+    static func createDataCD(_ userName: String, password: String, id: String){
         let login = LoginCD()
         print("USERNAME COREDATA = " + userName)
         login.userName = userName
         login.password = password
+        login.id = id
         LoginDAO.insert(login)
     }
     

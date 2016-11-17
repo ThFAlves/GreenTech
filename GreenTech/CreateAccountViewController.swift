@@ -40,7 +40,8 @@ class CreateAccountViewController: UIViewController {
                 let email = self.emailTextField.text!
                 let password = self.passwordTextField.text!
                 let passwordMD5 = password.md5()
-                LoginServices.createDataCD(email, password: passwordMD5)
+                let id = user?.uid
+                LoginServices.createDataCD(email, password: passwordMD5, id: id!)
                 let _ = self.navigationController?.popViewController(animated: true)
             }else{
                 self.showErrorAlert((error?.localizedDescription)!)

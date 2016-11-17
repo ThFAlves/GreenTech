@@ -47,9 +47,9 @@ class SaveImageViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func uploadPhotoStorage(_ image: UIImage) {
-        let imageResize = image.resizeWith(0.1)
-        let imageData: Data = UIImagePNGRepresentation(imageResize!)!
-        let path = "images/rivers.jpg"
-        service.uploadDataStorage(imageData, path: path)
+        //let imageResize = image.resizeWith(0.1)
+        //let imageData: Data = UIImagePNGRepresentation(imageResize!)!
+        //let path = "images/rivers.jpg"
+        //service.uploadDataStorage(imageData, path: path)
     }
 }

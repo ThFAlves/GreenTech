@@ -17,12 +17,13 @@ class FirebaseService {
     let storageRef = FIRStorage.storage().reference()
     let dateStringFunctions = DateString()
     
-    // DATABASE
-    
     func takeValueFromDatabase(path: String, queryType: QueryType, completionHandler: @escaping ([MilkInfo]) -> ()) {
         databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
             var milkInfo = [MilkInfo]()
             
+            if !snap.exists() {
+                return
+            }
             switch queryType {
             
             case .Day:
@@ -100,45 +101,6 @@ class FirebaseService {
             
         }
         return(month,year,milkInfo)
-    }
-    
-    // STORAGE
-    
-    func uploadDataStorage(_ data: Data, path: String) {
-        let imageRef = storageRef.child(path)
-        imageRef.put(data, metadata: nil) { metadata, error in
-            if(error != nil) {
-                print("ERRO SAVE")
-            }else{
-                let downloadURL = metadata!.downloadURL()?.absoluteString
-                self.saveUrlDatabase(downloadURL!)
-                print(downloadURL)
-            }
-        }
-    }
-    
-    func saveUrlDatabase(_ url: String) {
-        databaseRef.child("Hyago").child("Photo").runTransactionBlock({ (currentData: FIRMutableData) in
-            currentData.value = url
-            return FIRTransactionResult.success(withValue: currentData)
-        })
-    }
-    
-    func getUrlDownloadPhoto() {
-        databaseRef.child("Hyago").child("Photo").observe(.value) { (snap: FIRDataSnapshot) in
-            self.downloadFromStorage(((snap.value as AnyObject).description)!)
-        }
-    }
-    
-    func downloadFromStorage(_ url: String) {
-        let httpsReference = FIRStorage.storage().reference(forURL: url)
-        httpsReference.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-            if(error != nil) {
-                print("ERRRO UPLOAD")
-            }else{
-                //let image = UIImage(data: data!)
-            }
-        }
     }
     
     func saveMilkInfoDatabase(dictionary: [String: Any]) {

@@ -11,12 +11,13 @@ import Foundation
 class DateString {
     private let calendar = Calendar.current
     
-    func getCurrentDate() -> (Int,Int,Int) {
+    func getCurrentDate() -> (String,Int,Int) {
         let date = Date()
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        return (day,month,year)
+        let dayFormatted = String(format: "%.2d", day)
+        return (dayFormatted,month,year)
     }
     
     func getFormattedDay(day: String) -> Date{
@@ -60,7 +61,10 @@ class DateString {
     }
     
     func getPathFromDate(dateString: String) -> String {
-        return "Fazendas/ID/Coleta/\(dateString)"
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            return "Fazendas/\(id)/Coleta/\(dateString)"
+        }
+        return String()
     }
     
     func decreaseDate(calendar: Calendar, date: Date) -> Date{

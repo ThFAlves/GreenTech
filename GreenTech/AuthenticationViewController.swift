@@ -25,13 +25,7 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if FIRAuth.auth()?.currentUser != nil {
-            self.performSegue(withIdentifier: StoryID, sender: self)
-        }
-        
         setupFacebookButtons()
-        setupGoogleButtons()
         
     }
     
@@ -54,7 +48,9 @@ class AuthenticationViewController: UIViewController {
     func authLogin() {
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!, completion: {(user,error) in
             if error == nil {
-                self.performSegue(withIdentifier: self.StoryID, sender: self)
+                guard let uid = user?.uid else { return }
+                UserDefaults.standard.setValue(uid, forKey: "Actual")
+                self.performSegue(withIdentifier: self.StoryID, sender: uid)
             }else{
                 self.showErrorAlert((error?.localizedDescription)!)
             }
@@ -65,7 +61,9 @@ class AuthenticationViewController: UIViewController {
         let result = LoginDAO.findByUserName(self.emailField.text!)
         
         if result != nil && result!.password == self.passwordField.text!.md5() {
-             self.performSegue(withIdentifier: StoryID, sender: self)
+            guard let uid = result?.id else { return }
+            UserDefaults.standard.setValue(uid, forKey: "Actual")
+            self.performSegue(withIdentifier: StoryID, sender: uid)
         }else{
             self.showErrorAlert("Incorrect email or password")
         }
@@ -88,14 +86,14 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
         loginFacebookButton.isHidden = true
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if user != nil {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "dontShowLogInView"), object: nil)
-                self.performSegue(withIdentifier: self.StoryID, sender: self)
+                guard let uid = user?.uid else { return }
+                UserDefaults.standard.setValue(uid, forKey: "Actual")
+                self.performSegue(withIdentifier: self.StoryID, sender: uid)
             } else {
-                // No user is signed in.
+
                 self.loginFacebookButton.center = self.view.center
                 self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginFacebookButton.delegate = self
-                
                 self.view.addSubview(self.loginFacebookButton)
                 self.loginFacebookButton.isHidden = false
             }
@@ -105,7 +103,7 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
-            print(error)
+            showErrorAlert(error.localizedDescription)
             return
         }
 
@@ -120,19 +118,13 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 if error != nil {
-                    print("Something went wrong with our FB user: ", error ?? "")
+                    self.showErrorAlert((error?.localizedDescription)!)
                     return
                 }
-                print("user logged to firebase app")
-                self.performSegue(withIdentifier: self.StoryID, sender: self)
-            }
-            
-            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
-                if err != nil {
-                    print("Failed to start graph request:", err ?? "")
-                    return
-                }
-                print(result ?? "")
+                guard let uid = user?.uid else { return }
+                
+                UserDefaults.standard.setValue(uid, forKey: "Actual")
+                self.performSegue(withIdentifier: self.StoryID, sender: uid)
             }
         
         }
@@ -141,46 +133,4 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Did log out of facebook")
     }
-}
-
-extension AuthenticationViewController: GIDSignInDelegate, GIDSignInUIDelegate {
-    
-    func setupGoogleButtons() {
-        //add google sign in button
-        let googleButton = GIDSignInButton()
-        googleButton.frame = CGRect(x: 16, y: 116, width: view.frame.width - 32, height: 50)
-        view.addSubview(googleButton)
-        
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
-    }
-    
-    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        guard let idToken = user.authentication.idToken else { return }
-        guard let accessToken = user.authentication.accessToken else { return }
-        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-            if let err = error {
-                print("Failed to create a Firebase User with Google account: ", err)
-                return
-            }
-            
-            guard let uid = user?.uid else { return }
-            print("Successfully logged into Firebase with Google", uid)
-            self.performSegue(withIdentifier: self.StoryID, sender: self)
-        })
-        
-    }
-    
-    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print("Did log out of Google")
-    }
-
 }

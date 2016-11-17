@@ -32,11 +32,6 @@ class SettingsViewController: UIViewController {
         let manager = FBSDKLoginManager()
         manager.logOut()
         
-        FBSDKAccessToken.setCurrent(nil)
-        FBSDKProfile.setCurrent(nil)
-        
-        GIDSignIn.sharedInstance().signOut()
-        
         performSegue(withIdentifier: "logoutSegue", sender: self)
     }
 

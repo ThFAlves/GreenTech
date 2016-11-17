@@ -30,43 +30,40 @@ class ChartsViewController: UIViewController {
     var milksInfo = [MilkInfo]()
     var axisFormatDelegate: IAxisValueFormatter?
     var months: [String]! = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    
     var showMonth = false
 
     override func viewWillAppear(_ animated: Bool) {
         //animate charts wen appear
         //navigationController?.viewControllers.removeFirst()
-                animateCellOfCharts(anim: select)
-        if select == 0 {
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            animateCellOfCharts(anim: 0)
-        }
-        if select == 1 {
-            getWeekValues(day: "05/10/2016")
-            animateCellOfCharts(anim: 1)
-        }
-        if select == 2 {
-            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            animateCellOfCharts(anim: 2)
-        }
-        if select == 3 {
-            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            animateCellOfCharts(anim: 3)
+        
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            let date = dateStringFunctions.getCurrentDate()
+            
+            animateCellOfCharts(anim: select)
+            if select == 0 {
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                animateCellOfCharts(anim: 0)
+            }
+            if select == 1 {
+                getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                animateCellOfCharts(anim: 1)
+            }
+            if select == 2 {
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                animateCellOfCharts(anim: 2)
+            }
+            if select == 3 {
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                animateCellOfCharts(anim: 3)
+            }
         }
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if (navigationController?.viewControllers.count)! > 1 {
-//            print("removido")
-//           navigationController?.viewControllers.removeAll()
-//        }
-
         setupChartsLayout()
         axisFormatDelegate = self
-        //let date = dateStringFunctions.getCurrentDate()
-
     }
     
     
@@ -246,28 +243,31 @@ class ChartsViewController: UIViewController {
     }
     
     @IBAction func segmentControlAction(_ sender: AnyObject) {
-        //let date = dateStringFunctions.getCurrentDate()
         
-        switch(segmentedViewOutlet.selectedSegmentIndex){
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            let date = dateStringFunctions.getCurrentDate()
             
-        case 0 :
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            animateCellOfCharts(anim: 0)
-            break
-        case 1:
-            getWeekValues(day: "05/10/2016")
-            animateCellOfCharts(anim: 1)
-            break
-        case 2:
-            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            animateCellOfCharts(anim: 1)
-            break
-        case 3:
-            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            animateCellOfCharts(anim: 1)
-            break
-        default:
-            break
+            switch(segmentedViewOutlet.selectedSegmentIndex){
+                
+            case 0 :
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                animateCellOfCharts(anim: 0)
+                break
+            case 1:
+                getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                animateCellOfCharts(anim: 1)
+                break
+            case 2:
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                animateCellOfCharts(anim: 1)
+                break
+            case 3:
+                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                animateCellOfCharts(anim: 1)
+                break
+            default:
+                break
+            }
         }
     }
     
@@ -294,9 +294,9 @@ class ChartsViewController: UIViewController {
 extension ChartsViewController {
     
     func takeValue(path: String, queryType: QueryType) {
+        print(path)
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.milksInfo = result
-            //print(result)
             self?.loadAllCharts(queryType: queryType)
         }
     }
@@ -440,7 +440,6 @@ extension ChartsViewController {
             }
             return Date()
         }
-        //print(xs1Line)
         return xs1Line
     }
     

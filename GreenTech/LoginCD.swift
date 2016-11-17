@@ -13,7 +13,7 @@ class LoginCD: NSManagedObject {
     
     @NSManaged var userName: String
     @NSManaged var password: String
-
+    @NSManaged var id: String
     
     /// The designated initializer
     convenience init() {
