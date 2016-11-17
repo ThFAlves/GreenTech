@@ -43,22 +43,18 @@ class ChartsViewController: UIViewController {
             animateCellOfCharts(anim: select)
             if select == 0 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
-                loadAllCharts(queryType: .Day)
                 animateCellOfCharts(anim: 0)
             }
             if select == 1 {
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
-                loadAllCharts(queryType: .Week)
                 animateCellOfCharts(anim: 1)
             }
             if select == 2 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
-                loadAllCharts(queryType: .Month)
                 animateCellOfCharts(anim: 2)
             }
             if select == 3 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
-                loadAllCharts(queryType: .Year)
                 animateCellOfCharts(anim: 3)
             }
         }
@@ -257,22 +253,18 @@ class ChartsViewController: UIViewController {
                 
             case 0 :
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
-                loadAllCharts(queryType: .Day)
                 animateCellOfCharts(anim: 0)
                 break
             case 1:
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
-                loadAllCharts(queryType: .Week)
                 animateCellOfCharts(anim: 1)
                 break
             case 2:
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
-                loadAllCharts(queryType: .Month)
                 animateCellOfCharts(anim: 1)
                 break
             case 3:
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
-                loadAllCharts(queryType: .Year)
                 animateCellOfCharts(anim: 1)
                 break
             default:
