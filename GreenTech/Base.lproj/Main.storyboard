@@ -530,11 +530,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-0g-pBu">
-<<<<<<< Updated upstream
-                                        <rect key="frame" x="102" y="459" width="131" height="34"/>
-=======
                                         <rect key="frame" x="102" y="488" width="131" height="34"/>
->>>>>>> Stashed changes
                                         <state key="normal" title="Esqueci a senha">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -543,21 +539,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GreenTech 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxt-w9-yVo">
-<<<<<<< Updated upstream
-                                        <rect key="frame" x="122" y="513" width="92" height="15"/>
-=======
                                         <rect key="frame" x="122" y="542" width="92" height="15"/>
->>>>>>> Stashed changes
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Etf-Cy-2tb">
-<<<<<<< Updated upstream
-                                        <rect key="frame" x="20" y="309" width="295" height="50"/>
-=======
                                         <rect key="frame" x="20" y="324" width="295" height="50"/>
->>>>>>> Stashed changes
                                         <color key="backgroundColor" red="0.3691432476" green="0.69597548249999996" blue="0.26505264639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Bap-Qq-JKt"/>

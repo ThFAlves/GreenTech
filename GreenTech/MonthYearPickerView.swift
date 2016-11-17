@@ -44,14 +44,8 @@ class MonthYearPickerView: UIPickerView {
     
     func commonSetup() {
         
-<<<<<<< Updated upstream
-        selectedDateKind = .MONTH
-        
-        if selectedDateKind == .MONTH {
-=======
         selectedDateKind = DateSelectionKind.MONTH
         if selectedDateKind == .YEAR {
->>>>>>> Stashed changes
             var years: [Int] = []
             if years.count == 0 {
                 var year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
