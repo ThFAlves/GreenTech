@@ -27,8 +27,10 @@ class MonthYearPickerView: UIPickerView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonSetup()
+//        self.commonSetup()
     }
+    
+    //TODO CRIAR CONSTRUTOR PASSANDO SELECTEDDATEKIND
     
     //    convenience init(dateKind : DateSelectionKind) {
     //        selectedDateKind = dateKind
@@ -40,6 +42,8 @@ class MonthYearPickerView: UIPickerView {
     }
     
     func commonSetup() {
+        
+        selectedDateKind = .MONTH
         
         if selectedDateKind == .MONTH {
             var years: [Int] = []
@@ -61,6 +65,7 @@ class MonthYearPickerView: UIPickerView {
 
         self.delegate = self
         self.dataSource = self
+        
     }
 }
 

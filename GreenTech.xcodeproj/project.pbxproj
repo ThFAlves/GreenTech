@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E9B816F1DDDDAD8000F57FB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9B816E1DDDDAD8000F57FB /* DateExtension.swift */; };
 		1EB09F191DAFB9000035BB45 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F181DAFB9000035BB45 /* SharedConstants.swift */; };
 		1EB09F1E1DAFBD410035BB45 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */; };
 		1EB09F201DAFBD560035BB45 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */; };
@@ -101,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		0ACECEEA9C0FC972EA11C19E /* Pods-GreenTechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreenTechTests/Pods-GreenTechTests.release.xcconfig"; sourceTree = "<group>"; };
+		1E9B816E1DDDDAD8000F57FB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1EB09F181DAFB9000035BB45 /* SharedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				1EB09F1D1DAFBD410035BB45 /* CalendarViewController.swift */,
 				1EB09F1F1DAFBD560035BB45 /* SpinnerViewController.swift */,
+				1E9B816E1DDDDAD8000F57FB /* DateExtension.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				2A2DD1911D999E3C009A0C67 /* CalendarColor.swift in Sources */,
 				CAF3D58B1D9EF3D1006A879C /* ChartsViewController.swift in Sources */,
 				D1DA48391D5A5BCE00D74063 /* GreenTech.xcdatamodeld in Sources */,
+				1E9B816F1DDDDAD8000F57FB /* DateExtension.swift in Sources */,
 				D1E9C3B41D5E3E9800A45FC7 /* LoginServices.swift in Sources */,
 				D195275D1D5CE3C70031BF13 /* SQLCoordinator.swift in Sources */,
 				D1B9C1A01D81EDA900D2C20E /* UIImageExtension.swift in Sources */,

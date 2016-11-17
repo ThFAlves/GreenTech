@@ -24,7 +24,17 @@ class SpinnerViewController: UIViewController {
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = CVDate(date: Date()).globalDescription
+        
+        if let dateKind = selectedDateKind {
+            if dateKind == .MONTH{
+                self.title = "\(CVDate(date: Date()).year)"
+            }else {
+                self.title = CALENDAR_TITLE
+            }
+        }else {
+            self.title = CALENDAR_TITLE
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +50,9 @@ class SpinnerViewController: UIViewController {
         switch (dateKind){
         case DateSelectionKind.MONTH :
             print(dateKind)
+            
             startDate = MonthYearPickerView()
+            
             startDate.onDateSelected = { (month: String?, year: Int?) in
                 print("month \(month)")
             }
