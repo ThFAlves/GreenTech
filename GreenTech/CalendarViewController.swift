@@ -35,7 +35,9 @@ class CalendarViewController: UIViewController {
         
         if let dateKind = selectedDateKind {
             if dateKind == .WEEK{
-                self.title = "\(CVDate(date: Date()).month)"
+                let month = CVDate(date: Date()).month
+                let monthName = DateFormatter().monthSymbols[month - 1]
+                self.title = monthName
             }else {
                 self.title = CALENDAR_TITLE
             }
