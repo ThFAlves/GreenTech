@@ -90,8 +90,8 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
                 UserDefaults.standard.setValue(uid, forKey: "Actual")
                 self.performSegue(withIdentifier: self.StoryID, sender: uid)
             } else {
-
-                self.loginFacebookButton.center = self.view.center
+                // No user is signed in.
+                self.loginFacebookButton.frame = CGRect(x: 40, y: self.view.frame.height/2 - 60, width: self.view.frame.width - 80, height: 50)
                 self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginFacebookButton.delegate = self
                 self.view.addSubview(self.loginFacebookButton)

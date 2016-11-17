@@ -10,6 +10,8 @@ import Foundation
 
 // MARK: - Calendar Strings
 
+let CALENDAR_TITLE = "Período"
+
 // MARK: - Graphics Strings
 
 //MARK: - Segues

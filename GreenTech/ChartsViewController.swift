@@ -238,6 +238,7 @@ class ChartsViewController: UIViewController {
             break
         default:
             performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
+            print("spin")
             break
         }
     }
@@ -297,6 +298,7 @@ extension ChartsViewController {
         print(path)
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.milksInfo = result
+            print("Maffei")
             self?.loadAllCharts(queryType: queryType)
         }
     }
@@ -363,7 +365,7 @@ extension ChartsViewController {
     func loadAllCharts(queryType: QueryType) {
         switch queryType {
         case .Day:
-            setupCharts(showLine: false, hiddenChart: true, isMonth: false, constant: -285)
+            setupCharts(showLine: false, hiddenChart: true, isMonth: false, constant:-285)
         case .Week:
             setupCharts(showLine: true, hiddenChart: false, isMonth: false, constant: -5)
         case .Month:
@@ -480,6 +482,8 @@ extension ChartsViewController {
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.chartDescription?.text = "Produção"
         self.lineChartGraphic.noDataText = "Carregando os Dados..."
+        self.lineChartGraphic.pinchZoomEnabled = false
+        self.lineChartGraphic.doubleTapToZoomEnabled = false
     }
     
     func setupPieChartGraphic(data: PieChartData) {

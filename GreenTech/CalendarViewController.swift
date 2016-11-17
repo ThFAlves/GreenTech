@@ -32,7 +32,18 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = CVDate(date: Date()).globalDescription
+        
+        if let dateKind = selectedDateKind {
+            if dateKind == .WEEK{
+                let month = CVDate(date: Date()).month
+                let monthName = DateFormatter().monthSymbols[month - 1]
+                self.title = monthName
+            }else {
+                self.title = CALENDAR_TITLE
+            }
+        }else {
+            self.title = CALENDAR_TITLE
+        }
         
         // Appearance delegate [Optional]
         self.calendarView.calendarAppearanceDelegate = self
@@ -141,3 +152,4 @@ extension CalendarViewController: CVCalendarViewAppearanceDelegate {
         }
     }
 }
+
