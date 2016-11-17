@@ -36,24 +36,29 @@ class ChartsViewController: UIViewController {
         //animate charts wen appear
         //navigationController?.viewControllers.removeFirst()
         
+        
         if let id = UserDefaults.standard.value(forKey: "Actual") {
             let date = dateStringFunctions.getCurrentDate()
             
             animateCellOfCharts(anim: select)
             if select == 0 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                loadAllCharts(queryType: .Day)
                 animateCellOfCharts(anim: 0)
             }
             if select == 1 {
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                loadAllCharts(queryType: .Week)
                 animateCellOfCharts(anim: 1)
             }
             if select == 2 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                loadAllCharts(queryType: .Month)
                 animateCellOfCharts(anim: 2)
             }
             if select == 3 {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                loadAllCharts(queryType: .Year)
                 animateCellOfCharts(anim: 3)
             }
         }
@@ -252,18 +257,22 @@ class ChartsViewController: UIViewController {
                 
             case 0 :
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                loadAllCharts(queryType: .Day)
                 animateCellOfCharts(anim: 0)
                 break
             case 1:
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                loadAllCharts(queryType: .Week)
                 animateCellOfCharts(anim: 1)
                 break
             case 2:
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                loadAllCharts(queryType: .Month)
                 animateCellOfCharts(anim: 1)
                 break
             case 3:
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                loadAllCharts(queryType: .Year)
                 animateCellOfCharts(anim: 1)
                 break
             default:
@@ -424,7 +433,7 @@ extension ChartsViewController {
         
         let se1Line = getSe1Line(xs1Line: xs1Line, calendar: calendar)
         
-        let ds1Line = LineChartDataSet(values: se1Line, label: "Produção")
+        let ds1Line = LineChartDataSet(values: se1Line, label: "")
         
         setupDs1Line(ds1Line: ds1Line)
         
@@ -480,7 +489,7 @@ extension ChartsViewController {
         self.lineChartGraphic.xAxis.valueFormatter = axisFormatDelegate
         self.lineChartGraphic.dragEnabled = false
         self.lineChartGraphic.pinchZoomEnabled = false
-        self.lineChartGraphic.chartDescription?.text = "Produção"
+        self.lineChartGraphic.chartDescription?.text = ""
         self.lineChartGraphic.noDataText = "Carregando os Dados..."
         self.lineChartGraphic.pinchZoomEnabled = false
         self.lineChartGraphic.doubleTapToZoomEnabled = false
