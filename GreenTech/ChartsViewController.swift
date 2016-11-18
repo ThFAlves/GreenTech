@@ -299,7 +299,6 @@ extension ChartsViewController {
         print(path)
         service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             self?.milksInfo = result
-            print("Maffei")
             self?.loadAllCharts(queryType: queryType)
         }
     }
@@ -313,10 +312,17 @@ extension ChartsViewController {
         for _ in 0..<7 {
             let dateString = dateStringFunctions.dateToStringPath(date: date)
             let path = dateStringFunctions.getPathFromDate(dateString: dateString)
-
+            
             group.enter()
-            service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
-                self?.milksInfo += result
+            service.existPath(path: path) { exist in
+                if exist {
+                    print(exist)
+                    group.enter()
+                    self.service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
+                        self?.milksInfo += result
+                        group.leave()
+                    }
+                }
                 group.leave()
             }
             
