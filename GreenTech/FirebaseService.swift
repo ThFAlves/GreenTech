@@ -48,6 +48,16 @@ class FirebaseService {
         }
     }
     
+    func existPath(path: String, completionHandler: @escaping (Bool) -> ()) {
+        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
+            if snap.exists() {
+                completionHandler(true)
+            }else{
+                completionHandler(false)
+            }
+        }
+    }
+    
     func getMilkDayFromDatabase(days: FIRDataSnapshot) -> [MilkInfo]{
         var milkInfo = [MilkInfo]()
        
