@@ -17,6 +17,8 @@ class MonthSpinnerViewController: UIViewController {
     @IBOutlet weak var endDate: MonthPickerView!
     @IBOutlet weak var endPeriodLabel: UILabel!
     @IBOutlet weak var startPeriodLabel: UILabel!
+    @IBOutlet weak var startPeriodView: UIView!
+    @IBOutlet weak var endPeriodView: UIView!
     
     //MARK - Class methods
     override func viewDidLoad() {

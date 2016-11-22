@@ -1351,10 +1351,10 @@
                                 <rect key="frame" x="8" y="50" width="359" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsq-fe-WyN" userLabel="EndPeriodView">
-                                        <rect key="frame" x="185" y="0.0" width="174" height="40"/>
+                                        <rect key="frame" x="181.5" y="0.0" width="177.5" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fevereiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKp-B3-VqN">
-                                                <rect key="frame" x="8" y="10" width="158" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="161.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1368,17 +1368,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unY-2A-Jdo" userLabel="SpaceView">
-                                        <rect key="frame" x="175" y="0.0" width="10" height="40"/>
+                                        <rect key="frame" x="178.5" y="0.0" width="3" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="10" id="Cdu-9i-RlL"/>
+                                            <constraint firstAttribute="width" constant="3" id="Cdu-9i-RlL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="two-KL-9Ow" userLabel="StartPeriodView">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Janeiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDT-yj-B3x">
-                                                <rect key="frame" x="8" y="10" width="159" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="162.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1468,8 +1468,10 @@
                     <connections>
                         <outlet property="endDate" destination="xsT-45-Ouf" id="pP9-wY-P9u"/>
                         <outlet property="endPeriodLabel" destination="xKp-B3-VqN" id="btL-9u-ozN"/>
+                        <outlet property="endPeriodView" destination="xsq-fe-WyN" id="3wy-US-hqx"/>
                         <outlet property="startDate" destination="UZg-Xv-apS" id="JoL-C5-a7M"/>
                         <outlet property="startPeriodLabel" destination="WDT-yj-B3x" id="MVB-zf-KZy"/>
+                        <outlet property="startPeriodView" destination="two-KL-9Ow" id="0Ku-h5-wUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npK-KP-lQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1510,10 +1512,10 @@
                                 <rect key="frame" x="8" y="50" width="359" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-6j-P6P" userLabel="EndPeriodView">
-                                        <rect key="frame" x="185" y="0.0" width="174" height="40"/>
+                                        <rect key="frame" x="181.5" y="0.0" width="177.5" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fevereiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-Mh-PT5">
-                                                <rect key="frame" x="8" y="10" width="158" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="161.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1527,17 +1529,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4K-c5-02R" userLabel="SpaceView">
-                                        <rect key="frame" x="175" y="0.0" width="10" height="40"/>
+                                        <rect key="frame" x="178.5" y="0.0" width="3" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="10" id="w92-z2-g0S"/>
+                                            <constraint firstAttribute="width" constant="3" id="w92-z2-g0S"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpn-PB-k8Z" userLabel="StartPeriodView">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Janeiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE3-B0-mCI">
-                                                <rect key="frame" x="8" y="10" width="159" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="162.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1627,8 +1629,10 @@
                     <connections>
                         <outlet property="endDate" destination="DdR-Im-PET" id="jzY-CI-F6H"/>
                         <outlet property="endPeriodLabel" destination="gzd-Mh-PT5" id="Ejv-3r-w1N"/>
+                        <outlet property="endPeriodView" destination="iLM-6j-P6P" id="4my-d4-T6M"/>
                         <outlet property="startDate" destination="2rx-ja-ztx" id="rXy-Iv-sTU"/>
                         <outlet property="startPeriodLabel" destination="pE3-B0-mCI" id="rFm-kK-F1W"/>
+                        <outlet property="startPeriodView" destination="wpn-PB-k8Z" id="kNo-qO-L35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jv-YW-4ih" userLabel="First Responder" sceneMemberID="firstResponder"/>

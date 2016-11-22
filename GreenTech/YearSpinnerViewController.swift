@@ -17,6 +17,8 @@ class YearSpinnerViewController: UIViewController {
     @IBOutlet weak var endDate: YearPickerView!
     @IBOutlet weak var endPeriodLabel: UILabel!
     @IBOutlet weak var startPeriodLabel: UILabel!
+    @IBOutlet weak var startPeriodView: UIView!
+    @IBOutlet weak var endPeriodView: UIView!
     
     var selectedDateKind : DateSelectionKind?
     //MARK - Class methods
