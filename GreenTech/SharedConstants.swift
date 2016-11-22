@@ -18,7 +18,13 @@ let CALENDAR_TITLE = "Período"
 
 let CALENDAR_SEGUE = "viewCalendar"
 
-let SPINNER_SEGUE = "viewSpinner"
+let MONTH_SPINNER_SEGUE = "viewSpinnerMonth"
+
+let YEAR_SPINNER_SEGUE = "viewSpinnerYear"
+
+
+
+
 
 // MARK: - Colors
 
