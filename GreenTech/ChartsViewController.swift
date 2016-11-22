@@ -33,31 +33,8 @@ class ChartsViewController: UIViewController {
     var showMonth = false
 
     override func viewWillAppear(_ animated: Bool) {
-        //animate charts wen appear
-        //navigationController?.viewControllers.removeFirst()
         
-        
-        if let id = UserDefaults.standard.value(forKey: "Actual") {
-            let date = dateStringFunctions.getCurrentDate()
-            
-            animateCellOfCharts(anim: select)
-            if select == 0 {
-                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
-                animateCellOfCharts(anim: 0)
-            }
-            if select == 1 {
-                getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
-                animateCellOfCharts(anim: 1)
-            }
-            if select == 2 {
-                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
-                animateCellOfCharts(anim: 2)
-            }
-            if select == 3 {
-                takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
-                animateCellOfCharts(anim: 3)
-            }
-        }
+
     }
 
     
@@ -65,6 +42,11 @@ class ChartsViewController: UIViewController {
         super.viewDidLoad()
         setupChartsLayout()
         axisFormatDelegate = self
+        
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            let date = dateStringFunctions.getCurrentDate()
+            takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+        }
     }
     
     
@@ -239,7 +221,6 @@ class ChartsViewController: UIViewController {
             break
         default:
             performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
-            print("spin")
             break
         }
     }
@@ -296,11 +277,16 @@ class ChartsViewController: UIViewController {
 extension ChartsViewController {
     
     func takeValue(path: String, queryType: QueryType) {
-        print(path)
-        service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
-            self?.milksInfo = result
-            self?.loadAllCharts(queryType: queryType)
+        milksInfo.removeAll()
+
+        self.service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
+            if result != nil{
+                self?.milksInfo = result!
+                self?.loadAllCharts(queryType: queryType)
+                
+            }
         }
+
     }
     
     func getWeekValues(day: String) {
@@ -314,14 +300,9 @@ extension ChartsViewController {
             let path = dateStringFunctions.getPathFromDate(dateString: dateString)
             
             group.enter()
-            service.existPath(path: path) { exist in
-                if exist {
-                    print(exist)
-                    group.enter()
-                    self.service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
-                        self?.milksInfo += result
-                        group.leave()
-                    }
+            self.service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
+                if result != nil {
+                    self?.milksInfo += result!
                 }
                 group.leave()
             }
@@ -332,6 +313,7 @@ extension ChartsViewController {
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
             self?.milksInfo = (self?.milksInfo.sorted { (self?.dateStringFunctions.getFormattedDay(day: $0.date!))!  < (self?.dateStringFunctions.getFormattedDay(day: $1
                 .date!))!  })!
+
             self?.loadAllCharts(queryType: .Week)
         }
     }
@@ -382,7 +364,6 @@ extension ChartsViewController {
         default:
             break
         }
-        
     }
     
     // MARK: - Setup Charts
@@ -410,7 +391,8 @@ extension ChartsViewController {
 
         let ds1 = PieChartDataSet(values: yse1, label: "")
         
-        
+        //Label ds1 e yse1
+
         let pieColor = [Color.green,Color.chartYellow,Color.darkRed]
         
         ds1.colors = pieColor

@@ -41,9 +41,7 @@ class MilkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(segmentedViewOutlet.selectedSegmentIndex)
-         // takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Week)
-        
+
         segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
         
         switch(segmentedViewOutlet.selectedSegmentIndex){
@@ -256,9 +254,12 @@ extension MilkViewController: UITableViewDataSource, UITableViewDelegate {
 extension MilkViewController {
     
     func takeValue(path: String, queryType: QueryType) {
-        service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
-            self?.milksInfo = result
-            self?.milkTableView.reloadData()
+        milksInfo.removeAll()
+        
+        self.service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
+            if result != nil{
+                self?.milksInfo = result!
+            }
         }
     }
     
@@ -273,8 +274,10 @@ extension MilkViewController {
             let path = dateStringFunctions.getPathFromDate(dateString: dateString)
             
             group.enter()
-            service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
-                self?.milksInfo += result
+            self.service.takeValueFromDatabase(path: path, queryType: .Week) { [weak self] result in
+                if result != nil {
+                    self?.milksInfo += result!
+                }
                 group.leave()
             }
             
@@ -284,10 +287,10 @@ extension MilkViewController {
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
             self?.milksInfo = (self?.milksInfo.sorted { (self?.dateStringFunctions.getFormattedDay(day: $0.date!))!  < (self?.dateStringFunctions.getFormattedDay(day: $1
                 .date!))!  })!
-            //self?.loadAllCharts(queryType: .Week)
             self?.milkTableView.reloadData()
         }
     }
+
 }
 
 

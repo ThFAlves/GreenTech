@@ -79,8 +79,9 @@ class AddSaleViewController: FormViewController {
         }
         
         if (dictionary["Vendido"] != nil) {
-            service.saveSaleMilkDatabase(dictionary: dictionary)
-            performSegue(withIdentifier: "saveSaleSegue", sender: self)
+            service.saveSaleMilkDatabase(dictionary: dictionary) {
+                self.performSegue(withIdentifier: "saveSaleSegue", sender: self)
+            }
         }else{
             showErrorAlert("Preencha todos os campos")
         }

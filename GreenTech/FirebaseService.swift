@@ -17,13 +17,15 @@ class FirebaseService {
     let storageRef = FIRStorage.storage().reference()
     let dateStringFunctions = DateString()
     
-    func takeValueFromDatabase(path: String, queryType: QueryType, completionHandler: @escaping ([MilkInfo]) -> ()) {
-        databaseRef.child(path).observe(.value) { (snap: FIRDataSnapshot) in
+    func takeValueFromDatabase(path: String, queryType: QueryType, completionHandler: @escaping ([MilkInfo]?) -> ()) {
+        databaseRef.child(path).observeSingleEvent(of: .value) { (snap: FIRDataSnapshot) in
             var milkInfo = [MilkInfo]()
-            
-            if !snap.exists() {
+
+            if(!snap.exists()) {
+                completionHandler(nil)
                 return
             }
+            
             switch queryType {
             
             case .Day:
@@ -113,7 +115,7 @@ class FirebaseService {
         return(month,year,milkInfo)
     }
     
-    func saveMilkInfoDatabase(dictionary: [String: Any]) {
+    func saveMilkInfoDatabase(dictionary: [String: Any], completionHanlder: @escaping () -> ()) {
         var newDictionary = dictionary
         if let dateFromDictionary = newDictionary["Data"] {
             let date = dateStringFunctions.getFormattedDayReverse(dateString: dateFromDictionary as! String)
@@ -124,15 +126,25 @@ class FirebaseService {
             
             newDictionary["Data"] = dateString
             newDictionary["Hora"] = hour
+            
+            databaseRef.child(path).setValue(newDictionary) { (error, ref) -> Void in
+                if error != nil {
+                    print(error!)
+                } else {
+                    print("Salvou a mensagem")
+                }
+                completionHanlder();
+            }
+            
+//            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
+//                currentData.value = newDictionary
+//                return FIRTransactionResult.success(withValue: currentData)
+//            })
 
-            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
-                currentData.value = newDictionary
-                return FIRTransactionResult.success(withValue: currentData)
-            })
         }
     }
     
-    func saveSaleMilkDatabase(dictionary: [String: Any]) {
+    func saveSaleMilkDatabase(dictionary: [String: Any], completionHandler: @escaping () -> ()) {
         var newDictionary = dictionary
         if let dateFromDictionary = newDictionary["Data"] {
             let date = dateStringFunctions.getFormattedDayReverse(dateString: dateFromDictionary as! String)
@@ -141,10 +153,19 @@ class FirebaseService {
             path += "/Vendido"            
             let sale = newDictionary["Vendido"] as! NSNumber
             
-            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
-                currentData.value = sale
-                return FIRTransactionResult.success(withValue: currentData)
-            })
+            databaseRef.child(path).setValue(sale) { (error, ref) -> Void in
+                if error != nil {
+                    print(error!)
+                } else {
+                    print("Salvou a mensagem")
+                }
+                completionHandler();
+            }
+            
+//            databaseRef.child(path).runTransactionBlock({ (currentData: FIRMutableData) in
+//                currentData.value = sale
+//                return FIRTransactionResult.success(withValue: currentData)
+//            })
         }
     }
 }

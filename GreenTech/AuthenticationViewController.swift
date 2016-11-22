@@ -18,7 +18,7 @@ class AuthenticationViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    let loginFacebookButton = FBSDKLoginButton()
+    @IBOutlet weak var loginFacebookButton: FBSDKLoginButton!
     
     let connection = VerifyConnection()
     let StoryID = "signSegue"

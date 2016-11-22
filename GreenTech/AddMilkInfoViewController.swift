@@ -110,8 +110,9 @@ class AddMilkInfoViewController: FormViewController {
         }
         
         if (dictionary["Produzido"] != nil && dictionary["ConsumoInterno"] != nil && dictionary["Perdido"] != nil) {
-            service.saveMilkInfoDatabase(dictionary: dictionary)
-            performSegue(withIdentifier: "saveMilkSegue", sender: self)
+            service.saveMilkInfoDatabase(dictionary: dictionary) {
+                self.performSegue(withIdentifier: "saveMilkSegue", sender: self)
+            }
         }else{
             showErrorAlert("Preencha todos os campos")
         }
