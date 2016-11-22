@@ -506,7 +506,7 @@
                                 <rect key="frame" x="20" y="20" width="335" height="578"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mimosa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMJ-E1-QeO">
-                                        <rect key="frame" x="111" y="10" width="113" height="36"/>
+                                        <rect key="frame" x="111.5" y="10" width="112.5" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -519,7 +519,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GreenTech 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxt-w9-yVo">
-                                        <rect key="frame" x="20" y="523" width="295" height="15"/>
+                                        <rect key="frame" x="20" y="523.5" width="295" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -625,6 +625,7 @@
                     <navigationItem key="navigationItem" id="NnU-AZ-UKI"/>
                     <connections>
                         <outlet property="emailField" destination="AC2-JF-kBN" id="FOL-xF-FBz"/>
+                        <outlet property="loginFacebookButton" destination="Gav-mo-68p" id="MrY-ge-MLJ"/>
                         <outlet property="passwordField" destination="MZl-H1-g0M" id="r3C-TT-ZMd"/>
                         <segue destination="6QZ-Rq-DnB" kind="show" identifier="signSegue" id="glD-7a-TgK"/>
                     </connections>
@@ -1377,10 +1378,10 @@
                                 <rect key="frame" x="8" y="50" width="359" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsq-fe-WyN" userLabel="EndPeriodView">
-                                        <rect key="frame" x="182" y="0.0" width="177" height="40"/>
+                                        <rect key="frame" x="181" y="0.0" width="178" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fevereiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKp-B3-VqN">
-                                                <rect key="frame" x="8" y="10" width="161" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="162" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1394,17 +1395,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unY-2A-Jdo" userLabel="SpaceView">
-                                        <rect key="frame" x="179" y="0.0" width="3" height="40"/>
+                                        <rect key="frame" x="178" y="0.0" width="3" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="3" id="Cdu-9i-RlL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="two-KL-9Ow" userLabel="StartPeriodView">
-                                        <rect key="frame" x="0.0" y="0.0" width="179" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Janeiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDT-yj-B3x">
-                                                <rect key="frame" x="8" y="10" width="163" height="21"/>
+                                                <rect key="frame" x="8" y="10" width="162" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

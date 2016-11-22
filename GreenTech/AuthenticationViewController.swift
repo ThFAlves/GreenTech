@@ -83,7 +83,6 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     
     func setupFacebookButtons() {
         
-        loginFacebookButton.isHidden = true
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = user?.uid else { return }
@@ -91,11 +90,11 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
                 self.performSegue(withIdentifier: self.StoryID, sender: uid)
             } else {
                 // No user is signed in.
-                self.loginFacebookButton.frame = CGRect(x: 40, y: self.view.frame.height/2 - 60, width: self.view.frame.width - 80, height: 50)
+                //self.loginFacebookButton.frame = CGRect(x: 40, y: self.view.frame.height/2 - 60, width: self.view.frame.width - 80, height: 50)
                 self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginFacebookButton.delegate = self
-                self.view.addSubview(self.loginFacebookButton)
-                self.loginFacebookButton.isHidden = false
+                //self.view.addSubview(self.loginFacebookButton)
+                //self.loginFacebookButton.isHidden = false
             }
         }
 
@@ -107,11 +106,11 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        self.loginFacebookButton.isHidden = true
+        //self.loginFacebookButton.isHidden = true
         if error != nil {
-            self.loginFacebookButton.isHidden = false
+            //self.loginFacebookButton.isHidden = false
         } else if result.isCancelled {
-            self.loginFacebookButton.isHidden = false
+            //self.loginFacebookButton.isHidden = false
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
         } else {
