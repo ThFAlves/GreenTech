@@ -198,19 +198,6 @@ class ChartsViewController: UIViewController {
 
             }
         }
-        
-        if segue.identifier == CALENDAR_SEGUE {
-            if let selectedDateKindSelected = segue.destination as? CalendarViewController {
-                selectedDateKindSelected.selectedDateKind = segmentToKind(segmentedViewOutlet.selectedSegmentIndex)
-                
-            }
-        }
-        
-        if segue.identifier == SPINNER_SEGUE {
-            if let selectedDateKindSelected = segue.destination as? SpinnerViewController {
-                selectedDateKindSelected.selectedDateKind = segmentToKind(segmentedViewOutlet.selectedSegmentIndex)
-            }
-        }
     }
     
     //create a func with take the segmented section on milkViewController and update the segmented of chartsViewcontroller
@@ -222,8 +209,6 @@ class ChartsViewController: UIViewController {
         }
         
     }
-
-    
     
     // MARK: - Actions FROM ADVANCED SEARCH
     
@@ -237,9 +222,14 @@ class ChartsViewController: UIViewController {
         case 1:
             performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
             break
+        case 2 :
+            performSegue(withIdentifier: MONTH_SPINNER_SEGUE, sender: self)
+            break
+        case 3 :
+            performSegue(withIdentifier: YEAR_SPINNER_SEGUE, sender: self)
+            break
         default:
-            performSegue(withIdentifier: SPINNER_SEGUE, sender: self)
-            print("spin")
+            performSegue(withIdentifier: CALENDAR_SEGUE, sender: self)
             break
         }
     }
