@@ -15,7 +15,7 @@ class YearPickerView: UIPickerView {
         }
     }
     
-    var onDateSelected: ((_ year: Int) -> Void)?
+    var dateDelegate : DateSelection?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,12 +61,7 @@ extension YearPickerView : UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let year = self.selectedRow(inComponent: 0)+1
-        
-        if let block = onDateSelected {
-            block(year)
-        }
-        
         self.year = year
-        
+        dateDelegate?.onDateSelected(0, year)
     }
 }

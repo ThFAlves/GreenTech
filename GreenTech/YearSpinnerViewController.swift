@@ -29,27 +29,18 @@ class YearSpinnerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setPickerView()
-    }
-    
-    func setPickerView() {
-        
-        let startDate = YearPickerView()
-        startDate.onDateSelected = { (year: Int) in
-            print("year \(year)")
-        }
-        self.startDate = startDate
-        
-        let endDate = YearPickerView()
-        endDate.onDateSelected = { (year: Int) in
-            print("year \(year)")
-        }
-        self.endDate = endDate
-        
+        startDate.dateDelegate = self
+        endDate.dateDelegate = self
     }
     
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension YearSpinnerViewController : DateSelection {
+    func onDateSelected(_ month: Int, _ year: Int) {
+        print(year)
     }
 }

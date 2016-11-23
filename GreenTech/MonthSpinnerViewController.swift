@@ -20,6 +20,9 @@ class MonthSpinnerViewController: UIViewController {
     @IBOutlet weak var startPeriodView: UIView!
     @IBOutlet weak var endPeriodView: UIView!
     
+    var startDateHasChanged : Bool = false
+    var endDateHasChanged : Bool = false
+    
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,29 +31,23 @@ class MonthSpinnerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setPickerView()
-    }
-    
-    
-    func setPickerView() {
-        let startDateView = MonthPickerView()
-        startDateView.onDateSelected = { (month: Int) in
-            let string = String(format: "%02d", month)
-            NSLog(string) // should show something like 05/2015
-        }
-        startDate = startDateView
-        
-        let endDateView = MonthPickerView()
-        endDateView.onDateSelected = { (month: Int) in
-            let string = String(format: "%02d", month)
-            NSLog(string) // should show something like 05/2015
-        }
-        endDate = endDateView
-        
+        startDate.dateDelegate = self
+        endDate.dateDelegate = self
     }
     
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension MonthSpinnerViewController : DateSelection {
+    func onDateSelected(_ month: Int, _ year: Int) {
+        let startMonthName = DateFormatter().monthSymbols[startDate.month - 1]
+        startPeriodLabel.text = startMonthName
+        
+        let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
+        endPeriodLabel.text = endMonthName
+        print("start date \(startDate.month) enddate \(endDate.month)")
     }
 }
