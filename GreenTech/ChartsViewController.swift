@@ -384,7 +384,7 @@ extension ChartsViewController {
         
         //Label ds1 e yse1
 
-        let pieColor = [Color.green,Color.chartYellow,Color.darkRed]
+        let pieColor = [Color.chartGreen,Color.chartYellow,Color.chartRed]
         
         ds1.colors = pieColor
         ds1.valueTextColor = UIColor.white

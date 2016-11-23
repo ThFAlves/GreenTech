@@ -94,6 +94,7 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
       return
     }
     animation.playAnimation(iconView!.icon, textLabel: iconView!.textLabel)
+    
   }
   
   /**
@@ -110,6 +111,7 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
       textLabel: iconView!.textLabel,
       defaultTextColor: textColor,
       defaultIconColor: iconColor)
+    
   }
   
   /**
