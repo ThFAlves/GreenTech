@@ -23,6 +23,11 @@ class ChartsViewController: UIViewController {
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var lineChartGraphic: LineChartView!
     @IBOutlet weak var PieChartGraphic: PieChartView!
+    @IBOutlet weak var lineChartDayLabel: UILabel!
+    @IBOutlet weak var emptyStateLabel: UILabel!
+    @IBOutlet weak var produzidosTextHeader: UILabel!
+    @IBOutlet weak var visaoGeralTextHeader: UILabel!
+    @IBOutlet weak var arrowOutletImage: UIImageView!
     
     var select = 0
     let service  = FirebaseService()
@@ -33,7 +38,6 @@ class ChartsViewController: UIViewController {
     var showMonth = false
 
     override func viewWillAppear(_ animated: Bool) {
-        
 
     }
 
@@ -42,10 +46,15 @@ class ChartsViewController: UIViewController {
         super.viewDidLoad()
         setupChartsLayout()
         axisFormatDelegate = self
+        arrowOutletImage.alpha = 0
+        emptyStateLabel.alpha = 0
+
+        
         
         if let id = UserDefaults.standard.value(forKey: "Actual") {
             let date = dateStringFunctions.getCurrentDate()
             takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+            
         }
     }
     
@@ -64,6 +73,12 @@ class ChartsViewController: UIViewController {
             pieChartDetailsView.alpha = 0
             lineChartDetaisView.alpha = 0
             ProductionViewInDayTab.alpha = 0
+            visaoGeralTextHeader.alpha = 0
+            produzidosTextHeader.alpha = 0
+            emptyStateLabel.alpha = 0
+            arrowOutletImage.alpha = 0
+            
+
             
             
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
@@ -79,6 +94,8 @@ class ChartsViewController: UIViewController {
                 self.pieChartDetailsView.alpha = 1
                 self.lineChartDetaisView.alpha = 1
                 self.ProductionViewInDayTab.alpha = 1
+                self.visaoGeralTextHeader.alpha = 1
+                self.produzidosTextHeader.alpha = 1
                 
                 self.PieChartGraphic.layer.transform = CATransform3DIdentity
                 self.lineChartGraphic.layer.transform = CATransform3DIdentity
@@ -87,8 +104,10 @@ class ChartsViewController: UIViewController {
                 self.ProductionViewInDayTab.layer.transform = CATransform3DIdentity
                 
             })
+            
+  //          self.lineChartDayLabel.text =  String(self.milksInfo[0].produced!)
         }
-        if anim >= 1 {
+        if anim >= 1 && anim < 4 {
 
             self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
@@ -98,6 +117,11 @@ class ChartsViewController: UIViewController {
             pieChartDetailsView.alpha = 0
             lineChartDetaisView.alpha = 0
             ProductionViewInDayTab.alpha = 0
+            emptyStateLabel.alpha = 0
+            visaoGeralTextHeader.alpha = 0
+            produzidosTextHeader.alpha = 0
+            arrowOutletImage.alpha = 0
+
             
             
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
@@ -113,6 +137,8 @@ class ChartsViewController: UIViewController {
                 self.pieChartDetailsView.alpha = 1
                 self.lineChartDetaisView.alpha = 1
                 self.ProductionViewInDayTab.alpha = 0
+                self.visaoGeralTextHeader.alpha = 1
+                self.produzidosTextHeader.alpha = 1
                 
                 self.PieChartGraphic.layer.transform = CATransform3DIdentity
                 self.lineChartGraphic.layer.transform = CATransform3DIdentity
@@ -121,6 +147,23 @@ class ChartsViewController: UIViewController {
                 self.ProductionViewInDayTab.layer.transform = CATransform3DIdentity
                 
             })
+        }
+        if anim == 4 {
+            
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+            
+            PieChartGraphic.alpha = 0
+            lineChartGraphic.alpha = 0
+            pieChartDetailsView.alpha = 0
+            lineChartDetaisView.alpha = 0
+            ProductionViewInDayTab.alpha = 0
+            emptyStateLabel.alpha = 1
+            visaoGeralTextHeader.alpha = 0
+            produzidosTextHeader.alpha = 0
+            arrowOutletImage.alpha = 1
+
+            
         }
     }
     
@@ -226,6 +269,9 @@ class ChartsViewController: UIViewController {
             case 0 :
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
                 animateCellOfCharts(anim: 0)
+                if milksInfo.count != 0 {
+                lineChartDayLabel.text = String(milksInfo[0].produced!)
+                }
                 break
             case 1:
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
@@ -273,8 +319,16 @@ extension ChartsViewController {
         self.service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             if result != nil{
                 self?.milksInfo = result!
+                
+                if let res = result![0].produced { //loading produced cell in today segmented selection
+                    self?.lineChartDayLabel.text = String(res)
+                }
                 self?.loadAllCharts(queryType: queryType)
                 
+            }
+            else {
+                self?.animateCellOfCharts(anim: 4)
+
             }
         }
 
