@@ -43,11 +43,26 @@ class MonthSpinnerViewController: UIViewController {
 
 extension MonthSpinnerViewController : DateSelection {
     func onDateSelected(_ month: Int, _ year: Int) {
-        let startMonthName = DateFormatter().monthSymbols[startDate.month - 1]
-        startPeriodLabel.text = startMonthName
+        if startDate.month > endDate.month {
+            showErrorAlert()
+        }else {
+            let startMonthName = DateFormatter().monthSymbols[startDate.month - 1]
+            startPeriodLabel.text = startMonthName.capitalizingFirstLetter()
+            
+            let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
+            endPeriodLabel.text = endMonthName.capitalizingFirstLetter()
+            print("start date \(startDate.month) enddate \(endDate.month)")
+        }
+    }
+    
+    func showErrorAlert(){
+        let refreshAlert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE_MONTH , preferredStyle: UIAlertControllerStyle.alert)
         
-        let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
-        endPeriodLabel.text = endMonthName
-        print("start date \(startDate.month) enddate \(endDate.month)")
+        //        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        //            print("Handle Ok logic here")
+        //        }))
+        refreshAlert.addAction(UIAlertAction(title: OK_BTN, style: .default, handler: nil))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
 }

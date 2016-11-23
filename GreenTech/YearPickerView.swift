@@ -9,7 +9,7 @@ class YearPickerView: UIPickerView {
     var years: [Int]!
     
    
-    var year: Int = 0 {
+    var year: Int = 1 {
         didSet {
             selectRow(year-1, inComponent: 0, animated: true)
         }

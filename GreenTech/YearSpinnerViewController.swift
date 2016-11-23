@@ -21,6 +21,7 @@ class YearSpinnerViewController: UIViewController {
     @IBOutlet weak var endPeriodView: UIView!
     
     var selectedDateKind : DateSelectionKind?
+    
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,24 @@ class YearSpinnerViewController: UIViewController {
 
 extension YearSpinnerViewController : DateSelection {
     func onDateSelected(_ month: Int, _ year: Int) {
-        print(year)
+        if startDate.year > endDate.year {
+            showErrorAlert()
+        }else {
+            startPeriodLabel.text = "\(startDate.years[year-1])"
+            endPeriodLabel.text = "\(endDate.years[year-1])"
+            
+            print("startdate \(startDate.years[year-1])  enddate \(endDate.years[year-1])")
+        }
+    }
+    
+    func showErrorAlert(){
+        let refreshAlert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE_MONTH , preferredStyle: UIAlertControllerStyle.alert)
+        
+        //        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        //            print("Handle Ok logic here")
+        //        }))
+        refreshAlert.addAction(UIAlertAction(title: OK_BTN, style: .default, handler: nil))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
 }

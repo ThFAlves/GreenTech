@@ -22,9 +22,13 @@ let MONTH_SPINNER_SEGUE = "viewSpinnerMonth"
 
 let YEAR_SPINNER_SEGUE = "viewSpinnerYear"
 
+let ALERT_TITLE = "Tente novamente"
 
+let ALERT_MESSAGE_MONTH = "Selecione um período válido, o mês inicial deve ser inferior ao mês final"
 
+let ALERT_MESSAGE_YEAR = "Selecione um período válido, o ano inicial deve ser inferior ao ano final"
 
+let OK_BTN = "OK"
 
 // MARK: - Colors
 
