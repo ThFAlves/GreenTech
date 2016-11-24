@@ -22,11 +22,11 @@ class AuthenticationViewController: UIViewController {
     
     let connection = VerifyConnection()
     let StoryID = "signSegue"
+    var handle: FIRAuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFacebookButtons()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,6 +50,7 @@ class AuthenticationViewController: UIViewController {
             if error == nil {
                 guard let uid = user?.uid else { return }
                 UserDefaults.standard.setValue(uid, forKey: "Actual")
+                print("authLogin")
                 self.performSegue(withIdentifier: self.StoryID, sender: uid)
             }else{
                 self.showErrorAlert((error?.localizedDescription)!)
@@ -63,6 +64,7 @@ class AuthenticationViewController: UIViewController {
         if result != nil && result!.password == self.passwordField.text!.md5() {
             guard let uid = result?.id else { return }
             UserDefaults.standard.setValue(uid, forKey: "Actual")
+            print("authOffileLogin")
             self.performSegue(withIdentifier: StoryID, sender: uid)
         }else{
             self.showErrorAlert("Incorrect email or password")
@@ -83,20 +85,17 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
     
     func setupFacebookButtons() {
         
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+        handle = (FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = user?.uid else { return }
                 UserDefaults.standard.setValue(uid, forKey: "Actual")
+                print("setupFacebookButtons")
                 self.performSegue(withIdentifier: self.StoryID, sender: uid)
             } else {
-                // No user is signed in.
-                //self.loginFacebookButton.frame = CGRect(x: 40, y: self.view.frame.height/2 - 60, width: self.view.frame.width - 80, height: 50)
                 self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginFacebookButton.delegate = self
-                //self.view.addSubview(self.loginFacebookButton)
-                //self.loginFacebookButton.isHidden = false
             }
-        }
+            })!
 
     }
     
@@ -106,11 +105,7 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        //self.loginFacebookButton.isHidden = true
-        if error != nil {
-            //self.loginFacebookButton.isHidden = false
-        } else if result.isCancelled {
-            //self.loginFacebookButton.isHidden = false
+        if result.isCancelled {
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
         } else {
@@ -123,9 +118,16 @@ extension AuthenticationViewController: FBSDKLoginButtonDelegate {
                 guard let uid = user?.uid else { return }
                 
                 UserDefaults.standard.setValue(uid, forKey: "Actual")
+                print("loginButton")
                 self.performSegue(withIdentifier: self.StoryID, sender: uid)
             }
         
+        }
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if handle != nil {
+            FIRAuth.auth()?.removeStateDidChangeListener(handle!)
         }
     }
     
