@@ -32,10 +32,18 @@ class MonthSpinnerViewController: UIViewController {
         super.viewWillAppear(animated)
         startDate.dateDelegate = self
         endDate.dateDelegate = self
+        
         startPeriodView.layer.borderWidth = 1
-        startPeriodView.layer.borderColor = customLightGreen.cgColor
+        startPeriodView.layer.borderColor = strongGreen.cgColor
+        startPeriodView.backgroundColor = strongGreen
+        let startMonthName = DateFormatter().monthSymbols[startDate.month - 1]
+        startPeriodLabel.text = "\(START_DATE)\(startMonthName.capitalizingFirstLetter())"
+        startPeriodLabel.textColor = UIColor.white
+        
         endPeriodView.layer.borderWidth = 1
         endPeriodView.layer.borderColor = customLightGreen.cgColor
+        let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
+        endPeriodLabel.text = "\(END_DATE)\(endMonthName.capitalizingFirstLetter())"
     }
     
     //MARK - Actions
@@ -44,9 +52,9 @@ class MonthSpinnerViewController: UIViewController {
             showErrorAlert()
         }else {
             filterDelegate?.didSelectMonth(startDate.month, endDate.month)
-
-           // _ to discard resulting view controller
-           _ = self.navigationController?.popViewController(animated: true)
+            
+            // _ to discard resulting view controller
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 }

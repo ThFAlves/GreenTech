@@ -37,11 +37,11 @@ class ChartsViewController: UIViewController {
     var axisFormatDelegate: IAxisValueFormatter?
     var months: [String]! = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     var showMonth = false
-
+    
     override func viewWillAppear(_ animated: Bool) {
-
+        
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class ChartsViewController: UIViewController {
         axisFormatDelegate = self
         arrowOutletImage.alpha = 0
         emptyStateLabel.alpha = 0
-
+        
         
         
         if let id = UserDefaults.standard.value(forKey: "Actual") {
@@ -79,7 +79,7 @@ class ChartsViewController: UIViewController {
             emptyStateLabel.alpha = 0
             arrowOutletImage.alpha = 0
             
-
+            
             
             
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
@@ -106,10 +106,10 @@ class ChartsViewController: UIViewController {
                 
             })
             
-  //          self.lineChartDayLabel.text =  String(self.milksInfo[0].produced!)
+            //          self.lineChartDayLabel.text =  String(self.milksInfo[0].produced!)
         }
         if anim >= 1 && anim < 4 {
-
+            
             self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
             
@@ -122,7 +122,7 @@ class ChartsViewController: UIViewController {
             visaoGeralTextHeader.alpha = 0
             produzidosTextHeader.alpha = 0
             arrowOutletImage.alpha = 0
-
+            
             
             
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -5, 0, 0)
@@ -163,13 +163,13 @@ class ChartsViewController: UIViewController {
             visaoGeralTextHeader.alpha = 0
             produzidosTextHeader.alpha = 0
             arrowOutletImage.alpha = 1
-
+            
             
         }
     }
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
-
+    
     func segmentToKind(_ kind: Int ) -> DateSelectionKind {
         
         var selectedKind = DateSelectionKind.DAY
@@ -195,7 +195,7 @@ class ChartsViewController: UIViewController {
         
         return selectedKind
     }
-
+    
     
     //select the pie button
     @IBAction func didSelectGeneralDetails(_ sender: AnyObject) {
@@ -220,32 +220,29 @@ class ChartsViewController: UIViewController {
                 yearController.filterDelegate = self
             }
             break
-            
         case MONTH_SPINNER_SEGUE:
             if let monthController = segue.destination as? MonthSpinnerViewController {
                 monthController.filterDelegate = self
             }
             break
-            
+        case "detailSegueIdentifier" :
+            if let detailSelected = segue.destination as? MilkViewController {
+                detailSelected.chartToDetailSelection = "generalDetail"
+                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
+                
+            }
+            break
+        case "productionDetailSegueIdentifier" :
+            if let detailSelected = segue.destination as? MilkViewController {
+                detailSelected.chartToDetailSelection = "productionDetail"
+                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
+                
+            }
+            break
         default:
             break
         }
         
-        if segue.identifier == "detailSegueIdentifier" {
-            if let detailSelected = segue.destination as? MilkViewController {
-                detailSelected.chartToDetailSelection = "generalDetail"
-                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
-
-            }
-        }
-        
-        if segue.identifier == "productionDetailSegueIdentifier" {
-            if let detailSelected = segue.destination as? MilkViewController {
-                detailSelected.chartToDetailSelection = "productionDetail"
-                detailSelected.segmentedSelection = String(segmentedViewOutlet.selectedSegmentIndex)
-
-            }
-        }
     }
     
     //create a func with take the segmented section on milkViewController and update the segmented of chartsViewcontroller
@@ -253,7 +250,7 @@ class ChartsViewController: UIViewController {
         if let detailSelected = segue.source as? MilkViewController {
             segmentedViewOutlet.selectedSegmentIndex = detailSelected.segmentedViewOutlet.selectedSegmentIndex
             select = detailSelected.segmentedViewOutlet.selectedSegmentIndex
-
+            
         }
         
     }
@@ -293,7 +290,7 @@ class ChartsViewController: UIViewController {
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
                 animateCellOfCharts(anim: 0)
                 if milksInfo.count != 0 {
-                lineChartDayLabel.text = String(milksInfo[0].produced!)
+                    lineChartDayLabel.text = String(milksInfo[0].produced!)
                 }
                 break
             case 1:
@@ -338,7 +335,7 @@ extension ChartsViewController {
     
     func takeValue(path: String, queryType: QueryType) {
         milksInfo.removeAll()
-
+        
         self.service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             if result != nil{
                 self?.milksInfo = result!
@@ -351,10 +348,10 @@ extension ChartsViewController {
             }
             else {
                 self?.animateCellOfCharts(anim: 4)
-
+                
             }
         }
-
+        
     }
     
     func getWeekValues(day: String) {
@@ -381,7 +378,7 @@ extension ChartsViewController {
         group.notify(qos: .background, flags: .assignCurrentContext, queue: .main) { [weak self] in
             self?.milksInfo = (self?.milksInfo.sorted { (self?.dateStringFunctions.getFormattedDay(day: $0.date!))!  < (self?.dateStringFunctions.getFormattedDay(day: $1
                 .date!))!  })!
-
+            
             self?.loadAllCharts(queryType: .Week)
         }
     }
@@ -456,11 +453,11 @@ extension ChartsViewController {
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
         
         let data = PieChartData()
-
+        
         let ds1 = PieChartDataSet(values: yse1, label: "")
         
         //Label ds1 e yse1
-
+        
         let pieColor = [Color.chartGreen,Color.chartYellow,Color.chartRed]
         
         ds1.colors = pieColor
@@ -490,7 +487,7 @@ extension ChartsViewController {
         setupLineChartGraphic(dataLine: dataLine)
         
     }
-
+    
     func getXs1Line() -> [Date] {
         let xs1Line = milksInfo.enumerated().map { indiceX, indiceY -> Date in
             if let date = milksInfo[indiceX].date {
@@ -513,7 +510,7 @@ extension ChartsViewController {
         }
         return se1Line
     }
-
+    
     func setupDs1Line(ds1Line: LineChartDataSet) {
         ds1Line.colors = [NSUIColor.black]
         ds1Line.drawCirclesEnabled = true
@@ -554,7 +551,7 @@ extension ChartsViewController {
         self.PieChartGraphic.data = data
         self.PieChartGraphic.chartDescription?.text = "Produção total do leite/perca"
         self.PieChartGraphic.noDataText = "Carregando os Dados..."
-
+        
     }
 }
 

@@ -22,31 +22,39 @@ class YearSpinnerViewController: UIViewController {
     
     var selectedDateKind : DateSelectionKind?
     
-     var filterDelegate : CalendarFilterSelection?
+    var filterDelegate : CalendarFilterSelection?
     
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.title = "\(CVDate(date: Date()).year)"
-         self.title = CALENDAR_TITLE
+        //        self.title = "\(CVDate(date: Date()).year)"
+        self.title = CALENDAR_TITLE
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startDate.dateDelegate = self
         endDate.dateDelegate = self
+        
         startPeriodView.layer.borderWidth = 1
-        startPeriodView.layer.borderColor = customLightGreen.cgColor
+        startPeriodView.layer.borderColor = strongGreen.cgColor
+        startPeriodView.backgroundColor = strongGreen
+        startPeriodLabel.text = "\(START_DATE)\(startDate.years[startDate.year-1])"
+        startPeriodLabel.textColor = UIColor.white
+        
         endPeriodView.layer.borderWidth = 1
         endPeriodView.layer.borderColor = customLightGreen.cgColor
+        endPeriodLabel.text = "\(END_DATE)\(endDate.years[endDate.year-1])"
     }
     
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
         if startDate.year > endDate.year {
             showErrorAlert()
+        }else{
             filterDelegate?.didSelectYear(startDate.year, endDate.year)
-            self.dismiss(animated: true, completion: nil)
+            // _ to discard resulting view controller
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 }
@@ -76,7 +84,7 @@ extension YearSpinnerViewController : DateSelection {
             endPeriodView.layer.borderColor = customLightGreen.cgColor
         }
         
-//        print("start date \(startDate.years[startDate.year-1])  end date \(endDate.years[endDate.year-1])")
+        //        print("start date \(startDate.years[startDate.year-1])  end date \(endDate.years[endDate.year-1])")
     }
     
     
