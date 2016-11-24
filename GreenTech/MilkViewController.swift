@@ -18,7 +18,7 @@ class MilkViewController: UIViewController {
     @IBOutlet weak var segmentedViewOutlet: UISegmentedControl!
     @IBOutlet weak var milkTableView: UITableView!
     
-    
+
     let cellIdentifier = "milkCellIdentifier"
     let descriptionVector: [String] = ["Comercializado", "Descartado", "Consumido"]
     let unitVector: [String] = ["Litros", "UFC/mL", "mil/mL", "oH", ""]
@@ -44,24 +44,28 @@ class MilkViewController: UIViewController {
 
         segmentedViewOutlet.selectedSegmentIndex = Int(segmentedSelection)!
         
-        switch(segmentedViewOutlet.selectedSegmentIndex){
-            
-        case 0 :
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            break
-        case 1:
-            getWeekValues(day: "07/10/2016")
-            break
-        case 2:
-            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            break
-        case 3:
-            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            break
-        default:
-            break
-        }
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            let date = dateStringFunctions.getCurrentDate()
 
+            switch(segmentedViewOutlet.selectedSegmentIndex){
+            
+                case 0 :
+                    takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                    
+                    break
+                case 1:
+                    getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                    break
+                case 2:
+                    takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                    break
+                case 3:
+                    takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                    break
+                default:
+                    break
+            }
+        }
 
         //let calendar = Calendar.current
         
@@ -78,23 +82,26 @@ class MilkViewController: UIViewController {
     
     
     @IBAction func SelectRange(_ sender: AnyObject) {
-        switch(segmentedViewOutlet.selectedSegmentIndex){
-            
-        case 0 :
-            takeValue(path: "Fazendas/ID/Coleta/2016/10/07", queryType: .Day)
-            break
-        case 1:
-            getWeekValues(day: "07/10/2016")
-            break
-        case 2:
-            takeValue(path: "Fazendas/ID/Coleta/2016/10", queryType: .Month)
-            break
-        case 3:
-            takeValue(path: "Fazendas/ID/Coleta/2016", queryType: .Year)
-            break
-        default:
-            break
+        if let id = UserDefaults.standard.value(forKey: "Actual") {
+            let date = dateStringFunctions.getCurrentDate()
+            switch(segmentedViewOutlet.selectedSegmentIndex){
+        
+                    case 0 :
+                        takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+                        break
+                    case 1:
+                        getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+                        break
+                    case 2:
+                        takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+                        break
+                    case 3:
+                        takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+                        break
+                    default:
+                        break
         }
+    }
         
     }
 
@@ -259,6 +266,7 @@ extension MilkViewController {
         self.service.takeValueFromDatabase(path: path, queryType: queryType) { [weak self] result in
             if result != nil{
                 self?.milksInfo = result!
+                self?.milkTableView.reloadData()
             }
         }
     }
