@@ -871,7 +871,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pkQ-Rg-zNn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BdN-jb-YDc">
-                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-e1-c5j">
@@ -996,7 +996,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Xbq-nz-Ze0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GH2-Gu-q2L" customClass="ChartMarkerView">
-                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-rL-Tfx">
@@ -1308,7 +1308,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hJn-oA-Vac"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3N4-EY-5kC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-Me-PDG" userLabel="PeriodView">
@@ -1450,7 +1450,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ipZ-4i-UrZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hsR-ij-yT4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-vE-w3s" userLabel="PeriodView">
@@ -1621,7 +1621,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3XT-EL-Pos"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BbX-BT-2NE">
-                        <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-97-xfi" userLabel="PeriodView">
@@ -2022,7 +2022,7 @@
         <image name="milking-1775201_1920" width="1920" height="1285"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nF4-l2-1bU"/>
         <segue reference="IfI-WB-f4W"/>
+        <segue reference="xIH-kK-6Rc"/>
     </inferredMetricsTieBreakers>
 </document>

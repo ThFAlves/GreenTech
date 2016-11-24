@@ -18,6 +18,12 @@ enum DateSelectionKind {
     case YEAR
 }
 
+protocol CalendarFilterSelection {
+    func didSelectYear(_ startYear: Int , _ endYear: Int)
+    func didSelectMonth(_ startMonth: Int , _ endMonth: Int)
+    func didSelectCustomDate(_ dates: [CVDate])
+}
+
 class CalendarViewController: UIViewController {
     
     //MARK - Outlets and properties

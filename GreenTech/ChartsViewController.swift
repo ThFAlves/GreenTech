@@ -10,6 +10,7 @@ import UIKit
 import Charts
 import Firebase
 import FirebaseDatabase
+import CVCalendar
 
 class ChartsViewController: UIViewController {
     
@@ -206,8 +207,30 @@ class ChartsViewController: UIViewController {
         performSegue(withIdentifier: "productionDetailSegueIdentifier", sender: nil)
     }
     
+    //MARK - Segue
     //send the segmented state from milkviewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case YEAR_SPINNER_SEGUE:
+            if let yearController = segue.destination as? YearSpinnerViewController {
+                yearController.filterDelegate = self
+            }
+            break
+            
+        case MONTH_SPINNER_SEGUE:
+            if let monthController = segue.destination as? MonthSpinnerViewController {
+                monthController.filterDelegate = self
+            }
+            break
+            
+        default:
+            break
+        }
+        
         if segue.identifier == "detailSegueIdentifier" {
             if let detailSelected = segue.destination as? MilkViewController {
                 detailSelected.chartToDetailSelection = "generalDetail"
@@ -550,4 +573,23 @@ extension ChartsViewController: IAxisValueFormatter {
         }
     }
     
+}
+
+
+extension ChartsViewController : CalendarFilterSelection {
+    
+    func didSelectMonth(_ startMonth: Int, _ endMonth: Int) {
+        print("Did select month start date \(startMonth) end date \(endMonth)")
+        //TODO update graphic
+        
+    }
+    
+    func didSelectYear(_ startYear: Int, _ endYear: Int) {
+        print("Did select year start date \(startYear) end date \(endYear)")
+        //TODO update graphic
+    }
+    
+    func didSelectCustomDate(_ dates: [CVDate]) {
+        //TODO update graphic
+    }
 }

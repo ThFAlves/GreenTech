@@ -22,6 +22,8 @@ class YearSpinnerViewController: UIViewController {
     
     var selectedDateKind : DateSelectionKind?
     
+     var filterDelegate : CalendarFilterSelection?
+    
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,7 @@ class YearSpinnerViewController: UIViewController {
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
         if startDate.year > endDate.year {
             showErrorAlert()
-        }else {
+            filterDelegate?.didSelectYear(startDate.year, endDate.year)
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -74,7 +76,7 @@ extension YearSpinnerViewController : DateSelection {
             endPeriodView.layer.borderColor = customLightGreen.cgColor
         }
         
-        print("start date \(startDate.years[startDate.year-1])  end date \(endDate.years[endDate.year-1])")
+//        print("start date \(startDate.years[startDate.year-1])  end date \(endDate.years[endDate.year-1])")
     }
     
     

@@ -15,9 +15,6 @@ protocol DateSelection {
 
 class MonthPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-    
-    
     var month: Int = 0 {
         didSet {
             selectRow(month-1, inComponent: 0, animated: false)

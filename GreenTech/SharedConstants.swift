@@ -34,6 +34,11 @@ let START_DATE = "Inicial: "
 
 let END_DATE = "Final: "
 
+//Utils
+
+let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+
+
 // MARK: - Colors
 
 let baseColor = "#5EB244" //bar green color - que está no zeplin

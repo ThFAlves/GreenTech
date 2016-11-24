@@ -20,6 +20,8 @@ class MonthSpinnerViewController: UIViewController {
     @IBOutlet weak var startPeriodView: UIView!
     @IBOutlet weak var endPeriodView: UIView!
     
+    var filterDelegate : CalendarFilterSelection?
+    
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,10 @@ class MonthSpinnerViewController: UIViewController {
         if startDate.month > endDate.month {
             showErrorAlert()
         }else {
-            self.dismiss(animated: true, completion: nil)
+            filterDelegate?.didSelectMonth(startDate.month, endDate.month)
+
+           // _ to discard resulting view controller
+           _ = self.navigationController?.popViewController(animated: true)
         }
     }
 }
@@ -73,7 +78,7 @@ extension MonthSpinnerViewController : DateSelection {
             endPeriodView.layer.borderColor = customLightGreen.cgColor
         }
         
-        print("start date \(startDate.month) end date \(endDate.month)")
+        //        print("start date \(startDate.month) end date \(endDate.month)")
     }
     
     func showErrorAlert(){
