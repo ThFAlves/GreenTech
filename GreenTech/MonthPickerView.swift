@@ -11,7 +11,6 @@ import UIKit
 protocol DateSelection {
     
     func onDateSelected(_ month: Int , _ year: Int)
-    
 }
 
 class MonthPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -24,6 +23,8 @@ class MonthPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
             selectRow(month-1, inComponent: 0, animated: false)
         }
     }
+    
+    var hasChanged = false
     
     var dateDelegate : DateSelection?
     
@@ -64,7 +65,9 @@ class MonthPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let month = self.selectedRow(inComponent: 0)+1
         self.month = month
+        hasChanged = true
         dateDelegate?.onDateSelected(month, 0)
+        hasChanged = false
     }
 }
 

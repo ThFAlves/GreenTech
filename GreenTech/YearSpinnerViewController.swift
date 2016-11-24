@@ -25,39 +25,61 @@ class YearSpinnerViewController: UIViewController {
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "\(CVDate(date: Date()).year)"
+//        self.title = "\(CVDate(date: Date()).year)"
+         self.title = CALENDAR_TITLE
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startDate.dateDelegate = self
         endDate.dateDelegate = self
+        startPeriodView.layer.borderWidth = 1
+        startPeriodView.layer.borderColor = customLightGreen.cgColor
+        endPeriodView.layer.borderWidth = 1
+        endPeriodView.layer.borderColor = customLightGreen.cgColor
     }
     
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        if startDate.year > endDate.year {
+            showErrorAlert()
+        }else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
 extension YearSpinnerViewController : DateSelection {
     func onDateSelected(_ month: Int, _ year: Int) {
-        if startDate.year > endDate.year {
-            showErrorAlert()
+        
+        if startDate.hasChanged {
+            startPeriodLabel.text = "\(START_DATE)\(startDate.years[startDate.year-1])"
+            startPeriodView.backgroundColor = strongGreen
+            startPeriodLabel.textColor = UIColor.white
+            startPeriodView.layer.borderColor = strongGreen.cgColor
         }else {
-            startPeriodLabel.text = "\(startDate.years[year-1])"
-            endPeriodLabel.text = "\(endDate.years[year-1])"
-            
-            print("startdate \(startDate.years[year-1])  enddate \(endDate.years[year-1])")
+            startPeriodLabel.textColor = customLightGreen
+            startPeriodView.backgroundColor = UIColor.clear
+            startPeriodView.layer.borderColor = customLightGreen.cgColor
         }
+        
+        if endDate.hasChanged {
+            endPeriodLabel.text = "\(END_DATE)\(endDate.years[endDate.year-1])"
+            endPeriodLabel.textColor = UIColor.white
+            endPeriodView.backgroundColor = strongGreen
+            endPeriodView.layer.borderColor = strongGreen.cgColor
+        }else {
+            endPeriodLabel.textColor = customLightGreen
+            endPeriodView.backgroundColor = UIColor.clear
+            endPeriodView.layer.borderColor = customLightGreen.cgColor
+        }
+        
+        print("start date \(startDate.years[startDate.year-1])  end date \(endDate.years[endDate.year-1])")
     }
+    
     
     func showErrorAlert(){
         let refreshAlert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE_MONTH , preferredStyle: UIAlertControllerStyle.alert)
-        
-        //        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-        //            print("Handle Ok logic here")
-        //        }))
         refreshAlert.addAction(UIAlertAction(title: OK_BTN, style: .default, handler: nil))
         
         present(refreshAlert, animated: true, completion: nil)

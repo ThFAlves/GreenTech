@@ -30,11 +30,16 @@ let ALERT_MESSAGE_YEAR = "Selecione um período válido, o ano inicial deve ser 
 
 let OK_BTN = "OK"
 
+let START_DATE = "Inicial: "
+
+let END_DATE = "Final: "
+
 // MARK: - Colors
 
 let baseColor = "#5EB244" //bar green color - que está no zeplin
 let baseFontColor = "#3D9B41"
-
+let strongGreen = UIColor(red:0.20, green:0.41, blue:0.20, alpha:1.0)
+let customLightGreen = UIColor(red:0.37, green:0.70, blue:0.27, alpha:1.0)
 
 func getMonthFromInt(_ month : Int) -> String{
 

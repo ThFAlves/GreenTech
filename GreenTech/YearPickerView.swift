@@ -8,17 +8,19 @@ class YearPickerView: UIPickerView {
     
     var years: [Int]!
     
-   
     var year: Int = 1 {
         didSet {
             selectRow(year-1, inComponent: 0, animated: true)
         }
     }
+
+    var hasChanged = false
     
     var dateDelegate : DateSelection?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.commonSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,6 +42,8 @@ class YearPickerView: UIPickerView {
             }
         }
         self.years = years
+        self.year = 1
+        self.selectRow(year-1, inComponent: 0, animated: false)
     }
 }
 
@@ -62,6 +66,8 @@ extension YearPickerView : UIPickerViewDelegate, UIPickerViewDataSource {
         
         let year = self.selectedRow(inComponent: 0)+1
         self.year = year
+        hasChanged = true
         dateDelegate?.onDateSelected(0, year)
+        hasChanged = false
     }
 }

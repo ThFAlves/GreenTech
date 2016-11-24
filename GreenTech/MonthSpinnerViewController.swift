@@ -20,9 +20,6 @@ class MonthSpinnerViewController: UIViewController {
     @IBOutlet weak var startPeriodView: UIView!
     @IBOutlet weak var endPeriodView: UIView!
     
-    var startDateHasChanged : Bool = false
-    var endDateHasChanged : Bool = false
-    
     //MARK - Class methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,36 +30,55 @@ class MonthSpinnerViewController: UIViewController {
         super.viewWillAppear(animated)
         startDate.dateDelegate = self
         endDate.dateDelegate = self
+        startPeriodView.layer.borderWidth = 1
+        startPeriodView.layer.borderColor = customLightGreen.cgColor
+        endPeriodView.layer.borderWidth = 1
+        endPeriodView.layer.borderColor = customLightGreen.cgColor
     }
     
     //MARK - Actions
     @IBAction func didFinishedPicking(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        if startDate.month > endDate.month {
+            showErrorAlert()
+        }else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
 extension MonthSpinnerViewController : DateSelection {
     func onDateSelected(_ month: Int, _ year: Int) {
-        if startDate.month > endDate.month {
-            showErrorAlert()
-        }else {
+        
+        if startDate.hasChanged {
             let startMonthName = DateFormatter().monthSymbols[startDate.month - 1]
-            startPeriodLabel.text = startMonthName.capitalizingFirstLetter()
-            
-            let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
-            endPeriodLabel.text = endMonthName.capitalizingFirstLetter()
-            print("start date \(startDate.month) enddate \(endDate.month)")
+            startPeriodLabel.text = "\(START_DATE)\(startMonthName.capitalizingFirstLetter())"
+            startPeriodView.backgroundColor = strongGreen
+            startPeriodLabel.textColor = UIColor.white
+            startPeriodView.layer.borderColor = strongGreen.cgColor
+        }else {
+            startPeriodLabel.textColor = customLightGreen
+            startPeriodView.backgroundColor = UIColor.clear
+            startPeriodView.layer.borderColor = customLightGreen.cgColor
         }
+        
+        if endDate.hasChanged {
+            let endMonthName = DateFormatter().monthSymbols[endDate.month - 1]
+            endPeriodLabel.text = "\(END_DATE)\(endMonthName.capitalizingFirstLetter())"
+            endPeriodLabel.textColor = UIColor.white
+            endPeriodView.backgroundColor = strongGreen
+            endPeriodView.layer.borderColor = strongGreen.cgColor
+        }else {
+            endPeriodLabel.textColor = customLightGreen
+            endPeriodView.backgroundColor = UIColor.clear
+            endPeriodView.layer.borderColor = customLightGreen.cgColor
+        }
+        
+        print("start date \(startDate.month) end date \(endDate.month)")
     }
     
     func showErrorAlert(){
         let refreshAlert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE_MONTH , preferredStyle: UIAlertControllerStyle.alert)
-        
-        //        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-        //            print("Handle Ok logic here")
-        //        }))
         refreshAlert.addAction(UIAlertAction(title: OK_BTN, style: .default, handler: nil))
-        
         present(refreshAlert, animated: true, completion: nil)
     }
 }
