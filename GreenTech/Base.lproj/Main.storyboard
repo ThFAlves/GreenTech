@@ -23,28 +23,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ff9-zk-ibW">
-                                <rect key="frame" x="20" y="115" width="339" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZJ-LC-Io7">
-                                <rect key="frame" x="20" y="153" width="339" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwj-aC-I6k">
-                                <rect key="frame" x="172" y="200" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="OK"/>
-                                <connections>
-                                    <action selector="createAccount:" destination="glX-Ni-ix2" eventType="touchUpInside" id="k15-4r-XC7"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Mimosa" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xq-nL-NtK">
+                                <rect key="frame" x="130" y="50" width="115" height="52"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-vp-htx">
+                                <rect key="frame" x="36" y="142" width="303" height="185"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Insira um email e senha para criar a conta" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcY-Jp-h8g">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="54.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ff9-zk-ibW">
+                                        <rect key="frame" x="0.0" y="64.5" width="303" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZJ-LC-Io7">
+                                        <rect key="frame" x="0.0" y="104.5" width="303" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwj-aC-I6k">
+                                        <rect key="frame" x="0.0" y="144.5" width="303" height="40"/>
+                                        <color key="backgroundColor" red="0.3691432476" green="0.69597548249999996" blue="0.26505264639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="iuT-Qa-5q5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="Criar conta">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createAccount:" destination="glX-Ni-ix2" eventType="touchUpInside" id="k15-4r-XC7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.74901960779999999" green="1" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gf3-vp-htx" secondAttribute="trailing" constant="20" id="3Dd-My-SbM"/>
+                            <constraint firstItem="gf3-vp-htx" firstAttribute="leading" secondItem="mmu-2O-5hX" secondAttribute="leadingMargin" constant="20" id="EBB-qR-d9u"/>
+                            <constraint firstItem="7Xq-nL-NtK" firstAttribute="top" secondItem="VOu-w8-uny" secondAttribute="bottom" constant="30" id="VWG-8r-91e"/>
+                            <constraint firstItem="7Xq-nL-NtK" firstAttribute="centerX" secondItem="mmu-2O-5hX" secondAttribute="centerX" id="eeN-A0-CMo"/>
+                            <constraint firstItem="gf3-vp-htx" firstAttribute="top" secondItem="7Xq-nL-NtK" secondAttribute="bottom" constant="40" id="ox6-Q9-IFd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="ff9-zk-ibW" id="ZkY-sB-Dwj"/>
@@ -67,27 +100,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-fY-S4M">
-                                <rect key="frame" x="16" y="166" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-wc-dYn">
-                                <rect key="frame" x="163" y="204" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitActio:" destination="l1g-bv-XcC" eventType="touchUpInside" id="egK-YW-l1b"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Mimosa" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDF-j3-gcG">
+                                <rect key="frame" x="129.5" y="50" width="115" height="52"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dSE-kD-rlX">
+                                <rect key="frame" x="36" y="132" width="303" height="139.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Insira seu email e enviaremos instruções para recuperar sua senha" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDG-6Y-3UX">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="49.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-fY-S4M">
+                                        <rect key="frame" x="0.0" y="59.5" width="303" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-wc-dYn">
+                                        <rect key="frame" x="0.0" y="99.5" width="303" height="40"/>
+                                        <color key="backgroundColor" red="0.3691432476" green="0.69597548249999996" blue="0.26505264639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cET-rE-Q1s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="Enviar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submitActio:" destination="l1g-bv-XcC" eventType="touchUpInside" id="egK-YW-l1b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wSj-wc-dYn" firstAttribute="width" secondItem="dSE-kD-rlX" secondAttribute="width" id="G8d-0r-bAm"/>
+                                    <constraint firstItem="2cS-fY-S4M" firstAttribute="width" secondItem="dSE-kD-rlX" secondAttribute="width" id="lUl-BD-OcD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.74901960779999999" green="1" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wSj-wc-dYn" firstAttribute="top" secondItem="2cS-fY-S4M" secondAttribute="bottom" constant="8" id="WWH-Er-zfS"/>
-                            <constraint firstItem="2cS-fY-S4M" firstAttribute="leading" secondItem="GTH-ms-WQC" secondAttribute="leadingMargin" id="b2m-Ih-JXF"/>
-                            <constraint firstItem="wSj-wc-dYn" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="fiH-ni-56I"/>
-                            <constraint firstItem="2cS-fY-S4M" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="lrG-Em-Saj"/>
-                            <constraint firstItem="2cS-fY-S4M" firstAttribute="top" secondItem="hTW-co-UGf" secondAttribute="bottom" constant="146" id="ndS-X5-rh9"/>
-                            <constraint firstItem="2cS-fY-S4M" firstAttribute="trailing" secondItem="GTH-ms-WQC" secondAttribute="trailingMargin" id="yFI-gE-4nf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dSE-kD-rlX" secondAttribute="trailing" constant="20" id="Meg-99-fOw"/>
+                            <constraint firstItem="kDF-j3-gcG" firstAttribute="top" secondItem="hTW-co-UGf" secondAttribute="bottom" constant="30" id="TtN-g8-XCo"/>
+                            <constraint firstItem="dSE-kD-rlX" firstAttribute="leading" secondItem="GTH-ms-WQC" secondAttribute="leadingMargin" constant="20" id="ZqX-Jt-2t1"/>
+                            <constraint firstItem="dSE-kD-rlX" firstAttribute="top" secondItem="kDF-j3-gcG" secondAttribute="bottom" constant="30" id="b0s-1j-RBU"/>
+                            <constraint firstItem="kDF-j3-gcG" firstAttribute="centerX" secondItem="GTH-ms-WQC" secondAttribute="centerX" id="oOl-r4-sv5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -96,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itk-2L-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="-183"/>
+            <point key="canvasLocation" x="-596" y="-170"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="jTD-qw-2iT">
@@ -524,8 +589,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SP3-l8-zOZ">
-                                        <rect key="frame" x="21" y="90" width="295" height="204"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SP3-l8-zOZ">
+                                        <rect key="frame" x="20" y="106" width="295" height="204"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AC2-JF-kBN">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -1719,7 +1784,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="a52-aT-8lj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="a52-aT-8lj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1895,7 +1960,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nvL-ju-EZe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nvL-ju-EZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
