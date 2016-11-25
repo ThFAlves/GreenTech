@@ -474,7 +474,7 @@ extension ChartsViewController {
         var x = total.count
         
         for i in 0...x {
-            if i <= x{
+            if i < x{
                 if total[i] == 00.00 {
                 total.remove(at: i)
                 pieColor.remove(at: i)
