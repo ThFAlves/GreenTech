@@ -39,7 +39,6 @@ class ChartsViewController: UIViewController {
     var showMonth = false
     
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     
@@ -166,6 +165,24 @@ class ChartsViewController: UIViewController {
             
             
         }
+        if anim == 5 {
+            
+            self.PieChartGraphic.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            self.lineChartGraphic.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+            
+            PieChartGraphic.alpha = 0
+            lineChartGraphic.alpha = 1
+            pieChartDetailsView.alpha = 0
+            lineChartDetaisView.alpha = 1
+            ProductionViewInDayTab.alpha = 1
+            emptyStateLabel.alpha = 1
+            visaoGeralTextHeader.alpha = 1
+            produzidosTextHeader.alpha = 1
+            arrowOutletImage.alpha = 1
+            
+            
+        }
+        
     }
     
     // MARK: - SEGUE FROM DETAIL ABOUT CHARTS
@@ -287,6 +304,7 @@ class ChartsViewController: UIViewController {
             switch(segmentedViewOutlet.selectedSegmentIndex){
                 
             case 0 :
+                animateCellOfCharts(anim: 4)
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
                 animateCellOfCharts(anim: 0)
                 if milksInfo.count != 0 {
@@ -294,14 +312,17 @@ class ChartsViewController: UIViewController {
                 }
                 break
             case 1:
+                animateCellOfCharts(anim: 4)
                 getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
                 animateCellOfCharts(anim: 1)
                 break
             case 2:
+                animateCellOfCharts(anim: 4)
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
                 animateCellOfCharts(anim: 1)
                 break
             case 3:
+                animateCellOfCharts(anim: 4)
                 takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
                 animateCellOfCharts(anim: 1)
                 break
@@ -444,28 +465,58 @@ extension ChartsViewController {
     // MARK: - Load Pie Chart
     
     func loadPieChart() {
-        let ys1 = Array(1..<4).map { x in return Double(x)}
+        
         
         var total = getTotalMilkInfo()
-        
+        print(total)
+        var pieColor = [Color.chartGreen,Color.chartYellow,Color.chartRed]
         var pieChartLabel = ["Comercializado","Consumo","Descartado"]
+        var x = total.count
         
-        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
+        for i in 0...x {
+            if i < x{
+                if total[i] == 00.00 {
+                total.remove(at: i)
+                pieColor.remove(at: i)
+                pieChartLabel.remove(at: i)
+                x -= 1
+                }
+            }
+            
+        }
         
-        let data = PieChartData()
+        total = total.filter { $0 != 00.00 }
+
+
+        print(total)
+        // total is all zero then show the emptystate from anim 5 and dont load pie chart
+        if total.count == 0 {
+            animateCellOfCharts(anim: 5)
+        }
+        else {
+            let ys1 = Array(1...total.count).map { x in return Double(x)}
+
+
         
-        let ds1 = PieChartDataSet(values: yse1, label: "")
+            print(ys1)
+        
+        
+            let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: total[x], label: pieChartLabel[x]) }
+        
+            let data = PieChartData()
+        
+            let ds1 = PieChartDataSet(values: yse1, label: "")
         
         //Label ds1 e yse1
         
-        let pieColor = [Color.chartGreen,Color.chartYellow,Color.chartRed]
         
-        ds1.colors = pieColor
-        ds1.valueTextColor = UIColor.white
-        ds1.sliceSpace = 0.1
-        data.addDataSet(ds1)
+            ds1.colors = pieColor
+            ds1.valueTextColor = UIColor.white
+            ds1.sliceSpace = 0.1
+            data.addDataSet(ds1)
         
-        setupPieChartGraphic(data: data)
+            setupPieChartGraphic(data: data)
+        }
     }
     
     //MARK: - Load Line chart
