@@ -11,7 +11,9 @@ import CoreData
 import Firebase
 import FirebaseDatabase
 import FBSDKCoreKit
+import FBSDKLoginKit
 import GoogleSignIn
+import RAMAnimatedTabBarController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         super.init()
         FIRApp.configure()
-        //FIRDatabase.database().persistenceEnabled = true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -32,6 +33,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        if FBSDKAccessToken.current() != nil {
+            
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                if error != nil {
+                    return
+                }
+                
+                guard let uid = user?.uid else { return }
+                
+                UserDefaults.standard.setValue(uid, forKey: "Actual")
+                
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewcontroller = storyboard.instantiateViewController(withIdentifier: "tabBar") as? RAMAnimatedTabBarController
+                
+                self.window?.rootViewController = initialViewcontroller
+                self.window?.makeKeyAndVisible()
+    
+            }
+            
+        }
 
         return true
     }
@@ -41,7 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return handled
     }
-
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -19,14 +19,13 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginFacebookButton: FBSDKLoginButton!
-    
+
     let connection = VerifyConnection()
     let StoryID = "signSegue"
     var handle: FIRAuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupFacebookButtons()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,13 +44,47 @@ class AuthenticationViewController: UIViewController {
         }
     }
     
+    @IBAction func ButtonFacebookTeste(_ sender: Any) {
+        let permissions = ["public_profile","email"]
+        
+        FBSDKLoginManager().logIn(withReadPermissions: permissions, from: nil) { [weak self] result, error in
+            guard error == nil else {
+                print("FB Login error -> \(error)")
+                return
+            }
+            
+            guard let result = result, !result.isCancelled else {
+                print("Ops! Voce precisa aprovar ....")
+                return
+            }
+            
+            print("Login with sucess")
+            
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                if error != nil {
+                    self?.showErrorAlert((error?.localizedDescription)!)
+                    return
+                }
+                guard let uid = user?.uid else { return }
+                
+                UserDefaults.standard.setValue(uid, forKey: "Actual")
+                print("loginButton")
+                self?.performSegue(withIdentifier: (self?.StoryID)!, sender: self)
+            }
+        }
+        
+
+    }
+    
     func authLogin() {
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!, completion: {(user,error) in
             if error == nil {
                 guard let uid = user?.uid else { return }
                 UserDefaults.standard.setValue(uid, forKey: "Actual")
                 print("authLogin")
-                self.performSegue(withIdentifier: self.StoryID, sender: uid)
+                self.performSegue(withIdentifier: self.StoryID, sender: self)
             }else{
                 self.showErrorAlert((error?.localizedDescription)!)
             }
@@ -65,7 +98,7 @@ class AuthenticationViewController: UIViewController {
             guard let uid = result?.id else { return }
             UserDefaults.standard.setValue(uid, forKey: "Actual")
             print("authOffileLogin")
-            self.performSegue(withIdentifier: StoryID, sender: uid)
+            self.performSegue(withIdentifier: StoryID, sender: self)
         }else{
             self.showErrorAlert("Incorrect email or password")
         }
@@ -78,60 +111,4 @@ class AuthenticationViewController: UIViewController {
         self.present(alertController,animated: true, completion: nil)
     }
     
-}
-
-extension AuthenticationViewController: FBSDKLoginButtonDelegate {
-    
-    
-    func setupFacebookButtons() {
-        
-        handle = (FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if user != nil {
-                guard let uid = user?.uid else { return }
-                UserDefaults.standard.setValue(uid, forKey: "Actual")
-                print("setupFacebookButtons")
-                self.performSegue(withIdentifier: self.StoryID, sender: uid)
-            } else {
-                self.loginFacebookButton.readPermissions = ["public_profile", "email", "user_friends"]
-                self.loginFacebookButton.delegate = self
-            }
-            })!
-
-    }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            showErrorAlert(error.localizedDescription)
-            return
-        }
-
-        if result.isCancelled {
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut()
-        } else {
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                if error != nil {
-                    self.showErrorAlert((error?.localizedDescription)!)
-                    return
-                }
-                guard let uid = user?.uid else { return }
-                
-                UserDefaults.standard.setValue(uid, forKey: "Actual")
-                print("loginButton")
-                self.performSegue(withIdentifier: self.StoryID, sender: uid)
-            }
-        
-        }
-    }
-    
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if handle != nil {
-            FIRAuth.auth()?.removeStateDidChangeListener(handle!)
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
-    }
 }
