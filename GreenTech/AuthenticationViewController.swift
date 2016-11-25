@@ -44,7 +44,7 @@ class AuthenticationViewController: UIViewController {
         }
     }
     
-    @IBAction func ButtonFacebookTeste(_ sender: Any) {
+    @IBAction func buttonFacebookLogin(_ sender: Any) {
         let permissions = ["public_profile","email"]
         
         FBSDKLoginManager().logIn(withReadPermissions: permissions, from: nil) { [weak self] result, error in
@@ -74,8 +74,6 @@ class AuthenticationViewController: UIViewController {
                 self?.performSegue(withIdentifier: (self?.StoryID)!, sender: self)
             }
         }
-        
-
     }
     
     func authLogin() {
