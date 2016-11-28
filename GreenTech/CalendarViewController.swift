@@ -66,7 +66,6 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         menuView.commitMenuViewUpdate()
         calendarView.commitCalendarViewUpdate()
     }
@@ -95,7 +94,7 @@ class CalendarViewController: UIViewController {
 
 // MARK: - CVCalendarViewDelegate & CVCalendarMenuViewDelegate
 
-extension CalendarView: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
+extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     /// Required method to implement!
     public func presentationMode() -> CalendarMode {
@@ -123,7 +122,7 @@ extension CalendarView: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
     
     public func didSelectDayView(_ dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
-        //        selectedDay = dayView
+        selectedDay = dayView
     }
 }
 

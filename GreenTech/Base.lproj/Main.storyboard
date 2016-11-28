@@ -1393,7 +1393,7 @@
             </objects>
             <point key="canvasLocation" x="1924" y="1094.7526236881561"/>
         </scene>
-        <!--Calendário-->
+        <!--Menu View Delegate-->
         <scene sceneID="d9j-Jp-QOs">
             <objects>
                 <viewController id="Oht-XD-d0Y" customClass="CalendarViewController" customModule="GreenTech" customModuleProvider="target" sceneMemberID="viewController">
@@ -1489,6 +1489,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yey-uP-IYl"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="Oht-XD-d0Y" id="fqa-Pz-qK9"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYP-ee-dSm" customClass="CVCalendarView" customModule="CVCalendar">
                                 <rect key="frame" x="15" y="161" width="345" height="711"/>
@@ -1498,6 +1501,10 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="3N4-EY-5kC" id="EKJ-hj-E1C"/>
+                                    <outlet property="calendarDelegate" destination="3N4-EY-5kC" id="SP8-3z-WLu"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1527,8 +1534,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="calendarView" destination="jYP-ee-dSm" id="lhg-Qn-ejh"/>
-                        <outlet property="menuView" destination="oDH-71-ibc" id="QOH-3S-Z6g"/>
+                        <outlet property="calendarView" destination="jYP-ee-dSm" id="ezC-nu-FOj"/>
+                        <outlet property="menuView" destination="oDH-71-ibc" id="0iH-Co-oSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myK-dd-bBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
