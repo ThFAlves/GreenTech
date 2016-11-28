@@ -402,7 +402,7 @@
 				TargetAttributes = {
 					D1DA482C1D5A5BCE00D74063 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = BJ8A63KNJ9;
+						DevelopmentTeam = ZR6H5N286L;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -761,7 +761,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BJ8A63KNJ9;
+				DEVELOPMENT_TEAM = ZR6H5N286L;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
@@ -784,7 +784,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreenTech/GreenTech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BJ8A63KNJ9;
+				DEVELOPMENT_TEAM = ZR6H5N286L;
 				INFOPLIST_FILE = GreenTech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidCampinas.GreenTech;
