@@ -39,6 +39,40 @@ class ChartsViewController: UIViewController {
     var showMonth = false
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        guard let id = UserDefaults.standard.value(forKey: "Actual") else {return }
+        let date = dateStringFunctions.getCurrentDate()
+
+        switch(segmentedViewOutlet.selectedSegmentIndex){
+            
+        case 0 :
+            animateCellOfCharts(anim: 4)
+            takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)/\(date.0)", queryType: .Day)
+            animateCellOfCharts(anim: 0)
+            if milksInfo.count != 0 {
+                lineChartDayLabel.text = String(milksInfo[0].produced!)
+            }
+            break
+        case 1:
+            animateCellOfCharts(anim: 4)
+            getWeekValues(day: "\(date.0)/\(date.1)/\(date.2)")
+            animateCellOfCharts(anim: 1)
+            break
+        case 2:
+            animateCellOfCharts(anim: 4)
+            takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)/\(date.1)", queryType: .Month)
+            animateCellOfCharts(anim: 1)
+            break
+        case 3:
+            animateCellOfCharts(anim: 4)
+            takeValue(path: "Fazendas/\(id)/Coleta/\(date.2)", queryType: .Year)
+            animateCellOfCharts(anim: 1)
+            break
+        default:
+            break
+        }
+
     }
     
     
