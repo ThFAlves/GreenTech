@@ -242,6 +242,11 @@ class ChartsViewController: UIViewController {
                 monthController.filterDelegate = self
             }
             break
+        case CALENDAR_SEGUE:
+            if let calendarhController = segue.destination as? CalendarViewController {
+                calendarhController.selectedDateKind = segmentToKind(segmentedViewOutlet.selectedSegmentIndex)
+            }
+            break
         case "detailSegueIdentifier" :
             if let detailSelected = segue.destination as? MilkViewController {
                 detailSelected.chartToDetailSelection = "generalDetail"

@@ -11,6 +11,7 @@ import Foundation
 // MARK: - Calendar Strings
 
 let CALENDAR_TITLE = "Período"
+let DAY_TITLE = "Dia"
 
 // MARK: - Graphics Strings
 

@@ -1426,66 +1426,60 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YD-Qu-byr" userLabel="InputView">
                                 <rect key="frame" x="8" y="58" width="359" height="40"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbp-jx-zbS" userLabel="EndPeriodView">
-                                        <rect key="frame" x="185" y="0.0" width="174" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/09/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6x-8h-y5R">
-                                                <rect key="frame" x="8" y="10" width="158" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.87833553549999999" green="0.87848657370000005" blue="0.8783260584" alpha="0.40708892619999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="j6x-8h-y5R" firstAttribute="leading" secondItem="bbp-jx-zbS" secondAttribute="leading" constant="8" id="4Rz-5y-oP7"/>
-                                            <constraint firstAttribute="trailing" secondItem="j6x-8h-y5R" secondAttribute="trailing" constant="8" id="7I6-20-AVQ"/>
-                                            <constraint firstItem="j6x-8h-y5R" firstAttribute="centerY" secondItem="bbp-jx-zbS" secondAttribute="centerY" id="uOC-pR-L1L"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10F-RD-I7E" userLabel="SpaceView">
-                                        <rect key="frame" x="175" y="0.0" width="10" height="40"/>
+                                        <rect key="frame" x="174.5" y="0.0" width="10" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="jqr-JX-wjv"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bc-DS-i1b" userLabel="StartPeriodView">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18/08/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX8-Lp-1FN">
-                                                <rect key="frame" x="8" y="10" width="159" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.87833553549999999" green="0.87848657370000005" blue="0.8783260584" alpha="0.40708892619999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="vX8-Lp-1FN" secondAttribute="trailing" constant="8" id="i32-ia-Ra7"/>
-                                            <constraint firstItem="vX8-Lp-1FN" firstAttribute="centerY" secondItem="5Bc-DS-i1b" secondAttribute="centerY" id="kQO-sz-wQF"/>
-                                            <constraint firstItem="vX8-Lp-1FN" firstAttribute="leading" secondItem="5Bc-DS-i1b" secondAttribute="leading" constant="8" id="qCu-pv-SfL"/>
-                                        </constraints>
-                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKJ-PX-CCi" userLabel="EndPeriodButton">
+                                        <rect key="frame" x="184.5" y="0.0" width="174.5" height="40"/>
+                                        <state key="normal" title="Final">
+                                            <color key="titleColor" red="0.36862745099999999" green="0.69803921570000005" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editingEndPeriod:" destination="Oht-XD-d0Y" eventType="touchUpInside" id="WfQ-EC-k1d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgG-zI-tJs" userLabel="StartPeriodButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="174.5" height="40"/>
+                                        <state key="normal" title="Inicial">
+                                            <color key="titleColor" red="0.36862745098039218" green="0.69803921568627447" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editingStartPeriod:" destination="Oht-XD-d0Y" eventType="touchUpInside" id="IaV-tc-L8p"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="5Bc-DS-i1b" secondAttribute="bottom" id="Bsi-n0-Djv"/>
-                                    <constraint firstAttribute="trailing" secondItem="bbp-jx-zbS" secondAttribute="trailing" id="EoW-zL-9h7"/>
-                                    <constraint firstAttribute="bottom" secondItem="bbp-jx-zbS" secondAttribute="bottom" id="IwC-9P-7q9"/>
+                                    <constraint firstItem="10F-RD-I7E" firstAttribute="trailing" secondItem="bKJ-PX-CCi" secondAttribute="leading" id="1o5-W4-Jie"/>
+                                    <constraint firstItem="VgG-zI-tJs" firstAttribute="top" secondItem="6YD-Qu-byr" secondAttribute="top" id="6ta-oz-FHR"/>
+                                    <constraint firstAttribute="bottom" secondItem="VgG-zI-tJs" secondAttribute="bottom" id="6w8-TX-mcn"/>
+                                    <constraint firstAttribute="trailing" secondItem="bKJ-PX-CCi" secondAttribute="trailing" id="JPU-W7-q8M"/>
                                     <constraint firstAttribute="bottom" secondItem="10F-RD-I7E" secondAttribute="bottom" id="Mnw-7c-on3"/>
+                                    <constraint firstItem="VgG-zI-tJs" firstAttribute="leading" secondItem="6YD-Qu-byr" secondAttribute="leading" id="P3F-TR-9KM"/>
                                     <constraint firstAttribute="height" constant="40" id="Pec-hn-kL4"/>
-                                    <constraint firstItem="bbp-jx-zbS" firstAttribute="leading" secondItem="10F-RD-I7E" secondAttribute="trailing" id="RW9-OB-UKf"/>
                                     <constraint firstItem="10F-RD-I7E" firstAttribute="top" secondItem="6YD-Qu-byr" secondAttribute="top" id="TaU-Iq-3jM"/>
-                                    <constraint firstItem="5Bc-DS-i1b" firstAttribute="leading" secondItem="6YD-Qu-byr" secondAttribute="leading" id="bAo-sd-EZp"/>
-                                    <constraint firstItem="5Bc-DS-i1b" firstAttribute="top" secondItem="6YD-Qu-byr" secondAttribute="top" id="fFH-Gg-Qf2"/>
-                                    <constraint firstItem="10F-RD-I7E" firstAttribute="leading" secondItem="5Bc-DS-i1b" secondAttribute="trailing" id="ljH-sd-iCm"/>
-                                    <constraint firstItem="bbp-jx-zbS" firstAttribute="top" secondItem="6YD-Qu-byr" secondAttribute="top" id="zz0-XL-Xwb"/>
+                                    <constraint firstItem="10F-RD-I7E" firstAttribute="leading" secondItem="VgG-zI-tJs" secondAttribute="trailing" id="UHy-tX-Xjw"/>
+                                    <constraint firstItem="bKJ-PX-CCi" firstAttribute="top" secondItem="6YD-Qu-byr" secondAttribute="top" id="ZZm-ge-VVQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="bKJ-PX-CCi" secondAttribute="bottom" id="ks2-Jv-ifn"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDH-71-ibc" customClass="CVCalendarMenuView" customModule="CVCalendar">
                                 <rect key="frame" x="15" y="113" width="345" height="40"/>
-                                <color key="backgroundColor" red="0.039215686270000001" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yey-uP-IYl"/>
                                 </constraints>
@@ -1495,7 +1489,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYP-ee-dSm" customClass="CVCalendarView" customModule="CVCalendar">
                                 <rect key="frame" x="15" y="161" width="345" height="711"/>
-                                <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="2"/>
@@ -1535,7 +1529,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="jYP-ee-dSm" id="ezC-nu-FOj"/>
+                        <outlet property="endPeriodButton" destination="bKJ-PX-CCi" id="NHW-H6-UwF"/>
                         <outlet property="menuView" destination="oDH-71-ibc" id="0iH-Co-oSG"/>
+                        <outlet property="startPeriodButton" destination="VgG-zI-tJs" id="P7R-Bw-PEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myK-dd-bBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
