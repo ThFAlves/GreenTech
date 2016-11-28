@@ -14,6 +14,7 @@ import CVCalendar
 
 class ChartsViewController: UIViewController {
     
+    @IBOutlet weak var searchButtonCalendar: UIBarButtonItem!
     @IBOutlet weak var productionDetailOutlet: UIButton!
     @IBOutlet weak var generalDetailOutlet: UIButton!
     @IBOutlet weak var ProductionViewInDayTab: UIView!
@@ -39,6 +40,7 @@ class ChartsViewController: UIViewController {
     var showMonth = false
     
     override func viewWillAppear(_ animated: Bool) {
+        
         
         
         guard let id = UserDefaults.standard.value(forKey: "Actual") else {return }
@@ -78,12 +80,16 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //hidden calendar button 
+        self.navigationItem.rightBarButtonItem = nil
+
+        
         setupChartsLayout()
         axisFormatDelegate = self
         arrowOutletImage.alpha = 0
         emptyStateLabel.alpha = 0
         
-        
+
         
         if let id = UserDefaults.standard.value(forKey: "Actual") {
             let date = dateStringFunctions.getCurrentDate()

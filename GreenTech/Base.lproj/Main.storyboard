@@ -661,17 +661,17 @@
                         <viewControllerLayoutGuide type="bottom" id="eBt-2y-RYd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X0D-aC-WAr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Agro_PR_Trigo_em_Guarapuava" translatesAutoresizingMaskIntoConstraints="NO" id="PDW-9b-2Q5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-Bc-Z7i">
-                                <rect key="frame" x="20" y="20" width="335" height="578"/>
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GreenTech 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxt-w9-yVo">
-                                        <rect key="frame" x="20" y="523.5" width="295" height="14.5"/>
+                                        <rect key="frame" x="20" y="552.5" width="295" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1407,6 +1407,7 @@
                         <outlet property="pieChartDetailsView" destination="ayh-jJ-9rv" id="3yQ-Bi-fRJ"/>
                         <outlet property="productionDetailOutlet" destination="aJE-9e-PWK" id="jZn-tc-oNx"/>
                         <outlet property="produzidosTextHeader" destination="7kG-FW-0x5" id="ub8-SZ-IRY"/>
+                        <outlet property="searchButtonCalendar" destination="v1k-xm-sMo" id="4pO-mq-jj9"/>
                         <outlet property="segmentedViewOutlet" destination="j5a-rL-Tfx" id="vaL-YM-vnL"/>
                         <outlet property="visaoGeralTextHeader" destination="o87-1x-Po2" id="wr0-zb-UnG"/>
                         <outletCollection property="detailImageIndicator" destination="TVJ-8U-YSp" collectionClass="NSMutableArray" id="95S-Eu-I8j"/>
@@ -2152,7 +2153,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xIH-kK-6Rc"/>
-        <segue reference="KIx-fD-GUN"/>
+        <segue reference="glH-gb-Cse"/>
         <segue reference="IfI-WB-f4W"/>
     </inferredMetricsTieBreakers>
 </document>
