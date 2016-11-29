@@ -114,7 +114,7 @@ class AddMilkInfoViewController: FormViewController {
                 self.performSegue(withIdentifier: "saveMilkSegue", sender: self)
             }
         }else{
-            showErrorAlert("Preencha todos os campos")
+            showErrorAlert("Digite o valor produzido")
         }
     }
     
